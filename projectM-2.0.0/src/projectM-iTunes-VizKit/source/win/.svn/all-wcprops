@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win
+END
+StdAfx.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/StdAfx.h
+END
+iTunesCOMInterface_i.c
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/iTunesCOMInterface_i.c
+END
+VisualPropertySheet.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/VisualPropertySheet.cpp
+END
+VizKit.rc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/VizKit.rc
+END
+DisplayResolutionPane.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/DisplayResolutionPane.h
+END
+VisualPropertySheet.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/VisualPropertySheet.h
+END
+AboutPane.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/AboutPane.cpp
+END
+wglext.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/wglext.h
+END
+VizKit.aps
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/VizKit.aps
+END
+StdAfx.pch
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/StdAfx.pch
+END
+AboutPane.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/AboutPane.h
+END
+glext.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/glext.h
+END
+StdAfx.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/StdAfx.cpp
+END
+resource.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/resource.h
+END
+iTunesCOMInterface.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/iTunesCOMInterface.h
+END
+DisplayResolutionPane.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-iTunes-VizKit/source/win/DisplayResolutionPane.cpp
+END

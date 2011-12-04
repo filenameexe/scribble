@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/lzw
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/lzw/rules.mk
+END
+ftzopen.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/lzw/ftzopen.c
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/lzw/Jamfile
+END
+ftlzw.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/lzw/ftlzw.c
+END
+ftzopen.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/lzw/ftzopen.h
+END

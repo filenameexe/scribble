@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid
+END
+otvgdef.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvgdef.c
+END
+otvjstf.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvjstf.c
+END
+otvgpos.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvgpos.c
+END
+otvcommn.c
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvcommn.c
+END
+otvalid.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvalid.c
+END
+otvbase.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvbase.c
+END
+otvgpos.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvgpos.h
+END
+otvcommn.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvcommn.h
+END
+otvalid.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvalid.h
+END
+otvmod.c
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvmod.c
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/module.mk
+END
+otvmod.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvmod.h
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/rules.mk
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/Jamfile
+END
+otverror.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otverror.h
+END
+otvgsub.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/otvalid/otvgsub.c
+END

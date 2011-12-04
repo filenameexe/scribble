@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/projectm/!svn/ver/1348/trunk/src/projectM-jack
+END
+make_bundle.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/make_bundle.sh
+END
+sdltoprojectM.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-jack/sdltoprojectM.h
+END
+video_init.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-jack/video_init.h
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/AUTHORS
+END
+ConfigFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-jack/ConfigFile.cpp
+END
+depcomp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/depcomp
+END
+FindPkgConfig.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/FindPkgConfig.cmake
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/ChangeLog
+END
+ConfigFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/ConfigFile.h
+END
+qprojectM-jack.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-jack/qprojectM-jack.cpp
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/README
+END
+projectM-jack.desktop
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1348/trunk/src/projectM-jack/projectM-jack.desktop
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/INSTALL
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/COPYING
+END
+missing
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/missing
+END
+projectM-jack.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/projectM-jack.cpp
+END
+video_init.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-jack/video_init.cpp
+END
+make_bundle-no-qt.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/make_bundle-no-qt.sh
+END
+NEWS
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-jack/NEWS
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1322/trunk/src/projectM-jack/CMakeLists.txt
+END

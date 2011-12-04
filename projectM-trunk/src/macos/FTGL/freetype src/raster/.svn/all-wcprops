@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster
+END
+ftraster.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/ftraster.h
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/rules.mk
+END
+raster.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/raster.c
+END
+ftrend1.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/ftrend1.c
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/Jamfile
+END
+ftrend1.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/ftrend1.h
+END
+ftmisc.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/ftmisc.h
+END
+ftraster.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/ftraster.c
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/module.mk
+END
+rasterrs.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/raster/rasterrs.h
+END

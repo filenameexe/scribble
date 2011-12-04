@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux
+END
+afmparse.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/afmparse.c
+END
+psobjs.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/psobjs.c
+END
+psauxmod.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/psauxmod.c
+END
+psaux.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/psaux.c
+END
+afmparse.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/afmparse.h
+END
+psobjs.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/psobjs.h
+END
+psauxmod.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/psauxmod.h
+END
+psconv.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/psconv.c
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/module.mk
+END
+psconv.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/psconv.h
+END
+psauxerr.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/psauxerr.h
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/rules.mk
+END
+t1cmap.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/t1cmap.c
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/Jamfile
+END
+t1decode.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/t1decode.c
+END
+t1cmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/t1cmap.h
+END
+t1decode.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psaux/t1decode.h
+END

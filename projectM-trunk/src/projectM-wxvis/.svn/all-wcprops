@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/projectm/!svn/ver/1347/trunk/src/projectM-wxvis
+END
+Makefile.dist
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/Makefile.dist
+END
+wxvisFrame.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/wxvisFrame.h
+END
+wxvisApp.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/wxvisApp.cpp
+END
+wxvisCanvas.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/wxvisCanvas.h
+END
+Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/Info.plist
+END
+wxvis.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/wxvis.dsp
+END
+wxvisApp.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/wxvisApp.h
+END
+wxvisFrame.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/wxvisFrame.cpp
+END
+PkgInfo
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/PkgInfo
+END
+wxvisCanvas.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/wxvisCanvas.cpp
+END
+projectM.icns
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-wxvis/projectM.icns
+END

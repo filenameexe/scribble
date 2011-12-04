@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/winfonts
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/winfonts/rules.mk
+END
+winfnt.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/winfonts/winfnt.c
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/winfonts/Jamfile
+END
+fnterrs.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/winfonts/fnterrs.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/winfonts/module.mk
+END
+winfnt.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/winfonts/winfnt.h
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/demo
+END
+trackball.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/demo/trackball.c
+END
+FTGLDemo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/demo/FTGLDemo.cpp
+END
+trackball.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/demo/trackball.h
+END
+tb.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/demo/tb.c
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/demo/README.txt
+END
+tb.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/demo/tb.h
+END

@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/projectm/!svn/ver/1346/trunk/src/libprojectM/Renderer
+END
+UserTexture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/UserTexture.cpp
+END
+TextureManager.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/TextureManager.hpp
+END
+ShaderEngine.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/Renderer/ShaderEngine.hpp
+END
+RenderItemMatcher.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1244/trunk/src/libprojectM/Renderer/RenderItemMatcher.cpp
+END
+BeatDetect.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1249/trunk/src/libprojectM/Renderer/BeatDetect.cpp
+END
+UserTexture.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/UserTexture.hpp
+END
+VideoEcho.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/Renderer/VideoEcho.cpp
+END
+FBO.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1281/trunk/src/libprojectM/Renderer/FBO.cpp
+END
+RenderItemMatcher.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1242/trunk/src/libprojectM/Renderer/RenderItemMatcher.hpp
+END
+BeatDetect.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1249/trunk/src/libprojectM/Renderer/BeatDetect.hpp
+END
+VideoEcho.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/VideoEcho.hpp
+END
+FBO.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/FBO.hpp
+END
+blur.cg
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/blur.cg
+END
+Waveform.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/Renderer/Waveform.cpp
+END
+MilkdropWaveform.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1250/trunk/src/libprojectM/Renderer/MilkdropWaveform.cpp
+END
+projectM.cg
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/projectM.cg
+END
+Waveform.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/Waveform.hpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/Renderer/CMakeLists.txt
+END
+MilkdropWaveform.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/MilkdropWaveform.hpp
+END
+Renderable.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/Renderer/Renderable.cpp
+END
+PerPixelMesh.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/PerPixelMesh.cpp
+END
+Pipeline.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/Pipeline.cpp
+END
+Shader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/Shader.cpp
+END
+Renderer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1261/trunk/src/libprojectM/Renderer/Renderer.cpp
+END
+Renderable.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1214/trunk/src/libprojectM/Renderer/Renderable.hpp
+END
+Filters.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/Renderer/Filters.cpp
+END
+PerPixelMesh.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/PerPixelMesh.hpp
+END
+Pipeline.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/Pipeline.hpp
+END
+PipelineContext.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/PipelineContext.cpp
+END
+Shader.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/Shader.hpp
+END
+Renderer.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1346/trunk/src/libprojectM/Renderer/Renderer.hpp
+END
+Transformation.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/Transformation.hpp
+END
+RenderItemDistanceMetric.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1229/trunk/src/libprojectM/Renderer/RenderItemDistanceMetric.cpp
+END
+Filters.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/Filters.hpp
+END
+PipelineContext.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/Renderer/PipelineContext.hpp
+END
+RenderItemDistanceMetric.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1238/trunk/src/libprojectM/Renderer/RenderItemDistanceMetric.hpp
+END
+PerlinNoise.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/Renderer/PerlinNoise.cpp
+END
+RenderItemMergeFunction.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1242/trunk/src/libprojectM/Renderer/RenderItemMergeFunction.hpp
+END
+TextureManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1326/trunk/src/libprojectM/Renderer/TextureManager.cpp
+END
+ShaderEngine.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1335/trunk/src/libprojectM/Renderer/ShaderEngine.cpp
+END
+PerlinNoise.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/Renderer/PerlinNoise.hpp
+END

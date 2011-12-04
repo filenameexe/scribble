@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory
+END
+IdlePreset.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/IdlePreset.cpp
+END
+Func.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Func.hpp
+END
+Parser.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Parser.hpp
+END
+MilkdropPresetFactory.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/MilkdropPresetFactory.hpp
+END
+PerPixelEqn.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/PerPixelEqn.hpp
+END
+CustomWave.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/CustomWave.hpp
+END
+IdlePreset.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/IdlePreset.hpp
+END
+PresetFrameIO.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/PresetFrameIO.cpp
+END
+BuiltinParams.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/BuiltinParams.cpp
+END
+PresetFrameIO.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/PresetFrameIO.hpp
+END
+BuiltinParams.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/BuiltinParams.hpp
+END
+CValue.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/CValue.hpp
+END
+ParamUtils.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/ParamUtils.hpp
+END
+CustomShape.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/CustomShape.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/CMakeLists.txt
+END
+Param.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Param.cpp
+END
+CustomShape.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/CustomShape.hpp
+END
+MilkdropPreset.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/MilkdropPreset.cpp
+END
+PerPointEqn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/PerPointEqn.cpp
+END
+PerFrameEqn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/PerFrameEqn.cpp
+END
+Param.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Param.hpp
+END
+BuiltinFuncs.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/BuiltinFuncs.cpp
+END
+InitCond.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/InitCond.cpp
+END
+MilkdropPreset.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/MilkdropPreset.hpp
+END
+PerPointEqn.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/PerPointEqn.hpp
+END
+PerFrameEqn.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/PerFrameEqn.hpp
+END
+BuiltinFuncs.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/BuiltinFuncs.hpp
+END
+InitCond.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/InitCond.hpp
+END
+Expr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Expr.cpp
+END
+Expr.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Expr.hpp
+END
+Eval.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Eval.cpp
+END
+Func.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Func.cpp
+END
+Parser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Parser.cpp
+END
+MilkdropPresetFactory.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/MilkdropPresetFactory.cpp
+END
+Eval.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/Eval.hpp
+END
+PerPixelEqn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/PerPixelEqn.cpp
+END
+InitCondUtils.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/InitCondUtils.hpp
+END
+CustomWave.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/libprojectM/MilkdropPresetFactory/CustomWave.cpp
+END

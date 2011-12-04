@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter
+END
+pshglob.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshglob.c
+END
+pshmod.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshmod.h
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/rules.mk
+END
+pshalgo.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshalgo.h
+END
+pshglob.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshglob.h
+END
+pshrec.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshrec.c
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/Jamfile
+END
+pshrec.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshrec.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/module.mk
+END
+pshmod.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshmod.c
+END
+pshnterr.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshnterr.h
+END
+pshinter.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshinter.c
+END
+pshalgo.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/pshinter/pshalgo.c
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/m4
+END
+cxx.m4
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/m4/cxx.m4
+END
+gl.m4
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/m4/gl.m4
+END
+freetype2.m4
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/m4/freetype2.m4
+END
+glut.m4
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/m4/glut.m4
+END

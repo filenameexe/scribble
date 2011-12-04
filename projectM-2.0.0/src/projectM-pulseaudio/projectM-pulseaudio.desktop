@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=projectM-pulseaudio
+GenericName=PulseAudio Visualization
+Comment=projectM for Pulse Audio
+Exec=projectM-pulseaudio
+Icon=prjm16-transparent
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;

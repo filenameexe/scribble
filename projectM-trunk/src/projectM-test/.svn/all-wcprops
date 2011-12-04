@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/projectm/!svn/ver/1334/trunk/src/projectM-test
+END
+video_init.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/video_init.h
+END
+sdltoprojectM.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1259/trunk/src/projectM-test/sdltoprojectM.h
+END
+projectM-test-texture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1259/trunk/src/projectM-test/projectM-test-texture.cpp
+END
+projectM-test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/projectm/!svn/ver/1334/trunk/src/projectM-test/projectM-test.cpp
+END
+ConfigFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/ConfigFile.cpp
+END
+getConfigFilename.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1279/trunk/src/projectM-test/getConfigFilename.cpp
+END
+FindPkgConfig.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/FindPkgConfig.cmake
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/ChangeLog
+END
+projectM-test-memleak.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1259/trunk/src/projectM-test/projectM-test-memleak.cpp
+END
+ConfigFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/ConfigFile.h
+END
+getConfigFilename.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/getConfigFilename.h
+END
+config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/config.h.in
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/COPYING
+END
+video_init.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-test/video_init.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1322/trunk/src/projectM-test/CMakeLists.txt
+END

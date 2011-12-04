@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/win32_vcpp/ftgl_demo
+END
+demo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/win32_vcpp/ftgl_demo/demo.cpp
+END
+ftgl_demo.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/win32_vcpp/ftgl_demo/ftgl_demo.dsp
+END
+ftgl_demo_2.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/win32_vcpp/ftgl_demo/ftgl_demo_2.dsp
+END

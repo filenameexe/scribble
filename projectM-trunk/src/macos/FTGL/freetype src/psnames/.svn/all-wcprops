@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames/rules.mk
+END
+pstables.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames/pstables.h
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames/Jamfile
+END
+psnames.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames/psnames.c
+END
+psmodule.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames/psmodule.c
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames/module.mk
+END
+psnamerr.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames/psnamerr.h
+END
+psmodule.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/psnames/psmodule.h
+END

@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr
+END
+pfrgload.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrgload.c
+END
+pfrdrivr.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrdrivr.c
+END
+pfrgload.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrgload.h
+END
+pfrdrivr.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrdrivr.h
+END
+pfrobjs.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrobjs.c
+END
+pfrerror.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrerror.h
+END
+pfrsbit.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrsbit.c
+END
+pfrobjs.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrobjs.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/module.mk
+END
+pfrsbit.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrsbit.h
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/rules.mk
+END
+pfrtypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrtypes.h
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/Jamfile
+END
+pfrload.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrload.c
+END
+pfr.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfr.c
+END
+pfrcmap.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrcmap.c
+END
+pfrload.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrload.h
+END
+pfrcmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/pfr/pfrcmap.h
+END

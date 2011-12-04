@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/glew-1.4.0/src
+END
+glew.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/glew-1.4.0/src/glew.c
+END
+visualinfo.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/glew-1.4.0/src/visualinfo.c
+END
+glewinfo.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/glew-1.4.0/src/glewinfo.c
+END
