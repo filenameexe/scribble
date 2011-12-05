@@ -1,0 +1,10 @@
+*~
+*CMakeFiles*
+*.cmake
+Makefile
+CMakeCache.txt
+install_manifest.txt
+config.inp
+libprojectM.pc
+libprojectM-qt.pc
+
