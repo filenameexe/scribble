@@ -41,23 +41,24 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-void convertVisualActorStateToString(const VisualActorState aVisualActorState, char* outString) {
-	const char* messageString;
-	switch (aVisualActorState) {
-		case kVisActUndefinedState:
-			messageString = "kVisActUndefinedState";
-			break;
-		case kVisActOff:
-			messageString = "kVisActOff";
-			break;
-		case kVisActOn:
-			messageString = "kVisActOn";
-			break;
-		case kVisActNoShow:
-			messageString = "kVisActNoShow";
-			break;
-		default:
-			messageString = "unknownVisualActorState";
-	}
-	strcpy(outString, messageString);
+void convertVisualActorStateToString(const VisualActorState aVisualActorState, char *outString)
+{
+    const char *messageString;
+    switch (aVisualActorState) {
+    case kVisActUndefinedState:
+        messageString = "kVisActUndefinedState";
+        break;
+    case kVisActOff:
+        messageString = "kVisActOff";
+        break;
+    case kVisActOn:
+        messageString = "kVisActOn";
+        break;
+    case kVisActNoShow:
+        messageString = "kVisActNoShow";
+        break;
+    default:
+        messageString = "unknownVisualActorState";
+    }
+    strcpy(outString, messageString);
 }

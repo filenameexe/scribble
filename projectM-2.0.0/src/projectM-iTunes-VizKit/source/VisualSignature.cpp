@@ -40,26 +40,30 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-void* VisualSignature::appCookie = NULL;
+void *VisualSignature::appCookie = NULL;
 ITAppProcPtr VisualSignature::appProc = NULL;
 
 
 
-void VisualSignature::setAppCookie(void* anAppCookie) {
-	VisualSignature::appCookie = anAppCookie;
+void VisualSignature::setAppCookie(void *anAppCookie)
+{
+    VisualSignature::appCookie = anAppCookie;
 }
 
 
-void* VisualSignature::getAppCookie() {
-	return VisualSignature::appCookie;
+void *VisualSignature::getAppCookie()
+{
+    return VisualSignature::appCookie;
 }
 
 
-void VisualSignature::setAppProc(ITAppProcPtr anAppProc) {
-	VisualSignature::appProc = anAppProc;
+void VisualSignature::setAppProc(ITAppProcPtr anAppProc)
+{
+    VisualSignature::appProc = anAppProc;
 }
 
 
-ITAppProcPtr VisualSignature::getAppProc() {
-	return VisualSignature::appProc;
+ITAppProcPtr VisualSignature::getAppProc()
+{
+    return VisualSignature::appProc;
 }

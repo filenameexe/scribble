@@ -41,28 +41,33 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-TemplateAction::TemplateAction() {
-	VisualActorGraphics::createCheckTexture(textureNumber, textureWidth, textureHeight, imageWidth, imageHeight);
+TemplateAction::TemplateAction()
+{
+    VisualActorGraphics::createCheckTexture(textureNumber, textureWidth, textureHeight, imageWidth, imageHeight);
 }
 
 
-TemplateAction::~TemplateAction() {
-	if (textureNumber) {
-		VisualActorGraphics::deleteTextures(1, &textureNumber);		
-	}
+TemplateAction::~TemplateAction()
+{
+    if (textureNumber) {
+        VisualActorGraphics::deleteTextures(1, &textureNumber);
+    }
 }
 
 
-void TemplateAction::prepareTemplateAction() {
-	VisualActorGraphics::setPerspectiveProjection(3.0f);
+void TemplateAction::prepareTemplateAction()
+{
+    VisualActorGraphics::setPerspectiveProjection(3.0f);
 }
 
 
-void TemplateAction::show() {
-	VisualActorGraphics::drawPerspectiveSquare(textureNumber);
+void TemplateAction::show()
+{
+    VisualActorGraphics::drawPerspectiveSquare(textureNumber);
 }
 
 
-void TemplateAction::finishTemplateAction() {
-	VisualActorGraphics::setOrthographicProjection();
+void TemplateAction::finishTemplateAction()
+{
+    VisualActorGraphics::setOrthographicProjection();
 }

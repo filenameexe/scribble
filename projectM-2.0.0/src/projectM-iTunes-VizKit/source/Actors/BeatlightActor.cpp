@@ -43,49 +43,55 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-BeatlightActor::BeatlightActor() {
-	strcpy(actorName, "BEATLIGHT");
-	state = kVisActOn;
+BeatlightActor::BeatlightActor()
+{
+    strcpy(actorName, "BEATLIGHT");
+    state = kVisActOn;
     beatlight = new Beatlight;
 }
 
 
-BeatlightActor::~BeatlightActor() {
+BeatlightActor::~BeatlightActor()
+{
     delete beatlight;
-	beatlight = NULL;
+    beatlight = NULL;
 }
 
 
-void BeatlightActor::prepareShow(const VisualPlayerState& visualPlayerState) {
+void BeatlightActor::prepareShow(const VisualPlayerState & visualPlayerState)
+{
     this->beatlight->prepareBeatlightShow();
 }
 
 
-void BeatlightActor::show() {
+void BeatlightActor::show()
+{
     this->beatlight->showBeatlight();
 }
 
 
-void BeatlightActor::finishShow() {
+void BeatlightActor::finishShow()
+{
     this->beatlight->finishBeatlightShow();
 }
 
 
-void BeatlightActor::handleNotification(const VisualNotification& aNotification) {
+void BeatlightActor::handleNotification(const VisualNotification & aNotification)
+{
 
-	//VisualActor::handleNotification(aNotification); // debug
+    //VisualActor::handleNotification(aNotification); // debug
 
-	VisualNotificationKey notificationKey = aNotification.getKey();
-	
-	switch (notificationKey) {
-		case kCanvasReshapeEvt:
-			this->beatlight->calcPositionOnScreen();
-			break;
-		default:
-			char errLog[256];
-			sprintf(errLog, "unhandled Notification in file: %s (line: %d) [%s])", __FILE__, __LINE__, __FUNCTION__);
-			writeLog(errLog);
-			break;
-	}
+    VisualNotificationKey notificationKey = aNotification.getKey();
+
+    switch (notificationKey) {
+    case kCanvasReshapeEvt:
+        this->beatlight->calcPositionOnScreen();
+        break;
+    default:
+        char errLog[256];
+        sprintf(errLog, "unhandled Notification in file: %s (line: %d) [%s])", __FILE__, __LINE__, __FUNCTION__);
+        writeLog(errLog);
+        break;
+    }
 
 }

@@ -5,8 +5,8 @@
  * Date: 20090823
  * File: AboutPane.cpp
  *
- */
-
+ */  
+    
 /***************************************************************************
 
 Copyright (c) 2004-2009 Heiko Wichmann (http://www.imagomat.de/vizkit)
@@ -31,65 +31,53 @@ freely, subject to the following restrictions:
 
 3. This notice may not be removed or altered from any source distribution.
 
- ***************************************************************************/
-
+ ***************************************************************************/ 
+    
 #include "AboutPane.h"
 #include "VisualDataStore.h"
 #include "VisualPropertySheet.h"
 #include "VisualPreferences.h"
-
-
+    
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
-#endif
 
-
-using namespace VizKit;
-
-IMPLEMENT_DYNCREATE(CAboutPane, CPropertyPage)
-
-CAboutPane::CAboutPane() : CPropertyPage(CAboutPane::IDD) {
-	//{{AFX_DATA_INIT(CAboutPane)
-		//
-	//}}AFX_DATA_INIT
-}
-
-
-CAboutPane::~CAboutPane() {
-}
-
-
-void CAboutPane::DoDataExchange(CDataExchange* pDX) {
-	CPropertyPage::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CAboutPane)
-		// 
-	//}}AFX_DATA_MAP
-}
-
-
-BEGIN_MESSAGE_MAP(CAboutPane, CPropertyPage)
-	//{{AFX_MSG_MAP(CAboutPane)
-		//
-	//}}AFX_MSG_MAP
-END_MESSAGE_MAP()
-
-
-BOOL CAboutPane::OnSetActive() 
+#endif  /*  */
+    using namespace VizKit;
+IMPLEMENT_DYNCREATE(CAboutPane, CPropertyPage)  CAboutPane::CAboutPane():CPropertyPage(CAboutPane::IDD)
 {
-	BOOL success;
-	int lastPane = 0;
-	
-	success = CPropertyPage::OnSetActive();
+    
+        //{{AFX_DATA_INIT(CAboutPane)
+        //
+        //}}AFX_DATA_INIT
+} CAboutPane::~CAboutPane()
+{
+} void CAboutPane::DoDataExchange(CDataExchange * pDX)
+{
+    CPropertyPage::DoDataExchange(pDX);
+    
+        //{{AFX_DATA_MAP(CAboutPane)
+        // 
+        //}}AFX_DATA_MAP
+} BEGIN_MESSAGE_MAP(CAboutPane, CPropertyPage) 
 
-	if (CVisualPropertySheet::isInitialized() == true) {
-		lastPane = VisualPreferences::getValue(VisualPreferences::kPreferencePane);
-		if (lastPane != 0) {
-			VisualPreferences::setValue(VisualPreferences::kPreferencePane, 0);
-			VisualPreferences::storeValues();
-		}
-	}
+    //{{AFX_MSG_MAP(CAboutPane)
+    //
+    //}}AFX_MSG_MAP
+    END_MESSAGE_MAP()  BOOL CAboutPane::OnSetActive() 
+{
+    BOOL success;
+    int lastPane = 0;
+    success = CPropertyPage::OnSetActive();
+    if (CVisualPropertySheet::isInitialized() == true) {
+        lastPane = VisualPreferences::getValue(VisualPreferences::kPreferencePane);
+        if (lastPane != 0) {
+            VisualPreferences::setValue(VisualPreferences::kPreferencePane, 0);
+            VisualPreferences::storeValues();
+        }
+    }
+    return success;
+}
 
-	return success;
-}
+

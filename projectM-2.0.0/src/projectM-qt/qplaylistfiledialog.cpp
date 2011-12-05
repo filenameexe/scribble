@@ -25,4 +25,3 @@
 QString QPlaylistFileDialog::OPEN_PLAYLIST_TITLE("Open a playlist file");
 QString QPlaylistFileDialog::OPEN_PLAYLIST_OR_DIRECTORY_TITLE("Open a playlist or directory");
 QString QPlaylistFileDialog::SAVE_PLAYLIST_TITLE("Save a playlist");
-

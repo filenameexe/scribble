@@ -41,180 +41,181 @@ void selectRandom(const bool hardCut);
 void selectNext(const bool hardCut);
 void selectPrevious(const bool hardCut);
 
-void refreshConsole() {
+void refreshConsole()
+{
 
-  switch (current_interface) {
+    switch (current_interface) {
 
-  case MENU_INTERFACE:
-    // unimplemented
-    break;
-  case SHELL_INTERFACE:
-    // unimplemented
-    break;
-  case EDITOR_INTERFACE:
-    // unimplemented
-    break;
-  case DEFAULT_INTERFACE:
-    break;
-  case BROWSER_INTERFACE:
-    // unimplemented
-    break;
-  default:
-    break;
-  }
+    case MENU_INTERFACE:
+        // unimplemented
+        break;
+    case SHELL_INTERFACE:
+        // unimplemented
+        break;
+    case EDITOR_INTERFACE:
+        // unimplemented
+        break;
+    case DEFAULT_INTERFACE:
+        break;
+    case BROWSER_INTERFACE:
+        // unimplemented
+        break;
+    default:
+        break;
+    }
 
 }
 
-void projectM::key_handler( projectMEvent event,
-                            projectMKeycode keycode, projectMModifier modifier ) {
+void projectM::key_handler(projectMEvent event, projectMKeycode keycode, projectMModifier modifier)
+{
 
-	switch( event ) {
+    switch (event) {
 
 
-	case PROJECTM_KEYDOWN:
+    case PROJECTM_KEYDOWN:
 
-	  //default_key_handler();
-	  switch (current_interface)
-	    {
+        //default_key_handler();
+        switch (current_interface) {
 
-	    case MENU_INTERFACE:
-//	      menu_key_handler(this, event, keycode);
-	      break;
-	    case SHELL_INTERFACE:
-	      //shell_key_handler();
-	      break;
-	    case EDITOR_INTERFACE:
-//	      editor_key_handler(event,keycode);
-	      break;
-	    case BROWSER_INTERFACE:
-//	      browser_key_handler(event,keycode,modifier);
-	      break;
-	    case DEFAULT_INTERFACE:
-	      default_key_handler(event,keycode);
-	      break;
-	    default:
-	      default_key_handler(event,keycode);
-	      break;
+        case MENU_INTERFACE:
+//            menu_key_handler(this, event, keycode);
+            break;
+        case SHELL_INTERFACE:
+            //shell_key_handler();
+            break;
+        case EDITOR_INTERFACE:
+//            editor_key_handler(event,keycode);
+            break;
+        case BROWSER_INTERFACE:
+//            browser_key_handler(event,keycode,modifier);
+            break;
+        case DEFAULT_INTERFACE:
+            default_key_handler(event, keycode);
+            break;
+        default:
+            default_key_handler(event, keycode);
+            break;
 
-	    }
-	  break;
-	default:
-		break;
+        }
+        break;
+    default:
+        break;
 
-	}
+    }
 }
 
-void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode) {
+void projectM::default_key_handler(projectMEvent event, projectMKeycode keycode)
+{
 
-	switch( event ) {
+    switch (event) {
 
-	case PROJECTM_KEYDOWN:
+    case PROJECTM_KEYDOWN:
 
-	  switch( keycode )
-	    {
-	    case PROJECTM_K_UP:
+        switch (keycode) {
+        case PROJECTM_K_UP:
             beatDetect->beat_sensitivity += 0.25;
-			if (beatDetect->beat_sensitivity > 5.0) beatDetect->beat_sensitivity = 5.0;
-	      break;
-	    case PROJECTM_K_DOWN:
+            if (beatDetect->beat_sensitivity > 5.0)
+                beatDetect->beat_sensitivity = 5.0;
+            break;
+        case PROJECTM_K_DOWN:
             beatDetect->beat_sensitivity -= 0.25;
-			if (beatDetect->beat_sensitivity < 0) beatDetect->beat_sensitivity = 0;
-	      break;
-		case PROJECTM_K_h:
- 		  renderer->showhelp = !renderer->showhelp;
-	      renderer->showstats= false;
-	      renderer->showfps=false;
-	    case PROJECTM_K_F1:
-	      renderer->showhelp = !renderer->showhelp;
-	      renderer->showstats=false;
-	      renderer->showfps=false;
-	      break;
-	    case PROJECTM_K_y:
-		this->setShuffleEnabled(!this->isShuffleEnabled());
-		 break;
+            if (beatDetect->beat_sensitivity < 0)
+                beatDetect->beat_sensitivity = 0;
+            break;
+        case PROJECTM_K_h:
+            renderer->showhelp = !renderer->showhelp;
+            renderer->showstats = false;
+            renderer->showfps = false;
+        case PROJECTM_K_F1:
+            renderer->showhelp = !renderer->showhelp;
+            renderer->showstats = false;
+            renderer->showfps = false;
+            break;
+        case PROJECTM_K_y:
+            this->setShuffleEnabled(!this->isShuffleEnabled());
+            break;
 
-	    case PROJECTM_K_F5:
-	      if (!renderer->showhelp)
-		      renderer->showfps = !renderer->showfps;
-	      break;
-	    case PROJECTM_K_F4:
-		if (!renderer->showhelp)
-	       		renderer->showstats = !renderer->showstats;
-	      break;
-	    case PROJECTM_K_F3: {
-	      renderer->showpreset = !renderer->showpreset;
-	      break;
-	     }
-	    case PROJECTM_K_F2:
-	      renderer->showtitle = !renderer->showtitle;
-	      break;
+        case PROJECTM_K_F5:
+            if (!renderer->showhelp)
+                renderer->showfps = !renderer->showfps;
+            break;
+        case PROJECTM_K_F4:
+            if (!renderer->showhelp)
+                renderer->showstats = !renderer->showstats;
+            break;
+        case PROJECTM_K_F3:{
+                renderer->showpreset = !renderer->showpreset;
+                break;
+            }
+        case PROJECTM_K_F2:
+            renderer->showtitle = !renderer->showtitle;
+            break;
 #ifndef MACOS
-	    case PROJECTM_K_F9:
+        case PROJECTM_K_F9:
 #else
         case PROJECTM_K_F8:
 #endif
 
-	      renderer->studio = !renderer->studio;
-	      break;
+            renderer->studio = !renderer->studio;
+            break;
 
-	    case PROJECTM_K_ESCAPE: {
-//	        exit( 1 );
-	        break;
-	      }
-	    case PROJECTM_K_f:
+        case PROJECTM_K_ESCAPE:{
+//              exit( 1 );
+                break;
+            }
+        case PROJECTM_K_f:
 
-	      break;
-	    case PROJECTM_K_a:
-		    renderer->correction = !renderer->correction;
-	        break;
-	    case PROJECTM_K_b:
-	      break;
-            case PROJECTM_K_n:
-		selectNext(true);
-	      break;
-            case PROJECTM_K_N:
-		selectNext(false);
-	      break;
-	    case PROJECTM_K_r:
-		selectRandom(true);
-		break;
-	    case PROJECTM_K_R:
-		selectRandom(false);
-		break;
-	    case PROJECTM_K_p:
-	      selectPrevious(true);
-	      break;
-	    case PROJECTM_K_P:
-	      selectPrevious(false);
-	      break;
-	    case PROJECTM_K_l:
-		renderer->noSwitch=!renderer->noSwitch;
-	      break;
-	    case PROJECTM_K_s:
-            	renderer->studio = !renderer->studio;
-	    case PROJECTM_K_i:
-	        break;
-	    case PROJECTM_K_z:
-	      break;
-	    case PROJECTM_K_0:
-//	      nWaveMode=0;
-	      break;
-	    case PROJECTM_K_6:
-//	      nWaveMode=6;
-	      break;
-	    case PROJECTM_K_7:
-//	      nWaveMode=7;
-	      break;
-	    case PROJECTM_K_m:
-	      break;
-	    case PROJECTM_K_t:
-	      break;
-	    default:
-	      break;
-	    }
-	default:
-		break;
+            break;
+        case PROJECTM_K_a:
+            renderer->correction = !renderer->correction;
+            break;
+        case PROJECTM_K_b:
+            break;
+        case PROJECTM_K_n:
+            selectNext(true);
+            break;
+        case PROJECTM_K_N:
+            selectNext(false);
+            break;
+        case PROJECTM_K_r:
+            selectRandom(true);
+            break;
+        case PROJECTM_K_R:
+            selectRandom(false);
+            break;
+        case PROJECTM_K_p:
+            selectPrevious(true);
+            break;
+        case PROJECTM_K_P:
+            selectPrevious(false);
+            break;
+        case PROJECTM_K_l:
+            renderer->noSwitch = !renderer->noSwitch;
+            break;
+        case PROJECTM_K_s:
+            renderer->studio = !renderer->studio;
+        case PROJECTM_K_i:
+            break;
+        case PROJECTM_K_z:
+            break;
+        case PROJECTM_K_0:
+//            nWaveMode=0;
+            break;
+        case PROJECTM_K_6:
+//            nWaveMode=6;
+            break;
+        case PROJECTM_K_7:
+//            nWaveMode=7;
+            break;
+        case PROJECTM_K_m:
+            break;
+        case PROJECTM_K_t:
+            break;
+        default:
+            break;
+        }
+    default:
+        break;
 
-	}
+    }
 }
-

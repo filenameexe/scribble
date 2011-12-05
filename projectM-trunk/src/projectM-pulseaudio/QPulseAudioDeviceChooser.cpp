@@ -27,77 +27,75 @@
 void QPulseAudioDeviceChooser::writeSettings()
 {
 
-	QSettings settings ( "projectM", "qprojectM-pulseaudio" );
-	settings.setValue ( "tryFirstAvailablePlaybackMonitor",
-	                    this->tryFirstPlayBackMonitorCheckBox->checkState() == Qt::Checked );
-			    
-	if ( _qpulseAudioThread != 0 && (_qpulseAudioThread->devices().size() > 0) && _qpulseAudioThread->sourcePosition() != _qpulseAudioThread->devices().end())
-		settings.setValue("pulseAudioDeviceName", *_qpulseAudioThread->sourcePosition());
-	
+    QSettings settings("projectM", "qprojectM-pulseaudio");
+    settings.setValue("tryFirstAvailablePlaybackMonitor",
+                      this->tryFirstPlayBackMonitorCheckBox->checkState() == Qt::Checked);
+
+    if (_qpulseAudioThread != 0 && (_qpulseAudioThread->devices().size() > 0)
+        && _qpulseAudioThread->sourcePosition() != _qpulseAudioThread->devices().end())
+        settings.setValue("pulseAudioDeviceName", *_qpulseAudioThread->sourcePosition());
+
 }
 
 
 void QPulseAudioDeviceChooser::readSettings()
 {
 
-	QSettings settings ( "projectM", "qprojectM-pulseaudio" );
+    QSettings settings("projectM", "qprojectM-pulseaudio");
 
-	bool tryFirst = settings.value
-	                ( "tryFirstAvailablePlaybackMonitor", true ).toBool() ;
+    bool tryFirst = settings.value("tryFirstAvailablePlaybackMonitor", true).toBool();
 
-	this->tryFirstPlayBackMonitorCheckBox->setCheckState
-	( tryFirst ? Qt::Checked : Qt::Unchecked );
+    this->tryFirstPlayBackMonitorCheckBox->setCheckState(tryFirst ? Qt::Checked : Qt::Unchecked);
 
-	if ( tryFirst )
-	{
-		this->devicesListView->setEnabled(false);
-	} else {
-		this->devicesListView->setEnabled(true);
-	}
-	
+    if (tryFirst) {
+        this->devicesListView->setEnabled(false);
+    } else {
+        this->devicesListView->setEnabled(true);
+    }
+
 }
 
 
-void QPulseAudioDeviceChooser::updateDevicesListViewLock(int state) {	
-	
-	
-	devicesListView->setEnabled(state != Qt::Checked);
-		
-	if (state == Qt::Checked) {
-	    if (_qpulseAudioThread != 0)
-		_qpulseAudioThread->connectDevice();
-	}
-}
-
-
-QPulseAudioDeviceChooser::QPulseAudioDeviceChooser ( QPulseAudioThread * qpulseAudioThread, QWidget * parent = 0, Qt::WindowFlags f ) : QDialog ( parent, f ), _qpulseAudioDeviceModel ( qpulseAudioThread->devices(), qpulseAudioThread->sourcePosition(), this), _qpulseAudioThread ( qpulseAudioThread )
+void QPulseAudioDeviceChooser::updateDevicesListViewLock(int state)
 {
 
-	setupUi ( this );
-	readSettings();	
-	this->devicesListView->setModel ( &_qpulseAudioDeviceModel );
 
-		
-	QHBoxLayout * hboxLayout = new QHBoxLayout();
-	
-	hboxLayout->addWidget(this->layoutWidget);
-	this->setLayout(hboxLayout);
-	
-	connect ( tryFirstPlayBackMonitorCheckBox, 
-		  SIGNAL(stateChanged(int)), this, SLOT(updateDevicesListViewLock(int)));
+    devicesListView->setEnabled(state != Qt::Checked);
 
-	// Using the display index is fine as as we are getting the text associated with it
-	// and passing the raw string to pulse audio.
-	connect ( devicesListView, SIGNAL ( doubleClicked ( const QModelIndex& ) ),
-		  _qpulseAudioThread, SLOT ( connectDevice ( const QModelIndex& ) ) );
-	
-	connect ( _qpulseAudioThread, SIGNAL ( deviceChanged()),
-		  &_qpulseAudioDeviceModel, SLOT (updateItemHighlights()));
-	
+    if (state == Qt::Checked) {
+        if (_qpulseAudioThread != 0)
+            _qpulseAudioThread->connectDevice();
+    }
+}
+
+
+QPulseAudioDeviceChooser::QPulseAudioDeviceChooser(QPulseAudioThread * qpulseAudioThread, QWidget * parent = 0, Qt::WindowFlags f):QDialog(parent, f), _qpulseAudioDeviceModel(qpulseAudioThread->devices(), qpulseAudioThread->sourcePosition(), this),
+_qpulseAudioThread
+(qpulseAudioThread)
+{
+
+    setupUi(this);
+    readSettings();
+    this->devicesListView->setModel(&_qpulseAudioDeviceModel);
+
+
+    QHBoxLayout *hboxLayout = new QHBoxLayout();
+
+    hboxLayout->addWidget(this->layoutWidget);
+    this->setLayout(hboxLayout);
+
+    connect(tryFirstPlayBackMonitorCheckBox, SIGNAL(stateChanged(int)), this, SLOT(updateDevicesListViewLock(int)));
+
+    // Using the display index is fine as as we are getting the text associated with it
+    // and passing the raw string to pulse audio.
+    connect(devicesListView, SIGNAL(doubleClicked(const QModelIndex &)),
+            _qpulseAudioThread, SLOT(connectDevice(const QModelIndex &)));
+
+    connect(_qpulseAudioThread, SIGNAL(deviceChanged()), &_qpulseAudioDeviceModel, SLOT(updateItemHighlights()));
+
 }
 
 void QPulseAudioDeviceChooser::open()
 {
-	this->show();
+    this->show();
 }
-

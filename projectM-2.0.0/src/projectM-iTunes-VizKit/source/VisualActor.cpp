@@ -44,77 +44,89 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualActor::VisualActor() {
+VisualActor::VisualActor()
+{
     //writeLog("constructor of VisualActor called");
-	strcpy(actorName, "UNKNOWN");
-	state = kVisActNoShow;
+    strcpy(actorName, "UNKNOWN");
+    state = kVisActNoShow;
 }
 
 
-VisualActor::~VisualActor() {
+VisualActor::~VisualActor()
+{
     //writeLog("destructor of VisualActor called");
 }
 
 
-VisualActor::VisualActor(const VisualActor& other) {
-	copy(other);
+VisualActor::VisualActor(const VisualActor & other)
+{
+    copy(other);
 }
 
 
-VisualActor& VisualActor::operator=(const VisualActor& other) {
-	if (this != &other) {
-		this->copy(other);
-	}
-	return *this;
+VisualActor & VisualActor::operator=(const VisualActor & other)
+{
+    if (this != &other) {
+        this->copy(other);
+    }
+    return *this;
 }
 
 
-void VisualActor::copy(const VisualActor& other) {
-	strcpy(this->actorName, other.actorName);
-	this->state = other.state;
+void VisualActor::copy(const VisualActor & other)
+{
+    strcpy(this->actorName, other.actorName);
+    this->state = other.state;
 }
 
 
-const char* const VisualActor::getName(void) {
-	// interface method that doesn't need to be implemented by subclass
-	return this->actorName;
+const char *const VisualActor::getName(void)
+{
+    // interface method that doesn't need to be implemented by subclass
+    return this->actorName;
 }
 
 
-void VisualActor::prepareShow(const VisualPlayerState& visualPlayerState) {
-	// hook method that can be implemented by subclass
-}
-
-
-void VisualActor::show() {
-	// interface method that should be implemented by subclass
-	VisualActorGraphics::doFallbackActorShow(this->actorName);
-}
-
-
-void VisualActor::finishShow() {
+void VisualActor::prepareShow(const VisualPlayerState & visualPlayerState)
+{
     // hook method that can be implemented by subclass
 }
 
 
-VisualActorState VisualActor::getState() {
+void VisualActor::show()
+{
+    // interface method that should be implemented by subclass
+    VisualActorGraphics::doFallbackActorShow(this->actorName);
+}
+
+
+void VisualActor::finishShow()
+{
+    // hook method that can be implemented by subclass
+}
+
+
+VisualActorState VisualActor::getState()
+{
     // interface method that doesn't need to be implemented by subclass
     return this->state;
 }
 
 
-void VisualActor::handleNotification(const VisualNotification& aNotification) {
+void VisualActor::handleNotification(const VisualNotification & aNotification)
+{
     // hook method that can be implemented by subclass
-	VisualNotificationKey aKey = aNotification.getKey();
-	char notificationStr[64];
-	char logStr[128];
-	VisualNotification::convertNotificationKeyToString(aKey, notificationStr);
-	sprintf(logStr, "%s: Notification: %s", this->actorName, notificationStr);
-	writeLog(logStr);
+    VisualNotificationKey aKey = aNotification.getKey();
+    char notificationStr[64];
+    char logStr[128];
+    VisualNotification::convertNotificationKeyToString(aKey, notificationStr);
+    sprintf(logStr, "%s: Notification: %s", this->actorName, notificationStr);
+    writeLog(logStr);
 }
 
 
-UInt8 VisualActor::getError(char* errorString) {
+UInt8 VisualActor::getError(char *errorString)
+{
     UInt8 errorNum = 0;
     char anErrorString[256];
 

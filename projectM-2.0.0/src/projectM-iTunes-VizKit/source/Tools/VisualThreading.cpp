@@ -44,30 +44,33 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-OSStatus VisualThreading::createThread(ThreadingFuncPtr aThreadingFuncPtr, char* name) {
-	OSStatus osStatus = noErr;
+OSStatus VisualThreading::createThread(ThreadingFuncPtr aThreadingFuncPtr, char *name)
+{
+    OSStatus osStatus = noErr;
 #if TARGET_OS_MAC
-	void* param = NULL;
-	MPTaskID threadId;
-	ByteCount stackSize = 0;
-	osStatus = MPCreateTask(&(*aThreadingFuncPtr), param, stackSize, NULL, NULL, NULL, 0, &threadId);
+    void *param = NULL;
+    MPTaskID threadId;
+    ByteCount stackSize = 0;
+    osStatus = MPCreateTask(&(*aThreadingFuncPtr), param, stackSize, NULL, NULL, NULL, 0, &threadId);
 #endif
 #if TARGET_OS_WIN
-	LPSECURITY_ATTRIBUTES lpThreadAttributes = NULL;
-	SIZE_T stackSize = 0;
-	LPVOID param = NULL;
-	DWORD dwCreationFlags = 0;
-	LPDWORD threadId = 0;
-	HANDLE hdl = CreateThread(lpThreadAttributes, stackSize, (LPTHREAD_START_ROUTINE)aThreadingFuncPtr, param, dwCreationFlags, threadId);
-	/*
-	WaitForSingleObject(hdl, 3000);
-	DWORD exitCode;
-	BOOL success = GetExitCodeThread(hdl, &exitCode);
-	char logStr[64];
-	sprintf(logStr, "%s - exitCode: %ld", name, exitCode);
-	writeLog(logStr);
-	CloseHandle(hdl);
-	*/
+    LPSECURITY_ATTRIBUTES lpThreadAttributes = NULL;
+    SIZE_T stackSize = 0;
+    LPVOID param = NULL;
+    DWORD dwCreationFlags = 0;
+    LPDWORD threadId = 0;
+    HANDLE hdl =
+        CreateThread(lpThreadAttributes, stackSize, (LPTHREAD_START_ROUTINE) aThreadingFuncPtr, param, dwCreationFlags,
+                     threadId);
+    /*
+       WaitForSingleObject(hdl, 3000);
+       DWORD exitCode;
+       BOOL success = GetExitCodeThread(hdl, &exitCode);
+       char logStr[64];
+       sprintf(logStr, "%s - exitCode: %ld", name, exitCode);
+       writeLog(logStr);
+       CloseHandle(hdl);
+     */
 #endif
-	return osStatus;
+    return osStatus;
 }

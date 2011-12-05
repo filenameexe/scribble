@@ -41,51 +41,58 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualNotificationQueue* VisualNotificationQueue::theVisualNotificationQueue = NULL;
+VisualNotificationQueue *VisualNotificationQueue::theVisualNotificationQueue = NULL;
 
 
-VisualNotificationQueue::VisualNotificationQueue() {
-	// null
+VisualNotificationQueue::VisualNotificationQueue()
+{
+    // null
 }
 
 
-VisualNotificationQueue::~VisualNotificationQueue() {
-	theVisualNotificationQueue->notificationQueue.clear();
+VisualNotificationQueue::~VisualNotificationQueue()
+{
+    theVisualNotificationQueue->notificationQueue.clear();
 }
 
 
-VisualNotificationQueue* VisualNotificationQueue::getInstance() {
-	if (theVisualNotificationQueue == NULL) {
-		theVisualNotificationQueue = new VisualNotificationQueue;
-	}
-	return theVisualNotificationQueue;
+VisualNotificationQueue *VisualNotificationQueue::getInstance()
+{
+    if (theVisualNotificationQueue == NULL) {
+        theVisualNotificationQueue = new VisualNotificationQueue;
+    }
+    return theVisualNotificationQueue;
 }
 
 
-void VisualNotificationQueue::dispose() {
-	if (theVisualNotificationQueue != NULL) {
-		delete theVisualNotificationQueue;
-		theVisualNotificationQueue = NULL;
-	}
+void VisualNotificationQueue::dispose()
+{
+    if (theVisualNotificationQueue != NULL) {
+        delete theVisualNotificationQueue;
+        theVisualNotificationQueue = NULL;
+    }
 }
 
 
-void VisualNotificationQueue::push(VisualNotification& aNotification) {
-	theVisualNotificationQueue = VisualNotificationQueue::getInstance();
-	theVisualNotificationQueue->notificationQueue.push_back(aNotification);
+void VisualNotificationQueue::push(VisualNotification & aNotification)
+{
+    theVisualNotificationQueue = VisualNotificationQueue::getInstance();
+    theVisualNotificationQueue->notificationQueue.push_back(aNotification);
 }
 
 
-VisualNotification VisualNotificationQueue::pop() {
-	VisualNotification aNotification;
-	theVisualNotificationQueue = VisualNotificationQueue::getInstance();
-	aNotification = theVisualNotificationQueue->notificationQueue.front();
-	theVisualNotificationQueue->notificationQueue.pop_front();
-	return aNotification;
+VisualNotification VisualNotificationQueue::pop()
+{
+    VisualNotification aNotification;
+    theVisualNotificationQueue = VisualNotificationQueue::getInstance();
+    aNotification = theVisualNotificationQueue->notificationQueue.front();
+    theVisualNotificationQueue->notificationQueue.pop_front();
+    return aNotification;
 }
 
 
-size_t VisualNotificationQueue::size() {
-	theVisualNotificationQueue = VisualNotificationQueue::getInstance();
-	return theVisualNotificationQueue->notificationQueue.size();
+size_t VisualNotificationQueue::size()
+{
+    theVisualNotificationQueue = VisualNotificationQueue::getInstance();
+    return theVisualNotificationQueue->notificationQueue.size();
 }

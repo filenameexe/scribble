@@ -25,39 +25,44 @@
 
 #include <QKeyEvent>
 
-void QPresetTextEdit::keyReleaseEvent(QKeyEvent * e) {
+void QPresetTextEdit::keyReleaseEvent(QKeyEvent * e)
+{
 
-	switch (e->key()) {
-		case Qt::Key_S:
-			if (e->modifiers() & Qt::ControlModifier) {
-				emit(applyRequested());
-			}
-			e->accept();
-			break;
-		default:
-			e->ignore();
-	}
-	
+    switch (e->key()) {
+    case Qt::Key_S:
+        if (e->modifiers() & Qt::ControlModifier) {
+            emit(applyRequested());
+        }
+        e->accept();
+        break;
+    default:
+        e->ignore();
+    }
+
 }
 
-bool QPresetTextEdit::loadPresetText(QString url) {
-	QFile qfile(url);
-	if (!qfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-		QMessageBox::warning (0, "Preset File Error", QString(tr("There was a problem trying to open the preset \"%1\".  The file may no longer exist or you may not have permission to read the file.")).arg(url));
-			return false;
-	}
+bool QPresetTextEdit::loadPresetText(QString url)
+{
+    QFile qfile(url);
+    if (!qfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::warning(0, "Preset File Error",
+                             QString(tr
+                                     ("There was a problem trying to open the preset \"%1\".  The file may no longer exist or you may not have permission to read the file.")).
+                             arg(url));
+        return false;
+    }
 
 
-	QTextStream in(&qfile);
-	
-	QString buffer;
-	QTextStream out(&buffer);
-	while (!in.atEnd()) {
-		QString line = in.readLine();
-		out << line << "\n";
-	}	
+    QTextStream in(&qfile);
 
-	this->setPlainText(out.readAll());
+    QString buffer;
+    QTextStream out(&buffer);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        out << line << "\n";
+    }
 
-	return true;
+    this->setPlainText(out.readAll());
+
+    return true;
 }

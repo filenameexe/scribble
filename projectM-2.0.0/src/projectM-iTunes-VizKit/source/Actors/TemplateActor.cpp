@@ -44,28 +44,33 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-TemplateActor::TemplateActor() {
-	strcpy(actorName, "TEMPLATE");
-	state = kVisActNoShow; // state must be kVisActOn to show the action of the actor as part of the VisualEnsemble (kVisActNoShow means not being called at all)
-	theTemplateAction = new TemplateAction;
+TemplateActor::TemplateActor()
+{
+    strcpy(actorName, "TEMPLATE");
+    state = kVisActNoShow;      // state must be kVisActOn to show the action of the actor as part of the VisualEnsemble (kVisActNoShow means not being called at all)
+    theTemplateAction = new TemplateAction;
 }
 
 
-TemplateActor::~TemplateActor() {
+TemplateActor::~TemplateActor()
+{
     delete theTemplateAction;
 }
 
 
-void TemplateActor::prepareShow(const VisualPlayerState& visualPlayerState) {
+void TemplateActor::prepareShow(const VisualPlayerState & visualPlayerState)
+{
     theTemplateAction->prepareTemplateAction();
 }
 
 
-void TemplateActor::show() {
+void TemplateActor::show()
+{
     theTemplateAction->show();
 }
 
 
-void TemplateActor::finishShow() {
-	theTemplateAction->finishTemplateAction();
+void TemplateActor::finishShow()
+{
+    theTemplateAction->finishTemplateAction();
 }

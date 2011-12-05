@@ -34,7 +34,7 @@ freely, subject to the following restrictions:
  ***************************************************************************/
 
 #if TARGET_OS_WIN
-#include <stdio.h> // sprintf
+#include <stdio.h>              // sprintf
 #endif
 
 #include "VisualHostCommunication.h"
@@ -44,70 +44,78 @@ freely, subject to the following restrictions:
 #include "VisualQuickTime.h"
 
 
-#include "iTunesAPI.h" // PlayerGetCurrentTrackCoverArt
+#include "iTunesAPI.h"          // PlayerGetCurrentTrackCoverArt
 
 
 using namespace VizKit;
 
 
 
-VisualHostCommunication* VisualHostCommunication::theVisualHostCommunication = NULL;
+VisualHostCommunication *VisualHostCommunication::theVisualHostCommunication = NULL;
 
 
-VisualHostCommunication::VisualHostCommunication() {
-	// null
+VisualHostCommunication::VisualHostCommunication()
+{
+    // null
 }
 
 
-VisualHostCommunication::~VisualHostCommunication() {
-	//theVisualHostCommunication->notificationQueue.clear();
+VisualHostCommunication::~VisualHostCommunication()
+{
+    //theVisualHostCommunication->notificationQueue.clear();
 }
 
 
-VisualHostCommunication* VisualHostCommunication::getInstance() {
-	if (theVisualHostCommunication == NULL) {
-		theVisualHostCommunication = new VisualHostCommunication;
-	}
-	return theVisualHostCommunication;
+VisualHostCommunication *VisualHostCommunication::getInstance()
+{
+    if (theVisualHostCommunication == NULL) {
+        theVisualHostCommunication = new VisualHostCommunication;
+    }
+    return theVisualHostCommunication;
 }
 
 
-void VisualHostCommunication::dispose() {
-	if (theVisualHostCommunication != NULL) {
-		if (theVisualHostCommunication->coverArtImageDataHandle != NULL) {
-			VisualQuickTime::disposeHandle((Handle)(theVisualHostCommunication->coverArtImageDataHandle));
-		}
-		delete theVisualHostCommunication;
-		theVisualHostCommunication = NULL;
-	}
+void VisualHostCommunication::dispose()
+{
+    if (theVisualHostCommunication != NULL) {
+        if (theVisualHostCommunication->coverArtImageDataHandle != NULL) {
+            VisualQuickTime::disposeHandle((Handle) (theVisualHostCommunication->coverArtImageDataHandle));
+        }
+        delete theVisualHostCommunication;
+        theVisualHostCommunication = NULL;
+    }
 }
 
 
-int VisualHostCommunication::getCurrentTrackCoverArt(void** albumCoverArtworkImageData, uint32& numberOfBytes) {
+int VisualHostCommunication::getCurrentTrackCoverArt(void **albumCoverArtworkImageData, uint32 & numberOfBytes)
+{
 
-	uint16 numberOfArtworks = 0;
-	OSType albumCoverArtworkFileType;
+    uint16 numberOfArtworks = 0;
+    OSType albumCoverArtworkFileType;
 
-	theVisualHostCommunication = VisualHostCommunication::getInstance();
-	Handle coverArtHandle = NULL;
-	OSStatus status = PlayerGetCurrentTrackCoverArt(VisualSignature::getAppCookie(), VisualSignature::getAppProc(), &coverArtHandle, &albumCoverArtworkFileType);
+    theVisualHostCommunication = VisualHostCommunication::getInstance();
+    Handle coverArtHandle = NULL;
+    OSStatus status =
+        PlayerGetCurrentTrackCoverArt(VisualSignature::getAppCookie(), VisualSignature::getAppProc(), &coverArtHandle,
+                                      &albumCoverArtworkFileType);
     if (status != noErr) {
-		char errLog[256];
-		sprintf(errLog, "PlayerGetCurrentTrackCoverArt err (%ld) in file: %s (line: %d) [%s])", status, __FILE__, __LINE__, __FUNCTION__);
-		writeLog(errLog);
-		return numberOfArtworks;
+        char errLog[256];
+        sprintf(errLog, "PlayerGetCurrentTrackCoverArt err (%ld) in file: %s (line: %d) [%s])", status, __FILE__,
+                __LINE__, __FUNCTION__);
+        writeLog(errLog);
+        return numberOfArtworks;
     }
 
-	numberOfBytes = VisualQuickTime::getHandleSize(coverArtHandle);
+    numberOfBytes = VisualQuickTime::getHandleSize(coverArtHandle);
 
-	if (numberOfBytes > 0) {
-		numberOfArtworks = 1;
-		*albumCoverArtworkImageData = *coverArtHandle;
-	}
+    if (numberOfBytes > 0) {
+        numberOfArtworks = 1;
+        *albumCoverArtworkImageData = *coverArtHandle;
+    }
 
-	if (coverArtHandle) {
-		theVisualHostCommunication->coverArtImageDataHandle = coverArtHandle;
-	}
+    if (coverArtHandle) {
+        theVisualHostCommunication->coverArtImageDataHandle = coverArtHandle;
+    }
 
-	return numberOfArtworks;
+    return numberOfArtworks;
 }

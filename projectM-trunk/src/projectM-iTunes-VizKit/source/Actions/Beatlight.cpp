@@ -52,63 +52,67 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-Beatlight::Beatlight() {
-	VisualImage* spotLightImage = VisualImage::createWithResource(SPOTPNG);
-	/*
-	VisualFile testFile;
-	bool success = testFile.initWithUserDesktopDirectory();
-	VisualString fileName("test.png");
-	success = testFile.appendFileName(fileName);
-	VisualImage* spotLightImage = VisualImage::createWithFile(testFile);
-	*/
-	beatlightAsset.setImage(*spotLightImage);
-	delete spotLightImage;
-	reshape();
-	
+Beatlight::Beatlight()
+{
+    VisualImage *spotLightImage = VisualImage::createWithResource(SPOTPNG);
+    /*
+       VisualFile testFile;
+       bool success = testFile.initWithUserDesktopDirectory();
+       VisualString fileName("test.png");
+       success = testFile.appendFileName(fileName);
+       VisualImage* spotLightImage = VisualImage::createWithFile(testFile);
+     */
+    beatlightAsset.setImage(*spotLightImage);
+    delete spotLightImage;
+    reshape();
+
 }
 
 
-void Beatlight::showBeatlight(const bool audioIsPlaying) {
-	beatlightAsset.draw(this->vertexChainId);
+void Beatlight::showBeatlight(const bool audioIsPlaying)
+{
+    beatlightAsset.draw(this->vertexChainId);
 }
 
 
-void Beatlight::applyBehavior() {
-	VisualAnimation fadeOutAnimation(kAnimatedOpacity);
-	fadeOutAnimation.setDurationInMilliseconds(500);
-	fadeOutAnimation.setStartValue(1.0);
-	fadeOutAnimation.setStopValue(0.0);
-	this->beatlightAsset.addAnimation(fadeOutAnimation);
+void Beatlight::applyBehavior()
+{
+    VisualAnimation fadeOutAnimation(kAnimatedOpacity);
+    fadeOutAnimation.setDurationInMilliseconds(500);
+    fadeOutAnimation.setStartValue(1.0);
+    fadeOutAnimation.setStopValue(0.0);
+    this->beatlightAsset.addAnimation(fadeOutAnimation);
 }
 
 
-void Beatlight::showBeatMeterLight(const bool audioIsPlaying) {
+void Beatlight::showBeatMeterLight(const bool audioIsPlaying)
+{
     uint32 elapsedMilliseconds;
     uint32 accuElapsedMilliseconds;
     static uint32 ageLimit = 500;
     uint32 timeToLive;
     float lifetimeIntensity;
     char info[32];
-    VisualAudioLab* theVisualAudioLab;
+    VisualAudioLab *theVisualAudioLab;
     uint16 maxLifetimeMilliSec = 500;
 
-	theVisualAudioLab = VisualAudioLab::getInstance();
-    
+    theVisualAudioLab = VisualAudioLab::getInstance();
+
     //timeStoreIndex = pTiming->storeMyTime("Beatlight");
     //elapsedMilliseconds = pTiming->getMyElapsedMilliseconds(timeStoreIndex);
     //accuElapsedMilliseconds += elapsedMilliseconds;
     accuElapsedMilliseconds = VisualTiming::getElapsedMilliSecsSinceReset("Meterlight");
-    
+
     //elapsedMilliseconds = accuElapsedMilliseconds - prevAccuElapsedMilliseconds;
     elapsedMilliseconds = VisualTiming::getElapsedMilliSecsSinceLastCall("Meterlight");
-    
+
 
     if (theVisualAudioLab->getBeatMeter() == 1) {
         ageLimit = maxLifetimeMilliSec;
         VisualTiming::resetTimestamp("Meterlight");
         timeToLive = ageLimit;
     } else {
-        if ((ageLimit-elapsedMilliseconds) > 0) {
+        if ((ageLimit - elapsedMilliseconds) > 0) {
             ageLimit -= elapsedMilliseconds;
             timeToLive = ageLimit;
         } else {
@@ -118,72 +122,73 @@ void Beatlight::showBeatMeterLight(const bool audioIsPlaying) {
 
     sprintf(info, "%d", timeToLive);
     //setProcessInfo ("beatlightTimeToLive", info);
-    lifetimeIntensity = ((float)timeToLive / (float)maxLifetimeMilliSec);
+    lifetimeIntensity = ((float) timeToLive / (float) maxLifetimeMilliSec);
     if (lifetimeIntensity < 0.5) {
         // Minimum an lifetimeIntensity ist 0.5
         // so bleibt das Licht immer etwas an
         lifetimeIntensity = 0.5f;
     }
 
-	VisualCamera aCamera;
-	/*
-	beatlightSpot->xPos = aCamera.getMaxRightCoord() - 0.3f;
-	beatlightSpot->yPos= aCamera.getMaxTopCoord() - 0.3f;
-    beatlightSpot->redVal=1.0;
-    beatlightSpot->greenVal=0.0;
-    beatlightSpot->blueVal=0.0;
-    beatlightSpot->ageLimit=1000;
-    beatlightSpot->age=200;
-    beatlightSpot->isDead=0;
-    beatlightSpot->tailSize=0;
-    beatlightSpot->waveformIntensityVal=80; // 0-100
-    beatlightSpot->lifetimeIntensity=lifetimeIntensity;
-    
-	VisualActorGraphics::drawSpot(beatlightSpot->xPos, beatlightSpot->yPos, beatlightSpot->redVal, beatlightSpot->greenVal, beatlightSpot->blueVal, beatlightSpot->waveformIntensityVal, beatlightSpot->lifetimeIntensity, beatlightSpot->tailSize);
-    */
+    VisualCamera aCamera;
+    /*
+       beatlightSpot->xPos = aCamera.getMaxRightCoord() - 0.3f;
+       beatlightSpot->yPos= aCamera.getMaxTopCoord() - 0.3f;
+       beatlightSpot->redVal=1.0;
+       beatlightSpot->greenVal=0.0;
+       beatlightSpot->blueVal=0.0;
+       beatlightSpot->ageLimit=1000;
+       beatlightSpot->age=200;
+       beatlightSpot->isDead=0;
+       beatlightSpot->tailSize=0;
+       beatlightSpot->waveformIntensityVal=80; // 0-100
+       beatlightSpot->lifetimeIntensity=lifetimeIntensity;
+
+       VisualActorGraphics::drawSpot(beatlightSpot->xPos, beatlightSpot->yPos, beatlightSpot->redVal, beatlightSpot->greenVal, beatlightSpot->blueVal, beatlightSpot->waveformIntensityVal, beatlightSpot->lifetimeIntensity, beatlightSpot->tailSize);
+     */
 }
 
 
-void Beatlight::reshape() {
+void Beatlight::reshape()
+{
 
-	VisualCamera aCamera;
-	aCamera.setOrthographicProjection();
-	this->beatlightAsset.setCamera(aCamera);
+    VisualCamera aCamera;
+    aCamera.setOrthographicProjection();
+    this->beatlightAsset.setCamera(aCamera);
 
-	VisualStagePosition beatlightAssetPosition = this->beatlightAsset.getPosition();
+    VisualStagePosition beatlightAssetPosition = this->beatlightAsset.getPosition();
 
-	beatlightAssetPosition.reset();
-	
-	VisualStageBox* beatlightAssetBox = this->beatlightAsset.getBox();
-	
-	//double coordDepth = this->calcCoordDepth();
-		
-	//coverArtAssetPosition.depthAlignment = kDepthCenterAligned;
-	//coverArtAssetBox->setCoordDepth(coordDepth);
+    beatlightAssetPosition.reset();
 
-	beatlightAssetPosition.horizontalAlignment = kLeftAligned;
-	beatlightAssetPosition.verticalAlignment = kBottomAligned;
-	beatlightAssetPosition.verticalCoordOffset = VisualActorGraphics::yPixelToCoord(220, aCamera);
-	
-	this->beatlightAsset.setPosition(beatlightAssetPosition);
-	
-	beatlightAssetBox->update(); // VisualStageBox only updates automatically on value changed, after canvas reshape event we have to update manually (before calculating scaleFactor) 
-	beatlightAssetBox->setScalingBehaviour(kPreserveAspectRatio);
-	
-	VisualVertex* aVertex = NULL;
+    VisualStageBox *beatlightAssetBox = this->beatlightAsset.getBox();
 
-	beatlightAssetBox->initializeVertexChain(this->vertexChainId);
-	
-	aVertex = beatlightAssetBox->createVertex(0.0, 1.0, 0.5, 0.0, 1.0);
-	beatlightAssetBox->addVertexToChain(this->vertexChainId, aVertex);
-	
-	aVertex = beatlightAssetBox->createVertex(0.0, 0.0, 0.5, 0.0, 0.0);
-	beatlightAssetBox->addVertexToChain(this->vertexChainId, aVertex);
-	
-	aVertex = beatlightAssetBox->createVertex(1.0, 0.0, 0.5, 1.0, 0.0);
-	beatlightAssetBox->addVertexToChain(this->vertexChainId, aVertex);
+    //double coordDepth = this->calcCoordDepth();
 
-	aVertex = beatlightAssetBox->createVertex(1.0, 1.0, 0.5, 1.0, 1.0);
-	beatlightAssetBox->addVertexToChain(this->vertexChainId, aVertex);
+    //coverArtAssetPosition.depthAlignment = kDepthCenterAligned;
+    //coverArtAssetBox->setCoordDepth(coordDepth);
+
+    beatlightAssetPosition.horizontalAlignment = kLeftAligned;
+    beatlightAssetPosition.verticalAlignment = kBottomAligned;
+    beatlightAssetPosition.verticalCoordOffset = VisualActorGraphics::yPixelToCoord(220, aCamera);
+
+    this->beatlightAsset.setPosition(beatlightAssetPosition);
+
+    beatlightAssetBox->update();        // VisualStageBox only updates automatically on value changed, after canvas reshape event we have to update manually (before calculating scaleFactor) 
+    beatlightAssetBox->setScalingBehaviour(kPreserveAspectRatio);
+
+    VisualVertex *aVertex = NULL;
+
+    beatlightAssetBox->initializeVertexChain(this->vertexChainId);
+
+    aVertex = beatlightAssetBox->createVertex(0.0, 1.0, 0.5, 0.0, 1.0);
+    beatlightAssetBox->addVertexToChain(this->vertexChainId, aVertex);
+
+    aVertex = beatlightAssetBox->createVertex(0.0, 0.0, 0.5, 0.0, 0.0);
+    beatlightAssetBox->addVertexToChain(this->vertexChainId, aVertex);
+
+    aVertex = beatlightAssetBox->createVertex(1.0, 0.0, 0.5, 1.0, 0.0);
+    beatlightAssetBox->addVertexToChain(this->vertexChainId, aVertex);
+
+    aVertex = beatlightAssetBox->createVertex(1.0, 1.0, 0.5, 1.0, 1.0);
+    beatlightAssetBox->addVertexToChain(this->vertexChainId, aVertex);
 
 }

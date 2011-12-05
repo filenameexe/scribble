@@ -42,155 +42,169 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualNotification::VisualNotification() {
-	notificationEnumKey = kNoNotificationKey;
-	notificationValue = NULL;
-	notificationValueLength = 0;
-	callbackFunction = NULL;
-	userData = NULL;
+VisualNotification::VisualNotification()
+{
+    notificationEnumKey = kNoNotificationKey;
+    notificationValue = NULL;
+    notificationValueLength = 0;
+    callbackFunction = NULL;
+    userData = NULL;
 }
 
 
-VisualNotification::~VisualNotification() {
-	if (notificationValue != NULL) {
-		free(notificationValue);
-	}
+VisualNotification::~VisualNotification()
+{
+    if (notificationValue != NULL) {
+        free(notificationValue);
+    }
 }
 
 
-VisualNotification::VisualNotification(const VisualNotification& other) {
-	copy(other);
+VisualNotification::VisualNotification(const VisualNotification & other)
+{
+    copy(other);
 }
 
 
-VisualNotification& VisualNotification::operator=(const VisualNotification& other) {
-	if (this != &other) {
-		if (this->notificationValue != NULL) {
-			free(this->notificationValue);
-		}
-		this->copy(other);
-	}
-	return *this;
+VisualNotification & VisualNotification::operator=(const VisualNotification & other)
+{
+    if (this != &other) {
+        if (this->notificationValue != NULL) {
+            free(this->notificationValue);
+        }
+        this->copy(other);
+    }
+    return *this;
 }
 
 
-void VisualNotification::copy(const VisualNotification& other) {
-	this->notificationEnumKey = other.notificationEnumKey;
-	if (other.notificationValue != NULL) {
-		this->notificationValue = (void*)malloc(other.notificationValueLength * sizeof(unsigned char));
-		memcpy(this->notificationValue, other.notificationValue, other.notificationValueLength);
-	} else {
-		this->notificationValue = NULL;
-	}
-	this->notificationValueLength = other.notificationValueLength;
-	this->callbackFunction = other.callbackFunction;
-	this->userData = other.userData;
+void VisualNotification::copy(const VisualNotification & other)
+{
+    this->notificationEnumKey = other.notificationEnumKey;
+    if (other.notificationValue != NULL) {
+        this->notificationValue = (void *) malloc(other.notificationValueLength * sizeof(unsigned char));
+        memcpy(this->notificationValue, other.notificationValue, other.notificationValueLength);
+    } else {
+        this->notificationValue = NULL;
+    }
+    this->notificationValueLength = other.notificationValueLength;
+    this->callbackFunction = other.callbackFunction;
+    this->userData = other.userData;
 }
 
 
-void VisualNotification::setKey(const VisualNotificationKey aKey) {
+void VisualNotification::setKey(const VisualNotificationKey aKey)
+{
     this->notificationEnumKey = aKey;
 }
 
 
-VisualNotificationKey VisualNotification::getKey() const {
-	return this->notificationEnumKey;
+VisualNotificationKey VisualNotification::getKey() const const
+{
+    return this->notificationEnumKey;
 }
 
 
-void VisualNotification::setValue(const void* const aValue, UInt32 valueLengthInBytes) {
-	if (this->notificationValue != NULL) {
-		free(this->notificationValue);
-		this->notificationValue = NULL;
-	}
-	this->notificationValue = (void*)malloc(valueLengthInBytes * sizeof(char));
-	memcpy(this->notificationValue, aValue, valueLengthInBytes);
-	this->notificationValueLength = valueLengthInBytes;
+void VisualNotification::setValue(const void *const aValue, UInt32 valueLengthInBytes)
+{
+    if (this->notificationValue != NULL) {
+        free(this->notificationValue);
+        this->notificationValue = NULL;
+    }
+    this->notificationValue = (void *) malloc(valueLengthInBytes * sizeof(char));
+    memcpy(this->notificationValue, aValue, valueLengthInBytes);
+    this->notificationValueLength = valueLengthInBytes;
 }
 
 
-const void* const VisualNotification::getValue(UInt32& numberOfBytes) const {
-	numberOfBytes = this->notificationValueLength;
+const void *const VisualNotification::getValue(UInt32 & numberOfBytes) const const
+{
+    numberOfBytes = this->notificationValueLength;
     return this->notificationValue;
 }
 
 
-void VisualNotification::setCallbackFunction(VisualNotificationCallback aCallbackFunction, void* someUserData) {
-	this->callbackFunction = aCallbackFunction;
-	this->userData = someUserData;
+void VisualNotification::setCallbackFunction(VisualNotificationCallback aCallbackFunction, void *someUserData)
+{
+    this->callbackFunction = aCallbackFunction;
+    this->userData = someUserData;
 }
 
 
-void VisualNotification::post() {
-	VisualNotificationQueue::push(*this);
+void VisualNotification::post()
+{
+    VisualNotificationQueue::push(*this);
 }
 
 
-void VisualNotification::callCallbackFunction() {
-	this->callbackFunction(this->userData);
+void VisualNotification::callCallbackFunction()
+{
+    this->callbackFunction(this->userData);
 }
 
 
-void VisualNotification::post(const VisualNotificationKey aKey) {
-	VisualNotification aNotification;
-	aNotification.setKey(aKey);
-	VisualNotificationQueue::push(aNotification);
+void VisualNotification::post(const VisualNotificationKey aKey)
+{
+    VisualNotification aNotification;
+    aNotification.setKey(aKey);
+    VisualNotificationQueue::push(aNotification);
 }
 
 
-void VisualNotification::convertNotificationKeyToString(const VisualNotificationKey aKey, char* outString) {
-	char* messageString;
-	switch (aKey) {
-		case kNoNotificationKey:
-			messageString = "kNoNotificationKey";
-			break;
-		case kKeyPressedEvt:
-			messageString = "kKeyPressedEvt";
-			break;
-		case kAudioPlayStartedEvt:
-			messageString = "kAudioPlayStartedEvt";
-			break;
-		case kAudioPlayStoppedEvt:
-			messageString = "kAudioPlayStoppedEvt";
-			break;
-		case kAudioPlayPausedEvt:
-			messageString = "kAudioPlayPausedEvt";
-			break;
-		case kAudioPlayResumedEvt:
-			messageString = "kAudioPlayResumedEvt";
-			break;
-		case kAudioPlayReachedFadeOutTimeBeforeEndOfTrackEvt:
-			messageString = "kAudioPlayReachedFadeOutTimeBeforeEndOfTrackEvt";
-			break;
-		case kToggleShowProcessMonitorMsg:
-			messageString = "kToggleShowProcessMonitorMsg";
-			break;
-		case kToggleProcessMonitorAudioInfoMsg:
-			messageString = "kToggleProcessMonitorAudioInfoMsg";
-			break;
-		case kCanvasReshapeEvt:
-			messageString = "kCanvasReshapeEvt";
-			break;
-		case kAudioMetadataIsAvailableMsg:
-			messageString = "kAudioMetadataIsAvailableMsg";
-			break;
-		case kTrackInfoTextureIsAvailableMsg:
-			messageString = "kTrackInfoTextureIsAvailableMsg";
-			break;
-		case kCoverTextureIsAvailableMsg:
-			messageString = "kCoverTextureIsAvailableMsg";
-			break;
-		case kLyricsAreAvailableMsg:
-			messageString = "kLyricsAreAvailableMsg";
-			break;
-		case kLyricsTextureIsAvailableMsg:
-			messageString = "kLyricsTextureIsAvailableMsg";
-			break;
-		case kTrackInfoTextureChangedMsg:
-			messageString = "kTrackInfoTextureChangedMsg";
-			break;
-		default:
-			messageString = "unknownNotificationKey";
-	}
-	strcpy(outString, messageString);
+void VisualNotification::convertNotificationKeyToString(const VisualNotificationKey aKey, char *outString)
+{
+    char *messageString;
+    switch (aKey) {
+    case kNoNotificationKey:
+        messageString = "kNoNotificationKey";
+        break;
+    case kKeyPressedEvt:
+        messageString = "kKeyPressedEvt";
+        break;
+    case kAudioPlayStartedEvt:
+        messageString = "kAudioPlayStartedEvt";
+        break;
+    case kAudioPlayStoppedEvt:
+        messageString = "kAudioPlayStoppedEvt";
+        break;
+    case kAudioPlayPausedEvt:
+        messageString = "kAudioPlayPausedEvt";
+        break;
+    case kAudioPlayResumedEvt:
+        messageString = "kAudioPlayResumedEvt";
+        break;
+    case kAudioPlayReachedFadeOutTimeBeforeEndOfTrackEvt:
+        messageString = "kAudioPlayReachedFadeOutTimeBeforeEndOfTrackEvt";
+        break;
+    case kToggleShowProcessMonitorMsg:
+        messageString = "kToggleShowProcessMonitorMsg";
+        break;
+    case kToggleProcessMonitorAudioInfoMsg:
+        messageString = "kToggleProcessMonitorAudioInfoMsg";
+        break;
+    case kCanvasReshapeEvt:
+        messageString = "kCanvasReshapeEvt";
+        break;
+    case kAudioMetadataIsAvailableMsg:
+        messageString = "kAudioMetadataIsAvailableMsg";
+        break;
+    case kTrackInfoTextureIsAvailableMsg:
+        messageString = "kTrackInfoTextureIsAvailableMsg";
+        break;
+    case kCoverTextureIsAvailableMsg:
+        messageString = "kCoverTextureIsAvailableMsg";
+        break;
+    case kLyricsAreAvailableMsg:
+        messageString = "kLyricsAreAvailableMsg";
+        break;
+    case kLyricsTextureIsAvailableMsg:
+        messageString = "kLyricsTextureIsAvailableMsg";
+        break;
+    case kTrackInfoTextureChangedMsg:
+        messageString = "kTrackInfoTextureChangedMsg";
+        break;
+    default:
+        messageString = "unknownNotificationKey";
+    }
+    strcpy(outString, messageString);
 }

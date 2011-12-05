@@ -43,136 +43,155 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualEnsemble::VisualEnsemble() {
+VisualEnsemble::VisualEnsemble()
+{
     visualActorIterIndex = 0;
 }
 
 
-VisualEnsemble::~VisualEnsemble() {
+VisualEnsemble::~VisualEnsemble()
+{
 
-	for (VisualEnsembleActorsIterator it = this->visualEnsembleActors.begin(); it != this->visualEnsembleActors.end(); it++) {
-		delete *it;
-	}
+    for (VisualEnsembleActorsIterator it = this->visualEnsembleActors.begin(); it != this->visualEnsembleActors.end();
+         it++) {
+        delete *it;
+    }
 
-	visualEnsembleActors.clear();
-	observerMap.clear();
+    visualEnsembleActors.clear();
+    observerMap.clear();
 }
 
 
-VisualEnsemble::VisualEnsemble(const VisualEnsemble& other) {
-	copy(other);
+VisualEnsemble::VisualEnsemble(const VisualEnsemble & other)
+{
+    copy(other);
 }
 
 
-VisualEnsemble& VisualEnsemble::operator=(const VisualEnsemble& other) {
+VisualEnsemble & VisualEnsemble::operator=(const VisualEnsemble & other)
+{
 
-	if (this == &other) return *this;
-	
-	for (VisualEnsembleActorsIterator it = this->visualEnsembleActors.begin(); it != this->visualEnsembleActors.end(); it++) {
-		delete *it;
-	}
-	visualEnsembleActors.clear();
-	
-	this->copy(other);
+    if (this == &other)
+        return *this;
 
-	return *this;
+    for (VisualEnsembleActorsIterator it = this->visualEnsembleActors.begin(); it != this->visualEnsembleActors.end();
+         it++) {
+        delete *it;
+    }
+    visualEnsembleActors.clear();
+
+    this->copy(other);
+
+    return *this;
 }
 
 
-void VisualEnsemble::copy(const VisualEnsemble& other) {
-	this->visualActorIterIndex = other.visualActorIterIndex;
-	this->visualEnsembleActors = other.visualEnsembleActors;
-	this->observerMap = other.observerMap;
+void VisualEnsemble::copy(const VisualEnsemble & other)
+{
+    this->visualActorIterIndex = other.visualActorIterIndex;
+    this->visualEnsembleActors = other.visualEnsembleActors;
+    this->observerMap = other.observerMap;
 }
 
 
-void VisualEnsemble::showEnsemble(const VisualPlayerState& visualPlayerState) {
+void VisualEnsemble::showEnsemble(const VisualPlayerState & visualPlayerState)
+{
     uint16 graphicErrorNum;
     char graphicErrorString[256];
-	VisualEnsembleActorsIterator it;
+    VisualEnsembleActorsIterator it;
 
-	for (it = this->visualEnsembleActors.begin(); it != this->visualEnsembleActors.end(); it++) {
-	
-		graphicErrorNum = (*it)->getError(graphicErrorString);
-		if (graphicErrorNum != 0) {
-			const char* visualActorName;
-			char logStr[512];
-			visualActorName = (*it)->getName();
-			sprintf(logStr, "GL error: showEnsemble: detected before show of Actor: %s: %s", visualActorName, graphicErrorString);
-			writeLog(logStr);
-		}
-		
+    for (it = this->visualEnsembleActors.begin(); it != this->visualEnsembleActors.end(); it++) {
+
+        graphicErrorNum = (*it)->getError(graphicErrorString);
+        if (graphicErrorNum != 0) {
+            const char *visualActorName;
+            char logStr[512];
+            visualActorName = (*it)->getName();
+            sprintf(logStr, "GL error: showEnsemble: detected before show of Actor: %s: %s", visualActorName,
+                    graphicErrorString);
+            writeLog(logStr);
+        }
+
         if ((*it)->getState() == kVisActNoShow) {
-			continue;
-		}
-		
-		VisualActorGraphics::resetModelViewMatrix();
+            continue;
+        }
 
-		(*it)->show(visualPlayerState); // show
+        VisualActorGraphics::resetModelViewMatrix();
 
-		graphicErrorNum = (*it)->getError(graphicErrorString);
-		if (graphicErrorNum != 0) {
-			const char* visualActorName;
-			char logStr[512];
-			visualActorName = (*it)->getName();
-			sprintf(logStr, "GL error: showEnsemble: detected after show of Actor: %s: %s", visualActorName, graphicErrorString);
-			writeLog(logStr);
-		}
-		
-	}
+        (*it)->show(visualPlayerState); // show
+
+        graphicErrorNum = (*it)->getError(graphicErrorString);
+        if (graphicErrorNum != 0) {
+            const char *visualActorName;
+            char logStr[512];
+            visualActorName = (*it)->getName();
+            sprintf(logStr, "GL error: showEnsemble: detected after show of Actor: %s: %s", visualActorName,
+                    graphicErrorString);
+            writeLog(logStr);
+        }
+
+    }
 
 }
 
 
-void VisualEnsemble::addEnsembleMember(VisualActor* aVisualActor) {
-	this->visualEnsembleActors.push_back(aVisualActor);
+void VisualEnsemble::addEnsembleMember(VisualActor * aVisualActor)
+{
+    this->visualEnsembleActors.push_back(aVisualActor);
 }
 
 
-void VisualEnsemble::registerObserverForNotification(VisualActor* aVisualActor, const VisualNotificationKey aNotificationKey) {
-	this->observerMap.insert(std::make_pair(aNotificationKey, aVisualActor));
+void VisualEnsemble::registerObserverForNotification(VisualActor * aVisualActor,
+                                                     const VisualNotificationKey aNotificationKey)
+{
+    this->observerMap.insert(std::make_pair(aNotificationKey, aVisualActor));
 }
 
 
-void VisualEnsemble::removeObserverOfNotification(VisualActor* aVisualActor, const VisualNotificationKey aNotificationKey) {
-	const char* firstName;
-	const char* secondName;
-	
-	firstName = aVisualActor->getName();
+void VisualEnsemble::removeObserverOfNotification(VisualActor * aVisualActor,
+                                                  const VisualNotificationKey aNotificationKey)
+{
+    const char *firstName;
+    const char *secondName;
 
-	ObserverMapIterator it = this->observerMap.lower_bound(aNotificationKey);
-	while (it != this->observerMap.upper_bound(aNotificationKey)) {
-		secondName = it->second->getName();
-		if (strcmp(firstName, secondName) == 0) {
-			delete it->second;
-			this->observerMap.erase(it++); // increment iterator, then call erase with old iterator
-			// after erase, accessing iterator (for increment) is invalid
-		} else {
-			it++;
-		}
-	}
+    firstName = aVisualActor->getName();
+
+    ObserverMapIterator it = this->observerMap.lower_bound(aNotificationKey);
+    while (it != this->observerMap.upper_bound(aNotificationKey)) {
+        secondName = it->second->getName();
+        if (strcmp(firstName, secondName) == 0) {
+            delete it->second;
+            this->observerMap.erase(it++);      // increment iterator, then call erase with old iterator
+            // after erase, accessing iterator (for increment) is invalid
+        } else {
+            it++;
+        }
+    }
 }
 
 
-void VisualEnsemble::dispatchNotification(VisualNotification& aNotification) {
-	ObserverMapIterator it;
-	VisualNotificationKey aNotificationKey = aNotification.getKey();
-	
-	it = this->observerMap.find(aNotificationKey);
-	if (it == this->observerMap.end()) return;
-	
-	for (it = this->observerMap.lower_bound(aNotificationKey); it != this->observerMap.upper_bound(aNotificationKey); it++) {
-		it->second->handleNotification(aNotification);
-	}
+void VisualEnsemble::dispatchNotification(VisualNotification & aNotification)
+{
+    ObserverMapIterator it;
+    VisualNotificationKey aNotificationKey = aNotification.getKey();
+
+    it = this->observerMap.find(aNotificationKey);
+    if (it == this->observerMap.end())
+        return;
+
+    for (it = this->observerMap.lower_bound(aNotificationKey); it != this->observerMap.upper_bound(aNotificationKey);
+         it++) {
+        it->second->handleNotification(aNotification);
+    }
 }
 
 
-VisualActor* VisualEnsemble::getVisualActorByName(const char* const aVisualActorName) {
-	for (VisualEnsembleActorsIterator it = visualEnsembleActors.begin(); it != visualEnsembleActors.end(); it++) {
-		if (strcmp((*it)->getName(), aVisualActorName) == 0) {
-			return (*it);
-		}
-	}
-	return NULL;
+VisualActor *VisualEnsemble::getVisualActorByName(const char *const aVisualActorName)
+{
+    for (VisualEnsembleActorsIterator it = visualEnsembleActors.begin(); it != visualEnsembleActors.end(); it++) {
+        if (strcmp((*it)->getName(), aVisualActorName) == 0) {
+            return (*it);
+        }
+    }
+    return NULL;
 }
-

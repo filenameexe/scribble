@@ -8,5 +8,6 @@
 #include "Shader.hpp"
 
 Shader::Shader()
-	: enabled(false)
-	{}
+:  enabled(false)
+{
+}

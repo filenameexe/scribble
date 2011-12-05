@@ -40,36 +40,43 @@ using namespace VizKit;
 
 
 
-UInt16 VisualHostCommunication::getCurrentTrackCoverArt(OSType* albumCoverArtworkFileType, Handle* albumCoverArtworkHandle) {
+UInt16 VisualHostCommunication::getCurrentTrackCoverArt(OSType * albumCoverArtworkFileType,
+                                                        Handle * albumCoverArtworkHandle)
+{
 
-	UInt16 numberOfArtworks = 0;
+    UInt16 numberOfArtworks = 0;
 
-	OSStatus status = PlayerGetCurrentTrackCoverArt(VisualSignature::getAppCookie(), VisualSignature::getAppProc(), albumCoverArtworkHandle, albumCoverArtworkFileType);
+    OSStatus status =
+        PlayerGetCurrentTrackCoverArt(VisualSignature::getAppCookie(), VisualSignature::getAppProc(),
+                                      albumCoverArtworkHandle, albumCoverArtworkFileType);
     if (status != noErr) {
         //writeLog("Error at VisualDataStore.evaluateCoverArtInfo");
     }
-	HLock(*albumCoverArtworkHandle);
-	Size coverArtHandleBlockSize = GetHandleSize(*albumCoverArtworkHandle); // win: malloc.h: _msize(coverArtHandle) (?)
-	if (coverArtHandleBlockSize == 0) {
-		*albumCoverArtworkFileType = (OSType)NULL;
+    HLock(*albumCoverArtworkHandle);
+    Size coverArtHandleBlockSize = GetHandleSize(*albumCoverArtworkHandle);     // win: malloc.h: _msize(coverArtHandle) (?)
+    if (coverArtHandleBlockSize == 0) {
+        *albumCoverArtworkFileType = (OSType) NULL;
     } else {
-		numberOfArtworks = 1;
+        numberOfArtworks = 1;
     }
-	HUnlock(*albumCoverArtworkHandle);
+    HUnlock(*albumCoverArtworkHandle);
 
-	return numberOfArtworks;
+    return numberOfArtworks;
 }
 
 
-OSStatus VisualHostCommunication::setPreferredDisplayResolution(UInt16 minBitsPerPixel, UInt16 maxBitsPerPixel, UInt16 preferredBitsPerPixel, UInt16 horizontalPixels, UInt16 verticalPixels) {
+OSStatus VisualHostCommunication::setPreferredDisplayResolution(UInt16 minBitsPerPixel, UInt16 maxBitsPerPixel,
+                                                                UInt16 preferredBitsPerPixel, UInt16 horizontalPixels,
+                                                                UInt16 verticalPixels)
+{
 
-	OSStatus osStatus = PlayerSetFullScreenOptions(VisualSignature::getAppCookie(), 
-											VisualSignature::getAppProc(), 
-											minBitsPerPixel, 
-											maxBitsPerPixel, 
-											preferredBitsPerPixel, 
-											horizontalPixels, 
-											verticalPixels);
+    OSStatus osStatus = PlayerSetFullScreenOptions(VisualSignature::getAppCookie(),
+                                                   VisualSignature::getAppProc(),
+                                                   minBitsPerPixel,
+                                                   maxBitsPerPixel,
+                                                   preferredBitsPerPixel,
+                                                   horizontalPixels,
+                                                   verticalPixels);
 
-	return osStatus;
+    return osStatus;
 }

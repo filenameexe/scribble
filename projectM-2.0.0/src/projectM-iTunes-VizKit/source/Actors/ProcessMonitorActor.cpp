@@ -44,73 +44,84 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-ProcessMonitorActor::ProcessMonitorActor() {
-	strcpy(actorName, "PROCESSMONITOR");
+ProcessMonitorActor::ProcessMonitorActor()
+{
+    strcpy(actorName, "PROCESSMONITOR");
     state = kVisActOn;
-	showAudioInfoBool = true;
-	elapsedAudioTime = 0;
-	remainingAudioTime = 0;
-	processMonitor = new ProcessMonitor;
+    showAudioInfoBool = true;
+    elapsedAudioTime = 0;
+    remainingAudioTime = 0;
+    processMonitor = new ProcessMonitor;
 }
 
 
-ProcessMonitorActor::~ProcessMonitorActor() {
-	delete processMonitor;
+ProcessMonitorActor::~ProcessMonitorActor()
+{
+    delete processMonitor;
 }
 
 
-void ProcessMonitorActor::prepareShow(const VisualPlayerState& visualPlayerState) {
-	this->elapsedAudioTime = visualPlayerState.getElapsedAudioTime();
-	this->remainingAudioTime = visualPlayerState.getRemainingAudioTime();
+void ProcessMonitorActor::prepareShow(const VisualPlayerState & visualPlayerState)
+{
+    this->elapsedAudioTime = visualPlayerState.getElapsedAudioTime();
+    this->remainingAudioTime = visualPlayerState.getRemainingAudioTime();
     processMonitor->prepareProcessMonitorShow();
 }
 
 
-void ProcessMonitorActor::show() {
+void ProcessMonitorActor::show()
+{
     processMonitor->showInfoStrings();
-	if (this->showAudioInfoBool == true) {
-		processMonitor->showAudioInfo(elapsedAudioTime, remainingAudioTime);
-	}
+    if (this->showAudioInfoBool == true) {
+        processMonitor->showAudioInfo(elapsedAudioTime, remainingAudioTime);
+    }
 }
 
 
-void ProcessMonitorActor::finishShow() {
+void ProcessMonitorActor::finishShow()
+{
     processMonitor->finishProcessMonitorShow();
 }
 
 
-void ProcessMonitorActor::handleNotification(const VisualNotification& aNotification) {
-	//VisualActor::handleNotification(aNotification); // debug
+void ProcessMonitorActor::handleNotification(const VisualNotification & aNotification)
+{
+    //VisualActor::handleNotification(aNotification); // debug
 
-	VisualNotificationKey notificationKey = aNotification.getKey();
-	
-	switch (notificationKey) {
-		case kCanvasReshapeEvt:
-			processMonitor->updateProgressMeterVertices();
-			break;
-		default:
-			writeLog("unhandled Notification in ProcessMonitorActor");
-			break;
-	}
+    VisualNotificationKey notificationKey = aNotification.getKey();
+
+    switch (notificationKey) {
+    case kCanvasReshapeEvt:
+        processMonitor->updateProgressMeterVertices();
+        break;
+    default:
+        writeLog("unhandled Notification in ProcessMonitorActor");
+        break;
+    }
 
 }
 
 
-void ProcessMonitorActor::setState(const VisualActorState aVisualActorState) {
+void ProcessMonitorActor::setState(const VisualActorState aVisualActorState)
+{
     this->state = aVisualActorState;
 }
 
 
-void ProcessMonitorActor::registerProcessMonitorInfoMap(const std::map<std::string, std::string>* const processMonitorInfoMap) {
-	processMonitor->registerProcessMonitorInfoMap(processMonitorInfoMap);
+void ProcessMonitorActor::registerProcessMonitorInfoMap(const std::map < std::string,
+                                                        std::string > *const processMonitorInfoMap)
+{
+    processMonitor->registerProcessMonitorInfoMap(processMonitorInfoMap);
 }
 
 
-bool ProcessMonitorActor::isAudioInfoShown() {
-	return this->showAudioInfoBool;
+bool ProcessMonitorActor::isAudioInfoShown()
+{
+    return this->showAudioInfoBool;
 }
 
 
-void ProcessMonitorActor::setShowAudioInfo(bool requestedAudioInfoState) {
-	this->showAudioInfoBool = requestedAudioInfoState;
+void ProcessMonitorActor::setShowAudioInfo(bool requestedAudioInfoState)
+{
+    this->showAudioInfoBool = requestedAudioInfoState;
 }

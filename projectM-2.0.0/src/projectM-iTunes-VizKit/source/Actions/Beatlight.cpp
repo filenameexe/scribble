@@ -49,46 +49,51 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-Beatlight::Beatlight() {
-	addSpotlightImage();
+Beatlight::Beatlight()
+{
+    addSpotlightImage();
 }
 
 
-void Beatlight::prepareBeatlightShow() {
+void Beatlight::prepareBeatlightShow()
+{
 }
 
 
-void Beatlight::showBeatlight() {
+void Beatlight::showBeatlight()
+{
 
-	this->beatlightAsset.draw(kFrontVertexChain);
-	
-	/*
-    if (theVisualAudioLab->getBeatImpulse() == 1) {
-        ageLimit = maxLifetimeMilliSec;
-        //pTiming->clearMyTimeStore(timeStoreIndex);
-        VisualTiming::resetTimestamp("Beatlight");
-        timeToLive = ageLimit;
-    } else {
-        if ((ageLimit-elapsedMilliseconds) > 0) {
-            ageLimit -= elapsedMilliseconds;
-            timeToLive = ageLimit;
-        } else {
-            timeToLive = 0;
-        }
-    }
-	*/
-	
+    this->beatlightAsset.draw(kFrontVertexChain);
+
+    /*
+       if (theVisualAudioLab->getBeatImpulse() == 1) {
+       ageLimit = maxLifetimeMilliSec;
+       //pTiming->clearMyTimeStore(timeStoreIndex);
+       VisualTiming::resetTimestamp("Beatlight");
+       timeToLive = ageLimit;
+       } else {
+       if ((ageLimit-elapsedMilliseconds) > 0) {
+       ageLimit -= elapsedMilliseconds;
+       timeToLive = ageLimit;
+       } else {
+       timeToLive = 0;
+       }
+       }
+     */
+
 }
 
 
-void Beatlight::finishBeatlightShow() {
+void Beatlight::finishBeatlightShow()
+{
 }
 
- 
-void Beatlight::addSpotlightImage() {
 
-	VisualImage spotlightImage;
-	spotlightImage.initWithResource(SPOTPNG);
+void Beatlight::addSpotlightImage()
+{
+
+    VisualImage spotlightImage;
+    spotlightImage.initWithResource(SPOTPNG);
 
 /*
 	VisualFile* inputFile = VisualFile::createWithUserDesktopDirectory();
@@ -99,16 +104,16 @@ void Beatlight::addSpotlightImage() {
 	delete(inputFile);
 */
 
-	//VisualString url("http://www.imagomat.de/images/coverversion/screen_mac.png");
-	//VisualImage* spotlightImage = VisualImage::createWithURL(url);
-	
-	if (!spotlightImage.isEmpty()) {
-		
-		this->beatlightAsset.setImage(spotlightImage);
+    //VisualString url("http://www.imagomat.de/images/coverversion/screen_mac.png");
+    //VisualImage* spotlightImage = VisualImage::createWithURL(url);
 
-		VisualStageBox* beatlightAssetBox = this->beatlightAsset.getBox();
-		beatlightAssetBox->setContentPixelWidth(spotlightImage.getWidth());
-		beatlightAssetBox->setContentPixelHeight(spotlightImage.getHeight());
+    if (!spotlightImage.isEmpty()) {
+
+        this->beatlightAsset.setImage(spotlightImage);
+
+        VisualStageBox *beatlightAssetBox = this->beatlightAsset.getBox();
+        beatlightAssetBox->setContentPixelWidth(spotlightImage.getWidth());
+        beatlightAssetBox->setContentPixelHeight(spotlightImage.getHeight());
 
 /*
 		VisualFile outputFile;
@@ -122,46 +127,47 @@ void Beatlight::addSpotlightImage() {
 		}
 */
 
-		this->calcPositionOnScreen();
+        this->calcPositionOnScreen();
 
-		VisualAnimation pulsateAnimation(kAnimatedOpacity);
-		UInt32 durationInMilliseconds = 550;
-		pulsateAnimation.setDurationInMilliseconds(durationInMilliseconds);
-		pulsateAnimation.setLoopMode(kMirroredLoop, kInfiniteRepetition);
-		this->beatlightAsset.addAnimation(pulsateAnimation);
+        VisualAnimation pulsateAnimation(kAnimatedOpacity);
+        UInt32 durationInMilliseconds = 550;
+        pulsateAnimation.setDurationInMilliseconds(durationInMilliseconds);
+        pulsateAnimation.setLoopMode(kMirroredLoop, kInfiniteRepetition);
+        this->beatlightAsset.addAnimation(pulsateAnimation);
 
-	}
-	
+    }
+
 }
 
 
-void Beatlight::calcPositionOnScreen() {
+void Beatlight::calcPositionOnScreen()
+{
 
-	VisualStagePosition beatlightAssetPosition = this->beatlightAsset.getPosition();
+    VisualStagePosition beatlightAssetPosition = this->beatlightAsset.getPosition();
 
-	beatlightAssetPosition.reset();
-	
-	beatlightAssetPosition.horizontalAlignment = kRightAligned;
-	beatlightAssetPosition.verticalAlignment = kTopAligned;
+    beatlightAssetPosition.reset();
 
-	beatlightAssetPosition.minMarginBottom = 5;
-	beatlightAssetPosition.minMarginBottomUnit = kPixel;
+    beatlightAssetPosition.horizontalAlignment = kRightAligned;
+    beatlightAssetPosition.verticalAlignment = kTopAligned;
 
-	beatlightAssetPosition.minMarginTop = 20;
-	beatlightAssetPosition.minMarginTopUnit = kPixel;
+    beatlightAssetPosition.minMarginBottom = 5;
+    beatlightAssetPosition.minMarginBottomUnit = kPixel;
 
-	beatlightAssetPosition.minMarginLeft = 5;
-	beatlightAssetPosition.minMarginLeftUnit = kPixel;
+    beatlightAssetPosition.minMarginTop = 20;
+    beatlightAssetPosition.minMarginTopUnit = kPixel;
 
-	beatlightAssetPosition.minMarginRight = 20;
-	beatlightAssetPosition.minMarginRightUnit = kPixel;
-	
-	this->beatlightAsset.setPosition(beatlightAssetPosition);
-	
-	VisualStageBox* beatlightAssetBox = this->beatlightAsset.getBox();
-	beatlightAssetBox->update(); // VisualStageBox only updates automatically on value changed, after canvas reshape event we have to update manually (before calculating scaleFactor) 
-	beatlightAssetBox->setScalingBehaviour(kPreserveAspectRatio);
-	
-	this->beatlightAsset.generateVertexChain(kFrontVertexChain);
+    beatlightAssetPosition.minMarginLeft = 5;
+    beatlightAssetPosition.minMarginLeftUnit = kPixel;
+
+    beatlightAssetPosition.minMarginRight = 20;
+    beatlightAssetPosition.minMarginRightUnit = kPixel;
+
+    this->beatlightAsset.setPosition(beatlightAssetPosition);
+
+    VisualStageBox *beatlightAssetBox = this->beatlightAsset.getBox();
+    beatlightAssetBox->update();        // VisualStageBox only updates automatically on value changed, after canvas reshape event we have to update manually (before calculating scaleFactor) 
+    beatlightAssetBox->setScalingBehaviour(kPreserveAspectRatio);
+
+    this->beatlightAsset.generateVertexChain(kFrontVertexChain);
 
 }

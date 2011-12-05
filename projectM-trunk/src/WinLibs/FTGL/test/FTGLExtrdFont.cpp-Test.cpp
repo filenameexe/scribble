@@ -9,96 +9,87 @@
 
 extern void buildGLContext();
 
-class FTGLExtrdFontTest : public CppUnit::TestCase
-{
-    CPPUNIT_TEST_SUITE( FTGLExtrdFontTest);
-        CPPUNIT_TEST( testConstructor);
-        CPPUNIT_TEST( testRender);
-        CPPUNIT_TEST( testBadDisplayList);
-        CPPUNIT_TEST( testGoodDisplayList);
+class FTGLExtrdFontTest:public CppUnit::TestCase {
+    CPPUNIT_TEST_SUITE(FTGLExtrdFontTest);
+    CPPUNIT_TEST(testConstructor);
+    CPPUNIT_TEST(testRender);
+    CPPUNIT_TEST(testBadDisplayList);
+    CPPUNIT_TEST(testGoodDisplayList);
     CPPUNIT_TEST_SUITE_END();
-        
-    public:
-        FTGLExtrdFontTest() : CppUnit::TestCase( "FTGLExtrdFont Test")
-        {
-        }
-        
-        FTGLExtrdFontTest( const std::string& name) : CppUnit::TestCase(name) {}
-        
-        ~FTGLExtrdFontTest()
-        {
-        }
-        
-        void testConstructor()
-        {
-            buildGLContext();
-        
-            FTGLExtrdFont* extrudedFont = new FTGLExtrdFont( FONT_FILE);            
-            CPPUNIT_ASSERT( extrudedFont->Error() == 0);
-        
-            CPPUNIT_ASSERT( glGetError() == GL_NO_ERROR);        
-        }
 
-        void testRender()
-        {
-            buildGLContext();
-        
-            FTGLExtrdFont* extrudedFont = new FTGLExtrdFont( FONT_FILE);            
-            extrudedFont->Render(GOOD_ASCII_TEST_STRING);
+  public:
+    FTGLExtrdFontTest():CppUnit::TestCase("FTGLExtrdFont Test") {
+    } FTGLExtrdFontTest(const std::string & name):CppUnit::TestCase(name) {
+    }
 
-            CPPUNIT_ASSERT( extrudedFont->Error() == 0x97);   // Invalid pixels per em
-            CPPUNIT_ASSERT( glGetError() == GL_NO_ERROR);        
+    ~FTGLExtrdFontTest() {
+    }
 
-            extrudedFont->FaceSize(18);
-            extrudedFont->Render(GOOD_ASCII_TEST_STRING);
+    void testConstructor() {
+        buildGLContext();
 
-            CPPUNIT_ASSERT( extrudedFont->Error() == 0);        
-            CPPUNIT_ASSERT( glGetError() == GL_NO_ERROR);        
-        }
-        
-        void testBadDisplayList()
-        {
-            buildGLContext();
-        
-            FTGLExtrdFont* extrudedFont = new FTGLExtrdFont( FONT_FILE);
-            extrudedFont->FaceSize(18);
-            
-            int glList = glGenLists(1);
-            glNewList( glList, GL_COMPILE);
+        FTGLExtrdFont *extrudedFont = new FTGLExtrdFont(FONT_FILE);
+        CPPUNIT_ASSERT(extrudedFont->Error() == 0);
 
-                extrudedFont->Render(GOOD_ASCII_TEST_STRING);
+        CPPUNIT_ASSERT(glGetError() == GL_NO_ERROR);
+    }
 
-            glEndList();
+    void testRender() {
+        buildGLContext();
 
-            CPPUNIT_ASSERT( glGetError() == GL_INVALID_OPERATION);
-        }
-        
-        void testGoodDisplayList()
-        {
-            buildGLContext();
-        
-            FTGLExtrdFont* extrudedFont = new FTGLExtrdFont( FONT_FILE);
-            extrudedFont->FaceSize(18);
+        FTGLExtrdFont *extrudedFont = new FTGLExtrdFont(FONT_FILE);
+        extrudedFont->Render(GOOD_ASCII_TEST_STRING);
 
-            extrudedFont->UseDisplayList(false);
-            int glList = glGenLists(1);
-            glNewList( glList, GL_COMPILE);
+        CPPUNIT_ASSERT(extrudedFont->Error() == 0x97);  // Invalid pixels per em
+        CPPUNIT_ASSERT(glGetError() == GL_NO_ERROR);
 
-                extrudedFont->Render(GOOD_ASCII_TEST_STRING);
+        extrudedFont->FaceSize(18);
+        extrudedFont->Render(GOOD_ASCII_TEST_STRING);
 
-            glEndList();
+        CPPUNIT_ASSERT(extrudedFont->Error() == 0);
+        CPPUNIT_ASSERT(glGetError() == GL_NO_ERROR);
+    }
 
-            CPPUNIT_ASSERT( glGetError() == GL_NO_ERROR);
-        }
-        
-        void setUp() 
-        {}
-        
-        void tearDown() 
-        {}
-                    
-    private:
+    void testBadDisplayList() {
+        buildGLContext();
+
+        FTGLExtrdFont *extrudedFont = new FTGLExtrdFont(FONT_FILE);
+        extrudedFont->FaceSize(18);
+
+        int glList = glGenLists(1);
+        glNewList(glList, GL_COMPILE);
+
+        extrudedFont->Render(GOOD_ASCII_TEST_STRING);
+
+        glEndList();
+
+        CPPUNIT_ASSERT(glGetError() == GL_INVALID_OPERATION);
+    }
+
+    void testGoodDisplayList() {
+        buildGLContext();
+
+        FTGLExtrdFont *extrudedFont = new FTGLExtrdFont(FONT_FILE);
+        extrudedFont->FaceSize(18);
+
+        extrudedFont->UseDisplayList(false);
+        int glList = glGenLists(1);
+        glNewList(glList, GL_COMPILE);
+
+        extrudedFont->Render(GOOD_ASCII_TEST_STRING);
+
+        glEndList();
+
+        CPPUNIT_ASSERT(glGetError() == GL_NO_ERROR);
+    }
+
+    void setUp() {
+    }
+
+    void tearDown() {
+    }
+
+  private:
 };
 
-CPPUNIT_TEST_SUITE_REGISTRATION( FTGLExtrdFontTest);
-
+CPPUNIT_TEST_SUITE_REGISTRATION(FTGLExtrdFontTest);

@@ -39,17 +39,17 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualStringStyle::VisualStringStyle() {
-	fontNameStr[0] = '\0';
-	fontSize = 0.0f;
-	fontColor.r = 0.0f;
-	fontColor.g = 0.0f;
-	fontColor.b = 0.0f;
-	horizontalAlignment = kLeftAligned;
+VisualStringStyle::VisualStringStyle()
+{
+    fontNameStr[0] = '\0';
+    fontSize = 0.0f;
+    fontColor.r = 0.0f;
+    fontColor.g = 0.0f;
+    fontColor.b = 0.0f;
+    horizontalAlignment = kLeftAligned;
 }
 
-VisualStringStyle::~VisualStringStyle() {
-	
+VisualStringStyle::~VisualStringStyle()
+{
+
 }
-
-

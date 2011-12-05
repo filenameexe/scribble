@@ -41,205 +41,221 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualConvolutionFilter::VisualConvolutionFilter(const Effect effect, const UInt8 colCount, const UInt8 rowCount) {
+VisualConvolutionFilter::VisualConvolutionFilter(const Effect effect, const UInt8 colCount, const UInt8 rowCount)
+{
 
-	numberOfKernelValueColumns = colCount;
-	numberOfKernelValueRows = rowCount;
-	
-	postConvolutionScaleFactor = 1.0f;
-	postConvolutionBias = 0.0f;
-	
-	/* If the sum of all elements of the filter is 1, the resulting image has the same brightness as the original. */
-	
-	switch (effect) {
-	
-		case kNone:
-			break;
+    numberOfKernelValueColumns = colCount;
+    numberOfKernelValueRows = rowCount;
 
-		case kBlur:
-			for (UInt8 i = 0; i < (colCount * rowCount); i++) {
-				kernelValues.push_back(1.0f);
-			}
-			
-			postConvolutionScaleFactor = 1.0f / (float)(colCount * rowCount);
-			break;
+    postConvolutionScaleFactor = 1.0f;
+    postConvolutionBias = 0.0f;
 
-		case kMotionBlur:
-			numberOfKernelValueColumns = 5;
-			numberOfKernelValueRows = 5;
-			for (UInt8 i = 0; i < numberOfKernelValueColumns; i++) {
-				for (UInt8 k = 0; k < numberOfKernelValueRows; k++) {
-					if (k == i) {
-						kernelValues.push_back(1.0f);
-					} else {
-						kernelValues.push_back(0.0f);
-					}
-				}
-			}			
-			postConvolutionScaleFactor = 1.0f / (float)numberOfKernelValueColumns;
-			break;
+    /* If the sum of all elements of the filter is 1, the resulting image has the same brightness as the original. */
 
-		case kGaussianBlur:
-			kernelValues.push_back(1.0f);
-			kernelValues.push_back(2.0f);
-			kernelValues.push_back(1.0f);
-			kernelValues.push_back(2.0f);
-			kernelValues.push_back(4.0f);
-			kernelValues.push_back(2.0f);
-			kernelValues.push_back(1.0f);
-			kernelValues.push_back(2.0f);
-			kernelValues.push_back(1.0f);
-			postConvolutionScaleFactor = 1.0f / (float)16.0;
-			break;
+    switch (effect) {
 
-		case kLaplacian:
-			kernelValues.push_back(-0.125f);
-			kernelValues.push_back(-0.125f);
-			kernelValues.push_back(-0.125f);
-			kernelValues.push_back(-0.125f);
-			kernelValues.push_back(1.0f);
-			kernelValues.push_back(-0.125f);
-			kernelValues.push_back(-0.125f);
-			kernelValues.push_back(-0.125f);
-			kernelValues.push_back(-0.125f);
-			break;
+    case kNone:
+        break;
 
-		case kEdgeDetect:
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(8.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			break;
-			
-		case kSharpen:
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(9.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			break;
+    case kBlur:
+        for (UInt8 i = 0; i < (colCount * rowCount); i++) {
+            kernelValues.push_back(1.0f);
+        }
 
-		case kEmboss:
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(0.0f);
-			kernelValues.push_back(-1.0f);
-			kernelValues.push_back(0.0f);
-			kernelValues.push_back(1.0f);
-			kernelValues.push_back(0.0f);
-			kernelValues.push_back(1.0f);
-			kernelValues.push_back(1.0f);
-			postConvolutionBias = 128.0f;
-			break;
+        postConvolutionScaleFactor = 1.0f / (float) (colCount * rowCount);
+        break;
 
-		default:
-			char errStr[256];
-			sprintf(errStr, "unknown switch case (%d) in file: %s (line: %d) [%s])", effect, __FILE__, __LINE__, __FUNCTION__);
-			writeLog(errStr);
-	}
+    case kMotionBlur:
+        numberOfKernelValueColumns = 5;
+        numberOfKernelValueRows = 5;
+        for (UInt8 i = 0; i < numberOfKernelValueColumns; i++) {
+            for (UInt8 k = 0; k < numberOfKernelValueRows; k++) {
+                if (k == i) {
+                    kernelValues.push_back(1.0f);
+                } else {
+                    kernelValues.push_back(0.0f);
+                }
+            }
+        }
+        postConvolutionScaleFactor = 1.0f / (float) numberOfKernelValueColumns;
+        break;
+
+    case kGaussianBlur:
+        kernelValues.push_back(1.0f);
+        kernelValues.push_back(2.0f);
+        kernelValues.push_back(1.0f);
+        kernelValues.push_back(2.0f);
+        kernelValues.push_back(4.0f);
+        kernelValues.push_back(2.0f);
+        kernelValues.push_back(1.0f);
+        kernelValues.push_back(2.0f);
+        kernelValues.push_back(1.0f);
+        postConvolutionScaleFactor = 1.0f / (float) 16.0;
+        break;
+
+    case kLaplacian:
+        kernelValues.push_back(-0.125f);
+        kernelValues.push_back(-0.125f);
+        kernelValues.push_back(-0.125f);
+        kernelValues.push_back(-0.125f);
+        kernelValues.push_back(1.0f);
+        kernelValues.push_back(-0.125f);
+        kernelValues.push_back(-0.125f);
+        kernelValues.push_back(-0.125f);
+        kernelValues.push_back(-0.125f);
+        break;
+
+    case kEdgeDetect:
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(8.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        break;
+
+    case kSharpen:
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(9.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        break;
+
+    case kEmboss:
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(0.0f);
+        kernelValues.push_back(-1.0f);
+        kernelValues.push_back(0.0f);
+        kernelValues.push_back(1.0f);
+        kernelValues.push_back(0.0f);
+        kernelValues.push_back(1.0f);
+        kernelValues.push_back(1.0f);
+        postConvolutionBias = 128.0f;
+        break;
+
+    default:
+        char errStr[256];
+        sprintf(errStr, "unknown switch case (%d) in file: %s (line: %d) [%s])", effect, __FILE__, __LINE__,
+                __FUNCTION__);
+        writeLog(errStr);
+    }
 }
 
 
-VisualConvolutionFilter::~VisualConvolutionFilter() {
-	kernelValues.clear();
+VisualConvolutionFilter::~VisualConvolutionFilter()
+{
+    kernelValues.clear();
 }
 
 
-VisualConvolutionFilter::VisualConvolutionFilter(const VisualConvolutionFilter& other) {
-	copy(other);
+VisualConvolutionFilter::VisualConvolutionFilter(const VisualConvolutionFilter & other)
+{
+    copy(other);
 }
 
 
-VisualConvolutionFilter& VisualConvolutionFilter::operator=(const VisualConvolutionFilter& other) {
-	if (this != &other) {
-		this->copy(other);
-	}
-	return *this;
+VisualConvolutionFilter & VisualConvolutionFilter::operator=(const VisualConvolutionFilter & other)
+{
+    if (this != &other) {
+        this->copy(other);
+    }
+    return *this;
 }
 
 
-void VisualConvolutionFilter::copy(const VisualConvolutionFilter& other) {
-	this->kernelValues = other.kernelValues;
-	this->numberOfKernelValueColumns = other.numberOfKernelValueColumns;
-	this->numberOfKernelValueRows = other.numberOfKernelValueRows;
+void VisualConvolutionFilter::copy(const VisualConvolutionFilter & other)
+{
+    this->kernelValues = other.kernelValues;
+    this->numberOfKernelValueColumns = other.numberOfKernelValueColumns;
+    this->numberOfKernelValueRows = other.numberOfKernelValueRows;
 }
 
 
-UInt8 VisualConvolutionFilter::getNumberOfKernelValueRows() const {
-	return this->numberOfKernelValueRows;
+UInt8 VisualConvolutionFilter::getNumberOfKernelValueRows() const const
+{
+    return this->numberOfKernelValueRows;
 }
 
 
-UInt8 VisualConvolutionFilter::getNumberOfKernelValueColumns() const {
-	return this->numberOfKernelValueColumns;
+UInt8 VisualConvolutionFilter::getNumberOfKernelValueColumns() const const
+{
+    return this->numberOfKernelValueColumns;
 }
 
 
-float VisualConvolutionFilter::getPostConvolutionScaleFactor() const {
-	return this->postConvolutionScaleFactor;
+float VisualConvolutionFilter::getPostConvolutionScaleFactor() const const
+{
+    return this->postConvolutionScaleFactor;
 }
 
 
-float VisualConvolutionFilter::getPostConvolutionBias() const {
-	return this->postConvolutionBias;
+float VisualConvolutionFilter::getPostConvolutionBias() const const
+{
+    return this->postConvolutionBias;
 }
 
 
-void VisualConvolutionFilter::copyKernelValues(float* buffer) const {
-	UInt16 i = 0;
-	UInt16 k = 0;
-	UInt16 currIdx = 0;
-	for (i = 0; i < this->numberOfKernelValueColumns; i++) {
-		for (k = 0; k < this->numberOfKernelValueRows; k++) {
-			buffer[currIdx] = this->kernelValues[currIdx];
-			currIdx++;
-		}
-	}
+void VisualConvolutionFilter::copyKernelValues(float *buffer) const const
+{
+    UInt16 i = 0;
+    UInt16 k = 0;
+    UInt16 currIdx = 0;
+    for (i = 0; i < this->numberOfKernelValueColumns; i++) {
+        for (k = 0; k < this->numberOfKernelValueRows; k++) {
+            buffer[currIdx] = this->kernelValues[currIdx];
+            currIdx++;
+        }
+    }
 }
 
 
-void VisualConvolutionFilter::applyToPixelData(const unsigned char* const pixelData, UInt32 imageWidth, UInt32 imageHeight, int pixelFormat, int pixelDataType, unsigned char** filteredPixelData) const {
+void VisualConvolutionFilter::applyToPixelData(const unsigned char *const pixelData, UInt32 imageWidth,
+                                               UInt32 imageHeight, int pixelFormat, int pixelDataType,
+                                               unsigned char **filteredPixelData) const const
+{
 
-	bool debug = false;
-	UInt32 imageX;
-	UInt32 imageY;
-	SInt8 kernelX;
-	SInt8 kernelY;
-	
-	char errStr[256];
-	
-	float sum;
-	UInt32 kernelPos;
-	float grayscale;
+    bool debug = false;
+    UInt32 imageX;
+    UInt32 imageY;
+    SInt8 kernelX;
+    SInt8 kernelY;
 
-	UInt8 numberOfBytesPerChannel = 0;
-	UInt8 numberOfChannels = 0; // channel == color resp. alpha channel
-	UInt8 numberOfBytesPerPixel = 0;
-	//UInt32 numberOfBytesPerRow = 0;
-	if (pixelFormat == kGL_RGBA || pixelFormat == kGL_BGRA) {
-		numberOfChannels = 4;
-	} else if (pixelFormat == kGL_LUMINANCE_WITH_ALPHA) {
-		numberOfChannels = 2;
-	}
+    char errStr[256];
 
-	if ((pixelDataType == kGL_UNSIGNED_INT_8_8_8_8_REV) || (pixelDataType == kGL_UNSIGNED_INT_8_8_8_8) || (pixelDataType == kGL_UNSIGNED_BYTE)) {
-		numberOfBytesPerChannel = 1; // // 1 byte (== 8 bits) per color/channel
-	} else {
-		sprintf(errStr, "unknown type %d in file: %s (line: %d) [%s])", pixelDataType, __FILE__, __LINE__, __FUNCTION__);
-		writeLog(errStr);
-		return;
-	}
-	
-	numberOfBytesPerPixel = numberOfBytesPerChannel * numberOfChannels;
+    float sum;
+    UInt32 kernelPos;
+    float grayscale;
+
+    UInt8 numberOfBytesPerChannel = 0;
+    UInt8 numberOfChannels = 0; // channel == color resp. alpha channel
+    UInt8 numberOfBytesPerPixel = 0;
+    //UInt32 numberOfBytesPerRow = 0;
+    if (pixelFormat == kGL_RGBA || pixelFormat == kGL_BGRA) {
+        numberOfChannels = 4;
+    } else if (pixelFormat == kGL_LUMINANCE_WITH_ALPHA) {
+        numberOfChannels = 2;
+    }
+
+    if ((pixelDataType == kGL_UNSIGNED_INT_8_8_8_8_REV) || (pixelDataType == kGL_UNSIGNED_INT_8_8_8_8)
+        || (pixelDataType == kGL_UNSIGNED_BYTE)) {
+        numberOfBytesPerChannel = 1;    // // 1 byte (== 8 bits) per color/channel
+    } else {
+        sprintf(errStr, "unknown type %d in file: %s (line: %d) [%s])", pixelDataType, __FILE__, __LINE__,
+                __FUNCTION__);
+        writeLog(errStr);
+        return;
+    }
+
+    numberOfBytesPerPixel = numberOfBytesPerChannel * numberOfChannels;
 
 /*
 	if ((pixelDataType == kGL_UNSIGNED_INT_8_8_8_8_REV) || (pixelDataType == kGL_UNSIGNED_INT_8_8_8_8) || (pixelDataType == kGL_UNSIGNED_BYTE)) {
@@ -248,44 +264,55 @@ void VisualConvolutionFilter::applyToPixelData(const unsigned char* const pixelD
 		*filteredPixelData = (float*)calloc(imageWidth * imageHeight * numberOfChannels, numberOfBytesPerPixel);
 	}
 */
-	if (pixelFormat == kGL_RGBA || pixelFormat == kGL_BGRA) {
-		//*filteredPixelData = (unsigned char*)calloc(imageWidth * imageHeight, numberOfBytesPerPixel);
-	}
+    if (pixelFormat == kGL_RGBA || pixelFormat == kGL_BGRA) {
+        //*filteredPixelData = (unsigned char*)calloc(imageWidth * imageHeight, numberOfBytesPerPixel);
+    }
 
-	if (debug == true) {
-		memcpy(*filteredPixelData, pixelData, imageWidth * imageHeight * numberOfChannels);
-		return;
-	}
+    if (debug == true) {
+        memcpy(*filteredPixelData, pixelData, imageWidth * imageHeight * numberOfChannels);
+        return;
+    }
 
-	for (imageY = (this->numberOfKernelValueRows / 2) * numberOfChannels; imageY < (imageHeight * numberOfChannels) - ((this->numberOfKernelValueRows / 2) * numberOfChannels); imageY++) {
-		for (imageX = (this->numberOfKernelValueColumns / 2) * numberOfChannels; imageX < (imageWidth * numberOfChannels) - ((this->numberOfKernelValueColumns / 2) * numberOfChannels); imageX++) {
-			
-			sum = 0.0f;
-			kernelPos = 0;
-			grayscale = 0.0f;
-			for (kernelY = -1 * (this->numberOfKernelValueRows / 2); kernelY <= (this->numberOfKernelValueRows / 2); kernelY++) {
-				for (kernelX = -1 * (this->numberOfKernelValueColumns / 2); kernelX <= (this->numberOfKernelValueColumns / 2); kernelX++) {
-					SInt8 jColorShift = kernelY * numberOfChannels;
-					SInt8 kColorShift = kernelX * numberOfChannels;					
-					
-					if ((pixelDataType == kGL_UNSIGNED_INT_8_8_8_8_REV) || (pixelDataType == kGL_UNSIGNED_INT_8_8_8_8) || (pixelDataType == kGL_UNSIGNED_BYTE)) {
-						grayscale = ((unsigned char*)pixelData)[(imageY + jColorShift) * imageWidth + (imageX + kColorShift)];
-					} else if (pixelDataType == kGL_FLOAT) {
-						grayscale = ((float*)pixelData)[(imageY + jColorShift) * imageWidth + (imageX + kColorShift)];
-					}
+    for (imageY = (this->numberOfKernelValueRows / 2) * numberOfChannels;
+         imageY < (imageHeight * numberOfChannels) - ((this->numberOfKernelValueRows / 2) * numberOfChannels);
+         imageY++) {
+        for (imageX = (this->numberOfKernelValueColumns / 2) * numberOfChannels;
+             imageX < (imageWidth * numberOfChannels) - ((this->numberOfKernelValueColumns / 2) * numberOfChannels);
+             imageX++) {
 
-					sum = sum + (this->kernelValues[kernelPos] * grayscale);
-					kernelPos++;
-				}
-			}
+            sum = 0.0f;
+            kernelPos = 0;
+            grayscale = 0.0f;
+            for (kernelY = -1 * (this->numberOfKernelValueRows / 2); kernelY <= (this->numberOfKernelValueRows / 2);
+                 kernelY++) {
+                for (kernelX = -1 * (this->numberOfKernelValueColumns / 2);
+                     kernelX <= (this->numberOfKernelValueColumns / 2); kernelX++) {
+                    SInt8 jColorShift = kernelY * numberOfChannels;
+                    SInt8 kColorShift = kernelX * numberOfChannels;
 
-			if ((pixelDataType == kGL_UNSIGNED_INT_8_8_8_8_REV) || (pixelDataType == kGL_UNSIGNED_INT_8_8_8_8) || (pixelDataType == kGL_UNSIGNED_BYTE)) {
-				((unsigned char*)*filteredPixelData)[(imageY * imageWidth) + imageX] = (unsigned char)(sum * this->postConvolutionScaleFactor + this->postConvolutionBias);
-			} else if (pixelDataType == kGL_FLOAT) {
-				((float*)*filteredPixelData)[(imageY * imageWidth) + imageX] = sum * this->postConvolutionScaleFactor + this->postConvolutionBias;
-			}
+                    if ((pixelDataType == kGL_UNSIGNED_INT_8_8_8_8_REV) || (pixelDataType == kGL_UNSIGNED_INT_8_8_8_8)
+                        || (pixelDataType == kGL_UNSIGNED_BYTE)) {
+                        grayscale =
+                            ((unsigned char *) pixelData)[(imageY + jColorShift) * imageWidth + (imageX + kColorShift)];
+                    } else if (pixelDataType == kGL_FLOAT) {
+                        grayscale = ((float *) pixelData)[(imageY + jColorShift) * imageWidth + (imageX + kColorShift)];
+                    }
 
-		}
-	}
+                    sum = sum + (this->kernelValues[kernelPos] * grayscale);
+                    kernelPos++;
+                }
+            }
+
+            if ((pixelDataType == kGL_UNSIGNED_INT_8_8_8_8_REV) || (pixelDataType == kGL_UNSIGNED_INT_8_8_8_8)
+                || (pixelDataType == kGL_UNSIGNED_BYTE)) {
+                ((unsigned char *) *filteredPixelData)[(imageY * imageWidth) + imageX] =
+                    (unsigned char) (sum * this->postConvolutionScaleFactor + this->postConvolutionBias);
+            } else if (pixelDataType == kGL_FLOAT) {
+                ((float *) *filteredPixelData)[(imageY * imageWidth) + imageX] =
+                    sum * this->postConvolutionScaleFactor + this->postConvolutionBias;
+            }
+
+        }
+    }
 
 }

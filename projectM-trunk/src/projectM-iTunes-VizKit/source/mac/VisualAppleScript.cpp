@@ -41,23 +41,23 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-bool VisualAppleScript::executeScriptFile(VisualFile& scriptFile) {
+bool VisualAppleScript::executeScriptFile(VisualFile & scriptFile)
+{
 
-	bool success = false;
-	
-	VisualString scriptFilePath;
-	scriptFile.getFilePath(scriptFilePath);
-	const char* const scriptPathCStr = scriptFilePath.getUtf8Representation();
-	
-	size_t scriptPathCStrLen = strlen(scriptPathCStr);
-	if (scriptPathCStrLen > 0) {
-		char* script = (char*)malloc(scriptPathCStrLen + strlen("osascript ") + 3);
-		sprintf(script, "osascript \"%s\"", scriptPathCStr);
-		system(script);
-		free(script);
-		success = true;
-	}
-	
-	return success;
+    bool success = false;
+
+    VisualString scriptFilePath;
+    scriptFile.getFilePath(scriptFilePath);
+    const char *const scriptPathCStr = scriptFilePath.getUtf8Representation();
+
+    size_t scriptPathCStrLen = strlen(scriptPathCStr);
+    if (scriptPathCStrLen > 0) {
+        char *script = (char *) malloc(scriptPathCStrLen + strlen("osascript ") + 3);
+        sprintf(script, "osascript \"%s\"", scriptPathCStr);
+        system(script);
+        free(script);
+        success = true;
+    }
+
+    return success;
 }
-

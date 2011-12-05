@@ -5,8 +5,8 @@
  * Date: 20070503
  * File: StdAfx.cpp
  *
- */
-
+ */  
+    
 /***************************************************************************
 
 Copyright (c) 2004-2007 Heiko Wichmann (http://www.imagomat.de/vizkit)
@@ -31,13 +31,11 @@ freely, subject to the following restrictions:
 
 3. This notice may not be removed or altered from any source distribution.
 
- ***************************************************************************/
-
+ ***************************************************************************/ 
+    
 // stdafx.cpp : Quelltextdatei, die nur die Standard-Includes einbindet
-//	VizKit.pch ist die vorcompilierte Header-Datei
-//	stdafx.obj enthält die vorcompilierte Typinformation
-
+//      VizKit.pch ist die vorcompilierte Header-Datei
+//      stdafx.obj enthält die vorcompilierte Typinformation
+    
 #include "stdafx.h"
-
-
-
+    

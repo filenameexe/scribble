@@ -45,173 +45,194 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualPlayerState* VisualPlayerState::theVisualPlayerState = NULL;
+VisualPlayerState *VisualPlayerState::theVisualPlayerState = NULL;
 
 
-VisualPlayerState::VisualPlayerState() {
-	audioPlayState = kAudioIsNotPlaying;
-	trackPlayPositionInMS = 0;
-	showMode = kIsNotShowing;
-	debugMode = false;
-	fadeOutEventHasBeenSent = false;
+VisualPlayerState::VisualPlayerState()
+{
+    audioPlayState = kAudioIsNotPlaying;
+    trackPlayPositionInMS = 0;
+    showMode = kIsNotShowing;
+    debugMode = false;
+    fadeOutEventHasBeenSent = false;
 }
 
 
-VisualPlayerState::~VisualPlayerState() {
-	// null
+VisualPlayerState::~VisualPlayerState()
+{
+    // null
 }
 
 
-VisualPlayerState* VisualPlayerState::getInstance() {
+VisualPlayerState *VisualPlayerState::getInstance()
+{
     if (theVisualPlayerState == NULL) {
-		theVisualPlayerState = new VisualPlayerState;
+        theVisualPlayerState = new VisualPlayerState;
     }
-	if (theVisualPlayerState == NULL) {
-		writeLog("ERR: init theVisualPlayerState failed");
-	}
-	return theVisualPlayerState;
+    if (theVisualPlayerState == NULL) {
+        writeLog("ERR: init theVisualPlayerState failed");
+    }
+    return theVisualPlayerState;
 }
 
 
-void VisualPlayerState::dispose() {
-	if (theVisualPlayerState != NULL) {
-		delete theVisualPlayerState;
-		theVisualPlayerState = NULL;
-	}
+void VisualPlayerState::dispose()
+{
+    if (theVisualPlayerState != NULL) {
+        delete theVisualPlayerState;
+        theVisualPlayerState = NULL;
+    }
 }
 
 
-bool VisualPlayerState::isAudioPlaying() const {
-	if (audioPlayState == kAudioIsPlaying || audioPlayState == kAudioPlayStarted || audioPlayState == kAudioPlayResumed) {
-		return true;
-	} else {
-		return false;
-	}
+bool VisualPlayerState::isAudioPlaying() const const
+{
+    if (audioPlayState == kAudioIsPlaying || audioPlayState == kAudioPlayStarted || audioPlayState == kAudioPlayResumed) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 
-AudioPlayState VisualPlayerState::getAudioPlayState() const {
-	return this->audioPlayState;
+AudioPlayState VisualPlayerState::getAudioPlayState() const const
+{
+    return this->audioPlayState;
 }
 
 
-PlayerShowMode VisualPlayerState::getPlayerShowMode() const {
-	return this->showMode;
+PlayerShowMode VisualPlayerState::getPlayerShowMode() const const
+{
+    return this->showMode;
 }
 
 
-uint32 VisualPlayerState::getElapsedAudioTime() const {
-	return this->trackPlayPositionInMS;
+uint32 VisualPlayerState::getElapsedAudioTime() const const
+{
+    return this->trackPlayPositionInMS;
 }
 
 
-bool VisualPlayerState::remainingAudioTimeIsKnown() const {
-	VisualAudioLab* theVisualAudioLab = VisualAudioLab::getInstance();
-	return theVisualAudioLab->remainingTimeOfCurrentTrackIsKnown();
+bool VisualPlayerState::remainingAudioTimeIsKnown() const const
+{
+    VisualAudioLab *theVisualAudioLab = VisualAudioLab::getInstance();
+    return theVisualAudioLab->remainingTimeOfCurrentTrackIsKnown();
 }
 
 
-uint32 VisualPlayerState::getRemainingAudioTime() const {
-	VisualAudioLab* theVisualAudioLab = VisualAudioLab::getInstance();
-	return theVisualAudioLab->getRemainingTimeOfCurrentTrack();
+uint32 VisualPlayerState::getRemainingAudioTime() const const
+{
+    VisualAudioLab *theVisualAudioLab = VisualAudioLab::getInstance();
+    return theVisualAudioLab->getRemainingTimeOfCurrentTrack();
 }
 
 
-bool VisualPlayerState::fadeOutEventShouldBeSent() {
-	bool retVal = false;
-	if (this->fadeOutEventHasBeenSent == false) {
-		if (this->remainingAudioTimeIsKnown() == true) {
-			if (this->getRemainingAudioTime() < (uint32)VisualPreferences::getValue(VisualPreferences::kFadeOutTimeBeforeEndOfTrackInMS)) {
-				retVal = true;
-				this->fadeOutEventHasBeenSent = true;
-			}
-		}
-	}
-	return retVal;
+bool VisualPlayerState::fadeOutEventShouldBeSent()
+{
+    bool retVal = false;
+    if (this->fadeOutEventHasBeenSent == false) {
+        if (this->remainingAudioTimeIsKnown() == true) {
+            if (this->getRemainingAudioTime() <
+                (uint32) VisualPreferences::getValue(VisualPreferences::kFadeOutTimeBeforeEndOfTrackInMS)) {
+                retVal = true;
+                this->fadeOutEventHasBeenSent = true;
+            }
+        }
+    }
+    return retVal;
 }
 
 
-uint32 VisualPlayerState::getElapsedAudioPlayStartTime() const {
-	return VisualTiming::getElapsedMilliSecsSinceReset("trackPlayStart");
+uint32 VisualPlayerState::getElapsedAudioPlayStartTime() const const
+{
+    return VisualTiming::getElapsedMilliSecsSinceReset("trackPlayStart");
 }
 
 
-uint32 VisualPlayerState::getElapsedAudioPlayStopTime() const {
-	return VisualTiming::getElapsedMilliSecsSinceReset("trackPlayStop");
+uint32 VisualPlayerState::getElapsedAudioPlayStopTime() const const
+{
+    return VisualTiming::getElapsedMilliSecsSinceReset("trackPlayStop");
 }
 
 
-bool VisualPlayerState::isInDebugMode(void) const {
-	return this->debugMode;
+bool VisualPlayerState::isInDebugMode(void) const const
+{
+    return this->debugMode;
 }
 
 
-void VisualPlayerState::setAudioPlayState(AudioPlayState playState) {
-	this->audioPlayState = playState;
-	if (playState == kAudioPlayStarted) {
-		this->fadeOutEventHasBeenSent = false;
-	}
+void VisualPlayerState::setAudioPlayState(AudioPlayState playState)
+{
+    this->audioPlayState = playState;
+    if (playState == kAudioPlayStarted) {
+        this->fadeOutEventHasBeenSent = false;
+    }
 }
 
 
-void VisualPlayerState::setPlayerShowMode(const PlayerShowMode aShowMode) {
-	this->showMode = aShowMode;
+void VisualPlayerState::setPlayerShowMode(const PlayerShowMode aShowMode)
+{
+    this->showMode = aShowMode;
 }
 
 
-void VisualPlayerState::setDebugMode(bool requestedDebugMode) {
-	this->debugMode = requestedDebugMode;
+void VisualPlayerState::setDebugMode(bool requestedDebugMode)
+{
+    this->debugMode = requestedDebugMode;
 }
 
 
-void VisualPlayerState::setTrackPlayPositionInMS(const uint32 positionInMS) {
-	this->trackPlayPositionInMS = positionInMS;
+void VisualPlayerState::setTrackPlayPositionInMS(const uint32 positionInMS)
+{
+    this->trackPlayPositionInMS = positionInMS;
 }
 
 
-void VisualPlayerState::convertAudioPlayStateToString(const AudioPlayState anAudioPlayState, char* outString) {
-	const char* messageString;
-	switch (anAudioPlayState) {
-		case kAudioIsNotPlaying:
-			messageString = "kAudioIsNotPlaying";
-			break;
-		case kAudioPlayStarted:
-			messageString = "kAudioPlayStarted";
-			break;
-		case kAudioIsPlaying:
-			messageString = "kAudioIsPlaying";
-			break;
-		case kAudioPlayResumed:
-			messageString = "kAudioPlayResumed";
-			break;
-		case kAudioPlayPaused:
-			messageString = "kAudioPlayPaused";
-			break;
-		default:
-			messageString = "unknownAudioPlayState";
-	}
-	strcpy(outString, messageString);
+void VisualPlayerState::convertAudioPlayStateToString(const AudioPlayState anAudioPlayState, char *outString)
+{
+    const char *messageString;
+    switch (anAudioPlayState) {
+    case kAudioIsNotPlaying:
+        messageString = "kAudioIsNotPlaying";
+        break;
+    case kAudioPlayStarted:
+        messageString = "kAudioPlayStarted";
+        break;
+    case kAudioIsPlaying:
+        messageString = "kAudioIsPlaying";
+        break;
+    case kAudioPlayResumed:
+        messageString = "kAudioPlayResumed";
+        break;
+    case kAudioPlayPaused:
+        messageString = "kAudioPlayPaused";
+        break;
+    default:
+        messageString = "unknownAudioPlayState";
+    }
+    strcpy(outString, messageString);
 }
 
 
-void VisualPlayerState::convertPlayerShowModeToString(const PlayerShowMode aShowMode, char* outString) {
-	const char* messageString;
-	switch (aShowMode) {
-		case kIsNotShowing:
-			messageString = "kIsNotShowing";
-			break;
-		case kErrorState:
-			messageString = "kErrorState";
-			break;
-		case kIsShowing:
-		//case kIsShowingInWindow:
-			messageString = "kIsShowing(InWindow)";
-			break;
-		case kIsShowingInFullScreen:
-			messageString = "kIsShowingInFullScreen";
-			break;
-		default:
-			messageString = "unknownShowMode";
-	}
-	strcpy(outString, messageString);
+void VisualPlayerState::convertPlayerShowModeToString(const PlayerShowMode aShowMode, char *outString)
+{
+    const char *messageString;
+    switch (aShowMode) {
+    case kIsNotShowing:
+        messageString = "kIsNotShowing";
+        break;
+    case kErrorState:
+        messageString = "kErrorState";
+        break;
+    case kIsShowing:
+        //case kIsShowingInWindow:
+        messageString = "kIsShowing(InWindow)";
+        break;
+    case kIsShowingInFullScreen:
+        messageString = "kIsShowingInFullScreen";
+        break;
+    default:
+        messageString = "unknownShowMode";
+    }
+    strcpy(outString, messageString);
 }

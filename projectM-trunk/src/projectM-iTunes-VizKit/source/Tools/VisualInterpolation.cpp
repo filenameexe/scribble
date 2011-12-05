@@ -38,7 +38,7 @@ freely, subject to the following restrictions:
 
 #include <math.h>
 #include <stdio.h>
-#include <stdlib.h> // RAND_MAX
+#include <stdlib.h>             // RAND_MAX
 
 
 #ifndef M_PI
@@ -53,74 +53,83 @@ const double VisualInterpolation::startValue = 0.0;
 const double VisualInterpolation::endValue = 1.0;
 
 
-VisualInterpolation::VisualInterpolation(InterpolationType anInterpolationType) {
-	calcDistance();
-	interpolationType = anInterpolationType;
+VisualInterpolation::VisualInterpolation(InterpolationType anInterpolationType)
+{
+    calcDistance();
+    interpolationType = anInterpolationType;
 }
 
 
-VisualInterpolation::~VisualInterpolation() {
-	// NULL
+VisualInterpolation::~VisualInterpolation()
+{
+    // NULL
 }
 
 
-VisualInterpolation::VisualInterpolation(const VisualInterpolation& other) {
-	copy(other);
+VisualInterpolation::VisualInterpolation(const VisualInterpolation & other)
+{
+    copy(other);
 }
 
 
-VisualInterpolation& VisualInterpolation::operator=(const VisualInterpolation& other) {
-	if (this != &other) {
-		this->copy(other);
-	}
-	return *this;
+VisualInterpolation & VisualInterpolation::operator=(const VisualInterpolation & other)
+{
+    if (this != &other) {
+        this->copy(other);
+    }
+    return *this;
 }
 
 
-void VisualInterpolation::copy(const VisualInterpolation& other) {
-	this->distance = other.distance;
-	this->interpolationType = other.interpolationType;
+void VisualInterpolation::copy(const VisualInterpolation & other)
+{
+    this->distance = other.distance;
+    this->interpolationType = other.interpolationType;
 }
 
 
-double VisualInterpolation::getValueAtPosition(double position) const {
-	double valueAtPosition = 0.0;
-	if (position < 0.0 || position > 1.0) {
-		char errLog[64];
-		sprintf(errLog, "invalid position %f in file: %s (line: %d) [%s])", position, __FILE__, __LINE__, __FUNCTION__);
-		writeLog(errLog);
-		return valueAtPosition;
-	}
-	if (interpolationType == kSinusoidalInterpolation) {
-		position = (-1.0 * cos(position * M_PI) / 2.0) + 0.5;
-	}
-	if (this->startValue > this->endValue) {
-		valueAtPosition = this->startValue - (this->distance * position);
-	} else if (this->startValue < this->endValue) {
-		valueAtPosition = this->startValue + (this->distance * position);
-	} else {
-		valueAtPosition = this->startValue;
-	}
-	return valueAtPosition;
+double VisualInterpolation::getValueAtPosition(double position) const const
+{
+    double valueAtPosition = 0.0;
+    if (position < 0.0 || position > 1.0) {
+        char errLog[64];
+        sprintf(errLog, "invalid position %f in file: %s (line: %d) [%s])", position, __FILE__, __LINE__, __FUNCTION__);
+        writeLog(errLog);
+        return valueAtPosition;
+    }
+    if (interpolationType == kSinusoidalInterpolation) {
+        position = (-1.0 * cos(position * M_PI) / 2.0) + 0.5;
+    }
+    if (this->startValue > this->endValue) {
+        valueAtPosition = this->startValue - (this->distance * position);
+    } else if (this->startValue < this->endValue) {
+        valueAtPosition = this->startValue + (this->distance * position);
+    } else {
+        valueAtPosition = this->startValue;
+    }
+    return valueAtPosition;
 }
 
 
-void VisualInterpolation::setType(InterpolationType anInterpolationType) {
-	this->interpolationType = anInterpolationType;
+void VisualInterpolation::setType(InterpolationType anInterpolationType)
+{
+    this->interpolationType = anInterpolationType;
 }
 
 
-void VisualInterpolation::calcDistance() {
-	if (this->startValue > this->endValue) {
-		this->distance = this->startValue - this->endValue;
-	} else if (this->startValue < this->endValue) {
-		this->distance = this->endValue - this->startValue;
-	} else {
-		this->distance = 0.0;
-	}
+void VisualInterpolation::calcDistance()
+{
+    if (this->startValue > this->endValue) {
+        this->distance = this->startValue - this->endValue;
+    } else if (this->startValue < this->endValue) {
+        this->distance = this->endValue - this->startValue;
+    } else {
+        this->distance = 0.0;
+    }
 }
 
 
-double VisualInterpolation::getRandomValue() {
-	return ((double)rand() / (double)RAND_MAX);
+double VisualInterpolation::getRandomValue()
+{
+    return ((double) rand() / (double) RAND_MAX);
 }

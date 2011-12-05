@@ -46,114 +46,129 @@ using namespace VizKit;
 VisualItemIdentifier::VisualItemIdentifierNameTokenMap VisualItemIdentifier::visualItemIdentifierNameTokenMap;
 
 
-VisualItemIdentifier::VisualItemIdentifier() {
-	name = (char*)malloc(128 * sizeof(char));
-	strcpy(name, "\0");
-	token = VisualItemIdentifier::getNextToken();
+VisualItemIdentifier::VisualItemIdentifier()
+{
+    name = (char *) malloc(128 * sizeof(char));
+    strcpy(name, "\0");
+    token = VisualItemIdentifier::getNextToken();
 }
 
 
-VisualItemIdentifier::VisualItemIdentifier(const char* const aName, uint32 aToken) {
-	name = (char*)malloc(128 * sizeof(char));
-	strcpy(name, aName);
-	token = aToken;
+VisualItemIdentifier::VisualItemIdentifier(const char *const aName, uint32 aToken)
+{
+    name = (char *) malloc(128 * sizeof(char));
+    strcpy(name, aName);
+    token = aToken;
 }
 
 
-VisualItemIdentifier::VisualItemIdentifier(const char* const aName) {
-	name = (char*)malloc(128 * sizeof(char));
-	strcpy(name, aName);
-	std::string itemIdentifierString(aName);
-	VisualItemIdentifierNameTokenMapIterator it = VisualItemIdentifier::visualItemIdentifierNameTokenMap.find(itemIdentifierString);
-	if (it != VisualItemIdentifier::visualItemIdentifierNameTokenMap.end()) {
-		token = it->second;
-	} else {
-		token = VisualItemIdentifier::getNextToken();
-		VisualItemIdentifier::visualItemIdentifierNameTokenMap[itemIdentifierString] = token;
-	}
+VisualItemIdentifier::VisualItemIdentifier(const char *const aName)
+{
+    name = (char *) malloc(128 * sizeof(char));
+    strcpy(name, aName);
+    std::string itemIdentifierString(aName);
+    VisualItemIdentifierNameTokenMapIterator it =
+        VisualItemIdentifier::visualItemIdentifierNameTokenMap.find(itemIdentifierString);
+    if (it != VisualItemIdentifier::visualItemIdentifierNameTokenMap.end()) {
+        token = it->second;
+    } else {
+        token = VisualItemIdentifier::getNextToken();
+        VisualItemIdentifier::visualItemIdentifierNameTokenMap[itemIdentifierString] = token;
+    }
 }
 
 
-VisualItemIdentifier::~VisualItemIdentifier() {
-	free(name);
+VisualItemIdentifier::~VisualItemIdentifier()
+{
+    free(name);
 }
 
 
-VisualItemIdentifier::VisualItemIdentifier(const VisualItemIdentifier& other) {
-	this->copy(other);
+VisualItemIdentifier::VisualItemIdentifier(const VisualItemIdentifier & other)
+{
+    this->copy(other);
 }
 
 
-VisualItemIdentifier& VisualItemIdentifier::operator=(const VisualItemIdentifier& other) {
-	if (this != &other) {
-		free(name);
-		this->copy(other);
-	}
-	return *this;
+VisualItemIdentifier & VisualItemIdentifier::operator=(const VisualItemIdentifier & other)
+{
+    if (this != &other) {
+        free(name);
+        this->copy(other);
+    }
+    return *this;
 }
 
 
-bool VisualItemIdentifier::operator<(const VisualItemIdentifier& other) const {
-	bool compareResult = false;
-	if (this->token < other.token) {
-		compareResult = true;
-	}
-	return compareResult;
+bool VisualItemIdentifier::operator<(const VisualItemIdentifier & other) const const
+{
+    bool compareResult = false;
+    if (this->token < other.token) {
+        compareResult = true;
+    }
+    return compareResult;
 }
 
 
-bool VisualItemIdentifier::operator==(const VisualItemIdentifier& other) const {
-	bool compareResult = false;
-	if (this->token == other.token) {
-		compareResult = true;
-	}
-	return compareResult;
+bool VisualItemIdentifier::operator==(const VisualItemIdentifier & other) const const
+{
+    bool compareResult = false;
+    if (this->token == other.token) {
+        compareResult = true;
+    }
+    return compareResult;
 }
 
 
-bool VisualItemIdentifier::operator!=(const VisualItemIdentifier& other) {
-	return !(*this == other);
+bool VisualItemIdentifier::operator!=(const VisualItemIdentifier & other)
+{
+    return !(*this == other);
 }
 
 
-VisualItemIdentifier* VisualItemIdentifier::createVisualItemIdentifier(const char* const aName) {
-	VisualItemIdentifier* requestedVisualItemIdentifier = NULL;
-	uint32 token = 0;
-	std::string itemIdentifierString(aName);
-	VisualItemIdentifierNameTokenMapIterator it = VisualItemIdentifier::visualItemIdentifierNameTokenMap.find(itemIdentifierString);
-	if (it != VisualItemIdentifier::visualItemIdentifierNameTokenMap.end()) {
-		token = it->second;
-	} else {
-		token = VisualItemIdentifier::getNextToken();
-		VisualItemIdentifier::visualItemIdentifierNameTokenMap[itemIdentifierString] = token;
-	}
-	requestedVisualItemIdentifier = new VisualItemIdentifier(aName, token);
-	return requestedVisualItemIdentifier;
+VisualItemIdentifier *VisualItemIdentifier::createVisualItemIdentifier(const char *const aName)
+{
+    VisualItemIdentifier *requestedVisualItemIdentifier = NULL;
+    uint32 token = 0;
+    std::string itemIdentifierString(aName);
+    VisualItemIdentifierNameTokenMapIterator it =
+        VisualItemIdentifier::visualItemIdentifierNameTokenMap.find(itemIdentifierString);
+    if (it != VisualItemIdentifier::visualItemIdentifierNameTokenMap.end()) {
+        token = it->second;
+    } else {
+        token = VisualItemIdentifier::getNextToken();
+        VisualItemIdentifier::visualItemIdentifierNameTokenMap[itemIdentifierString] = token;
+    }
+    requestedVisualItemIdentifier = new VisualItemIdentifier(aName, token);
+    return requestedVisualItemIdentifier;
 }
 
 
-const char* const VisualItemIdentifier::getName() {
-	return this->name;
+const char *const VisualItemIdentifier::getName()
+{
+    return this->name;
 }
 
 
-void VisualItemIdentifier::copy(const VisualItemIdentifier& other) {
-	this->name = (char*)malloc(128 * sizeof(char));
-	if (strlen(other.name) > 0) {
-		strcpy(this->name, other.name);
-	} else {
-		strcpy(this->name, "\0");
-	}
-	this->token = other.token;
+void VisualItemIdentifier::copy(const VisualItemIdentifier & other)
+{
+    this->name = (char *) malloc(128 * sizeof(char));
+    if (strlen(other.name) > 0) {
+        strcpy(this->name, other.name);
+    } else {
+        strcpy(this->name, "\0");
+    }
+    this->token = other.token;
 }
 
 
-uint32 VisualItemIdentifier::getNextToken() {
-	static uint32 theToken = 1;
-	if (theToken > 4294967295UL) {
-		writeLog("ERR: getNextToken: MAX exceeded");
-		theToken = 1;
-	}
-	theToken += 1;
-	return theToken;
+uint32 VisualItemIdentifier::getNextToken()
+{
+    static uint32 theToken = 1;
+    if (theToken > 4294967295UL) {
+        writeLog("ERR: getNextToken: MAX exceeded");
+        theToken = 1;
+    }
+    theToken += 1;
+    return theToken;
 }

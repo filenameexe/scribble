@@ -46,75 +46,80 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-TemplateAction::TemplateAction() {
+TemplateAction::TemplateAction()
+{
 
-	templateAsset = new VisualAsset;
-	testAsset = new VisualAsset;
+    templateAsset = new VisualAsset;
+    testAsset = new VisualAsset;
 
-	uint32 width = 256;
-	uint32 height = 256;
-	uint32* argbPixels = VisualColorTools::createARGBCheckPixels(width, height);
-	
-	VisualImage* anImage = VisualImage::createWithARGBPixelData(argbPixels, width, height);
-	
-	free(argbPixels);
-	argbPixels = NULL;
+    uint32 width = 256;
+    uint32 height = 256;
+    uint32 *argbPixels = VisualColorTools::createARGBCheckPixels(width, height);
 
-	VisualCamera aCamera;
-	aCamera.setPerspectiveProjection(3.0);
-	//aCamera.setOrthographicProjection();
-	templateAsset->setCamera(aCamera);
+    VisualImage *anImage = VisualImage::createWithARGBPixelData(argbPixels, width, height);
 
-	templateAsset->setImage(*anImage);
-	delete anImage;
-	
-	VisualStageBox* templateAssetBox = templateAsset->getBox();
-	
-	//templateAsset->setDebugMode(true);
-	
-	
-	templateAssetBox->initializeVertexChain(vertexChainId);
+    free(argbPixels);
+    argbPixels = NULL;
 
-	VisualVertex* aVertex = NULL;
-	aVertex = templateAssetBox->createVertex(0.0, 0.0, 1.0, 0.0, 1.0);
-	templateAssetBox->addVertexToChain(vertexChainId, aVertex);
+    VisualCamera aCamera;
+    aCamera.setPerspectiveProjection(3.0);
+    //aCamera.setOrthographicProjection();
+    templateAsset->setCamera(aCamera);
 
-	aVertex = templateAssetBox->createVertex(0.0, 0.0, 0.0, 0.0, 0.0);
-	templateAssetBox->addVertexToChain(vertexChainId, aVertex);
+    templateAsset->setImage(*anImage);
+    delete anImage;
 
-	aVertex = templateAssetBox->createVertex(1.0, 0.0, 0.0, 1.0, 0.0);
-	templateAssetBox->addVertexToChain(vertexChainId, aVertex);
+    VisualStageBox *templateAssetBox = templateAsset->getBox();
 
-	aVertex = templateAssetBox->createVertex(1.0, 0.0, 1.0, 1.0, 1.0);
-	templateAssetBox->addVertexToChain(vertexChainId, aVertex);
+    //templateAsset->setDebugMode(true);
 
-	VisualStagePosition testAssetPosition = this->testAsset->getPosition();
-	testAssetPosition.horizontalAlignment = kRightAligned;
-	this->testAsset->setPosition(testAssetPosition);
+
+    templateAssetBox->initializeVertexChain(vertexChainId);
+
+    VisualVertex *aVertex = NULL;
+    aVertex = templateAssetBox->createVertex(0.0, 0.0, 1.0, 0.0, 1.0);
+    templateAssetBox->addVertexToChain(vertexChainId, aVertex);
+
+    aVertex = templateAssetBox->createVertex(0.0, 0.0, 0.0, 0.0, 0.0);
+    templateAssetBox->addVertexToChain(vertexChainId, aVertex);
+
+    aVertex = templateAssetBox->createVertex(1.0, 0.0, 0.0, 1.0, 0.0);
+    templateAssetBox->addVertexToChain(vertexChainId, aVertex);
+
+    aVertex = templateAssetBox->createVertex(1.0, 0.0, 1.0, 1.0, 1.0);
+    templateAssetBox->addVertexToChain(vertexChainId, aVertex);
+
+    VisualStagePosition testAssetPosition = this->testAsset->getPosition();
+    testAssetPosition.horizontalAlignment = kRightAligned;
+    this->testAsset->setPosition(testAssetPosition);
 }
 
 
-TemplateAction::~TemplateAction() {
-	delete templateAsset;
+TemplateAction::~TemplateAction()
+{
+    delete templateAsset;
 }
 
 
-void TemplateAction::setImage(const VisualImage& anImage) {
-	testAsset->setImage(anImage);
+void TemplateAction::setImage(const VisualImage & anImage)
+{
+    testAsset->setImage(anImage);
 }
 
 
-void TemplateAction::removeImage() {
-	testAsset->removeImage();
+void TemplateAction::removeImage()
+{
+    testAsset->removeImage();
 }
 
 
-void TemplateAction::show() {
-	//VisualActorGraphics::translateMatrix(0.0, 0.0, -3.0);
-	
-	templateAsset->draw();
-	VisualActorGraphics::drawProjectionMetrics(templateAsset->getCamera());
-	if (testAsset->hasImage()) {
-		testAsset->draw();
-	}
+void TemplateAction::show()
+{
+    //VisualActorGraphics::translateMatrix(0.0, 0.0, -3.0);
+
+    templateAsset->draw();
+    VisualActorGraphics::drawProjectionMetrics(templateAsset->getCamera());
+    if (testAsset->hasImage()) {
+        testAsset->draw();
+    }
 }

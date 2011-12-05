@@ -40,6 +40,8 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-bool VisualThreading::createThread(ThreadingFuncPtr aThreadingFuncPtr, void* param, ThreadDidDieCallback callbackAfterThreadDidDie) {
-	return VisualThreadingManager::createThread(aThreadingFuncPtr, param, callbackAfterThreadDidDie);
+bool VisualThreading::createThread(ThreadingFuncPtr aThreadingFuncPtr, void *param,
+                                   ThreadDidDieCallback callbackAfterThreadDidDie)
+{
+    return VisualThreadingManager::createThread(aThreadingFuncPtr, param, callbackAfterThreadDidDie);
 }

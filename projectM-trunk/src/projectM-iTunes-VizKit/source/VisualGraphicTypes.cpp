@@ -40,7 +40,7 @@
 #endif
 
 #if TARGET_OS_WIN
-#include <windows.h> // OpenGL types
+#include <windows.h>            // OpenGL types
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include "win/wglext.h"
@@ -75,11 +75,11 @@ const int VizKit::kGL_UNSIGNED_INT_8_8_8_8 = GL_UNSIGNED_INT_8_8_8_8;
 const int VizKit::kGL_FRONT_COLOR_BUFFER = GL_FRONT;
 const int VizKit::kGL_BACK_COLOR_BUFFER = GL_BACK;
 
-const VizKit::VertexColor VizKit::black = {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0};
-const VizKit::VertexColor VizKit::white = {1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
-const VizKit::VertexColor VizKit::red = {1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0};
-const VizKit::VertexColor VizKit::green = {0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0};
-const VizKit::VertexColor VizKit::blue = {0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0};
-const VizKit::VertexColor VizKit::transparent = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+const VizKit::VertexColor VizKit::black = { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 };
+const VizKit::VertexColor VizKit::white = { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+const VizKit::VertexColor VizKit::red = { 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0 };
+const VizKit::VertexColor VizKit::green = { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+const VizKit::VertexColor VizKit::blue = { 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0 };
+const VizKit::VertexColor VizKit::transparent = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
 
-const VizKit::Coord VizKit::zeroCoord = {0.0, 0.0, 0.0};
+const VizKit::Coord VizKit::zeroCoord = { 0.0, 0.0, 0.0 };

@@ -47,27 +47,29 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-void VisualConfigurationDialog::show() {
+void VisualConfigurationDialog::show()
+{
 #if TARGET_OS_WIN
-	CVisualPropertySheet* thePropertySheet = CVisualPropertySheet::getInstance();
-	if (thePropertySheet != NULL) {
-		thePropertySheet->BringWindowToTop();
-	}
+    CVisualPropertySheet *thePropertySheet = CVisualPropertySheet::getInstance();
+    if (thePropertySheet != NULL) {
+        thePropertySheet->BringWindowToTop();
+    }
 #endif
 #if TARGET_OS_MAC
-	OptionsDialog* theOptionsDialog = OptionsDialog::getInstance();
-	if (theOptionsDialog != NULL) {
-		theOptionsDialog->show();
-	}
+    OptionsDialog *theOptionsDialog = OptionsDialog::getInstance();
+    if (theOptionsDialog != NULL) {
+        theOptionsDialog->show();
+    }
 #endif
 }
 
 
-void VisualConfigurationDialog::dispose() {
+void VisualConfigurationDialog::dispose()
+{
 #if TARGET_OS_WIN
-	CVisualPropertySheet::dispose();
+    CVisualPropertySheet::dispose();
 #endif
 #if TARGET_OS_MAC
-	OptionsDialog::dispose();
+    OptionsDialog::dispose();
 #endif
 }

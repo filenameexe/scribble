@@ -44,76 +44,87 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-ProcessMonitorActor::ProcessMonitorActor() {
-	strcpy(actorName, "PROCESSMONITOR");
+ProcessMonitorActor::ProcessMonitorActor()
+{
+    strcpy(actorName, "PROCESSMONITOR");
     state = kVisActOn;
-	showAudioInfoBool = true;
-	elapsedAudioTime = 0;
-	remainingAudioTime = 0;
-	processMonitor = new ProcessMonitor;
+    showAudioInfoBool = true;
+    elapsedAudioTime = 0;
+    remainingAudioTime = 0;
+    processMonitor = new ProcessMonitor;
 }
 
 
-ProcessMonitorActor::~ProcessMonitorActor() {
-	delete processMonitor;
+ProcessMonitorActor::~ProcessMonitorActor()
+{
+    delete processMonitor;
 }
 
 
-void ProcessMonitorActor::init() {
-	VisualNotification::registerNotification(this, kCanvasReshapeEvt);
+void ProcessMonitorActor::init()
+{
+    VisualNotification::registerNotification(this, kCanvasReshapeEvt);
 }
 
 
-void ProcessMonitorActor::show(const VisualPlayerState& visualPlayerState) {
-	this->elapsedAudioTime = visualPlayerState.getElapsedAudioTime();
-	this->remainingAudioTime = visualPlayerState.getRemainingAudioTime();
+void ProcessMonitorActor::show(const VisualPlayerState & visualPlayerState)
+{
+    this->elapsedAudioTime = visualPlayerState.getElapsedAudioTime();
+    this->remainingAudioTime = visualPlayerState.getRemainingAudioTime();
     processMonitor->prepareProcessMonitorShow();
-	
+
     processMonitor->showInfoStrings();
-	if (this->showAudioInfoBool == true) {
-		processMonitor->showAudioInfo(elapsedAudioTime, remainingAudioTime);
-	}
-	processMonitor->finishProcessMonitorShow();
+    if (this->showAudioInfoBool == true) {
+        processMonitor->showAudioInfo(elapsedAudioTime, remainingAudioTime);
+    }
+    processMonitor->finishProcessMonitorShow();
 }
 
 
-void ProcessMonitorActor::handleNotification(VisualNotification& aNotification) {
+void ProcessMonitorActor::handleNotification(VisualNotification & aNotification)
+{
 
-	//VisualActor::handleNotification(aNotification); // debug
+    //VisualActor::handleNotification(aNotification); // debug
 
-	VisualNotificationKey notificationKey = aNotification.getKey();
-	
-	switch (notificationKey) {
-		case kCanvasReshapeEvt:
-			processMonitor->updateProgressMeterVertices();
-			break;
-		default:
-			char notificationString[64];
-			VisualNotification::convertNotificationKeyToString(notificationKey, notificationString);
-			char errLog[256];
-			sprintf(errLog, "Unhandled VisualNotificationKey %s in file: %s (line: %d) [%s])", notificationString, __FILE__, __LINE__, __FUNCTION__);
-			writeLog(errLog);
-			break;
-	}
+    VisualNotificationKey notificationKey = aNotification.getKey();
+
+    switch (notificationKey) {
+    case kCanvasReshapeEvt:
+        processMonitor->updateProgressMeterVertices();
+        break;
+    default:
+        char notificationString[64];
+        VisualNotification::convertNotificationKeyToString(notificationKey, notificationString);
+        char errLog[256];
+        sprintf(errLog, "Unhandled VisualNotificationKey %s in file: %s (line: %d) [%s])", notificationString, __FILE__,
+                __LINE__, __FUNCTION__);
+        writeLog(errLog);
+        break;
+    }
 
 }
 
 
-void ProcessMonitorActor::setState(VisualActorState aVisualActorState) {
+void ProcessMonitorActor::setState(VisualActorState aVisualActorState)
+{
     this->state = aVisualActorState;
 }
 
 
-void ProcessMonitorActor::registerProcessMonitorInfoMap(const std::map<std::string, std::string>* const processMonitorInfoMap) {
-	processMonitor->registerProcessMonitorInfoMap(processMonitorInfoMap);
+void ProcessMonitorActor::registerProcessMonitorInfoMap(const std::map < std::string,
+                                                        std::string > *const processMonitorInfoMap)
+{
+    processMonitor->registerProcessMonitorInfoMap(processMonitorInfoMap);
 }
 
 
-bool ProcessMonitorActor::isAudioInfoShown() {
-	return this->showAudioInfoBool;
+bool ProcessMonitorActor::isAudioInfoShown()
+{
+    return this->showAudioInfoBool;
 }
 
 
-void ProcessMonitorActor::setShowAudioInfo(bool requestedAudioInfoState) {
-	this->showAudioInfoBool = requestedAudioInfoState;
+void ProcessMonitorActor::setShowAudioInfo(bool requestedAudioInfoState)
+{
+    this->showAudioInfoBool = requestedAudioInfoState;
 }

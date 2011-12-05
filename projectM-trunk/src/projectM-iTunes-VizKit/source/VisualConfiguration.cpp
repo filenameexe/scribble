@@ -37,10 +37,10 @@ freely, subject to the following restrictions:
 #include "VisualErrorHandling.h"
 
 #if TARGET_OS_MAC
-#include <CoreFoundation/CFString.h> // CFStringRef
+#include <CoreFoundation/CFString.h>    // CFStringRef
 #endif
 
-#include <string> // strlen
+#include <string>               // strlen
 
 using namespace VizKit;
 
@@ -48,14 +48,15 @@ using namespace VizKit;
 
 // ========= INDIVIDUAL VISUALIZER IDENTIFICATION CONFIGURATION (start) ========= //
 
-const char* const VisualConfiguration::visualizerPluginIdentifierName = "VizKit";
-const char* const VisualConfiguration::visualizerShowName = "VizKit";
+const char *const VisualConfiguration::visualizerPluginIdentifierName = "VizKit";
+const char *const VisualConfiguration::visualizerShowName = "VizKit";
 
-void VisualConfiguration::prepareVisualizerShowNameUnicode() {
-	
+void VisualConfiguration::prepareVisualizerShowNameUnicode()
+{
+
 #if TARGET_OS_WIN
-	wchar_t* visualizerShowNameUnicode_wchar = L"VizKit"; // utf-16
-	this->visualizerShowNameUnicode = (uint16*)visualizerShowNameUnicode_wchar;
+    wchar_t *visualizerShowNameUnicode_wchar = L"VizKit";       // utf-16
+    this->visualizerShowNameUnicode = (uint16 *) visualizerShowNameUnicode_wchar;
 #endif
 
 #if TARGET_OS_MAC
@@ -76,17 +77,17 @@ void VisualConfiguration::prepareVisualizerShowNameUnicode() {
 	
 	this->visualizerShowNameUnicode = (uint8*)visualizerShowNameUnicodePrep;
 */
-	this->visualizerShowNameUnicode = (uint8*)VisualConfiguration::visualizerShowName; // defaults to utf8 being the same as the ascii name
+    this->visualizerShowNameUnicode = (uint8 *) VisualConfiguration::visualizerShowName;        // defaults to utf8 being the same as the ascii name
 
 #endif
 }
 
 
 #if TARGET_OS_MAC
-const char* const VisualConfiguration::kVisualPluginDomainIdentifier = "de.imagomat.vizkit";
+const char *const VisualConfiguration::kVisualPluginDomainIdentifier = "de.imagomat.vizkit";
 #endif
 #if TARGET_OS_WIN
-const char* const VisualConfiguration::kVisualPluginDomainIdentifier = "Imagomat";
+const char *const VisualConfiguration::kVisualPluginDomainIdentifier = "Imagomat";
 #endif
 
 const uint8 VisualConfiguration::kMajorReleaseNumber = 2;
@@ -96,90 +97,107 @@ const uint8 VisualConfiguration::kMinorReleaseNumber = 3;
 const uint8 VisualConfiguration::kReleaseRevisionNumber = 0;
 
 
-const char* const VisualConfiguration::kCurrentVersionInformationURL = "http://www.imagomat.de/vizkit/download/current_version.txt";
+const char *const VisualConfiguration::kCurrentVersionInformationURL =
+    "http://www.imagomat.de/vizkit/download/current_version.txt";
 
 
 // ========= INDIVIDUAL VISUALIZER IDENTIFICATION CONFIGURATION (end) ========= //
 
 
-VisualConfiguration* VisualConfiguration::theVisualConfiguration = NULL;
+VisualConfiguration *VisualConfiguration::theVisualConfiguration = NULL;
 
 
-VisualConfiguration::VisualConfiguration() {
-	unicodeShowName = NULL;
-	prepareVisualizerShowNameUnicode();
+VisualConfiguration::VisualConfiguration()
+{
+    unicodeShowName = NULL;
+    prepareVisualizerShowNameUnicode();
 }
 
 
-VisualConfiguration::~VisualConfiguration() {
+VisualConfiguration::~VisualConfiguration()
+{
 #if TARGET_OS_MAC
-	if (theVisualConfiguration->unicodeShowName != NULL) {
-		free(theVisualConfiguration->unicodeShowName);
-	}
-	//if (theVisualConfiguration->visualizerShowNameUnicode != NULL) {
-		//free(theVisualConfiguration->visualizerShowNameUnicode);
-	//}
+    if (theVisualConfiguration->unicodeShowName != NULL) {
+        free(theVisualConfiguration->unicodeShowName);
+    }
+    //if (theVisualConfiguration->visualizerShowNameUnicode != NULL) {
+    //free(theVisualConfiguration->visualizerShowNameUnicode);
+    //}
 #endif
 }
 
 
-VisualConfiguration* VisualConfiguration::getInstance() {
+VisualConfiguration *VisualConfiguration::getInstance()
+{
     if (theVisualConfiguration == NULL) {
-		theVisualConfiguration = new VisualConfiguration;
+        theVisualConfiguration = new VisualConfiguration;
     }
-	if (theVisualConfiguration == NULL) {
-		writeLog("ERR: init theVisualConfiguration failed");
-	}
-	return theVisualConfiguration;
+    if (theVisualConfiguration == NULL) {
+        writeLog("ERR: init theVisualConfiguration failed");
+    }
+    return theVisualConfiguration;
 }
 
 
-void VisualConfiguration::dispose() {
-	if (theVisualConfiguration != NULL) {
-		delete theVisualConfiguration;
-		theVisualConfiguration = NULL;
-	}
+void VisualConfiguration::dispose()
+{
+    if (theVisualConfiguration != NULL) {
+        delete theVisualConfiguration;
+        theVisualConfiguration = NULL;
+    }
 }
 
 
 
-uint16* VisualConfiguration::getVisualizerShowNameUnicode(uint32& numberOfCharactersOfVisualizerShowNameUnicode) {
-	theVisualConfiguration = VisualConfiguration::getInstance();
+uint16 *VisualConfiguration::getVisualizerShowNameUnicode(uint32 & numberOfCharactersOfVisualizerShowNameUnicode)
+{
+    theVisualConfiguration = VisualConfiguration::getInstance();
 #if TARGET_OS_MAC
-	Boolean isExternalRepresentation = false;
-	CFStringRef unicodeNameStr = CFStringCreateWithBytes(kCFAllocatorDefault, (const UInt8*)theVisualConfiguration->visualizerShowNameUnicode, strlen((char*)theVisualConfiguration->visualizerShowNameUnicode), kCFStringEncodingUTF8, isExternalRepresentation);
-	numberOfCharactersOfVisualizerShowNameUnicode = CFStringGetLength(unicodeNameStr);
-	theVisualConfiguration->unicodeShowName = (UniChar*)malloc(numberOfCharactersOfVisualizerShowNameUnicode * sizeof(UniChar));
-	CFStringGetCharacters(unicodeNameStr, CFRangeMake(0, numberOfCharactersOfVisualizerShowNameUnicode), theVisualConfiguration->unicodeShowName);
-	CFRelease(unicodeNameStr);
+    Boolean isExternalRepresentation = false;
+    CFStringRef unicodeNameStr =
+        CFStringCreateWithBytes(kCFAllocatorDefault, (const UInt8 *) theVisualConfiguration->visualizerShowNameUnicode,
+                                strlen((char *) theVisualConfiguration->visualizerShowNameUnicode),
+                                kCFStringEncodingUTF8, isExternalRepresentation);
+    numberOfCharactersOfVisualizerShowNameUnicode = CFStringGetLength(unicodeNameStr);
+    theVisualConfiguration->unicodeShowName =
+        (UniChar *) malloc(numberOfCharactersOfVisualizerShowNameUnicode * sizeof(UniChar));
+    CFStringGetCharacters(unicodeNameStr, CFRangeMake(0, numberOfCharactersOfVisualizerShowNameUnicode),
+                          theVisualConfiguration->unicodeShowName);
+    CFRelease(unicodeNameStr);
 #endif
 #if TARGET_OS_WIN
-	theVisualConfiguration->unicodeShowName = theVisualConfiguration->visualizerShowNameUnicode;
-	numberOfCharactersOfVisualizerShowNameUnicode = wcslen((wchar_t*)theVisualConfiguration->visualizerShowNameUnicode);
+    theVisualConfiguration->unicodeShowName = theVisualConfiguration->visualizerShowNameUnicode;
+    numberOfCharactersOfVisualizerShowNameUnicode =
+        wcslen((wchar_t *) theVisualConfiguration->visualizerShowNameUnicode);
 #endif
-	return theVisualConfiguration->unicodeShowName;
-}
-		
-
-uint8 VisualConfiguration::getBCD(uint8 decimalNumber) {
-	
-	if (decimalNumber > 99) return getBCD(99);
-	
-	uint8 bcd = 16 * (decimalNumber / 10) + (decimalNumber%10);
-	return bcd;
+    return theVisualConfiguration->unicodeShowName;
 }
 
 
-uint8 VisualConfiguration::getMajorReleaseNumberAsBCD(void) {
-	return VisualConfiguration::getBCD(VisualConfiguration::kMajorReleaseNumber);
+uint8 VisualConfiguration::getBCD(uint8 decimalNumber)
+{
+
+    if (decimalNumber > 99)
+        return getBCD(99);
+
+    uint8 bcd = 16 * (decimalNumber / 10) + (decimalNumber % 10);
+    return bcd;
 }
 
 
-uint8 VisualConfiguration::getMinorReleaseNumberAsBCD(void) {
-	return VisualConfiguration::getBCD(VisualConfiguration::kMinorReleaseNumber);
+uint8 VisualConfiguration::getMajorReleaseNumberAsBCD(void)
+{
+    return VisualConfiguration::getBCD(VisualConfiguration::kMajorReleaseNumber);
 }
 
 
-uint8 VisualConfiguration::getReleaseRevisionNumber(void) {
-	return VisualConfiguration::kReleaseRevisionNumber;
+uint8 VisualConfiguration::getMinorReleaseNumberAsBCD(void)
+{
+    return VisualConfiguration::getBCD(VisualConfiguration::kMinorReleaseNumber);
+}
+
+
+uint8 VisualConfiguration::getReleaseRevisionNumber(void)
+{
+    return VisualConfiguration::kReleaseRevisionNumber;
 }

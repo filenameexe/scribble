@@ -49,96 +49,108 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualInterpolation::VisualInterpolation(InterpolationType anInterpolationType) {
-	startValue = 0.0;
-	endValue = 1.0;
-	calcDistance();
-	interpolationType = anInterpolationType;
+VisualInterpolation::VisualInterpolation(InterpolationType anInterpolationType)
+{
+    startValue = 0.0;
+    endValue = 1.0;
+    calcDistance();
+    interpolationType = anInterpolationType;
 }
 
 
-VisualInterpolation::~VisualInterpolation() {
-	// NULL
+VisualInterpolation::~VisualInterpolation()
+{
+    // NULL
 }
 
 
-VisualInterpolation::VisualInterpolation(const VisualInterpolation& other) {
-	copy(other);
+VisualInterpolation::VisualInterpolation(const VisualInterpolation & other)
+{
+    copy(other);
 }
 
 
-VisualInterpolation& VisualInterpolation::operator=(const VisualInterpolation& other) {
-	if (this != &other) {
-		this->copy(other);
-	}
-	return *this;
+VisualInterpolation & VisualInterpolation::operator=(const VisualInterpolation & other)
+{
+    if (this != &other) {
+        this->copy(other);
+    }
+    return *this;
 }
 
 
-void VisualInterpolation::copy(const VisualInterpolation& other) {
-	this->startValue = other.startValue;
-	this->endValue = other.endValue;
-	this->distance = other.distance;
-	this->interpolationType = other.interpolationType;
+void VisualInterpolation::copy(const VisualInterpolation & other)
+{
+    this->startValue = other.startValue;
+    this->endValue = other.endValue;
+    this->distance = other.distance;
+    this->interpolationType = other.interpolationType;
 }
 
 
-void VisualInterpolation::setStartValue(double aStartValue) {
-	this->startValue = aStartValue;
-	this->calcDistance();
-}
-
-		
-void VisualInterpolation::setEndValue(double anEndValue) {
-	this->endValue = anEndValue;
-	this->calcDistance();
+void VisualInterpolation::setStartValue(double aStartValue)
+{
+    this->startValue = aStartValue;
+    this->calcDistance();
 }
 
 
-double VisualInterpolation::getStartValue() {
-	return this->startValue;
-}
-		
-
-double VisualInterpolation::getEndValue() {
-	return this->endValue;
+void VisualInterpolation::setEndValue(double anEndValue)
+{
+    this->endValue = anEndValue;
+    this->calcDistance();
 }
 
 
-double VisualInterpolation::getValueAtPosition(double position) {
-	double valueAtPosition = 0.0;
-	if (position < 0.0 || position > 1.0) {
-		char errStr[64];
-		printf("%f\n", position);
-		sprintf(errStr, "invalid position %f in getValueAtPosition() of VisualInterpolation", position);
-		writeLog(errStr);
-		return valueAtPosition;
-	}
-	if (interpolationType == kSinusoidalInterpolation) {
-		position = (-1.0 * cos(position * M_PI) / 2.0) + 0.5;
-	}
-	if (this->startValue > this->endValue) {
-		valueAtPosition = this->startValue - (this->distance * position);
-	} else if (this->startValue < this->endValue) {
-		valueAtPosition = this->startValue + (this->distance * position);
-	} else {
-		valueAtPosition = this->startValue;
-	}
-	return valueAtPosition;
+double VisualInterpolation::getStartValue()
+{
+    return this->startValue;
 }
 
 
-void VisualInterpolation::setType(InterpolationType anInterpolationType) {
-	this->interpolationType = anInterpolationType;
+double VisualInterpolation::getEndValue()
+{
+    return this->endValue;
 }
 
 
-void VisualInterpolation::calcDistance() {
-	if (this->startValue > this->endValue) {
-		this->distance = this->startValue - this->endValue;
-	} else if (this->startValue < this->endValue) {
-		this->distance = this->endValue - this->startValue;
-	} else {
-		this->distance = 0.0;
-	}
+double VisualInterpolation::getValueAtPosition(double position)
+{
+    double valueAtPosition = 0.0;
+    if (position < 0.0 || position > 1.0) {
+        char errStr[64];
+        printf("%f\n", position);
+        sprintf(errStr, "invalid position %f in getValueAtPosition() of VisualInterpolation", position);
+        writeLog(errStr);
+        return valueAtPosition;
+    }
+    if (interpolationType == kSinusoidalInterpolation) {
+        position = (-1.0 * cos(position * M_PI) / 2.0) + 0.5;
+    }
+    if (this->startValue > this->endValue) {
+        valueAtPosition = this->startValue - (this->distance * position);
+    } else if (this->startValue < this->endValue) {
+        valueAtPosition = this->startValue + (this->distance * position);
+    } else {
+        valueAtPosition = this->startValue;
+    }
+    return valueAtPosition;
+}
+
+
+void VisualInterpolation::setType(InterpolationType anInterpolationType)
+{
+    this->interpolationType = anInterpolationType;
+}
+
+
+void VisualInterpolation::calcDistance()
+{
+    if (this->startValue > this->endValue) {
+        this->distance = this->startValue - this->endValue;
+    } else if (this->startValue < this->endValue) {
+        this->distance = this->endValue - this->startValue;
+    } else {
+        this->distance = 0.0;
+    }
 }

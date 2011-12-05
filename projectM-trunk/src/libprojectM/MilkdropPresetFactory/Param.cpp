@@ -40,63 +40,58 @@
 #include <cassert>
 
 /** Constructor */
-Param::Param( std::string _name, short int _type, short int _flags, void * _engine_val, void * _matrix,
-              CValue _default_init_val, CValue _upper_bound, CValue _lower_bound):
-	name(_name),
-        type(_type),
-        flags (_flags),
-        matrix_flag (0),
-        engine_val(_engine_val),
-        matrix (_matrix),
-        default_init_val (_default_init_val),
-        upper_bound (_upper_bound),
-        lower_bound (_lower_bound)
-    {
+Param::Param(std::string _name, short int _type, short int _flags, void *_engine_val, void *_matrix,
+             CValue _default_init_val, CValue _upper_bound, CValue _lower_bound):name(_name),
+type(_type),
+flags(_flags),
+matrix_flag(0),
+engine_val(_engine_val),
+matrix(_matrix), default_init_val(_default_init_val), upper_bound(_upper_bound), lower_bound(_lower_bound)
+{
 
 }
 
 
 /* Creates a user defined parameter */
-Param::Param(std::string _name) :
-	name(_name),
-        type(P_TYPE_DOUBLE),
-	flags(P_FLAG_USERDEF),
-        matrix_flag(0),
-        matrix(0)
-        {
+Param::Param(std::string _name):
+name(_name), type(P_TYPE_DOUBLE), flags(P_FLAG_USERDEF), matrix_flag(0), matrix(0)
+{
 
-	engine_val = new float();
+    engine_val = new float ();
 
-	default_init_val.float_val = DEFAULT_DOUBLE_IV;
-        upper_bound.float_val = DEFAULT_DOUBLE_UB;
-        lower_bound.float_val = DEFAULT_DOUBLE_LB;
+    default_init_val.float_val = DEFAULT_DOUBLE_IV;
+    upper_bound.float_val = DEFAULT_DOUBLE_UB;
+    lower_bound.float_val = DEFAULT_DOUBLE_LB;
 
     /// @note may have fixed a recent bug. testing
-    *((float*)engine_val) = default_init_val.float_val;
+    *((float *) engine_val) = default_init_val.float_val;
 
-   
+
 }
 
 /* Free's a parameter type */
-Param::~Param() {
+Param::~Param()
+{
 
     // I hate this, but will let it be for now
     if (flags & P_FLAG_USERDEF) {
-        delete((double*)engine_val);
+        delete((double *) engine_val);
     }
 
-    if (PARAM_DEBUG) printf("~Param: freeing \"%s\".\n", name.c_str());
+    if (PARAM_DEBUG)
+        printf("~Param: freeing \"%s\".\n", name.c_str());
 }
 
 
 /* Returns nonzero if the string is valid parameter name */
-bool Param::is_valid_param_string( const char * string ) {
+bool Param::is_valid_param_string(const char *string)
+{
 
     if (string == NULL)
         return false;
 
     /* This ensures the first character is non numeric */
-    if ( ((*string) >= 48) && ((*string) <= 57))
+    if (((*string) >= 48) && ((*string) <= 57))
         return false;
 
     /* These probably should never happen */
@@ -118,10 +113,11 @@ bool Param::is_valid_param_string( const char * string ) {
 
 
 /* Loads a float parameter into the builtin database */
-Param * Param::new_param_float(const char * name, short int flags, void * engine_val, void * matrix,
-                               float upper_bound, float lower_bound, float init_val) {
+Param *Param::new_param_float(const char *name, short int flags, void *engine_val, void *matrix,
+                              float upper_bound, float lower_bound, float init_val)
+{
 
-    Param * param;
+    Param *param;
     CValue iv, ub, lb;
     assert(engine_val);
 
@@ -129,7 +125,7 @@ Param * Param::new_param_float(const char * name, short int flags, void * engine
     ub.float_val = upper_bound;
     lb.float_val = lower_bound;
 
-    if ((param = new Param(name, P_TYPE_DOUBLE, flags, engine_val, matrix,iv, ub, lb)) == NULL)
+    if ((param = new Param(name, P_TYPE_DOUBLE, flags, engine_val, matrix, iv, ub, lb)) == NULL)
         return NULL;
 
 
@@ -138,10 +134,11 @@ Param * Param::new_param_float(const char * name, short int flags, void * engine
 }
 
 /* Creates a new parameter of type int */
-Param * Param::new_param_int(const char * name, short int flags, void * engine_val,	
-                             int upper_bound, int lower_bound, int init_val) {
+Param *Param::new_param_int(const char *name, short int flags, void *engine_val,
+                            int upper_bound, int lower_bound, int init_val)
+{
 
-    Param * param;
+    Param *param;
     CValue iv, ub, lb;
     assert(engine_val);
 
@@ -158,10 +155,11 @@ Param * Param::new_param_int(const char * name, short int flags, void * engine_v
 }
 
 /* Creates a new parameter of type bool */
-Param * Param::new_param_bool(const char * name, short int flags, void * engine_val,
-                              bool upper_bound, bool lower_bound, bool init_val) {
+Param *Param::new_param_bool(const char *name, short int flags, void *engine_val,
+                             bool upper_bound, bool lower_bound, bool init_val)
+{
 
-    Param * param;
+    Param *param;
     CValue iv, ub, lb;
     assert(engine_val);
 
@@ -178,9 +176,10 @@ Param * Param::new_param_bool(const char * name, short int flags, void * engine_
 }
 
 /* Creates a new parameter of type string */
-Param * Param::new_param_string(const char * name, short int flags, void * engine_val) {
+Param *Param::new_param_string(const char *name, short int flags, void *engine_val)
+{
 
-    Param * param;
+    Param *param;
     CValue iv, ub, lb;
     assert(engine_val);
 
@@ -195,5 +194,3 @@ Param * Param::new_param_string(const char * name, short int flags, void * engin
     /* Finished, return success */
     return param;
 }
-
-

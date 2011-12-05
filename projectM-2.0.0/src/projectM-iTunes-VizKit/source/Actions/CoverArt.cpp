@@ -52,35 +52,41 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-CoverArt::CoverArt() {
-	coverArtAsset.setOpacityValue(kFrontVertexChain, 0.0f);
+CoverArt::CoverArt()
+{
+    coverArtAsset.setOpacityValue(kFrontVertexChain, 0.0f);
 }
 
 
-CoverArt::~CoverArt() {
-	// null
+CoverArt::~CoverArt()
+{
+    // null
 }
 
 
-void CoverArt::prepareCoverAction() {
-	VisualActorGraphics::prepareCoverArtAction();
+void CoverArt::prepareCoverAction()
+{
+    VisualActorGraphics::prepareCoverArtAction();
 }
 
 
-void CoverArt::showCover() {
-	this->coverArtAsset.draw(kFrontVertexChain);
+void CoverArt::showCover()
+{
+    this->coverArtAsset.draw(kFrontVertexChain);
 }
 
 
-void CoverArt::finishCoverAction() {
-	VisualActorGraphics::finishCoverArtAction();
+void CoverArt::finishCoverAction()
+{
+    VisualActorGraphics::finishCoverArtAction();
 }
 
 
-void CoverArt::makeImageOfCover() {
-	if (VisualDataStore::getNumberOfCoverArtworksOfCurrentTrack() > 0) {
+void CoverArt::makeImageOfCover()
+{
+    if (VisualDataStore::getNumberOfCoverArtworksOfCurrentTrack() > 0) {
 
-		VisualImage* coverArtImage = VisualActorGraphics::createCoverArtImage();
+        VisualImage *coverArtImage = VisualActorGraphics::createCoverArtImage();
 
 /*
 		VisualImage* coverArtImage = new VisualImage;
@@ -90,14 +96,14 @@ void CoverArt::makeImageOfCover() {
 		coverArtImage->initWithFile(*inputFile);
 		delete(inputFile);
 */
-		
-		//VisualString url("http://www.imagomat.de/images/coverversion/screen_mac.png");
-		//VisualImage* coverArtImage = VisualImage::createWithURL(url);
-		
-		if (coverArtImage != NULL) {
 
-			//VisualConvolutionFilter aConvolutionFilter(VisualConvolutionFilter::kEmboss);
-			//coverArtImage->applyConvolutionFilter(aConvolutionFilter);
+        //VisualString url("http://www.imagomat.de/images/coverversion/screen_mac.png");
+        //VisualImage* coverArtImage = VisualImage::createWithURL(url);
+
+        if (coverArtImage != NULL) {
+
+            //VisualConvolutionFilter aConvolutionFilter(VisualConvolutionFilter::kEmboss);
+            //coverArtImage->applyConvolutionFilter(aConvolutionFilter);
 
 /*
 			VisualFile outputFile;
@@ -111,111 +117,120 @@ void CoverArt::makeImageOfCover() {
 			}
 */
 
-			this->coverArtAsset.setImage(*coverArtImage);
+            this->coverArtAsset.setImage(*coverArtImage);
 
-			VisualStageBox* coverArtAssetBox = this->coverArtAsset.getBox();
-			coverArtAssetBox->setContentPixelWidth(coverArtImage->getWidth());
-			coverArtAssetBox->setContentPixelHeight(coverArtImage->getHeight());
-			VisualActorGraphics::releaseCoverArtImage(&coverArtImage);
-		}
-	}
+            VisualStageBox *coverArtAssetBox = this->coverArtAsset.getBox();
+            coverArtAssetBox->setContentPixelWidth(coverArtImage->getWidth());
+            coverArtAssetBox->setContentPixelHeight(coverArtImage->getHeight());
+            VisualActorGraphics::releaseCoverArtImage(&coverArtImage);
+        }
+    }
 }
 
 
-void CoverArt::calcPositionOnScreen() {
+void CoverArt::calcPositionOnScreen()
+{
 
-	VisualActorGraphics::prepareCoverArtAction();
+    VisualActorGraphics::prepareCoverArtAction();
 
-	VisualStagePosition coverArtAssetPosition = this->coverArtAsset.getPosition();
+    VisualStagePosition coverArtAssetPosition = this->coverArtAsset.getPosition();
 
-	coverArtAssetPosition.reset();
-	
-	coverArtAssetPosition.horizontalAlignment = kCenterAligned;
-	coverArtAssetPosition.verticalAlignment = kMiddleAligned;
+    coverArtAssetPosition.reset();
 
-	coverArtAssetPosition.minMarginBottom = (double)VisualDataStore::getValueInt(VisualConfiguration::kTrackInfoTextureHeight) + 5.0;
-	coverArtAssetPosition.minMarginBottomUnit = kPixel;
+    coverArtAssetPosition.horizontalAlignment = kCenterAligned;
+    coverArtAssetPosition.verticalAlignment = kMiddleAligned;
 
-	coverArtAssetPosition.minMarginTop = 5;
-	coverArtAssetPosition.minMarginTopUnit = kPixel;
+    coverArtAssetPosition.minMarginBottom =
+        (double) VisualDataStore::getValueInt(VisualConfiguration::kTrackInfoTextureHeight) + 5.0;
+    coverArtAssetPosition.minMarginBottomUnit = kPixel;
 
-	coverArtAssetPosition.minMarginLeft = 5;
-	coverArtAssetPosition.minMarginLeftUnit = kPixel;
+    coverArtAssetPosition.minMarginTop = 5;
+    coverArtAssetPosition.minMarginTopUnit = kPixel;
 
-	coverArtAssetPosition.minMarginRight = 5;
-	coverArtAssetPosition.minMarginRightUnit = kPixel;
-	
-	this->coverArtAsset.setPosition(coverArtAssetPosition);
-	
-	VisualStageBox* coverArtAssetBox = this->coverArtAsset.getBox();
-	coverArtAssetBox->update(); // VisualStageBox only updates automatically on value changed, after canvas reshape event we have to update manually (before calculating scaleFactor) 
-	coverArtAssetBox->setScalingBehaviour(kPreserveAspectRatio);
-	
-	this->coverArtAsset.generateVertexChain(kFrontVertexChain);
-	
-	VisualActorGraphics::finishCoverArtAction();
+    coverArtAssetPosition.minMarginLeft = 5;
+    coverArtAssetPosition.minMarginLeftUnit = kPixel;
+
+    coverArtAssetPosition.minMarginRight = 5;
+    coverArtAssetPosition.minMarginRightUnit = kPixel;
+
+    this->coverArtAsset.setPosition(coverArtAssetPosition);
+
+    VisualStageBox *coverArtAssetBox = this->coverArtAsset.getBox();
+    coverArtAssetBox->update(); // VisualStageBox only updates automatically on value changed, after canvas reshape event we have to update manually (before calculating scaleFactor) 
+    coverArtAssetBox->setScalingBehaviour(kPreserveAspectRatio);
+
+    this->coverArtAsset.generateVertexChain(kFrontVertexChain);
+
+    VisualActorGraphics::finishCoverArtAction();
 
 }
 
 
-void CoverArt::fadeIn(UInt32 durationInMilliseconds) {
-	VisualAnimation fadeInAnimation(kAnimatedOpacity);
-	fadeInAnimation.setDurationInMilliseconds(durationInMilliseconds);
-	this->coverArtAsset.addAnimation(fadeInAnimation);
+void CoverArt::fadeIn(UInt32 durationInMilliseconds)
+{
+    VisualAnimation fadeInAnimation(kAnimatedOpacity);
+    fadeInAnimation.setDurationInMilliseconds(durationInMilliseconds);
+    this->coverArtAsset.addAnimation(fadeInAnimation);
 }
 
 
-void CoverArt::fadeOut(UInt32 durationInMilliseconds, double clampValue) {
-	VisualAnimation fadeOutAnimation(kAnimatedOpacity);
-	fadeOutAnimation.setDurationInMilliseconds(durationInMilliseconds);
-	fadeOutAnimation.setStartValue(1.0);
-	fadeOutAnimation.setEndValue(0.0);
-	if (clampValue > 0.0f) {
-		fadeOutAnimation.setMinClampValue(clampValue);
-	}
-	this->coverArtAsset.addAnimation(fadeOutAnimation, kContinueWithCurrentValueWithPossibleDelay);
+void CoverArt::fadeOut(UInt32 durationInMilliseconds, double clampValue)
+{
+    VisualAnimation fadeOutAnimation(kAnimatedOpacity);
+    fadeOutAnimation.setDurationInMilliseconds(durationInMilliseconds);
+    fadeOutAnimation.setStartValue(1.0);
+    fadeOutAnimation.setEndValue(0.0);
+    if (clampValue > 0.0f) {
+        fadeOutAnimation.setMinClampValue(clampValue);
+    }
+    this->coverArtAsset.addAnimation(fadeOutAnimation, kContinueWithCurrentValueWithPossibleDelay);
 }
 
 
-void CoverArt::pulsate() {
-	VisualAnimation pulsateAnimation(kAnimatedOpacity);
-	UInt32 durationInMilliseconds = VisualDataStore::getPreferenceValueInt(VisualConfiguration::kFadeOutTimeOnPauseInMS);
-	pulsateAnimation.setDurationInMilliseconds(durationInMilliseconds);
-	pulsateAnimation.setLoopMode(kMirroredLoop, kInfiniteRepetition);
-	this->coverArtAsset.addAnimation(pulsateAnimation);
+void CoverArt::pulsate()
+{
+    VisualAnimation pulsateAnimation(kAnimatedOpacity);
+    UInt32 durationInMilliseconds =
+        VisualDataStore::getPreferenceValueInt(VisualConfiguration::kFadeOutTimeOnPauseInMS);
+    pulsateAnimation.setDurationInMilliseconds(durationInMilliseconds);
+    pulsateAnimation.setLoopMode(kMirroredLoop, kInfiniteRepetition);
+    this->coverArtAsset.addAnimation(pulsateAnimation);
 }
 
 
-void CoverArt::rotate() {
-	VisualAnimation rotateAnimation(kAnimatedRotation);
-	UInt32 durationInMilliseconds = 9000;
-	rotateAnimation.setDurationInMilliseconds(durationInMilliseconds);
-	rotateAnimation.setLoopMode(kLoop, kInfiniteRepetition);
-	this->coverArtAsset.addAnimation(rotateAnimation);
+void CoverArt::rotate()
+{
+    VisualAnimation rotateAnimation(kAnimatedRotation);
+    UInt32 durationInMilliseconds = 9000;
+    rotateAnimation.setDurationInMilliseconds(durationInMilliseconds);
+    rotateAnimation.setLoopMode(kLoop, kInfiniteRepetition);
+    this->coverArtAsset.addAnimation(rotateAnimation);
 }
 
 
-void CoverArt::scaleSize(UInt32 durationInMilliseconds, double from, double to) {
-	VisualAnimation sizeAnimation(kAnimatedSize);
-	sizeAnimation.setStartValue(from);
-	sizeAnimation.setEndValue(to);
-	sizeAnimation.setDurationInMilliseconds(durationInMilliseconds);
-	this->coverArtAsset.addAnimation(sizeAnimation);
+void CoverArt::scaleSize(UInt32 durationInMilliseconds, double from, double to)
+{
+    VisualAnimation sizeAnimation(kAnimatedSize);
+    sizeAnimation.setStartValue(from);
+    sizeAnimation.setEndValue(to);
+    sizeAnimation.setDurationInMilliseconds(durationInMilliseconds);
+    this->coverArtAsset.addAnimation(sizeAnimation);
 }
 
 
-void CoverArt::clear() {
+void CoverArt::clear()
+{
 
-	VisualStageBox* coverArtAssetBox = this->coverArtAsset.getBox();
-	
-	coverArtAssetBox->setContentPixelWidth(0);
-	coverArtAssetBox->setContentPixelHeight(0);
+    VisualStageBox *coverArtAssetBox = this->coverArtAsset.getBox();
 
-	VisualStagePosition coverArtAssetPosition = this->coverArtAsset.getPosition();
-	coverArtAssetPosition.reset();
-	this->coverArtAsset.setPosition(coverArtAssetPosition);
-	
-	this->coverArtAsset.removeAnimations();
-	
-	this->coverArtAsset.setOpacityValue(kFrontVertexChain, 0.0f);
+    coverArtAssetBox->setContentPixelWidth(0);
+    coverArtAssetBox->setContentPixelHeight(0);
+
+    VisualStagePosition coverArtAssetPosition = this->coverArtAsset.getPosition();
+    coverArtAssetPosition.reset();
+    this->coverArtAsset.setPosition(coverArtAssetPosition);
+
+    this->coverArtAsset.removeAnimations();
+
+    this->coverArtAsset.setOpacityValue(kFrontVertexChain, 0.0f);
 }

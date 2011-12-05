@@ -39,57 +39,64 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-VisualStringStyle::VisualStringStyle() {
-	fontNameStr[0] = '\0';
+VisualStringStyle::VisualStringStyle()
+{
+    fontNameStr[0] = '\0';
 #if TARGET_OS_MAC
-	strcpy(fontNameStr, "Lucida Grande");
+    strcpy(fontNameStr, "Lucida Grande");
 #endif
 #if TARGET_OS_WIN
-	strcpy(fontNameStr, "Tahoma");
+    strcpy(fontNameStr, "Tahoma");
 #endif
-	fontSize = 16.0;
-	fontColor.red = 1.0;
-	fontColor.green = 1.0;
-	fontColor.blue = 1.0;
-	fontColor.alpha = 1.0;
-	fontColor.r = 1.0;
-	fontColor.g = 1.0;
-	fontColor.b = 1.0;
-	fontColor.a = 1.0;
-	horizontalAlignment = kLeftAligned;
+    fontSize = 16.0;
+    fontColor.red = 1.0;
+    fontColor.green = 1.0;
+    fontColor.blue = 1.0;
+    fontColor.alpha = 1.0;
+    fontColor.r = 1.0;
+    fontColor.g = 1.0;
+    fontColor.b = 1.0;
+    fontColor.a = 1.0;
+    horizontalAlignment = kLeftAligned;
 }
 
 
-VisualStringStyle::~VisualStringStyle() {
-	// NULL
+VisualStringStyle::~VisualStringStyle()
+{
+    // NULL
 }
 
 
-VisualStringStyle::VisualStringStyle(const VisualStringStyle& other) : VisualObject(other) {
-	copy(other);
+VisualStringStyle::VisualStringStyle(const VisualStringStyle & other):VisualObject(other)
+{
+    copy(other);
 }
 
 
-VisualStringStyle& VisualStringStyle::operator=(const VisualStringStyle& other) {
-	
-	if (this == &other) return *this;
-	
-	VisualObject::operator=(other);
-	
-	this->copy(other);
-	
-	return *this;
+VisualStringStyle & VisualStringStyle::operator=(const VisualStringStyle & other)
+{
+
+    if (this == &other)
+        return *this;
+
+    VisualObject::operator=(other);
+
+    this->copy(other);
+
+    return *this;
 }
 
 
-VisualStringStyle* VisualStringStyle::clone(void) const {
-	return new VisualStringStyle(*this);
+VisualStringStyle *VisualStringStyle::clone(void) const const
+{
+    return new VisualStringStyle(*this);
 }
 
 
-void VisualStringStyle::copy(const VisualStringStyle& other) {
-	strcpy(this->fontNameStr, other.fontNameStr);
-	this->fontSize = other.fontSize;
-	this->fontColor = other.fontColor;
-	this->horizontalAlignment = other.horizontalAlignment;
+void VisualStringStyle::copy(const VisualStringStyle & other)
+{
+    strcpy(this->fontNameStr, other.fontNameStr);
+    this->fontSize = other.fontSize;
+    this->fontColor = other.fontColor;
+    this->horizontalAlignment = other.horizontalAlignment;
 }

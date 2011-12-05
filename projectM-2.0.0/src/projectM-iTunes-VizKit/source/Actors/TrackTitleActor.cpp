@@ -47,83 +47,91 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-TrackTitleActor::TrackTitleActor() {
-	strcpy(actorName, "TRACKTITLE");
-	state = kVisActOn;
+TrackTitleActor::TrackTitleActor()
+{
+    strcpy(actorName, "TRACKTITLE");
+    state = kVisActOn;
     trackTitle = new TrackTitle;
-	textureOfCurrentTrackTitleIsAvailable = false;
+    textureOfCurrentTrackTitleIsAvailable = false;
 }
 
 
-TrackTitleActor::~TrackTitleActor() {
+TrackTitleActor::~TrackTitleActor()
+{
     trackTitle->clear();
-	delete trackTitle;
+    delete trackTitle;
 }
 
 
-void TrackTitleActor::show() {
-	if ((this->textureOfCurrentTrackTitleIsAvailable == true) && (this->state != kVisActOff)) {
-		this->trackTitle->show();
-	}
+void TrackTitleActor::show()
+{
+    if ((this->textureOfCurrentTrackTitleIsAvailable == true) && (this->state != kVisActOff)) {
+        this->trackTitle->show();
+    }
 }
 
 
-void TrackTitleActor::clear() {
-	this->trackTitle->clear();
+void TrackTitleActor::clear()
+{
+    this->trackTitle->clear();
 }
 
 
-void TrackTitleActor::handleNotification(const VisualNotification& aNotification) {
+void TrackTitleActor::handleNotification(const VisualNotification & aNotification)
+{
 
-	//VisualActor::handleNotification(aNotification); // debug
-	
-	VisualNotificationKey notificationKey = aNotification.getKey();
-	
-	switch (notificationKey) {
-		case kAudioMetadataIsAvailableMsg:
-			{
-				const VisualString trackName = VisualDataStore::getNameOfCurrentTrack();
-				if (trackName.getNumberOfNonWhitespaceCharacters() > 0) {
-					OSStatus status = this->trackTitle->makeTextureOfTrackTitle(trackName);
-					if (status == noErr) {
-						this->trackTitle->calcPositionOnScreen();
-						VisualDataStore::setValueInt(VisualConfiguration::kTrackInfoTextureHeight, this->trackTitle->getTrackInfoTextureHeightInPixels());
-						VisualNotification::post(kTrackInfoTextureIsAvailableMsg);
-					} else {
-						VisualDataStore::setValueInt(VisualConfiguration::kTrackInfoTextureHeight, 0);
-					}
-					VisualNotification::post(kTrackInfoTextureChangedMsg);
-				}
-			}
-			break;
-		case kTrackInfoTextureIsAvailableMsg:
-			this->textureOfCurrentTrackTitleIsAvailable = true;
-			this->trackTitle->fadeIn(VisualDataStore::getPreferenceValueInt(VisualConfiguration::kFadeInTimeOnPlayInMS));
-			break;
-		case kAudioPlayStartedEvt:
-			this->trackTitle->clear();
-			this->textureOfCurrentTrackTitleIsAvailable = false;
-			break;
-		case kAudioPlayStoppedEvt:
-			this->trackTitle->clear();
-			this->textureOfCurrentTrackTitleIsAvailable = false;
-			break;
-		case kAudioPlayPausedEvt:
-			this->trackTitle->pulsate();
-			break;
-		case kAudioPlayResumedEvt:
-			this->trackTitle->fadeIn(VisualDataStore::getPreferenceValueInt(VisualConfiguration::kFadeInTimeOnResumeInMS));
-			break;
-		case kAudioPlayReachedFadeOutTimeBeforeEndOfTrackEvt:
-			this->trackTitle->fadeOut(VisualDataStore::getPreferenceValueInt(VisualConfiguration::kFadeOutTimeBeforeEndOfTrackInMS));
-			break;
-		case kCanvasReshapeEvt:
-			this->trackTitle->calcPositionOnScreen();
-			VisualDataStore::setValueInt(VisualConfiguration::kTrackInfoTextureHeight, this->trackTitle->getTrackInfoTextureHeightInPixels());
-			break;
-		default:
-			writeLog("unhandled Notification in TrackTitleActor");
-			break;
-	}
+    //VisualActor::handleNotification(aNotification); // debug
+
+    VisualNotificationKey notificationKey = aNotification.getKey();
+
+    switch (notificationKey) {
+    case kAudioMetadataIsAvailableMsg:
+        {
+            const VisualString trackName = VisualDataStore::getNameOfCurrentTrack();
+            if (trackName.getNumberOfNonWhitespaceCharacters() > 0) {
+                OSStatus status = this->trackTitle->makeTextureOfTrackTitle(trackName);
+                if (status == noErr) {
+                    this->trackTitle->calcPositionOnScreen();
+                    VisualDataStore::setValueInt(VisualConfiguration::kTrackInfoTextureHeight,
+                                                 this->trackTitle->getTrackInfoTextureHeightInPixels());
+                    VisualNotification::post(kTrackInfoTextureIsAvailableMsg);
+                } else {
+                    VisualDataStore::setValueInt(VisualConfiguration::kTrackInfoTextureHeight, 0);
+                }
+                VisualNotification::post(kTrackInfoTextureChangedMsg);
+            }
+        }
+        break;
+    case kTrackInfoTextureIsAvailableMsg:
+        this->textureOfCurrentTrackTitleIsAvailable = true;
+        this->trackTitle->fadeIn(VisualDataStore::getPreferenceValueInt(VisualConfiguration::kFadeInTimeOnPlayInMS));
+        break;
+    case kAudioPlayStartedEvt:
+        this->trackTitle->clear();
+        this->textureOfCurrentTrackTitleIsAvailable = false;
+        break;
+    case kAudioPlayStoppedEvt:
+        this->trackTitle->clear();
+        this->textureOfCurrentTrackTitleIsAvailable = false;
+        break;
+    case kAudioPlayPausedEvt:
+        this->trackTitle->pulsate();
+        break;
+    case kAudioPlayResumedEvt:
+        this->trackTitle->fadeIn(VisualDataStore::getPreferenceValueInt(VisualConfiguration::kFadeInTimeOnResumeInMS));
+        break;
+    case kAudioPlayReachedFadeOutTimeBeforeEndOfTrackEvt:
+        this->trackTitle->
+            fadeOut(VisualDataStore::getPreferenceValueInt(VisualConfiguration::kFadeOutTimeBeforeEndOfTrackInMS));
+        break;
+    case kCanvasReshapeEvt:
+        this->trackTitle->calcPositionOnScreen();
+        VisualDataStore::setValueInt(VisualConfiguration::kTrackInfoTextureHeight,
+                                     this->trackTitle->getTrackInfoTextureHeightInPixels());
+        break;
+    default:
+        writeLog("unhandled Notification in TrackTitleActor");
+        break;
+    }
 
 }

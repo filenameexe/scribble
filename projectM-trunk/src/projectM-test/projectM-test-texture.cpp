@@ -30,7 +30,7 @@
 #include <GL/gl.h>
 #include <assert.h>
 
-projectM *globalPM= NULL;
+projectM *globalPM = NULL;
 
 // window stuff
 int wvw, wvh, fvw, fvh;
@@ -46,158 +46,160 @@ void textureTest();
 bool doMemleakTest = false;
 int memLeakIterations = 100;
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 
-	// fix `fullscreen quit kills mouse` issue.
-	atexit(SDL_Quit);
+    // fix `fullscreen quit kills mouse` issue.
+    atexit(SDL_Quit);
 
-	std::string config_filename = getConfigFilename();
-	ConfigFile config(config_filename);
+    std::string config_filename = getConfigFilename();
+    ConfigFile config(config_filename);
 
-	// window dimensions from configfile
-	wvw = config.read<int>("Window Width", 512);
-	wvh = config.read<int>("Window Height", 512);
-	fullscreen = config.read("Fullscreen", true);
+    // window dimensions from configfile
+    wvw = config.read < int >("Window Width", 512);
+    wvh = config.read < int >("Window Height", 512);
+    fullscreen = config.read("Fullscreen", true);
 
-	init_display(wvw, wvh, &fvw, &fvh, fullscreen);
+    init_display(wvw, wvh, &fvw, &fvh, fullscreen);
 
-	SDL_WM_SetCaption(PROJECTM_TITLE, NULL);
+    SDL_WM_SetCaption(PROJECTM_TITLE, NULL);
 
-	// memleak test
-	while (doMemleakTest) {
-		static int k = 0;
-		std::cerr << "[iter " << k++ << "]" << std::endl;
-		globalPM = new projectM(config_filename);
-		assert(globalPM);
-		delete (globalPM);
-		if (k >= memLeakIterations)
-			break;
-	}
+    // memleak test
+    while (doMemleakTest) {
+        static int k = 0;
+        std::cerr << "[iter " << k++ << "]" << std::endl;
+        globalPM = new projectM(config_filename);
+        assert(globalPM);
+        delete(globalPM);
+        if (k >= memLeakIterations)
+            break;
+    }
 
-	globalPM = new projectM(config_filename);
+    globalPM = new projectM(config_filename);
 
-	// if started fullscreen, give PM new viewport dimensions
-	if (fullscreen)
-		globalPM->projectM_resetGL(fvw, fvh);
+    // if started fullscreen, give PM new viewport dimensions
+    if (fullscreen)
+        globalPM->projectM_resetGL(fvw, fvh);
 
-	renderLoop();
+    renderLoop();
 
-	// not reached
-	return 1;
+    // not reached
+    return 1;
 }
 
-void renderLoop() {
-	while (1) {
-		projectMEvent evt;
-		projectMKeycode key;
-		projectMModifier mod;
+void renderLoop()
+{
+    while (1) {
+        projectMEvent evt;
+        projectMKeycode key;
+        projectMModifier mod;
 
-		/** Process SDL events */
-		SDL_Event event;
-		while (SDL_PollEvent(&event)) {
-			/** Translate into projectM codes and process */
-			evt = sdl2pmEvent(event);
+                /** Process SDL events */
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+                        /** Translate into projectM codes and process */
+            evt = sdl2pmEvent(event);
             key = sdl2pmKeycode(event.key.keysym.sym, event.key.keysym.mod);
-			mod = sdl2pmModifier(event.key.keysym.mod);
+            mod = sdl2pmModifier(event.key.keysym.mod);
 
-			switch (evt) {
-			case PROJECTM_KEYDOWN:
-				switch (key) {
-				case PROJECTM_K_ESCAPE:
-					delete(globalPM);
-					exit(0);
-					break;
-				case PROJECTM_K_f: {
-					fullscreen = !fullscreen;
-					if (fullscreen) {
-						resize_display(fvw, fvh, fullscreen);
-						globalPM->projectM_resetGL(fvw, fvh);
-					} else {
-						resize_display(wvw, wvh, fullscreen);
-						globalPM->projectM_resetGL(wvw, wvh);
-					}
-					break;
-				}
-				case PROJECTM_K_q:
-					exit(1);
-					break;
-				default:
-					globalPM->key_handler(evt, key, mod);
-				}
-				break;
+            switch (evt) {
+            case PROJECTM_KEYDOWN:
+                switch (key) {
+                case PROJECTM_K_ESCAPE:
+                    delete(globalPM);
+                    exit(0);
+                    break;
+                case PROJECTM_K_f:{
+                        fullscreen = !fullscreen;
+                        if (fullscreen) {
+                            resize_display(fvw, fvh, fullscreen);
+                            globalPM->projectM_resetGL(fvw, fvh);
+                        } else {
+                            resize_display(wvw, wvh, fullscreen);
+                            globalPM->projectM_resetGL(wvw, wvh);
+                        }
+                        break;
+                    }
+                case PROJECTM_K_q:
+                    exit(1);
+                    break;
+                default:
+                    globalPM->key_handler(evt, key, mod);
+                }
+                break;
 
-			case PROJECTM_VIDEORESIZE:
-				wvw = event.resize.w;
-				wvh = event.resize.h;
-				resize_display(wvw, wvh, 0);
-				globalPM->projectM_resetGL(wvw, wvh);
-				break;
+            case PROJECTM_VIDEORESIZE:
+                wvw = event.resize.w;
+                wvh = event.resize.h;
+                resize_display(wvw, wvh, 0);
+                globalPM->projectM_resetGL(wvw, wvh);
+                break;
 
-			default:
-				// not for us, give it to projectM
-				globalPM->key_handler(evt, key, mod);
-				break;
-			}
-		}
+            default:
+                // not for us, give it to projectM
+                globalPM->key_handler(evt, key, mod);
+                break;
+            }
+        }
 
-		globalPM->renderFrame();
+        globalPM->renderFrame();
 
-		if (doTextureTest)
-			textureTest();
+        if (doTextureTest)
+            textureTest();
 
-		SDL_GL_SwapBuffers();
-	}
+        SDL_GL_SwapBuffers();
+    }
 }
 
-void textureTest() {
-	static int textureHandle = globalPM->initRenderToTexture();
-	static int frame = 0;
-	frame++;
+void textureTest()
+{
+    static int textureHandle = globalPM->initRenderToTexture();
+    static int frame = 0;
+    frame++;
 
-	glClear(GL_COLOR_BUFFER_BIT);
-	glClear(GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_DEPTH_BUFFER_BIT);
 
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	if (fullscreen)
-		glViewport(0, 0, fvw, fvh);
-	else
-		glViewport(0, 0, wvw, wvh);
+    if (fullscreen)
+        glViewport(0, 0, fvw, fvh);
+    else
+        glViewport(0, 0, wvw, wvh);
 
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glFrustum(-1, 1, -1, 1, 2, 10);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glFrustum(-1, 1, -1, 1, 2, 10);
 
-	glEnable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
 
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
-	glTranslatef(cos(frame*0.023), cos(frame*0.017), -5+sin(frame*0.022)*2);
-	glRotatef(sin(frame*0.0043)*360, sin(frame*0.0017)*360, sin(frame *0.0032)
-			*360, 1);
+    glTranslatef(cos(frame * 0.023), cos(frame * 0.017), -5 + sin(frame * 0.022) * 2);
+    glRotatef(sin(frame * 0.0043) * 360, sin(frame * 0.0017) * 360, sin(frame * 0.0032)
+              * 360, 1);
 
-	glEnable(GL_TEXTURE_2D);
-	glMatrixMode(GL_TEXTURE);
-	glLoadIdentity();
+    glEnable(GL_TEXTURE_2D);
+    glMatrixMode(GL_TEXTURE);
+    glLoadIdentity();
 
-	glBindTexture(GL_TEXTURE_2D, textureHandle);
-	glColor4d(1.0, 1.0, 1.0, 1.0);
+    glBindTexture(GL_TEXTURE_2D, textureHandle);
+    glColor4d(1.0, 1.0, 1.0, 1.0);
 
-	glBegin(GL_QUADS);
-	glTexCoord2d(0, 1);
-	glVertex3d(-0.8, 0.8, 0);
-	glTexCoord2d(0, 0);
-	glVertex3d(-0.8, -0.8, 0);
-	glTexCoord2d(1, 0);
-	glVertex3d(0.8, -0.8, 0);
-	glTexCoord2d(1, 1);
-	glVertex3d(0.8, 0.8, 0);
-	glEnd();
+    glBegin(GL_QUADS);
+    glTexCoord2d(0, 1);
+    glVertex3d(-0.8, 0.8, 0);
+    glTexCoord2d(0, 0);
+    glVertex3d(-0.8, -0.8, 0);
+    glTexCoord2d(1, 0);
+    glVertex3d(0.8, -0.8, 0);
+    glTexCoord2d(1, 1);
+    glVertex3d(0.8, 0.8, 0);
+    glEnd();
 
-	glDisable(GL_TEXTURE_2D);
+    glDisable(GL_TEXTURE_2D);
 
-	glMatrixMode(GL_MODELVIEW);
-	glDisable(GL_DEPTH_TEST);
+    glMatrixMode(GL_MODELVIEW);
+    glDisable(GL_DEPTH_TEST);
 }
-

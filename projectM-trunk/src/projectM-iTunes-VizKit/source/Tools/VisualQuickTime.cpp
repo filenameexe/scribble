@@ -37,7 +37,7 @@ freely, subject to the following restrictions:
 
 
 #if TARGET_OS_WIN
-#include <QuickTime/CIncludes/QTML.h> // Header file of QuickTime 7.3 SDK for Windows (http://developer.apple.com/sdk/index.html)
+#include <QuickTime/CIncludes/QTML.h>   // Header file of QuickTime 7.3 SDK for Windows (http://developer.apple.com/sdk/index.html)
 #endif
 
 #if TARGET_OS_MAC
@@ -48,26 +48,29 @@ freely, subject to the following restrictions:
 using namespace VizKit;
 
 
-uint32 VisualQuickTime::getHandleSize(void* aHandle) {
-	uint32 numberOfBytes = 0;
-	HLock((Handle)aHandle);
-	numberOfBytes = ::GetHandleSize((Handle)aHandle); // win: malloc.h: _msize(aHandle) (?)
-	HUnlock((Handle)aHandle);
-	return numberOfBytes;
+uint32 VisualQuickTime::getHandleSize(void *aHandle)
+{
+    uint32 numberOfBytes = 0;
+    HLock((Handle) aHandle);
+    numberOfBytes =::GetHandleSize((Handle) aHandle);   // win: malloc.h: _msize(aHandle) (?)
+    HUnlock((Handle) aHandle);
+    return numberOfBytes;
 }
 
 
-void VisualQuickTime::disposeHandle(void* aHandle) {
-	::DisposeHandle((Handle)aHandle);
+void VisualQuickTime::disposeHandle(void *aHandle)
+{
+    ::DisposeHandle((Handle) aHandle);
 }
 
 
-bool VisualQuickTime::getPressedKeyOfEvent(void* theEvent, char& aChar) {
-	bool success = false;
-	EventRecord* eventPtr = reinterpret_cast<EventRecord*>(theEvent);
-	if ((eventPtr) && ((eventPtr->what == keyDown) || (eventPtr->what == autoKey))) {
-		aChar = (char)(eventPtr->message & charCodeMask);
-		success = true;
-	}
-	return success;
+bool VisualQuickTime::getPressedKeyOfEvent(void *theEvent, char &aChar)
+{
+    bool success = false;
+    EventRecord *eventPtr = reinterpret_cast < EventRecord * >(theEvent);
+    if ((eventPtr) && ((eventPtr->what == keyDown) || (eventPtr->what == autoKey))) {
+        aChar = (char) (eventPtr->message & charCodeMask);
+        success = true;
+    }
+    return success;
 }
