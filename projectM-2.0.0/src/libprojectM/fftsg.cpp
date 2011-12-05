@@ -1,3 +1,4 @@
+// *INDENT-OFF*
 /*
 Fast Fourier/Cosine/Sine Transform
     dimension   :one
