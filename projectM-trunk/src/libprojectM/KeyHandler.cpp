@@ -173,7 +173,7 @@ void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode
         case PROJECTM_K_b:
             break;
         case PROJECTM_K_n:
-            selectNext(true);
+            // selectNext(true);
             std::cout << 5;
             break;
         case PROJECTM_K_N:
