@@ -37,3 +37,7 @@ extern "C" void key_handler(projectM *PM, projectMEvent event, projectMKeycode k
 extern void key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, projectMModifier modifier );
 #endif
 #endif /** !_KEY_HANDLER_HPP */
+
+private:
+  /// Provides accessor functions to choose presets
+  PresetChooser * m_presetChooser;
