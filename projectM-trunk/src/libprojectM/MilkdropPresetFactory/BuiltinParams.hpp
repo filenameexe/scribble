@@ -75,7 +75,7 @@ public:
 
 
 private:
-    static const bool BUILTIN_PARAMS_DEBUG = false;
+    static const bool BUILTIN_PARAMS_DEBUG = true;
 
     // Used to associate multiple string names to one parameter
     AliasMap aliasMap;
