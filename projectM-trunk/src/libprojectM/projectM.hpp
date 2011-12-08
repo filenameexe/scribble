@@ -148,7 +148,7 @@ public:
   void renderFrame();
   unsigned initRenderToTexture();
   void key_handler( projectMEvent event,
-		    projectMKeycode keycode, projectMModifier modifier );
+		    projectMKeycode keycode, projectMModifier modifier, PresetChooser * m_presetChooser );
 
   virtual ~projectM();
 
