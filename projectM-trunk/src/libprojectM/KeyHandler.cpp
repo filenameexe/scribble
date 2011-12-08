@@ -197,7 +197,7 @@ void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode
         case PROJECTM_K_s:
             renderer->studio = !renderer->studio;
         case PROJECTM_K_i:
-            MilkdropPresetFactory::reset()
+            MilkdropPresetFactory::reset();
             std::cout << 1;
             break;
         case PROJECTM_K_z:
