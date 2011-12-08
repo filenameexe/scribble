@@ -30,8 +30,7 @@
 #include "Renderer.hpp"
 #include "projectM.hpp"
 
-#include "BuiltinParams.hpp"
-#include "MilkdropPreset.hpp"
+#include "MilkdropPresetFactory.hpp"
 
 #include <iostream>
 #include "TimeKeeper.hpp"
@@ -198,11 +197,10 @@ void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode
         case PROJECTM_K_s:
             renderer->studio = !renderer->studio;
         case PROJECTM_K_i:
-            load_builtin_param_float("fWarpScale", (void *) &presetOutputs.fWarpScale, NULL, P_FLAG_NONE, 1.0, 1.0, -1.0, "");
+            MilkdropPresetFactory.reset()
             std::cout << 1;
             break;
         case PROJECTM_K_z:
-            load_builtin_param_float("fWarpScale", (void *) &presetOutputs.fWarpScale, NULL, P_FLAG_NONE, -1.0, 1.0, -1.0, "");
             std::cout << 0;
             break;
         case PROJECTM_K_0:
