@@ -8,4 +8,7 @@ config.inp
 libprojectM.pc
 libprojectM-qt.pc
 *.orig
+*.so
+*.a
+*.cxx
 
