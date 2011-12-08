@@ -293,7 +293,7 @@ private:
   /// Deinitialize all preset related tools. Usually done before projectM cleanup
   void destroyPresetTools();
 
-  void default_key_handler( projectMEvent event, projectMKeycode keycode );
+  void default_key_handler( projectMEvent event, projectMKeycode keycode, PresetChooser * m_presetChooser );
   /// The current position of the directory iterator
   PresetIterator * m_presetPos;
 
