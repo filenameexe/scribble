@@ -31,6 +31,7 @@
 #include "projectM.hpp"
 
 #include "BuiltinParams.hpp"
+#include "MilkdropPreset.hpp"
 
 #include <iostream>
 #include "TimeKeeper.hpp"
