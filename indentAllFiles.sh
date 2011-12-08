@@ -2,5 +2,5 @@
 
 for file in $(find . -name *.cpp)
 do
-    indent --no-tabs --line-length 120 --k-and-r-style $file
+    astyle -A3 --indent=spaces=4 --recursive *.cpp *.h
 done
