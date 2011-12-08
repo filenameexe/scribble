@@ -33,7 +33,7 @@ class projectM;
 /// Provides accessor functions to choose presets
 class PresetChooser;
 PresetChooser * m_presetChooser;
-void default_key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, PresetOutputs * presetOutputs);
+void default_key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, PresetChooser * presetOutputs);
 
 void refreshConsole();
 #if defined(__CPLUSPLUS) && !defined(MACOS)

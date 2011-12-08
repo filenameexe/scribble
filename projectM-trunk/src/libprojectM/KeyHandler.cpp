@@ -107,7 +107,7 @@ void projectM::key_handler( projectMEvent event,
     }
 }
 
-void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode, PresetOutputs * presetOutputs)
+void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode, PresetChooser * presetOutputs)
 {
 
     switch( event ) {
