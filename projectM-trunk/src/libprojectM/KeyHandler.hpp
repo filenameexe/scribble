@@ -29,6 +29,8 @@
 
 #include "event.h"
 class projectM;
+/// Provides accessor functions to choose presets
+PresetChooser * m_presetChooser;
 void default_key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, PresetOutputs * presetOutputs);
 void refreshConsole();
 #if defined(__CPLUSPLUS) && !defined(MACOS)
@@ -38,6 +40,3 @@ extern void key_handler(projectM *PM, projectMEvent event, projectMKeycode keyco
 #endif
 #endif /** !_KEY_HANDLER_HPP */
 
-private:
-  /// Provides accessor functions to choose presets
-  PresetChooser * m_presetChooser;
