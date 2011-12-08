@@ -30,38 +30,37 @@
 FT_BEGIN_HEADER
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                             T1_TABLE                          *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                             T1_TABLE                          *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
 
-  typedef struct PS_TableRec_*              PS_Table;
-  typedef const struct PS_Table_FuncsRec_*  PS_Table_Funcs;
+typedef struct PS_TableRec_*              PS_Table;
+typedef const struct PS_Table_FuncsRec_*  PS_Table_Funcs;
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Struct>                                                              */
-  /*    PS_Table_FuncsRec                                                  */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*    A set of function pointers to manage PS_Table objects.             */
-  /*                                                                       */
-  /* <Fields>                                                              */
-  /*    table_init    :: Used to initialize a table.                       */
-  /*                                                                       */
-  /*    table_done    :: Finalizes resp. destroy a given table.            */
-  /*                                                                       */
-  /*    table_add     :: Adds a new object to a table.                     */
-  /*                                                                       */
-  /*    table_release :: Releases table data, then finalizes it.           */
-  /*                                                                       */
-  typedef struct  PS_Table_FuncsRec_
-  {
+/*************************************************************************/
+/*                                                                       */
+/* <Struct>                                                              */
+/*    PS_Table_FuncsRec                                                  */
+/*                                                                       */
+/* <Description>                                                         */
+/*    A set of function pointers to manage PS_Table objects.             */
+/*                                                                       */
+/* <Fields>                                                              */
+/*    table_init    :: Used to initialize a table.                       */
+/*                                                                       */
+/*    table_done    :: Finalizes resp. destroy a given table.            */
+/*                                                                       */
+/*    table_add     :: Adds a new object to a table.                     */
+/*                                                                       */
+/*    table_release :: Releases table data, then finalizes it.           */
+/*                                                                       */
+typedef struct  PS_Table_FuncsRec_ {
     FT_Error
     (*init)( PS_Table   table,
              FT_Int     count,
@@ -79,43 +78,42 @@ FT_BEGIN_HEADER
     void
     (*release)( PS_Table  table );
 
-  } PS_Table_FuncsRec;
+} PS_Table_FuncsRec;
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Struct>                                                              */
-  /*    PS_TableRec                                                        */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*    A PS_Table is a simple object used to store an array of objects in */
-  /*    a single memory block.                                             */
-  /*                                                                       */
-  /* <Fields>                                                              */
-  /*    block     :: The address in memory of the growheap's block.  This  */
-  /*                 can change between two object adds, due to            */
-  /*                 reallocation.                                         */
-  /*                                                                       */
-  /*    cursor    :: The current top of the grow heap within its block.    */
-  /*                                                                       */
-  /*    capacity  :: The current size of the heap block.  Increments by    */
-  /*                 1kByte chunks.                                        */
-  /*                                                                       */
-  /*    max_elems :: The maximum number of elements in table.              */
-  /*                                                                       */
-  /*    num_elems :: The current number of elements in table.              */
-  /*                                                                       */
-  /*    elements  :: A table of element addresses within the block.        */
-  /*                                                                       */
-  /*    lengths   :: A table of element sizes within the block.            */
-  /*                                                                       */
-  /*    memory    :: The object used for memory operations                 */
-  /*                 (alloc/realloc).                                      */
-  /*                                                                       */
-  /*    funcs     :: A table of method pointers for this object.           */
-  /*                                                                       */
-  typedef struct  PS_TableRec_
-  {
+/*************************************************************************/
+/*                                                                       */
+/* <Struct>                                                              */
+/*    PS_TableRec                                                        */
+/*                                                                       */
+/* <Description>                                                         */
+/*    A PS_Table is a simple object used to store an array of objects in */
+/*    a single memory block.                                             */
+/*                                                                       */
+/* <Fields>                                                              */
+/*    block     :: The address in memory of the growheap's block.  This  */
+/*                 can change between two object adds, due to            */
+/*                 reallocation.                                         */
+/*                                                                       */
+/*    cursor    :: The current top of the grow heap within its block.    */
+/*                                                                       */
+/*    capacity  :: The current size of the heap block.  Increments by    */
+/*                 1kByte chunks.                                        */
+/*                                                                       */
+/*    max_elems :: The maximum number of elements in table.              */
+/*                                                                       */
+/*    num_elems :: The current number of elements in table.              */
+/*                                                                       */
+/*    elements  :: A table of element addresses within the block.        */
+/*                                                                       */
+/*    lengths   :: A table of element sizes within the block.            */
+/*                                                                       */
+/*    memory    :: The object used for memory operations                 */
+/*                 (alloc/realloc).                                      */
+/*                                                                       */
+/*    funcs     :: A table of method pointers for this object.           */
+/*                                                                       */
+typedef struct  PS_TableRec_ {
     FT_Byte*           block;          /* current memory block           */
     FT_Offset          cursor;         /* current cursor in memory block */
     FT_Offset          capacity;       /* current size of memory block   */
@@ -129,27 +127,26 @@ FT_BEGIN_HEADER
     FT_Memory          memory;
     PS_Table_FuncsRec  funcs;
 
-  } PS_TableRec;
+} PS_TableRec;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                       T1 FIELDS & TOKENS                      *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                       T1 FIELDS & TOKENS                      *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  typedef struct PS_ParserRec_*  PS_Parser;
+typedef struct PS_ParserRec_*  PS_Parser;
 
-  typedef struct T1_TokenRec_*   T1_Token;
+typedef struct T1_TokenRec_*   T1_Token;
 
-  typedef struct T1_FieldRec_*   T1_Field;
+typedef struct T1_FieldRec_*   T1_Field;
 
 
-  /* simple enumeration type used to identify token types */
-  typedef enum  T1_TokenType_
-  {
+/* simple enumeration type used to identify token types */
+typedef enum  T1_TokenType_ {
     T1_TOKEN_TYPE_NONE = 0,
     T1_TOKEN_TYPE_ANY,
     T1_TOKEN_TYPE_STRING,
@@ -159,22 +156,20 @@ FT_BEGIN_HEADER
     /* do not remove */
     T1_TOKEN_TYPE_MAX
 
-  } T1_TokenType;
+} T1_TokenType;
 
 
-  /* a simple structure used to identify tokens */
-  typedef struct  T1_TokenRec_
-  {
+/* a simple structure used to identify tokens */
+typedef struct  T1_TokenRec_ {
     FT_Byte*      start;   /* first character of token in input stream */
     FT_Byte*      limit;   /* first character after the token          */
     T1_TokenType  type;    /* type of token                            */
 
-  } T1_TokenRec;
+} T1_TokenRec;
 
 
-  /* enumeration type used to identify object fields */
-  typedef enum  T1_FieldType_
-  {
+/* enumeration type used to identify object fields */
+typedef enum  T1_FieldType_ {
     T1_FIELD_TYPE_NONE = 0,
     T1_FIELD_TYPE_BOOL,
     T1_FIELD_TYPE_INTEGER,
@@ -190,11 +185,10 @@ FT_BEGIN_HEADER
     /* do not remove */
     T1_FIELD_TYPE_MAX
 
-  } T1_FieldType;
+} T1_FieldType;
 
 
-  typedef enum  T1_FieldLocation_
-  {
+typedef enum  T1_FieldLocation_ {
     T1_FIELD_LOCATION_CID_INFO,
     T1_FIELD_LOCATION_FONT_DICT,
     T1_FIELD_LOCATION_FONT_INFO,
@@ -207,17 +201,16 @@ FT_BEGIN_HEADER
     /* do not remove */
     T1_FIELD_LOCATION_MAX
 
-  } T1_FieldLocation;
+} T1_FieldLocation;
 
 
-  typedef void
-  (*T1_Field_ParseFunc)( FT_Face     face,
-                         FT_Pointer  parser );
+typedef void
+(*T1_Field_ParseFunc)( FT_Face     face,
+                       FT_Pointer  parser );
 
 
-  /* structure type used to model object fields */
-  typedef struct  T1_FieldRec_
-  {
+/* structure type used to model object fields */
+typedef struct  T1_FieldRec_ {
     const char*         ident;        /* field identifier               */
     T1_FieldLocation    location;
     T1_FieldType        type;         /* type of field                  */
@@ -225,11 +218,11 @@ FT_BEGIN_HEADER
     FT_UInt             offset;       /* offset of field in object      */
     FT_Byte             size;         /* size of field in bytes         */
     FT_UInt             array_max;    /* maximal number of elements for */
-                                      /* array                          */
+    /* array                          */
     FT_UInt             count_offset; /* offset of element count for    */
-                                      /* arrays                         */
+    /* arrays                         */
     FT_UInt             dict;         /* where we expect it             */
-  } T1_FieldRec;
+} T1_FieldRec;
 
 #define T1_FIELD_DICT_FONTDICT ( 1 << 0 ) /* also FontInfo and FDArray */
 #define T1_FIELD_DICT_PRIVATE  ( 1 << 1 )
@@ -320,18 +313,17 @@ FT_BEGIN_HEADER
           T1_NEW_CALLBACK_FIELD( _ident, _name, _dict )
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                            T1 PARSER                          *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                            T1 PARSER                          *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  typedef const struct PS_Parser_FuncsRec_*  PS_Parser_Funcs;
+typedef const struct PS_Parser_FuncsRec_*  PS_Parser_Funcs;
 
-  typedef struct  PS_Parser_FuncsRec_
-  {
+typedef struct  PS_Parser_FuncsRec_ {
     void
     (*init)( PS_Parser  parser,
              FT_Byte*   base,
@@ -392,32 +384,31 @@ FT_BEGIN_HEADER
                          FT_UInt         max_objects,
                          FT_ULong*       pflags );
 
-  } PS_Parser_FuncsRec;
+} PS_Parser_FuncsRec;
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Struct>                                                              */
-  /*    PS_ParserRec                                                       */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*    A PS_Parser is an object used to parse a Type 1 font very quickly. */
-  /*                                                                       */
-  /* <Fields>                                                              */
-  /*    cursor :: The current position in the text.                        */
-  /*                                                                       */
-  /*    base   :: Start of the processed text.                             */
-  /*                                                                       */
-  /*    limit  :: End of the processed text.                               */
-  /*                                                                       */
-  /*    error  :: The last error returned.                                 */
-  /*                                                                       */
-  /*    memory :: The object used for memory operations (alloc/realloc).   */
-  /*                                                                       */
-  /*    funcs  :: A table of functions for the parser.                     */
-  /*                                                                       */
-  typedef struct  PS_ParserRec_
-  {
+/*************************************************************************/
+/*                                                                       */
+/* <Struct>                                                              */
+/*    PS_ParserRec                                                       */
+/*                                                                       */
+/* <Description>                                                         */
+/*    A PS_Parser is an object used to parse a Type 1 font very quickly. */
+/*                                                                       */
+/* <Fields>                                                              */
+/*    cursor :: The current position in the text.                        */
+/*                                                                       */
+/*    base   :: Start of the processed text.                             */
+/*                                                                       */
+/*    limit  :: End of the processed text.                               */
+/*                                                                       */
+/*    error  :: The last error returned.                                 */
+/*                                                                       */
+/*    memory :: The object used for memory operations (alloc/realloc).   */
+/*                                                                       */
+/*    funcs  :: A table of functions for the parser.                     */
+/*                                                                       */
+typedef struct  PS_ParserRec_ {
     FT_Byte*   cursor;
     FT_Byte*   base;
     FT_Byte*   limit;
@@ -426,52 +417,51 @@ FT_BEGIN_HEADER
 
     PS_Parser_FuncsRec  funcs;
 
-  } PS_ParserRec;
+} PS_ParserRec;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                         T1 BUILDER                            *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                         T1 BUILDER                            *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
 
-  typedef struct T1_BuilderRec_*  T1_Builder;
+typedef struct T1_BuilderRec_*  T1_Builder;
 
 
-  typedef FT_Error
-  (*T1_Builder_Check_Points_Func)( T1_Builder  builder,
-                                   FT_Int      count );
+typedef FT_Error
+(*T1_Builder_Check_Points_Func)( T1_Builder  builder,
+                                 FT_Int      count );
 
-  typedef void
-  (*T1_Builder_Add_Point_Func)( T1_Builder  builder,
+typedef void
+(*T1_Builder_Add_Point_Func)( T1_Builder  builder,
+                              FT_Pos      x,
+                              FT_Pos      y,
+                              FT_Byte     flag );
+
+typedef FT_Error
+(*T1_Builder_Add_Point1_Func)( T1_Builder  builder,
+                               FT_Pos      x,
+                               FT_Pos      y );
+
+typedef FT_Error
+(*T1_Builder_Add_Contour_Func)( T1_Builder  builder );
+
+typedef FT_Error
+(*T1_Builder_Start_Point_Func)( T1_Builder  builder,
                                 FT_Pos      x,
-                                FT_Pos      y,
-                                FT_Byte     flag );
+                                FT_Pos      y );
 
-  typedef FT_Error
-  (*T1_Builder_Add_Point1_Func)( T1_Builder  builder,
-                                 FT_Pos      x,
-                                 FT_Pos      y );
-
-  typedef FT_Error
-  (*T1_Builder_Add_Contour_Func)( T1_Builder  builder );
-
-  typedef FT_Error
-  (*T1_Builder_Start_Point_Func)( T1_Builder  builder,
-                                  FT_Pos      x,
-                                  FT_Pos      y );
-
-  typedef void
-  (*T1_Builder_Close_Contour_Func)( T1_Builder  builder );
+typedef void
+(*T1_Builder_Close_Contour_Func)( T1_Builder  builder );
 
 
-  typedef const struct T1_Builder_FuncsRec_*  T1_Builder_Funcs;
+typedef const struct T1_Builder_FuncsRec_*  T1_Builder_Funcs;
 
-  typedef struct  T1_Builder_FuncsRec_
-  {
+typedef struct  T1_Builder_FuncsRec_ {
     void
     (*init)( T1_Builder    builder,
              FT_Face       face,
@@ -489,77 +479,75 @@ FT_BEGIN_HEADER
     T1_Builder_Start_Point_Func    start_point;
     T1_Builder_Close_Contour_Func  close_contour;
 
-  } T1_Builder_FuncsRec;
+} T1_Builder_FuncsRec;
 
 
-  /* an enumeration type to handle charstring parsing states */
-  typedef enum  T1_ParseState_
-  {
+/* an enumeration type to handle charstring parsing states */
+typedef enum  T1_ParseState_ {
     T1_Parse_Start,
     T1_Parse_Have_Width,
     T1_Parse_Have_Moveto,
     T1_Parse_Have_Path
 
-  } T1_ParseState;
+} T1_ParseState;
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Structure>                                                           */
-  /*    T1_BuilderRec                                                      */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*     A structure used during glyph loading to store its outline.       */
-  /*                                                                       */
-  /* <Fields>                                                              */
-  /*    memory       :: The current memory object.                         */
-  /*                                                                       */
-  /*    face         :: The current face object.                           */
-  /*                                                                       */
-  /*    glyph        :: The current glyph slot.                            */
-  /*                                                                       */
-  /*    loader       :: XXX                                                */
-  /*                                                                       */
-  /*    base         :: The base glyph outline.                            */
-  /*                                                                       */
-  /*    current      :: The current glyph outline.                         */
-  /*                                                                       */
-  /*    max_points   :: maximum points in builder outline                  */
-  /*                                                                       */
-  /*    max_contours :: Maximal number of contours in builder outline.     */
-  /*                                                                       */
-  /*    last         :: The last point position.                           */
-  /*                                                                       */
-  /*    scale_x      :: The horizontal scaling value (FUnits to            */
-  /*                    sub-pixels).                                       */
-  /*                                                                       */
-  /*    scale_y      :: The vertical scaling value (FUnits to sub-pixels). */
-  /*                                                                       */
-  /*    pos_x        :: The horizontal translation (if composite glyph).   */
-  /*                                                                       */
-  /*    pos_y        :: The vertical translation (if composite glyph).     */
-  /*                                                                       */
-  /*    left_bearing :: The left side bearing point.                       */
-  /*                                                                       */
-  /*    advance      :: The horizontal advance vector.                     */
-  /*                                                                       */
-  /*    bbox         :: Unused.                                            */
-  /*                                                                       */
-  /*    parse_state  :: An enumeration which controls the charstring       */
-  /*                    parsing state.                                     */
-  /*                                                                       */
-  /*    load_points  :: If this flag is not set, no points are loaded.     */
-  /*                                                                       */
-  /*    no_recurse   :: Set but not used.                                  */
-  /*                                                                       */
-  /*    metrics_only :: A boolean indicating that we only want to compute  */
-  /*                    the metrics of a given glyph, not load all of its  */
-  /*                    points.                                            */
-  /*                                                                       */
-  /*    funcs        :: An array of function pointers for the builder.     */
-  /*                                                                       */
-  typedef struct  T1_BuilderRec_
-  {
+/*************************************************************************/
+/*                                                                       */
+/* <Structure>                                                           */
+/*    T1_BuilderRec                                                      */
+/*                                                                       */
+/* <Description>                                                         */
+/*     A structure used during glyph loading to store its outline.       */
+/*                                                                       */
+/* <Fields>                                                              */
+/*    memory       :: The current memory object.                         */
+/*                                                                       */
+/*    face         :: The current face object.                           */
+/*                                                                       */
+/*    glyph        :: The current glyph slot.                            */
+/*                                                                       */
+/*    loader       :: XXX                                                */
+/*                                                                       */
+/*    base         :: The base glyph outline.                            */
+/*                                                                       */
+/*    current      :: The current glyph outline.                         */
+/*                                                                       */
+/*    max_points   :: maximum points in builder outline                  */
+/*                                                                       */
+/*    max_contours :: Maximal number of contours in builder outline.     */
+/*                                                                       */
+/*    last         :: The last point position.                           */
+/*                                                                       */
+/*    scale_x      :: The horizontal scaling value (FUnits to            */
+/*                    sub-pixels).                                       */
+/*                                                                       */
+/*    scale_y      :: The vertical scaling value (FUnits to sub-pixels). */
+/*                                                                       */
+/*    pos_x        :: The horizontal translation (if composite glyph).   */
+/*                                                                       */
+/*    pos_y        :: The vertical translation (if composite glyph).     */
+/*                                                                       */
+/*    left_bearing :: The left side bearing point.                       */
+/*                                                                       */
+/*    advance      :: The horizontal advance vector.                     */
+/*                                                                       */
+/*    bbox         :: Unused.                                            */
+/*                                                                       */
+/*    parse_state  :: An enumeration which controls the charstring       */
+/*                    parsing state.                                     */
+/*                                                                       */
+/*    load_points  :: If this flag is not set, no points are loaded.     */
+/*                                                                       */
+/*    no_recurse   :: Set but not used.                                  */
+/*                                                                       */
+/*    metrics_only :: A boolean indicating that we only want to compute  */
+/*                    the metrics of a given glyph, not load all of its  */
+/*                    points.                                            */
+/*                                                                       */
+/*    funcs        :: An array of function pointers for the builder.     */
+/*                                                                       */
+typedef struct  T1_BuilderRec_ {
     FT_Memory       memory;
     FT_Face         face;
     FT_GlyphSlot    glyph;
@@ -591,57 +579,55 @@ FT_BEGIN_HEADER
 
     T1_Builder_FuncsRec  funcs;
 
-  } T1_BuilderRec;
+} T1_BuilderRec;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                         T1 DECODER                            *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                         T1 DECODER                            *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
 #if 0
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* T1_MAX_SUBRS_CALLS details the maximum number of nested sub-routine   */
-  /* calls during glyph loading.                                           */
-  /*                                                                       */
+/*************************************************************************/
+/*                                                                       */
+/* T1_MAX_SUBRS_CALLS details the maximum number of nested sub-routine   */
+/* calls during glyph loading.                                           */
+/*                                                                       */
 #define T1_MAX_SUBRS_CALLS  8
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* T1_MAX_CHARSTRING_OPERANDS is the charstring stack's capacity.  A     */
-  /* minimum of 16 is required.                                            */
-  /*                                                                       */
+/*************************************************************************/
+/*                                                                       */
+/* T1_MAX_CHARSTRING_OPERANDS is the charstring stack's capacity.  A     */
+/* minimum of 16 is required.                                            */
+/*                                                                       */
 #define T1_MAX_CHARSTRINGS_OPERANDS  32
 
 #endif /* 0 */
 
 
-  typedef struct  T1_Decoder_ZoneRec_
-  {
+typedef struct  T1_Decoder_ZoneRec_ {
     FT_Byte*  cursor;
     FT_Byte*  base;
     FT_Byte*  limit;
 
-  } T1_Decoder_ZoneRec, *T1_Decoder_Zone;
+} T1_Decoder_ZoneRec, *T1_Decoder_Zone;
 
 
-  typedef struct T1_DecoderRec_*              T1_Decoder;
-  typedef const struct T1_Decoder_FuncsRec_*  T1_Decoder_Funcs;
+typedef struct T1_DecoderRec_*              T1_Decoder;
+typedef const struct T1_Decoder_FuncsRec_*  T1_Decoder_Funcs;
 
 
-  typedef FT_Error
-  (*T1_Decoder_Callback)( T1_Decoder  decoder,
-                          FT_UInt     glyph_index );
+typedef FT_Error
+(*T1_Decoder_Callback)( T1_Decoder  decoder,
+                        FT_UInt     glyph_index );
 
 
-  typedef struct  T1_Decoder_FuncsRec_
-  {
+typedef struct  T1_Decoder_FuncsRec_ {
     FT_Error
     (*init)( T1_Decoder           decoder,
              FT_Face              face,
@@ -661,11 +647,10 @@ FT_BEGIN_HEADER
                           FT_Byte*    base,
                           FT_UInt     len );
 
-  } T1_Decoder_FuncsRec;
+} T1_Decoder_FuncsRec;
 
 
-  typedef struct  T1_DecoderRec_
-  {
+typedef struct  T1_DecoderRec_ {
     T1_BuilderRec        builder;
 
     FT_Long              stack[T1_MAX_CHARSTRINGS_OPERANDS];
@@ -700,21 +685,20 @@ FT_BEGIN_HEADER
     FT_Int*              buildchar;
     FT_UInt              len_buildchar;
 
-  } T1_DecoderRec;
+} T1_DecoderRec;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                            AFM PARSER                         *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                            AFM PARSER                         *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  typedef struct AFM_ParserRec_*  AFM_Parser;
+typedef struct AFM_ParserRec_*  AFM_Parser;
 
-  typedef struct  AFM_Parser_FuncsRec_
-  {
+typedef struct  AFM_Parser_FuncsRec_ {
     FT_Error
     (*init)( AFM_Parser  parser,
              FT_Memory   memory,
@@ -727,33 +711,32 @@ FT_BEGIN_HEADER
     FT_Error
     (*parse)( AFM_Parser  parser );
 
-  } AFM_Parser_FuncsRec;
+} AFM_Parser_FuncsRec;
 
 
-  typedef struct AFM_StreamRec_*  AFM_Stream;
+typedef struct AFM_StreamRec_*  AFM_Stream;
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Struct>                                                              */
-  /*    AFM_ParserRec                                                      */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*    An AFM_Parser is a parser for the AFM files.                       */
-  /*                                                                       */
-  /* <Fields>                                                              */
-  /*    memory    :: The object used for memory operations (alloc and      */
-  /*                 realloc).                                             */
-  /*                                                                       */
-  /*    stream    :: This is an opaque object.                             */
-  /*                                                                       */
-  /*    FontInfo  :: The result will be stored here.                       */
-  /*                                                                       */
-  /*    get_index :: A user provided function to get a glyph index by its  */
-  /*                 name.                                                 */
-  /*                                                                       */
-  typedef struct  AFM_ParserRec_
-  {
+/*************************************************************************/
+/*                                                                       */
+/* <Struct>                                                              */
+/*    AFM_ParserRec                                                      */
+/*                                                                       */
+/* <Description>                                                         */
+/*    An AFM_Parser is a parser for the AFM files.                       */
+/*                                                                       */
+/* <Fields>                                                              */
+/*    memory    :: The object used for memory operations (alloc and      */
+/*                 realloc).                                             */
+/*                                                                       */
+/*    stream    :: This is an opaque object.                             */
+/*                                                                       */
+/*    FontInfo  :: The result will be stored here.                       */
+/*                                                                       */
+/*    get_index :: A user provided function to get a glyph index by its  */
+/*                 name.                                                 */
+/*                                                                       */
+typedef struct  AFM_ParserRec_ {
     FT_Memory     memory;
     AFM_Stream    stream;
 
@@ -766,39 +749,37 @@ FT_BEGIN_HEADER
 
     void*         user_data;
 
-  } AFM_ParserRec;
+} AFM_ParserRec;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                     TYPE1 CHARMAPS                            *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                     TYPE1 CHARMAPS                            *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  typedef const struct T1_CMap_ClassesRec_*  T1_CMap_Classes;
+typedef const struct T1_CMap_ClassesRec_*  T1_CMap_Classes;
 
-  typedef struct T1_CMap_ClassesRec_
-  {
+typedef struct T1_CMap_ClassesRec_ {
     FT_CMap_Class  standard;
     FT_CMap_Class  expert;
     FT_CMap_Class  custom;
     FT_CMap_Class  unicode;
 
-  } T1_CMap_ClassesRec;
+} T1_CMap_ClassesRec;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                        PSAux Module Interface                 *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                        PSAux Module Interface                 *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  typedef struct  PSAux_ServiceRec_
-  {
+typedef struct  PSAux_ServiceRec_ {
     /* don't use `PS_Table_Funcs' and friends to avoid compiler warnings */
     const PS_Table_FuncsRec*    ps_table_funcs;
     const PS_Parser_FuncsRec*   ps_parser_funcs;
@@ -815,19 +796,19 @@ FT_BEGIN_HEADER
     /* fields after this comment line were added after version 2.1.10 */
     const AFM_Parser_FuncsRec*  afm_parser_funcs;
 
-  } PSAux_ServiceRec, *PSAux_Service;
+} PSAux_ServiceRec, *PSAux_Service;
 
-  /* backwards-compatible type definition */
-  typedef PSAux_ServiceRec   PSAux_Interface;
+/* backwards-compatible type definition */
+typedef PSAux_ServiceRec   PSAux_Interface;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                 Some convenience functions                    *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                 Some convenience functions                    *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
 #define IS_PS_NEWLINE( ch ) \
   ( (ch) == '\r' ||         \

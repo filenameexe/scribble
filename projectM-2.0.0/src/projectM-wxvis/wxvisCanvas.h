@@ -34,7 +34,8 @@
 class projectM;
 class wxvisFrame;
 
-class wxvisCanvas : public wxGLCanvas {
+class wxvisCanvas : public wxGLCanvas
+{
 private:
     /** Parent frame in the hierarchy */
     wxvisFrame *_parent;
@@ -77,7 +78,9 @@ public:
     int getStencilBits();
 
     /** Returns the parent frame */
-    wxvisFrame *getParent() { return _parent; }
-  };
+    wxvisFrame *getParent() {
+        return _parent;
+    }
+};
 
 #endif /** !_WXPROJECTMVISCANVAS_H */

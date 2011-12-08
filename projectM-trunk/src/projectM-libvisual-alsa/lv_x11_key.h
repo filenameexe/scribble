@@ -1,5 +1,5 @@
 /* Libvisual - The audio visualisation framework.
- * 
+ *
  * Copyright (C) 2004, 2005, 2006 Dennis Smit <ds@nerds-incorporated.org>
  *
  * Authors: Dennis Smit <ds@nerds-incorporated.org>
@@ -31,25 +31,25 @@ VISUAL_BEGIN_DECLS
 typedef struct _LVX11Key LVX11Key;
 
 struct _LVX11Key {
-	VisKey ODD_keymap[256];
-	VisKey MISC_keymap[256];
+    VisKey ODD_keymap[256];
+    VisKey MISC_keymap[256];
 
-	XComposeStatus compose_state;
+    XComposeStatus compose_state;
 
-	int lshift;
-	int rshift;
-	int lctrl;
-	int rctrl;
-	int lalt;
-	int ralt;
-	int num;
-	int caps;
+    int lshift;
+    int rshift;
+    int lctrl;
+    int rctrl;
+    int lalt;
+    int ralt;
+    int num;
+    int caps;
 };
 
 int lv_x11_key_init (LVX11Key *x11key);
 
 VisKeySym *lv_x11_key_lookup (LVX11Key *x11key, Display *display, XKeyEvent *xkey, KeyCode kc, VisKeySym *keysym,
-		int pressed);
+                              int pressed);
 
 VISUAL_END_DECLS
 

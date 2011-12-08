@@ -25,10 +25,10 @@
 FT_BEGIN_HEADER
 
 
-  /* the CJK-specific script class */
+/* the CJK-specific script class */
 
-  FT_CALLBACK_TABLE const AF_ScriptClassRec
-  af_cjk_script_class;
+FT_CALLBACK_TABLE const AF_ScriptClassRec
+af_cjk_script_class;
 
 
 /* */

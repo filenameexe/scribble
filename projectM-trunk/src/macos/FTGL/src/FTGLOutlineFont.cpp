@@ -3,12 +3,12 @@
 
 
 FTGLOutlineFont::FTGLOutlineFont( const char* fontFilePath)
-:   FTFont( fontFilePath)
+    :   FTFont( fontFilePath)
 {}
 
 
 FTGLOutlineFont::FTGLOutlineFont( const unsigned char *pBufferBytes, size_t bufferSizeInBytes)
-:   FTFont( pBufferBytes, bufferSizeInBytes)
+    :   FTFont( pBufferBytes, bufferSizeInBytes)
 {}
 
 
@@ -20,8 +20,7 @@ FTGlyph* FTGLOutlineFont::MakeGlyph( unsigned int g)
 {
     FT_GlyphSlot ftGlyph = face.Glyph( g, FT_LOAD_NO_HINTING);
 
-    if( ftGlyph)
-    {
+    if( ftGlyph) {
         FTOutlineGlyph* tempGlyph = new FTOutlineGlyph( ftGlyph, useDisplayLists);
         return tempGlyph;
     }
@@ -32,11 +31,11 @@ FTGlyph* FTGLOutlineFont::MakeGlyph( unsigned int g)
 
 
 void FTGLOutlineFont::Render( const char* string)
-{   
+{
     glPushAttrib( GL_ENABLE_BIT | GL_HINT_BIT | GL_LINE_BIT | GL_COLOR_BUFFER_BIT);
-    
+
     glDisable( GL_TEXTURE_2D);
-    
+
     glEnable( GL_LINE_SMOOTH);
     glHint( GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
     glEnable(GL_BLEND);
@@ -49,11 +48,11 @@ void FTGLOutlineFont::Render( const char* string)
 
 
 void FTGLOutlineFont::Render( const wchar_t* string)
-{   
+{
     glPushAttrib( GL_ENABLE_BIT | GL_HINT_BIT | GL_LINE_BIT | GL_COLOR_BUFFER_BIT);
-    
+
     glDisable( GL_TEXTURE_2D);
-    
+
     glEnable( GL_LINE_SMOOTH);
     glHint( GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
     glEnable(GL_BLEND);

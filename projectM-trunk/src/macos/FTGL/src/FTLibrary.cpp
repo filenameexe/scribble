@@ -10,8 +10,7 @@ const FTLibrary&  FTLibrary::Instance()
 
 FTLibrary::~FTLibrary()
 {
-    if( library != 0)
-    {
+    if( library != 0) {
         FT_Done_FreeType( *library);
 
         delete library;
@@ -29,8 +28,8 @@ FTLibrary::~FTLibrary()
 
 
 FTLibrary::FTLibrary()
-:   library(0),
-    err(0)
+    :   library(0),
+        err(0)
 {
     Initialise();
 }
@@ -42,17 +41,16 @@ bool FTLibrary::Initialise()
         return true;
 
     library = new FT_Library;
-    
+
     err = FT_Init_FreeType( library);
-    if( err)
-    {
+    if( err) {
         delete library;
         library = 0;
         return false;
     }
-    
+
 //  FTC_Manager* manager;
-//  
+//
 //  if( FTC_Manager_New( lib, 0, 0, 0, my_face_requester, 0, manager )
 //  {
 //      delete manager;

@@ -25,10 +25,10 @@
 FT_BEGIN_HEADER
 
 
-  /* the latin-specific script class */
+/* the latin-specific script class */
 
-  FT_CALLBACK_TABLE const AF_ScriptClassRec
-  af_latin2_script_class;
+FT_CALLBACK_TABLE const AF_ScriptClassRec
+af_latin2_script_class;
 
 /* */
 

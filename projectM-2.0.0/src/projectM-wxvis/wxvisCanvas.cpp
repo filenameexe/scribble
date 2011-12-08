@@ -51,12 +51,13 @@ END_EVENT_TABLE()
 wxvisCanvas::wxvisCanvas( wxFrame *parent, const wxWindowID id,
                           const wxPoint &pos, const wxSize &dims,
                           long style, const wxString &name ) :
-                            wxGLCanvas( parent, (wxGLCanvas *)NULL, id,
-                                        pos, dims, style, name ) {
+    wxGLCanvas( parent, (wxGLCanvas *)NULL, id,
+                pos, dims, style, name )
+{
 
     _parent = (wxvisFrame *)parent;
     _hasInitialised = 0;
-    
+
     pm = NULL;
 
     /** Create a semaphore to regulate thread access to the refresh function */
@@ -66,10 +67,11 @@ wxvisCanvas::wxvisCanvas( wxFrame *parent, const wxWindowID id,
 
     InitializeCriticalSection( &refreshMutex );
 #endif
-  }
+}
 
 /** Repaint the canvas */
-void wxvisCanvas::OnPaint( wxPaintEvent &event ) {
+void wxvisCanvas::OnPaint( wxPaintEvent &event )
+{
 
     /** Acquire the semaphore before running... */
 #ifdef WIN32
@@ -95,7 +97,7 @@ void wxvisCanvas::OnPaint( wxPaintEvent &event ) {
 #ifndef __WXMOTIF__
     if ( !GetContext() ) {
         return;
-      }
+    }
 #endif
     SetCurrent();
 
@@ -109,10 +111,10 @@ void wxvisCanvas::OnPaint( wxPaintEvent &event ) {
             pm->projectM_resetGL( dims.x, dims.y );
             printf( "here4\n" );
             _hasInitialised = 1;
-          } else {
+        } else {
             goto unlockAndExit;
-          }
-      }
+        }
+    }
 
     int i;
     short pcm_data[2][512];
@@ -122,20 +124,20 @@ void wxvisCanvas::OnPaint( wxPaintEvent &event ) {
         for ( i = 0 ; i < 512 ; i++ ) {
             pcm_data[0][i] = 0;
             pcm_data[1][i] = 0;
-          }
-      } else {
+        }
+    } else {
         for ( i = 0 ; i < 512 ; i++ ) {
             if ( i % 2 == 0 ) {
                 pcm_data[0][i] = (short)( (float)( rand() / ( (float)RAND_MAX ) * (pow(2,i%14) ) ) );
                 pcm_data[1][i] = (short)( (float)( rand() / ( (float)RAND_MAX ) * (pow(2,i/2%14) ) ) );
-              } else {
+            } else {
                 pcm_data[0][i] = (short)( (float)( rand() / ( (float)RAND_MAX ) * (pow(2,i/2%14) ) ) );
                 pcm_data[1][i] = (short)( (float)( rand() / ( (float)RAND_MAX ) * (pow(2,i%14) ) ) );
-              }
+            }
             if ( i % 2 == 1 ) {
                 pcm_data[0][i] = -pcm_data[0][i];
                 pcm_data[1][i] = -pcm_data[1][i];
-              }
+            }
         }
     }
 
@@ -158,15 +160,15 @@ void wxvisCanvas::OnPaint( wxPaintEvent &event ) {
         for ( y = 0 ; y < pm->wvh ; y++ ) {
             for ( x = 0 ; x < pm->wvw ; x++ ) {
                 fprintf( f, "%d %d %d ", fbuffer[index++], fbuffer[index++], fbuffer[index++] );
-              }
+            }
             fprintf( f, "\n" );
-          }
+        }
         fclose( f );
-      }
-#endif    
+    }
+#endif
 
     /** Buffer swap in here */
-    SwapBuffers();    
+    SwapBuffers();
 
 unlockAndExit:
 #ifdef WIN32
@@ -183,10 +185,11 @@ unlockAndExit:
 #endif
 
     return;
-  }
+}
 
 /** Handles resize events */
-void wxvisCanvas::OnSize( wxSizeEvent &event ) {
+void wxvisCanvas::OnSize( wxSizeEvent &event )
+{
 
     wxGLCanvas::OnSize( event );
 
@@ -200,21 +203,23 @@ void wxvisCanvas::OnSize( wxSizeEvent &event ) {
         SetCurrent();
         glViewport( 0, 0, w, h );
 #ifndef __WXMOTIF__
-      }
+    }
 #endif
 
     if ( pm != NULL && pm->hasInit ) {
         pm->projectM_resetGL( w, h );
-      }
-  }
+    }
+}
 
 /** Enables double-buffering, or a reasonable approximation thereof! */
-void wxvisCanvas::OnEraseBackground( wxEraseEvent &event ) {
+void wxvisCanvas::OnEraseBackground( wxEraseEvent &event )
+{
     // Do nothing, to avoid flashing.
-  }
+}
 
 /** Initialise the context -- this only happens once */
-void wxvisCanvas::initialise() {
+void wxvisCanvas::initialise()
+{
 
 #ifdef WIN32
     /** Initialise font bitmap lists */
@@ -230,7 +235,7 @@ void wxvisCanvas::initialise() {
 #endif
 #endif
 
-        /** Initialise projectM */
+    /** Initialise projectM */
     pm = (projectM *)wipemalloc( sizeof( projectM ) );
     pm->projectM_reset();
 
@@ -252,52 +257,55 @@ void wxvisCanvas::initialise() {
 #endif /** MACOS */
 
     pm->projectM_init();
-  }
+}
 
 /** Returns the number of depth bits */
-int wxvisCanvas::getDepthBits() {
+int wxvisCanvas::getDepthBits()
+{
     int rv[1];
-    
+
     SetCurrent();
     glGetIntegerv( GL_DEPTH_BITS, (GLint *)rv );
 
     return rv[0];
-  }
+}
 
 /** Returns the number of stencil bits */
-int wxvisCanvas::getStencilBits() {
+int wxvisCanvas::getStencilBits()
+{
     int rv[1];
-    
+
     SetCurrent();
     glGetIntegerv( GL_STENCIL_BITS, (GLint *)rv );
 
     return rv[0];
-  }
+}
 
 /** Handle keypresses */
-void wxvisCanvas::OnKeyPress( wxKeyEvent &event ) {
+void wxvisCanvas::OnKeyPress( wxKeyEvent &event )
+{
 
     int i;
 
     switch ( event.GetKeyCode() ) {
-        case 'R': {
-            pm->switchPreset( RANDOM_NEXT, HARD_CUT );
-            break;
-          }
-        case 'N': {
-            pm->switchPreset( ALPHA_NEXT, HARD_CUT );
-            break;
-          }
-        case 'P': {
-            pm->switchPreset( ALPHA_PREVIOUS, HARD_CUT );
-            break;
-          }
-        case WXK_ESCAPE: {
-            _parent->app->shutdown();
-            break;
-          }
-      }
+    case 'R': {
+        pm->switchPreset( RANDOM_NEXT, HARD_CUT );
+        break;
+    }
+    case 'N': {
+        pm->switchPreset( ALPHA_NEXT, HARD_CUT );
+        break;
+    }
+    case 'P': {
+        pm->switchPreset( ALPHA_PREVIOUS, HARD_CUT );
+        break;
+    }
+    case WXK_ESCAPE: {
+        _parent->app->shutdown();
+        break;
+    }
+    }
 
     Refresh( FALSE );
-  }
+}
 

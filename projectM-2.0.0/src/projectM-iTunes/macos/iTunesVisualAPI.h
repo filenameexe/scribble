@@ -1,18 +1,18 @@
 /*
      File:       iTunesVisualAPI.h
- 
+
      Contains:   iTunes Visual Plug-ins interfaces
- 
+
      Version:    Technology: iTunes
                  Release:    1.1
- 
+
      Copyright:  © 2001 by Apple Computer, Inc., all rights reserved.
- 
+
      Bugs?:      For bug reports, consult the following page on
                  the World Wide Web:
- 
+
                      http://developer.apple.com/bugreporter/
- 
+
 */
 #ifndef __ITUNESVISUALAPI__
 #define __ITUNESVISUALAPI__
@@ -28,156 +28,156 @@ extern "C" {
 #endif
 
 #if PRAGMA_STRUCT_ALIGN
-    #pragma options align=power
+#pragma options align=power
 #elif PRAGMA_STRUCT_PACKPUSH
-    #pragma pack(push, 2)
+#pragma pack(push, 2)
 #elif PRAGMA_STRUCT_PACK
-    #pragma pack(2)
+#pragma pack(2)
 #endif
 
-enum {
-	/* VisualPlugin messages */
-	
-	kVisualPluginIdleMessage			= 'null',
+    enum {
+        /* VisualPlugin messages */
 
-	kVisualPluginInitMessage			= 'init',
-	kVisualPluginCleanupMessage			= 'clr ',
-	
-	kVisualPluginConfigureMessage		= 'cnfg',	/* Configure the plugin (may not be enabled) */
-	
-	kVisualPluginEnableMessage			= 'von ',	/* Turn on the module (automatic)*/
-	kVisualPluginDisableMessage			= 'voff',	/* Turn off the module */
-	
-	kVisualPluginShowWindowMessage		= 'show',	/* Show the plugin window (allocate large memory here!) */
-	kVisualPluginHideWindowMessage		= 'hide',	/* Hide the plugin window (deallocate large memory here!) */
-		
-	kVisualPluginSetWindowMessage		= 'swin',	/* Change the window parameters */
+        kVisualPluginIdleMessage			= 'null',
 
-	kVisualPluginRenderMessage			= 'vrnd',	/* Render to window */
-	
-	kVisualPluginUpdateMessage			= 'vupd',	/* Update the window */
-	
-	kVisualPluginPlayMessage			= 'vply',	/* Playing a track */
-	kVisualPluginChangeTrackMessage		= 'ctrk',	/* Change track (for CD continuous play) */
-	kVisualPluginStopMessage			= 'vstp',	/* Stopping a track */
-	kVisualPluginSetPositionMessage		= 'setp',	/* Setting the position of a track */
-	
-	kVisualPluginPauseMessage			= 'vpau',	/* Pausing a track (unused - Pause is stop) */
-	kVisualPluginUnpauseMessage			= 'vunp',	/* Unpausing a track (unused - Pause is stop) */
-	
-	kVisualPluginEventMessage			= 'vevt'	/* Mac-event. */
-};
+                 kVisualPluginInitMessage			= 'init',
+                          kVisualPluginCleanupMessage			= 'clr ',
 
-/*
-	VisualPlugin messages
-*/
+                                kVisualPluginConfigureMessage		= 'cnfg',	/* Configure the plugin (may not be enabled) */
 
-enum {
-	kVisualMaxDataChannels		= 2,
+                                     kVisualPluginEnableMessage			= 'von ',	/* Turn on the module (automatic)*/
+                                            kVisualPluginDisableMessage			= 'voff',	/* Turn off the module */
 
-	kVisualNumWaveformEntries	= 512,
-	kVisualNumSpectrumEntries	= 512
-};
+                                                  kVisualPluginShowWindowMessage		= 'show',	/* Show the plugin window (allocate large memory here!) */
+                                                      kVisualPluginHideWindowMessage		= 'hide',	/* Hide the plugin window (deallocate large memory here!) */
 
-enum {
-	/* ShowWindow options */
-	
-	kWindowIsFullScreen = (1L << 0)
-};
+                                                          kVisualPluginSetWindowMessage		= 'swin',	/* Change the window parameters */
 
-struct RenderVisualData {
-	UInt8							numWaveformChannels;
-	UInt8							waveformData[kVisualMaxDataChannels][kVisualNumWaveformEntries];
-	
-	UInt8							numSpectrumChannels;
-	UInt8							spectrumData[kVisualMaxDataChannels][kVisualNumSpectrumEntries];
-};
-typedef struct RenderVisualData RenderVisualData;
+                                                               kVisualPluginRenderMessage			= 'vrnd',	/* Render to window */
 
-struct VisualPluginInitMessage {
-	UInt32							messageMajorVersion;	/* Input */
-	UInt32							messageMinorVersion;	/* Input */
-	NumVersion						appVersion;				/* Input */
+                                                                      kVisualPluginUpdateMessage			= 'vupd',	/* Update the window */
 
-	void *							appCookie;				/* Input */
-	ITAppProcPtr					appProc;				/* Input */
+                                                                             kVisualPluginPlayMessage			= 'vply',	/* Playing a track */
+                                                                                      kVisualPluginChangeTrackMessage		= 'ctrk',	/* Change track (for CD continuous play) */
+                                                                                         kVisualPluginStopMessage			= 'vstp',	/* Stopping a track */
+                                                                                                  kVisualPluginSetPositionMessage		= 'setp',	/* Setting the position of a track */
 
-	OptionBits						options;				/* Output */
-	void *							refCon;					/* Output */
-};
-typedef struct VisualPluginInitMessage VisualPluginInitMessage;
+                                                                                                     kVisualPluginPauseMessage			= 'vpau',	/* Pausing a track (unused - Pause is stop) */
+                                                                                                             kVisualPluginUnpauseMessage			= 'vunp',	/* Unpausing a track (unused - Pause is stop) */
 
-struct VisualPluginShowWindowMessage {
-	CGrafPtr						port;					/* Input */
-	Rect							drawRect;				/* Input */
-	OptionBits						options;				/* Input */
-};
-typedef struct VisualPluginShowWindowMessage VisualPluginShowWindowMessage;
+                                                                                                                   kVisualPluginEventMessage			= 'vevt'	/* Mac-event. */
+                                                                                                                       };
 
-struct VisualPluginSetWindowMessage {
-	CGrafPtr						port;					/* Input */
-	Rect							drawRect;				/* Input */
-	OptionBits						options;				/* Input */
-};
-typedef struct VisualPluginSetWindowMessage VisualPluginSetWindowMessage;
+    /*
+    	VisualPlugin messages
+    */
 
-struct VisualPluginPlayMessage {
-	ITTrackInfo *					trackInfo;				/* Input */
-	ITStreamInfo *					streamInfo;				/* Input */
-	SInt32							volume;					/* Input */
-	
-	UInt32							bitRate;				/* Input */
-	
-	SoundComponentData				soundFormat;			/* Input */
-};
-typedef struct VisualPluginPlayMessage VisualPluginPlayMessage;
+    enum {
+        kVisualMaxDataChannels		= 2,
 
-struct VisualPluginChangeTrackMessage {
-	ITTrackInfo *					trackInfo;				/* Input */
-	ITStreamInfo *					streamInfo;				/* Input */
-};
-typedef struct VisualPluginChangeTrackMessage VisualPluginChangeTrackMessage;
+        kVisualNumWaveformEntries	= 512,
+        kVisualNumSpectrumEntries	= 512
+    };
 
-struct VisualPluginRenderMessage {
-	RenderVisualData *				renderData;				/* Input */
-	UInt32							timeStampID;			/* Input */
-};
-typedef struct VisualPluginRenderMessage VisualPluginRenderMessage;
+    enum {
+        /* ShowWindow options */
 
-struct VisualPluginSetPositionMessage {
-	UInt32							positionTimeInMS;		/* Input */
-};
-typedef struct VisualPluginSetPositionMessage VisualPluginSetPositionMessage;
+        kWindowIsFullScreen = (1L << 0)
+    };
 
-struct VisualPluginEventMessage {
-	EventRecord *					event;					/* Input */
-};
-typedef struct VisualPluginEventMessage VisualPluginEventMessage;
+    struct RenderVisualData {
+        UInt8							numWaveformChannels;
+        UInt8							waveformData[kVisualMaxDataChannels][kVisualNumWaveformEntries];
 
-struct VisualPluginMessageInfo {
-	union {
-		VisualPluginInitMessage				initMessage;
-		VisualPluginShowWindowMessage		showWindowMessage;
-		VisualPluginSetWindowMessage		setWindowMessage;
-		VisualPluginPlayMessage				playMessage;
-		VisualPluginChangeTrackMessage		changeTrackMessage;
-		VisualPluginRenderMessage			renderMessage;
-		VisualPluginSetPositionMessage		setPositionMessage;
-		VisualPluginEventMessage			eventMessage;
-	} u;
-};
-typedef struct VisualPluginMessageInfo VisualPluginMessageInfo;
+        UInt8							numSpectrumChannels;
+        UInt8							spectrumData[kVisualMaxDataChannels][kVisualNumSpectrumEntries];
+    };
+    typedef struct RenderVisualData RenderVisualData;
+
+    struct VisualPluginInitMessage {
+        UInt32							messageMajorVersion;	/* Input */
+        UInt32							messageMinorVersion;	/* Input */
+        NumVersion						appVersion;				/* Input */
+
+        void *							appCookie;				/* Input */
+        ITAppProcPtr					appProc;				/* Input */
+
+        OptionBits						options;				/* Output */
+        void *							refCon;					/* Output */
+    };
+    typedef struct VisualPluginInitMessage VisualPluginInitMessage;
+
+    struct VisualPluginShowWindowMessage {
+        CGrafPtr						port;					/* Input */
+        Rect							drawRect;				/* Input */
+        OptionBits						options;				/* Input */
+    };
+    typedef struct VisualPluginShowWindowMessage VisualPluginShowWindowMessage;
+
+    struct VisualPluginSetWindowMessage {
+        CGrafPtr						port;					/* Input */
+        Rect							drawRect;				/* Input */
+        OptionBits						options;				/* Input */
+    };
+    typedef struct VisualPluginSetWindowMessage VisualPluginSetWindowMessage;
+
+    struct VisualPluginPlayMessage {
+        ITTrackInfo *					trackInfo;				/* Input */
+        ITStreamInfo *					streamInfo;				/* Input */
+        SInt32							volume;					/* Input */
+
+        UInt32							bitRate;				/* Input */
+
+        SoundComponentData				soundFormat;			/* Input */
+    };
+    typedef struct VisualPluginPlayMessage VisualPluginPlayMessage;
+
+    struct VisualPluginChangeTrackMessage {
+        ITTrackInfo *					trackInfo;				/* Input */
+        ITStreamInfo *					streamInfo;				/* Input */
+    };
+    typedef struct VisualPluginChangeTrackMessage VisualPluginChangeTrackMessage;
+
+    struct VisualPluginRenderMessage {
+        RenderVisualData *				renderData;				/* Input */
+        UInt32							timeStampID;			/* Input */
+    };
+    typedef struct VisualPluginRenderMessage VisualPluginRenderMessage;
+
+    struct VisualPluginSetPositionMessage {
+        UInt32							positionTimeInMS;		/* Input */
+    };
+    typedef struct VisualPluginSetPositionMessage VisualPluginSetPositionMessage;
+
+    struct VisualPluginEventMessage {
+        EventRecord *					event;					/* Input */
+    };
+    typedef struct VisualPluginEventMessage VisualPluginEventMessage;
+
+    struct VisualPluginMessageInfo {
+        union {
+            VisualPluginInitMessage				initMessage;
+            VisualPluginShowWindowMessage		showWindowMessage;
+            VisualPluginSetWindowMessage		setWindowMessage;
+            VisualPluginPlayMessage				playMessage;
+            VisualPluginChangeTrackMessage		changeTrackMessage;
+            VisualPluginRenderMessage			renderMessage;
+            VisualPluginSetPositionMessage		setPositionMessage;
+            VisualPluginEventMessage			eventMessage;
+        } u;
+    };
+    typedef struct VisualPluginMessageInfo VisualPluginMessageInfo;
 
 #if PRAGMA_STRUCT_ALIGN
-    #pragma options align=reset
+#pragma options align=reset
 #elif PRAGMA_STRUCT_PACKPUSH
-    #pragma pack(pop)
+#pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-    #pragma pack()
+#pragma pack()
 #endif
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __ITUNESVISUALAPI__ */
+#endif /* __ITUNESVISUALAPI__ */

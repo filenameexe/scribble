@@ -5,8 +5,8 @@
 
 
 FTGlyphContainer::FTGlyphContainer( FTFace* f)
-:   face(f),
-    err(0)
+    :   face(f),
+        err(0)
 {
     glyphs.push_back( NULL);
     charMap = new FTCharmap( face);
@@ -16,11 +16,10 @@ FTGlyphContainer::FTGlyphContainer( FTFace* f)
 FTGlyphContainer::~FTGlyphContainer()
 {
     GlyphVector::iterator glyphIterator;
-    for( glyphIterator = glyphs.begin(); glyphIterator != glyphs.end(); ++glyphIterator)
-    {
+    for( glyphIterator = glyphs.begin(); glyphIterator != glyphs.end(); ++glyphIterator) {
         delete *glyphIterator;
     }
-    
+
     glyphs.clear();
     delete charMap;
 }
@@ -67,7 +66,7 @@ float FTGlyphContainer::Advance( const unsigned int characterCode, const unsigne
 
     float width = face->KernAdvance( left, right).X();
     width += glyphs[charMap->GlyphListIndex( characterCode)]->Advance().X();
-    
+
     return width;
 }
 
@@ -75,17 +74,16 @@ float FTGlyphContainer::Advance( const unsigned int characterCode, const unsigne
 FTPoint FTGlyphContainer::Render( const unsigned int characterCode, const unsigned int nextCharacterCode, FTPoint penPosition)
 {
     FTPoint kernAdvance, advance;
-    
+
     unsigned int left = charMap->FontIndex( characterCode);
     unsigned int right = charMap->FontIndex( nextCharacterCode);
 
     kernAdvance = face->KernAdvance( left, right);
-        
-    if( !face->Error())
-    {
+
+    if( !face->Error()) {
         advance = glyphs[charMap->GlyphListIndex( characterCode)]->Render( penPosition);
     }
-    
+
     kernAdvance += advance;
     return kernAdvance;
 }

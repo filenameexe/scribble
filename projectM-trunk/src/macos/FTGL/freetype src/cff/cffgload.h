@@ -32,59 +32,58 @@ FT_BEGIN_HEADER
 #define CFF_MAX_SUBRS_CALLS  32
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Structure>                                                           */
-  /*    CFF_Builder                                                        */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*     A structure used during glyph loading to store its outline.       */
-  /*                                                                       */
-  /* <Fields>                                                              */
-  /*    memory        :: The current memory object.                        */
-  /*                                                                       */
-  /*    face          :: The current face object.                          */
-  /*                                                                       */
-  /*    glyph         :: The current glyph slot.                           */
-  /*                                                                       */
-  /*    loader        :: The current glyph loader.                         */
-  /*                                                                       */
-  /*    base          :: The base glyph outline.                           */
-  /*                                                                       */
-  /*    current       :: The current glyph outline.                        */
-  /*                                                                       */
-  /*    last          :: The last point position.                          */
-  /*                                                                       */
-  /*    scale_x       :: The horizontal scale (FUnits to sub-pixels).      */
-  /*                                                                       */
-  /*    scale_y       :: The vertical scale (FUnits to sub-pixels).        */
-  /*                                                                       */
-  /*    pos_x         :: The horizontal translation (if composite glyph).  */
-  /*                                                                       */
-  /*    pos_y         :: The vertical translation (if composite glyph).    */
-  /*                                                                       */
-  /*    left_bearing  :: The left side bearing point.                      */
-  /*                                                                       */
-  /*    advance       :: The horizontal advance vector.                    */
-  /*                                                                       */
-  /*    bbox          :: Unused.                                           */
-  /*                                                                       */
-  /*    path_begun    :: A flag which indicates that a new path has begun. */
-  /*                                                                       */
-  /*    load_points   :: If this flag is not set, no points are loaded.    */
-  /*                                                                       */
-  /*    no_recurse    :: Set but not used.                                 */
-  /*                                                                       */
-  /*    metrics_only  :: A boolean indicating that we only want to compute */
-  /*                     the metrics of a given glyph, not load all of its */
-  /*                     points.                                           */
-  /*                                                                       */
-  /*    hints_funcs   :: Auxiliary pointer for hinting.                    */
-  /*                                                                       */
-  /*    hints_globals :: Auxiliary pointer for hinting.                    */
-  /*                                                                       */
-  typedef struct  CFF_Builder_
-  {
+/*************************************************************************/
+/*                                                                       */
+/* <Structure>                                                           */
+/*    CFF_Builder                                                        */
+/*                                                                       */
+/* <Description>                                                         */
+/*     A structure used during glyph loading to store its outline.       */
+/*                                                                       */
+/* <Fields>                                                              */
+/*    memory        :: The current memory object.                        */
+/*                                                                       */
+/*    face          :: The current face object.                          */
+/*                                                                       */
+/*    glyph         :: The current glyph slot.                           */
+/*                                                                       */
+/*    loader        :: The current glyph loader.                         */
+/*                                                                       */
+/*    base          :: The base glyph outline.                           */
+/*                                                                       */
+/*    current       :: The current glyph outline.                        */
+/*                                                                       */
+/*    last          :: The last point position.                          */
+/*                                                                       */
+/*    scale_x       :: The horizontal scale (FUnits to sub-pixels).      */
+/*                                                                       */
+/*    scale_y       :: The vertical scale (FUnits to sub-pixels).        */
+/*                                                                       */
+/*    pos_x         :: The horizontal translation (if composite glyph).  */
+/*                                                                       */
+/*    pos_y         :: The vertical translation (if composite glyph).    */
+/*                                                                       */
+/*    left_bearing  :: The left side bearing point.                      */
+/*                                                                       */
+/*    advance       :: The horizontal advance vector.                    */
+/*                                                                       */
+/*    bbox          :: Unused.                                           */
+/*                                                                       */
+/*    path_begun    :: A flag which indicates that a new path has begun. */
+/*                                                                       */
+/*    load_points   :: If this flag is not set, no points are loaded.    */
+/*                                                                       */
+/*    no_recurse    :: Set but not used.                                 */
+/*                                                                       */
+/*    metrics_only  :: A boolean indicating that we only want to compute */
+/*                     the metrics of a given glyph, not load all of its */
+/*                     points.                                           */
+/*                                                                       */
+/*    hints_funcs   :: Auxiliary pointer for hinting.                    */
+/*                                                                       */
+/*    hints_globals :: Auxiliary pointer for hinting.                    */
+/*                                                                       */
+typedef struct  CFF_Builder_ {
     FT_Memory       memory;
     TT_Face         face;
     CFF_GlyphSlot   glyph;
@@ -113,22 +112,20 @@ FT_BEGIN_HEADER
     void*           hints_funcs;    /* hinter-specific */
     void*           hints_globals;  /* hinter-specific */
 
-  } CFF_Builder;
+} CFF_Builder;
 
 
-  /* execution context charstring zone */
+/* execution context charstring zone */
 
-  typedef struct  CFF_Decoder_Zone_
-  {
+typedef struct  CFF_Decoder_Zone_ {
     FT_Byte*  base;
     FT_Byte*  limit;
     FT_Byte*  cursor;
 
-  } CFF_Decoder_Zone;
+} CFF_Decoder_Zone;
 
 
-  typedef struct  CFF_Decoder_
-  {
+typedef struct  CFF_Decoder_ {
     CFF_Builder        builder;
     CFF_Font           cff;
 
@@ -164,40 +161,40 @@ FT_BEGIN_HEADER
 
     FT_Render_Mode     hint_mode;
 
-  } CFF_Decoder;
+} CFF_Decoder;
 
 
-  FT_LOCAL( void )
-  cff_decoder_init( CFF_Decoder*    decoder,
-                    TT_Face         face,
-                    CFF_Size        size,
-                    CFF_GlyphSlot   slot,
-                    FT_Bool         hinting,
-                    FT_Render_Mode  hint_mode );
+FT_LOCAL( void )
+cff_decoder_init( CFF_Decoder*    decoder,
+                  TT_Face         face,
+                  CFF_Size        size,
+                  CFF_GlyphSlot   slot,
+                  FT_Bool         hinting,
+                  FT_Render_Mode  hint_mode );
 
-  FT_LOCAL( void )
-  cff_decoder_prepare( CFF_Decoder*  decoder,
-                       FT_UInt       glyph_index );
+FT_LOCAL( void )
+cff_decoder_prepare( CFF_Decoder*  decoder,
+                     FT_UInt       glyph_index );
 
 #if 0  /* unused until we support pure CFF fonts */
 
-  /* Compute the maximum advance width of a font through quick parsing */
-  FT_LOCAL( FT_Error )
-  cff_compute_max_advance( TT_Face  face,
-                           FT_Int*  max_advance );
+/* Compute the maximum advance width of a font through quick parsing */
+FT_LOCAL( FT_Error )
+cff_compute_max_advance( TT_Face  face,
+                         FT_Int*  max_advance );
 
 #endif /* 0 */
 
-  FT_LOCAL( FT_Error )
-  cff_decoder_parse_charstrings( CFF_Decoder*  decoder,
-                                 FT_Byte*      charstring_base,
-                                 FT_ULong      charstring_len );
+FT_LOCAL( FT_Error )
+cff_decoder_parse_charstrings( CFF_Decoder*  decoder,
+                               FT_Byte*      charstring_base,
+                               FT_ULong      charstring_len );
 
-  FT_LOCAL( FT_Error )
-  cff_slot_load( CFF_GlyphSlot  glyph,
-                 CFF_Size       size,
-                 FT_UInt        glyph_index,
-                 FT_Int32       load_flags );
+FT_LOCAL( FT_Error )
+cff_slot_load( CFF_GlyphSlot  glyph,
+               CFF_Size       size,
+               FT_UInt        glyph_index,
+               FT_Int32       load_flags );
 
 
 FT_END_HEADER

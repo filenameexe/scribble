@@ -36,39 +36,41 @@
 #include "wipemalloc.h"
 #include <cassert>
 /* Evaluates a per pixel equation */
-void PerPixelEqn::evaluate(int mesh_i, int mesh_j) {
+void PerPixelEqn::evaluate(int mesh_i, int mesh_j)
+{
 
-  GenExpr * eqn_ptr = 0;
+    GenExpr * eqn_ptr = 0;
 
 
- eqn_ptr = this->gen_expr;
+    eqn_ptr = this->gen_expr;
 
- float ** param_matrix = (float**)this->param->matrix;
+    float ** param_matrix = (float**)this->param->matrix;
 
- if (param_matrix == 0) {
-	 assert(param->engine_val);
-	 (*(float*)param->engine_val) = eqn_ptr->eval_gen_expr(mesh_i, mesh_j);
+    if (param_matrix == 0) {
+        assert(param->engine_val);
+        (*(float*)param->engine_val) = eqn_ptr->eval_gen_expr(mesh_i, mesh_j);
 
-  } else {
+    } else {
 
-  assert(!(eqn_ptr == NULL || param_matrix == NULL));
+        assert(!(eqn_ptr == NULL || param_matrix == NULL));
 
-  param_matrix[mesh_i][mesh_j] = eqn_ptr->eval_gen_expr(mesh_i, mesh_j);
+        param_matrix[mesh_i][mesh_j] = eqn_ptr->eval_gen_expr(mesh_i, mesh_j);
 
-  /* Now that this parameter has been referenced with a per
-     pixel equation, we let the evaluator know by setting
-     this flag */
-  /// @bug review and verify this behavior
-  param->matrix_flag = true;
-  param->flags |= P_FLAG_PER_PIXEL;
-  }
+        /* Now that this parameter has been referenced with a per
+           pixel equation, we let the evaluator know by setting
+           this flag */
+        /// @bug review and verify this behavior
+        param->matrix_flag = true;
+        param->flags |= P_FLAG_PER_PIXEL;
+    }
 }
 
-PerPixelEqn::PerPixelEqn(int _index, Param * _param, GenExpr * _gen_expr):index(_index), param(_param), gen_expr(_gen_expr) {
+PerPixelEqn::PerPixelEqn(int _index, Param * _param, GenExpr * _gen_expr):index(_index), param(_param), gen_expr(_gen_expr)
+{
 
-	assert(index >= 0);
-	assert(param != 0);
-	assert(gen_expr != 0);
+    assert(index >= 0);
+    assert(param != 0);
+    assert(gen_expr != 0);
 
 }
 

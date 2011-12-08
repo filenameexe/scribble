@@ -41,8 +41,9 @@ END_EVENT_TABLE()
 
 /** Create the frame */
 wxvisFrame::wxvisFrame( wxvisApp *parent, const wxString &title,
-                        wxPoint &pos, 
-                        wxSize &dims ) : wxFrame( (wxFrame *)NULL, -1, title, pos, dims ) {
+                        wxPoint &pos,
+                        wxSize &dims ) : wxFrame( (wxFrame *)NULL, -1, title, pos, dims )
+{
 
     /** Ensure sub-windows/dialogs are null... */
     canvas = NULL;
@@ -63,21 +64,24 @@ wxvisFrame::wxvisFrame( wxvisApp *parent, const wxString &title,
     /** Create a status line */
     CreateStatusBar( 2 );
     SetStatusText( "Ready", 1 );
-  }
+}
 
 /** Print out frame rate statistics */
-void wxvisFrame::updaterate(const char *message ) {
+void wxvisFrame::updaterate(const char *message )
+{
 //    SendMessage( progress, SB_SETTEXT, 0, (LPARAM)message );
     SetStatusText( message, 0 );
-  }
+}
 
 /** Print out what wxvis thinks it's doing  */
-void wxvisFrame::updatestatus( const char *message ) {
+void wxvisFrame::updatestatus( const char *message )
+{
 //    SendMessage( progress, SB_SETTEXT, 1, (LPARAM)message );
     SetStatusText( message, 1 );
-  }
+}
 
 /** Handles closing down the application by the "X" button */
-void wxvisFrame::OnClose( wxCloseEvent &event ) {
+void wxvisFrame::OnClose( wxCloseEvent &event )
+{
     app->shutdown();
-  }
+}

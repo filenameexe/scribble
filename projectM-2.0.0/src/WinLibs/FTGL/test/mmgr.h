@@ -1,12 +1,12 @@
 // ---------------------------------------------------------------------------------------------------------------------------------
-//                                     _     
-//                                    | |    
-//  _ __ ___  _ __ ___   __ _ _ __    | |__  
-// | '_ ` _ \| '_ ` _ \ / _` | '__|   | '_ \ 
+//                                     _
+//                                    | |
+//  _ __ ___  _ __ ___   __ _ _ __    | |__
+// | '_ ` _ \| '_ ` _ \ / _` | '__|   | '_ \
 // | | | | | | | | | | | (_| | |    _ | | | |
 // |_| |_| |_|_| |_| |_|\__, |_|   (_)|_| |_|
-//                       __/ |               
-//                      |___/                
+//                       __/ |
+//                      |___/
 //
 // Memory manager & tracking software
 //
@@ -51,34 +51,32 @@ typedef unsigned long size_t;
 // Types
 // ---------------------------------------------------------------------------------------------------------------------------------
 
-typedef	struct tag_au
-{
-	size_t		actualSize;
-	size_t		reportedSize;
-	void		*actualAddress;
-	void		*reportedAddress;
-	char		sourceFile[40];
-	char		sourceFunc[40];
-	unsigned int	sourceLine;
-	unsigned int	allocationType;
-	bool		breakOnDealloc;
-	bool		breakOnRealloc;
-	unsigned int	allocationNumber;
-	struct tag_au	*next;
-	struct tag_au	*prev;
+typedef	struct tag_au {
+    size_t		actualSize;
+    size_t		reportedSize;
+    void		*actualAddress;
+    void		*reportedAddress;
+    char		sourceFile[40];
+    char		sourceFunc[40];
+    unsigned int	sourceLine;
+    unsigned int	allocationType;
+    bool		breakOnDealloc;
+    bool		breakOnRealloc;
+    unsigned int	allocationNumber;
+    struct tag_au	*next;
+    struct tag_au	*prev;
 } sAllocUnit;
 
-typedef	struct
-{
-	unsigned int	totalReportedMemory;
-	unsigned int	totalActualMemory;
-	unsigned int	peakReportedMemory;
-	unsigned int	peakActualMemory;
-	unsigned int	accumulatedReportedMemory;
-	unsigned int	accumulatedActualMemory;
-	unsigned int	accumulatedAllocUnitCount;
-	unsigned int	totalAllocUnitCount;
-	unsigned int	peakAllocUnitCount;
+typedef	struct {
+    unsigned int	totalReportedMemory;
+    unsigned int	totalActualMemory;
+    unsigned int	peakReportedMemory;
+    unsigned int	peakActualMemory;
+    unsigned int	accumulatedReportedMemory;
+    unsigned int	accumulatedActualMemory;
+    unsigned int	accumulatedAllocUnitCount;
+    unsigned int	totalAllocUnitCount;
+    unsigned int	peakAllocUnitCount;
 } sMStats;
 
 // ---------------------------------------------------------------------------------------------------------------------------------
@@ -113,11 +111,11 @@ bool		&m_breakOnDealloc(void *reportedAddress);
 // ---------------------------------------------------------------------------------------------------------------------------------
 
 void		*m_allocator(const char *sourceFile, const unsigned int sourceLine, const char *sourceFunc,
-			     const unsigned int allocationType, const size_t reportedSize);
+                         const unsigned int allocationType, const size_t reportedSize);
 void		*m_reallocator(const char *sourceFile, const unsigned int sourceLine, const char *sourceFunc,
-			       const unsigned int reallocationType, const size_t reportedSize, void *reportedAddress);
+                           const unsigned int reallocationType, const size_t reportedSize, void *reportedAddress);
 void		m_deallocator(const char *sourceFile, const unsigned int sourceLine, const char *sourceFunc,
-			      const unsigned int deallocationType, const void *reportedAddress);
+                          const unsigned int deallocationType, const void *reportedAddress);
 
 // ---------------------------------------------------------------------------------------------------------------------------------
 // Utilitarian functions

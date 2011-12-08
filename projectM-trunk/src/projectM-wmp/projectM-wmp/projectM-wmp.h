@@ -17,7 +17,7 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // CProjectMwmp
-class ATL_NO_VTABLE CProjectMwmp : 
+class ATL_NO_VTABLE CProjectMwmp :
     public CComObjectRootEx<CComSingleThreadModel>,
     public CComCoClass<CProjectMwmp, &CLSID_ProjectMwmp>,
     public IDispatchImpl<IProjectMwmp, &IID_IProjectMwmp, &LIBID_PROJECTMWMPLib>,
@@ -36,17 +36,17 @@ public:
     CProjectMwmp();
     ~CProjectMwmp();
 
-DECLARE_REGISTRY_RESOURCEID(IDR_PROJECTMWMP)
+    DECLARE_REGISTRY_RESOURCEID(IDR_PROJECTMWMP)
 
-DECLARE_PROTECT_FINAL_CONSTRUCT()
+    DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-BEGIN_COM_MAP(CProjectMwmp)
+    BEGIN_COM_MAP(CProjectMwmp)
     COM_INTERFACE_ENTRY(IProjectMwmp)
     COM_INTERFACE_ENTRY(IDispatch)
     COM_INTERFACE_ENTRY(IWMPEvents)
     COM_INTERFACE_ENTRY(IWMPEffects)
     COM_INTERFACE_ENTRY(IWMPEffects2)
-END_COM_MAP()
+    END_COM_MAP()
 
 public:
 
@@ -64,7 +64,9 @@ public:
     STDMETHOD(GetCapabilities)(DWORD * pdwCapabilities);
     STDMETHOD(GoFullscreen)(BOOL fFullScreen);// { return E_NOTIMPL; };
     STDMETHOD(RenderFullScreen)(TimedLevel *pLevels);// { return E_NOTIMPL; };
-    STDMETHOD(DisplayPropertyPage)(HWND hwndOwner) { return E_NOTIMPL; };
+    STDMETHOD(DisplayPropertyPage)(HWND hwndOwner) {
+        return E_NOTIMPL;
+    };
     STDMETHOD(GetTitle)(BSTR *bstrTitle);
     STDMETHOD(GetPresetTitle)(LONG nPreset, BSTR *bstrPresetTitle);
     STDMETHOD(GetPresetCount)(LONG *pnPresetCount);

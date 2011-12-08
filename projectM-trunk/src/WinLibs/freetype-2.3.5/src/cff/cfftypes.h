@@ -29,36 +29,35 @@
 FT_BEGIN_HEADER
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Struct>                                                              */
-  /*    CFF_IndexRec                                                       */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*    A structure used to model a CFF Index table.                       */
-  /*                                                                       */
-  /* <Fields>                                                              */
-  /*    stream      :: The source input stream.                            */
-  /*                                                                       */
-  /*    start       :: The position of the first index byte in the         */
-  /*                   input stream.                                       */
-  /*                                                                       */
-  /*    count       :: The number of elements in the index.                */
-  /*                                                                       */
-  /*    off_size    :: The size in bytes of object offsets in index.       */
-  /*                                                                       */
-  /*    data_offset :: The position of first data byte in the index's      */
-  /*                   bytes.                                              */
-  /*                                                                       */
-  /*    data_size   :: The size of the data table in this index.           */
-  /*                                                                       */
-  /*    offsets     :: A table of element offsets in the index.  Must be   */
-  /*                   loaded explicitly.                                  */
-  /*                                                                       */
-  /*    bytes       :: If the index is loaded in memory, its bytes.        */
-  /*                                                                       */
-  typedef struct  CFF_IndexRec_
-  {
+/*************************************************************************/
+/*                                                                       */
+/* <Struct>                                                              */
+/*    CFF_IndexRec                                                       */
+/*                                                                       */
+/* <Description>                                                         */
+/*    A structure used to model a CFF Index table.                       */
+/*                                                                       */
+/* <Fields>                                                              */
+/*    stream      :: The source input stream.                            */
+/*                                                                       */
+/*    start       :: The position of the first index byte in the         */
+/*                   input stream.                                       */
+/*                                                                       */
+/*    count       :: The number of elements in the index.                */
+/*                                                                       */
+/*    off_size    :: The size in bytes of object offsets in index.       */
+/*                                                                       */
+/*    data_offset :: The position of first data byte in the index's      */
+/*                   bytes.                                              */
+/*                                                                       */
+/*    data_size   :: The size of the data table in this index.           */
+/*                                                                       */
+/*    offsets     :: A table of element offsets in the index.  Must be   */
+/*                   loaded explicitly.                                  */
+/*                                                                       */
+/*    bytes       :: If the index is loaded in memory, its bytes.        */
+/*                                                                       */
+typedef struct  CFF_IndexRec_ {
     FT_Stream  stream;
     FT_ULong   start;
     FT_UInt    count;
@@ -69,11 +68,10 @@ FT_BEGIN_HEADER
     FT_ULong*  offsets;
     FT_Byte*   bytes;
 
-  } CFF_IndexRec, *CFF_Index;
+} CFF_IndexRec, *CFF_Index;
 
 
-  typedef struct  CFF_EncodingRec_
-  {
+typedef struct  CFF_EncodingRec_ {
     FT_UInt     format;
     FT_ULong    offset;
 
@@ -81,26 +79,24 @@ FT_BEGIN_HEADER
     FT_UShort   sids [256];  /* avoid dynamic allocations */
     FT_UShort   codes[256];
 
-  } CFF_EncodingRec, *CFF_Encoding;
+} CFF_EncodingRec, *CFF_Encoding;
 
 
-  typedef struct  CFF_CharsetRec_
-  {
+typedef struct  CFF_CharsetRec_ {
 
     FT_UInt     format;
     FT_ULong    offset;
 
     FT_UShort*  sids;
     FT_UShort*  cids;       /* the inverse mapping of `sids'; only needed */
-                            /* for CID-keyed fonts                        */
+    /* for CID-keyed fonts                        */
     FT_UInt     max_cid;
     FT_UInt     num_glyphs;
 
-  } CFF_CharsetRec, *CFF_Charset;
+} CFF_CharsetRec, *CFF_Charset;
 
 
-  typedef struct  CFF_FontRecDictRec_
-  {
+typedef struct  CFF_FontRecDictRec_ {
     FT_UInt    version;
     FT_UInt    notice;
     FT_UInt    copyright;
@@ -141,11 +137,10 @@ FT_BEGIN_HEADER
     FT_ULong   cid_fd_select_offset;
     FT_UInt    cid_font_name;
 
-  } CFF_FontRecDictRec, *CFF_FontRecDict;
+} CFF_FontRecDictRec, *CFF_FontRecDict;
 
 
-  typedef struct  CFF_PrivateRec_
-  {
+typedef struct  CFF_PrivateRec_ {
     FT_Byte   num_blue_values;
     FT_Byte   num_other_blues;
     FT_Byte   num_family_blues;
@@ -176,11 +171,10 @@ FT_BEGIN_HEADER
     FT_Pos    default_width;
     FT_Pos    nominal_width;
 
-  } CFF_PrivateRec, *CFF_Private;
+} CFF_PrivateRec, *CFF_Private;
 
 
-  typedef struct  CFF_FDSelectRec_
-  {
+typedef struct  CFF_FDSelectRec_ {
     FT_Byte   format;
     FT_UInt   range_count;
 
@@ -193,13 +187,12 @@ FT_BEGIN_HEADER
     FT_UInt   cache_count;
     FT_Byte   cache_fd;
 
-  } CFF_FDSelectRec, *CFF_FDSelect;
+} CFF_FDSelectRec, *CFF_FDSelect;
 
 
-  /* A SubFont packs a font dict and a private dict together.  They are */
-  /* needed to support CID-keyed CFF fonts.                             */
-  typedef struct  CFF_SubFontRec_
-  {
+/* A SubFont packs a font dict and a private dict together.  They are */
+/* needed to support CID-keyed CFF fonts.                             */
+typedef struct  CFF_SubFontRec_ {
     CFF_FontRecDictRec  font_dict;
     CFF_PrivateRec      private_dict;
 
@@ -207,15 +200,14 @@ FT_BEGIN_HEADER
     FT_UInt             num_local_subrs;
     FT_Byte**           local_subrs;
 
-  } CFF_SubFontRec, *CFF_SubFont;
+} CFF_SubFontRec, *CFF_SubFont;
 
 
-  /* maximum number of sub-fonts in a CID-keyed file */
+/* maximum number of sub-fonts in a CID-keyed file */
 #define CFF_MAX_CID_FONTS  32
 
 
-  typedef struct  CFF_FontRec_
-  {
+typedef struct  CFF_FontRec_ {
     FT_Stream        stream;
     FT_Memory        memory;
     FT_UInt          num_faces;
@@ -259,7 +251,7 @@ FT_BEGIN_HEADER
     /* since version 2.3.0 */
     PS_FontInfoRec*  font_info;   /* font info dictionary */
 
-  } CFF_FontRec, *CFF_Font;
+} CFF_FontRec, *CFF_Font;
 
 
 FT_END_HEADER

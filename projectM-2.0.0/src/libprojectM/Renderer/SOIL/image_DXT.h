@@ -46,8 +46,7 @@ convert_image_to_DXT5
 );
 
 /**	A bunch of DirectDraw Surface structures and flags **/
-typedef struct
-{
+typedef struct {
     unsigned int    dwMagic;
     unsigned int    dwSize;
     unsigned int    dwFlags;
@@ -59,8 +58,7 @@ typedef struct
     unsigned int    dwReserved1[ 11 ];
 
     /*  DDPIXELFORMAT	*/
-    struct
-    {
+    struct {
         unsigned int    dwSize;
         unsigned int    dwFlags;
         unsigned int    dwFourCC;
@@ -73,8 +71,7 @@ typedef struct
     sPixelFormat;
 
     /*  DDCAPS2	*/
-    struct
-    {
+    struct {
         unsigned int    dwCaps1;
         unsigned int    dwCaps2;
         unsigned int    dwDDSX;

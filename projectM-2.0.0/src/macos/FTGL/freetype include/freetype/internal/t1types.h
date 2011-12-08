@@ -31,41 +31,40 @@
 FT_BEGIN_HEADER
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*************************************************************************/
-  /***                                                                   ***/
-  /***                                                                   ***/
-  /***              REQUIRED TYPE1/TYPE2 TABLES DEFINITIONS              ***/
-  /***                                                                   ***/
-  /***                                                                   ***/
-  /*************************************************************************/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/***                                                                   ***/
+/***                                                                   ***/
+/***              REQUIRED TYPE1/TYPE2 TABLES DEFINITIONS              ***/
+/***                                                                   ***/
+/***                                                                   ***/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Struct>                                                              */
-  /*    T1_EncodingRec                                                     */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*    A structure modeling a custom encoding.                            */
-  /*                                                                       */
-  /* <Fields>                                                              */
-  /*    num_chars  :: The number of character codes in the encoding.       */
-  /*                  Usually 256.                                         */
-  /*                                                                       */
-  /*    code_first :: The lowest valid character code in the encoding.     */
-  /*                                                                       */
-  /*    code_last  :: The highest valid character code in the encoding.    */
-  /*                                                                       */
-  /*    char_index :: An array of corresponding glyph indices.             */
-  /*                                                                       */
-  /*    char_name  :: An array of corresponding glyph names.               */
-  /*                                                                       */
-  typedef struct  T1_EncodingRecRec_
-  {
+/*************************************************************************/
+/*                                                                       */
+/* <Struct>                                                              */
+/*    T1_EncodingRec                                                     */
+/*                                                                       */
+/* <Description>                                                         */
+/*    A structure modeling a custom encoding.                            */
+/*                                                                       */
+/* <Fields>                                                              */
+/*    num_chars  :: The number of character codes in the encoding.       */
+/*                  Usually 256.                                         */
+/*                                                                       */
+/*    code_first :: The lowest valid character code in the encoding.     */
+/*                                                                       */
+/*    code_last  :: The highest valid character code in the encoding.    */
+/*                                                                       */
+/*    char_index :: An array of corresponding glyph indices.             */
+/*                                                                       */
+/*    char_name  :: An array of corresponding glyph names.               */
+/*                                                                       */
+typedef struct  T1_EncodingRecRec_ {
     FT_Int       num_chars;
     FT_Int       code_first;
     FT_Int       code_last;
@@ -73,22 +72,20 @@ FT_BEGIN_HEADER
     FT_UShort*   char_index;
     FT_String**  char_name;
 
-  } T1_EncodingRec, *T1_Encoding;
+} T1_EncodingRec, *T1_Encoding;
 
 
-  typedef enum  T1_EncodingType_
-  {
+typedef enum  T1_EncodingType_ {
     T1_ENCODING_TYPE_NONE = 0,
     T1_ENCODING_TYPE_ARRAY,
     T1_ENCODING_TYPE_STANDARD,
     T1_ENCODING_TYPE_ISOLATIN1,
     T1_ENCODING_TYPE_EXPERT
 
-  } T1_EncodingType;
+} T1_EncodingType;
 
 
-  typedef struct  T1_FontRec_
-  {
+typedef struct  T1_FontRec_ {
     PS_FontInfoRec   font_info;         /* font info dictionary */
     PS_PrivateRec    private_dict;      /* private dictionary   */
     FT_String*       font_name;         /* top-level dictionary */
@@ -118,50 +115,46 @@ FT_BEGIN_HEADER
 
     FT_Fixed         stroke_width;
 
-  } T1_FontRec, *T1_Font;
+} T1_FontRec, *T1_Font;
 
 
-  typedef struct  CID_SubrsRec_
-  {
+typedef struct  CID_SubrsRec_ {
     FT_UInt    num_subrs;
     FT_Byte**  code;
 
-  } CID_SubrsRec, *CID_Subrs;
+} CID_SubrsRec, *CID_Subrs;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*************************************************************************/
-  /***                                                                   ***/
-  /***                                                                   ***/
-  /***                AFM FONT INFORMATION STRUCTURES                    ***/
-  /***                                                                   ***/
-  /***                                                                   ***/
-  /*************************************************************************/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/***                                                                   ***/
+/***                                                                   ***/
+/***                AFM FONT INFORMATION STRUCTURES                    ***/
+/***                                                                   ***/
+/***                                                                   ***/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
 
-  typedef struct  AFM_TrackKernRec_
-  {
+typedef struct  AFM_TrackKernRec_ {
     FT_Int    degree;
     FT_Fixed  min_ptsize;
     FT_Fixed  min_kern;
     FT_Fixed  max_ptsize;
     FT_Fixed  max_kern;
 
-  } AFM_TrackKernRec, *AFM_TrackKern;
+} AFM_TrackKernRec, *AFM_TrackKern;
 
-  typedef struct  AFM_KernPairRec_
-  {
+typedef struct  AFM_KernPairRec_ {
     FT_Int  index1;
     FT_Int  index2;
     FT_Int  x;
     FT_Int  y;
 
-  } AFM_KernPairRec, *AFM_KernPair;
+} AFM_KernPairRec, *AFM_KernPair;
 
-  typedef struct  AFM_FontInfoRec_
-  {
+typedef struct  AFM_FontInfoRec_ {
     FT_Bool        IsCIDFont;
     FT_BBox        FontBBox;
     FT_Fixed       Ascender;
@@ -171,28 +164,27 @@ FT_BEGIN_HEADER
     AFM_KernPair   KernPairs;    /* free if non-NULL */
     FT_Int         NumKernPair;
 
-  } AFM_FontInfoRec, *AFM_FontInfo;
+} AFM_FontInfoRec, *AFM_FontInfo;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*************************************************************************/
-  /***                                                                   ***/
-  /***                                                                   ***/
-  /***                ORIGINAL T1_FACE CLASS DEFINITION                  ***/
-  /***                                                                   ***/
-  /***                                                                   ***/
-  /*************************************************************************/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/***                                                                   ***/
+/***                                                                   ***/
+/***                ORIGINAL T1_FACE CLASS DEFINITION                  ***/
+/***                                                                   ***/
+/***                                                                   ***/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
 
 
-  typedef struct T1_FaceRec_*   T1_Face;
-  typedef struct CID_FaceRec_*  CID_Face;
+typedef struct T1_FaceRec_*   T1_Face;
+typedef struct CID_FaceRec_*  CID_Face;
 
 
-  typedef struct  T1_FaceRec_
-  {
+typedef struct  T1_FaceRec_ {
     FT_FaceRec      root;
     T1_FontRec      type1;
     const void*     psnames;
@@ -203,7 +195,7 @@ FT_BEGIN_HEADER
 
 #ifdef FT_CONFIG_OPTION_OLD_INTERNALS
     PS_Unicodes     unicode_map;
-#endif    
+#endif
 
     /* support for Multiple Masters fonts */
     PS_Blend        blend;
@@ -211,11 +203,10 @@ FT_BEGIN_HEADER
     /* since version 2.1 - interface to PostScript hinter */
     const void*     pshinter;
 
-  } T1_FaceRec;
+} T1_FaceRec;
 
 
-  typedef struct  CID_FaceRec_
-  {
+typedef struct  CID_FaceRec_ {
     FT_FaceRec       root;
     void*            psnames;
     void*            psaux;
@@ -230,7 +221,7 @@ FT_BEGIN_HEADER
     FT_Byte*         binary_data; /* used if hex data has been converted */
     FT_Stream        cid_stream;
 
-  } CID_FaceRec;
+} CID_FaceRec;
 
 
 FT_END_HEADER

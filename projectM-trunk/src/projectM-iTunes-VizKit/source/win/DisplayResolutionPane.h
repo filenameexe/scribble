@@ -1,7 +1,7 @@
 /*
  * Project: VizKit
  * Version: 1.9
- 
+
  * Date: 20070503
  * File: DisplayResolutionPane.h
  *
@@ -44,60 +44,62 @@ freely, subject to the following restrictions:
 #include "resource.h"
 #include <StdAfx.h>
 
-namespace VizKit {
+namespace VizKit
+{
 
-	/**
-	 * UI (Windows): Pane with information about possible display resolutions.
-	 */
-	class CDisplayResolutionPane : public CPropertyPage {
+/**
+ * UI (Windows): Pane with information about possible display resolutions.
+ */
+class CDisplayResolutionPane : public CPropertyPage
+{
 
-	DECLARE_DYNCREATE(CDisplayResolutionPane)
+    DECLARE_DYNCREATE(CDisplayResolutionPane)
 
-	public:
+public:
 
-		/** The constructor. */
-		CDisplayResolutionPane();
+    /** The constructor. */
+    CDisplayResolutionPane();
 
-		/** The destructor. */
-		~CDisplayResolutionPane();
+    /** The destructor. */
+    ~CDisplayResolutionPane();
 
-		//{{AFX_DATA(CDisplayResolutionPane)
+    //{{AFX_DATA(CDisplayResolutionPane)
 //		enum { IDD = IDD_DIALOG3 };
-			//
-		//}}AFX_DATA
+    //
+    //}}AFX_DATA
 
-		//{{AFX_VIRTUAL(CDisplayResolutionPane)
-		/**
-		 * Called when pane becomes active.
-		 * @return True on success, false on failure.
-		 */
-		virtual BOOL OnSetActive();
-	
-	protected:
+    //{{AFX_VIRTUAL(CDisplayResolutionPane)
+    /**
+     * Called when pane becomes active.
+     * @return True on success, false on failure.
+     */
+    virtual BOOL OnSetActive();
 
-		/**
-		 * Exchange of data (DDX/DDV).
-		 * @param pDX Pointer to data.
-		 */
-		virtual void DoDataExchange(CDataExchange* pDX);
-		//}}AFX_VIRTUAL
+protected:
 
-		//{{AFX_MSG(CDisplayResolutionPane)
-		/**
-		 * Called when value of dropdown menu changed.
-		 */
-		afx_msg void OnSelchangeCombo1();
+    /**
+     * Exchange of data (DDX/DDV).
+     * @param pDX Pointer to data.
+     */
+    virtual void DoDataExchange(CDataExchange* pDX);
+    //}}AFX_VIRTUAL
 
-		/**
-		 * Called when pane is initialized.
-		 * @return True on success, false on failure.
-		 */
-		virtual BOOL OnInitDialog();
+    //{{AFX_MSG(CDisplayResolutionPane)
+    /**
+     * Called when value of dropdown menu changed.
+     */
+    afx_msg void OnSelchangeCombo1();
 
-		//}}AFX_MSG
-		DECLARE_MESSAGE_MAP()
+    /**
+     * Called when pane is initialized.
+     * @return True on success, false on failure.
+     */
+    virtual BOOL OnInitDialog();
 
-	};
+    //}}AFX_MSG
+    DECLARE_MESSAGE_MAP()
+
+};
 
 }
 

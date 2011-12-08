@@ -44,9 +44,10 @@ enum {
     /** Rendering menu */
     WXPROJECTMVIS_RENDERING_MENU,
     WXPROJECTMVIS_RENDERING_PER_PIXEL,
-  };
+};
 
-class wxvisFrame : public wxFrame {
+class wxvisFrame : public wxFrame
+{
 public:
     /** Parent application */
     wxvisApp *app;
@@ -63,11 +64,11 @@ public:
     DECLARE_EVENT_TABLE()
 
 public:
-	void updaterate(const char *text);
-	void updatestatus(const char *text);
+    void updaterate(const char *text);
+    void updatestatus(const char *text);
 
-	/** Reset the camera and light positions */
-	void resetViewer();
-  };
+    /** Reset the camera and light positions */
+    void resetViewer();
+};
 
 #endif /** !_WXPROJECTMVISFRAME_H */

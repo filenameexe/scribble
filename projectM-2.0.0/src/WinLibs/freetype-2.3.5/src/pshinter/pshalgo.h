@@ -28,18 +28,17 @@
 FT_BEGIN_HEADER
 
 
-  /* handle to Hint structure */
-  typedef struct PSH_HintRec_*  PSH_Hint;
+/* handle to Hint structure */
+typedef struct PSH_HintRec_*  PSH_Hint;
 
-  /* hint bit-flags */
-  typedef enum
-  {
+/* hint bit-flags */
+typedef enum {
     PSH_HINT_GHOST  = PS_HINT_FLAG_GHOST,
     PSH_HINT_BOTTOM = PS_HINT_FLAG_BOTTOM,
     PSH_HINT_ACTIVE = 4,
     PSH_HINT_FITTED = 8
 
-  } PSH_Hint_Flags;
+} PSH_Hint_Flags;
 
 
 #define psh_hint_is_active( x )  ( ( (x)->flags & PSH_HINT_ACTIVE ) != 0 )
@@ -50,9 +49,8 @@ FT_BEGIN_HEADER
 #define psh_hint_deactivate( x )  (x)->flags &= ~PSH_HINT_ACTIVE
 #define psh_hint_set_fitted( x )  (x)->flags |=  PSH_HINT_FITTED
 
-  /* hint structure */
-  typedef struct  PSH_HintRec_
-  {
+/* hint structure */
+typedef struct  PSH_HintRec_ {
     FT_Int    org_pos;
     FT_Int    org_len;
     FT_Pos    cur_pos;
@@ -61,24 +59,22 @@ FT_BEGIN_HEADER
     PSH_Hint  parent;
     FT_Int    order;
 
-  } PSH_HintRec;
+} PSH_HintRec;
 
 
-  /* this is an interpolation zone used for strong points;  */
-  /* weak points are interpolated according to their strong */
-  /* neighbours                                             */
-  typedef struct  PSH_ZoneRec_
-  {
+/* this is an interpolation zone used for strong points;  */
+/* weak points are interpolated according to their strong */
+/* neighbours                                             */
+typedef struct  PSH_ZoneRec_ {
     FT_Fixed  scale;
     FT_Fixed  delta;
     FT_Pos    min;
     FT_Pos    max;
 
-  } PSH_ZoneRec, *PSH_Zone;
+} PSH_ZoneRec, *PSH_Zone;
 
 
-  typedef struct  PSH_Hint_TableRec_
-  {
+typedef struct  PSH_Hint_TableRec_ {
     FT_UInt        max_hints;
     FT_UInt        num_hints;
     PSH_Hint       hints;
@@ -90,20 +86,19 @@ FT_BEGIN_HEADER
     PS_Mask_Table  hint_masks;
     PS_Mask_Table  counter_masks;
 
-  } PSH_Hint_TableRec, *PSH_Hint_Table;
+} PSH_Hint_TableRec, *PSH_Hint_Table;
 
 
-  typedef struct PSH_PointRec_*    PSH_Point;
-  typedef struct PSH_ContourRec_*  PSH_Contour;
+typedef struct PSH_PointRec_*    PSH_Point;
+typedef struct PSH_ContourRec_*  PSH_Contour;
 
-  enum
-  {
+enum {
     PSH_DIR_NONE  =  4,
     PSH_DIR_UP    = -1,
     PSH_DIR_DOWN  =  1,
     PSH_DIR_LEFT  = -2,
     PSH_DIR_RIGHT =  2
-  };
+};
 
 #define PSH_DIR_HORIZONTAL  2
 #define PSH_DIR_VERTICAL    1
@@ -113,14 +108,13 @@ FT_BEGIN_HEADER
 #define PSH_DIR_IS_VERTICAL( d )    PSH_DIR_COMPARE( d, PSH_DIR_VERTICAL )
 
 
- /* the following bit-flags are computed once by the glyph */
- /* analyzer, for both dimensions                          */
-  enum
-  {
+/* the following bit-flags are computed once by the glyph */
+/* analyzer, for both dimensions                          */
+enum {
     PSH_POINT_OFF    = 1,   /* point is off the curve */
     PSH_POINT_SMOOTH = 2,   /* point is smooth        */
     PSH_POINT_INFLEX = 4    /* point is inflection    */
-  };
+};
 
 #define psh_point_is_smooth( p )  ( (p)->flags & PSH_POINT_SMOOTH )
 #define psh_point_is_off( p )     ( (p)->flags & PSH_POINT_OFF    )
@@ -130,9 +124,8 @@ FT_BEGIN_HEADER
 #define psh_point_set_off( p )     (p)->flags |= PSH_POINT_OFF
 #define psh_point_set_inflex( p )  (p)->flags |= PSH_POINT_INFLEX
 
-  /* the following bit-flags are re-computed for each dimension */
-  enum
-  {
+/* the following bit-flags are re-computed for each dimension */
+enum {
     PSH_POINT_STRONG   = 16,   /* point is strong                           */
     PSH_POINT_FITTED   = 32,   /* point is already fitted                   */
     PSH_POINT_EXTREMUM = 64,   /* point is local extremum                   */
@@ -140,7 +133,7 @@ FT_BEGIN_HEADER
     PSH_POINT_NEGATIVE = 256,  /* extremum has negative contour flow        */
     PSH_POINT_EDGE_MIN = 512,  /* point is aligned to left/bottom stem edge */
     PSH_POINT_EDGE_MAX = 1024  /* point is aligned to top/right stem edge   */
-  };
+};
 
 #define psh_point_is_strong( p )    ( (p)->flags2 & PSH_POINT_STRONG )
 #define psh_point_is_fitted( p )    ( (p)->flags2 & PSH_POINT_FITTED )
@@ -159,8 +152,7 @@ FT_BEGIN_HEADER
 #define psh_point_set_edge_max( p )  (p)->flags2 |= PSH_POINT_EDGE_MAX
 
 
-  typedef struct  PSH_PointRec_
-  {
+typedef struct  PSH_PointRec_ {
     PSH_Point    prev;
     PSH_Point    next;
     PSH_Contour  contour;
@@ -183,7 +175,7 @@ FT_BEGIN_HEADER
     FT_UInt      flags_y;
 #endif
 
-  } PSH_PointRec;
+} PSH_PointRec;
 
 
 #define PSH_POINT_EQUAL_ORG( a, b )  ( (a)->org_u == (b)->org_u && \
@@ -192,16 +184,14 @@ FT_BEGIN_HEADER
 #define PSH_POINT_ANGLE( a, b )  FT_Atan2( (b)->org_u - (a)->org_u,  \
                                            (b)->org_v - (a)->org_v )
 
-  typedef struct  PSH_ContourRec_
-  {
+typedef struct  PSH_ContourRec_ {
     PSH_Point  start;
     FT_UInt    count;
 
-  } PSH_ContourRec;
+} PSH_ContourRec;
 
 
-  typedef struct  PSH_GlyphRec_
-  {
+typedef struct  PSH_GlyphRec_ {
     FT_UInt            num_points;
     FT_UInt            num_contours;
 
@@ -223,27 +213,27 @@ FT_BEGIN_HEADER
     FT_Bool            do_vert_snapping;
     FT_Bool            do_stem_adjust;
 
-  } PSH_GlyphRec, *PSH_Glyph;
+} PSH_GlyphRec, *PSH_Glyph;
 
 
 #ifdef DEBUG_HINTER
-  extern PSH_Hint_Table  ps_debug_hint_table;
+extern PSH_Hint_Table  ps_debug_hint_table;
 
-  typedef void
-  (*PSH_HintFunc)( PSH_Hint  hint,
-                   FT_Bool   vertical );
+typedef void
+(*PSH_HintFunc)( PSH_Hint  hint,
+                 FT_Bool   vertical );
 
-  extern PSH_HintFunc    ps_debug_hint_func;
+extern PSH_HintFunc    ps_debug_hint_func;
 
-  extern PSH_Glyph       ps_debug_glyph;
+extern PSH_Glyph       ps_debug_glyph;
 #endif
 
 
-  extern FT_Error
-  ps_hints_apply( PS_Hints        ps_hints,
-                  FT_Outline*     outline,
-                  PSH_Globals     globals,
-                  FT_Render_Mode  hint_mode );
+extern FT_Error
+ps_hints_apply( PS_Hints        ps_hints,
+                FT_Outline*     outline,
+                PSH_Globals     globals,
+                FT_Render_Mode  hint_mode );
 
 
 FT_END_HEADER

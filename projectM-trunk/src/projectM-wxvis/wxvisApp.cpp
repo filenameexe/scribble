@@ -44,7 +44,8 @@ BEGIN_EVENT_TABLE(wxvisApp,wxApp)
 END_EVENT_TABLE()
 
 /** Parse command-line options and create the main wxvis windows */
-bool wxvisApp::OnInit() {
+bool wxvisApp::OnInit()
+{
 
 #ifdef DEBUG
 #ifndef WIN32
@@ -67,20 +68,20 @@ bool wxvisApp::OnInit() {
                        0, KEY_QUERY_VALUE, &key ) != ERROR_SUCCESS ) {
 //        MessageBox( NULL, "Failed to open registry key: SOFTWARE\\Archaeoptics\\wxvis\nHelp and NPR textures may be unavailable!", "projectM", MB_OK | MB_ICONEXCLAMATION );
         sprintf( (char *)installationRoot, "%s", "c:\\Program Files\\Archaeoptics\\wxvis3D" );
-      } else {
+    } else {
         DWORD installRootType = REG_SZ;
         DWORD installRootSize = 1024;
         LONG rv = RegQueryValueEx( key, "InstallRoot", NULL, &installRootType, installationRoot, &installRootSize );
         if ( rv != ERROR_SUCCESS ) {
             /** This section causes things to crash weirdly... */
 //            MessageBox( NULL, "Failed to query registry key: SOFTWARE\\Archaeoptics\\wxvis\nHelp and textures may be unavailable!", "projectM", MB_OK | MB_ICONEXCLAMATION );
-/*            char msg[128];
-            sprintf( msg, "Error code: %d", rv );
-            wxMessageBox( msg, "projectM", wxOK | wxICON_EXCLAMATION ); */
+            /*            char msg[128];
+                        sprintf( msg, "Error code: %d", rv );
+                        wxMessageBox( msg, "projectM", wxOK | wxICON_EXCLAMATION ); */
             sprintf( (char *)installationRoot, "%s", "c:\\Program Files\\Archaeoptics\\wxvis3D" );
-          }
+        }
         RegCloseKey( key );
-      }
+    }
 
 #ifdef DEBUG2
     fprintf( debugFile, "Installation Root: %s\n", installationRoot );
@@ -99,8 +100,10 @@ bool wxvisApp::OnInit() {
     /** Create the rendering frame */
     wxPoint pt;
     wxSize sz;
-    pt.x = 50; pt.y = 50;
-    sz.x = 640; sz.y = 480;
+    pt.x = 50;
+    pt.y = 50;
+    sz.x = 640;
+    sz.y = 480;
     _visFrame = new wxvisFrame( this, wxString( "projectM" ), pt, sz );
     _visFrame->canvas = new wxvisCanvas( _visFrame );
     _visFrame->SetIcon( _icon );
@@ -113,7 +116,7 @@ bool wxvisApp::OnInit() {
         char msg[256];
         sprintf( msg, "Depth and stencil bit settings are sub-optimal\nBlack and White Ink Rendering and Elevation Extraction\nmay not work correctly\nDepth Bits: %d\nStencil Bits: %d\n(Should be at least 24 and 1)", depthBits, stencilBits );
 //        wxMessageBox( msg, "projectM", wxOK | wxICON_EXCLAMATION );
-      }
+    }
 
 #ifdef WIN32
     /** Update file associations */
@@ -142,31 +145,33 @@ bool wxvisApp::OnInit() {
 #endif
     if ( argc >= 2 ) {
         if ( ( strstr( argv[1], ".milk" ) != NULL ) ||
-             ( strstr( argv[1], ".MILK" ) != NULL ) ) {
+                ( strstr( argv[1], ".MILK" ) != NULL ) ) {
             /** Load a fixed preset */
-          }
-      }
+        }
+    }
 
     return TRUE;
-  }
+}
 
 /** Shuts down the application */
-void wxvisApp::shutdown() {
+void wxvisApp::shutdown()
+{
     /** Free local resources */
     if ( _visFrame ) {
         _visFrame->canvas->Destroy();
         _visFrame->Destroy();
-      }
+    }
 
 #ifdef DEBUG2
     fclose( debugFile );
 #endif /** DEBUG */
 
     exit( 0 );
-  }
+}
 
-void wxvisApp::OnIdle( wxIdleEvent &event ) {
+void wxvisApp::OnIdle( wxIdleEvent &event )
+{
     if ( _visFrame ) {
         _visFrame->canvas->Refresh( FALSE );
-      }
-  }
+    }
+}

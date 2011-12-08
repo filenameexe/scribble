@@ -28,21 +28,20 @@
 FT_BEGIN_HEADER
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                         VALIDATION                            *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                         VALIDATION                            *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  typedef struct OTV_ValidatorRec_*  OTV_Validator;
+typedef struct OTV_ValidatorRec_*  OTV_Validator;
 
-  typedef void  (*OTV_Validate_Func)( FT_Bytes       table,
-                                      OTV_Validator  valid );
+typedef void  (*OTV_Validate_Func)( FT_Bytes       table,
+                                    OTV_Validator  valid );
 
-  typedef struct  OTV_ValidatorRec_
-  {
+typedef struct  OTV_ValidatorRec_ {
     FT_Validator        root;
     FT_UInt             type_count;
     OTV_Validate_Func*  type_funcs;
@@ -63,7 +62,7 @@ FT_BEGIN_HEADER
     const FT_String*    debug_function_name[3];
 #endif
 
-  } OTV_ValidatorRec;
+} OTV_ValidatorRec;
 
 
 #undef  FT_INVALID_
@@ -205,132 +204,132 @@ FT_BEGIN_HEADER
 #define OTV_RUN  valid->func[0]
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                       COVERAGE TABLE                          *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                       COVERAGE TABLE                          *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  FT_LOCAL( void )
-  otv_Coverage_validate( FT_Bytes       table,
+FT_LOCAL( void )
+otv_Coverage_validate( FT_Bytes       table,
+                       OTV_Validator  valid );
+
+/* return first covered glyph */
+FT_LOCAL( FT_UInt )
+otv_Coverage_get_first( FT_Bytes  table );
+
+/* return last covered glyph */
+FT_LOCAL( FT_UInt )
+otv_Coverage_get_last( FT_Bytes  table );
+
+/* return number of covered glyphs */
+FT_LOCAL( FT_UInt )
+otv_Coverage_get_count( FT_Bytes  table );
+
+
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                  CLASS DEFINITION TABLE                       *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
+
+FT_LOCAL( void )
+otv_ClassDef_validate( FT_Bytes       table,
+                       OTV_Validator  valid );
+
+
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                      DEVICE TABLE                             *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
+
+FT_LOCAL( void )
+otv_Device_validate( FT_Bytes       table,
+                     OTV_Validator  valid );
+
+
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                           LOOKUPS                             *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
+
+FT_LOCAL( void )
+otv_Lookup_validate( FT_Bytes       table,
+                     OTV_Validator  valid );
+
+FT_LOCAL( void )
+otv_LookupList_validate( FT_Bytes       table,
                          OTV_Validator  valid );
 
-  /* return first covered glyph */
-  FT_LOCAL( FT_UInt )
-  otv_Coverage_get_first( FT_Bytes  table );
 
-  /* return last covered glyph */
-  FT_LOCAL( FT_UInt )
-  otv_Coverage_get_last( FT_Bytes  table );
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                        FEATURES                               *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  /* return number of covered glyphs */
-  FT_LOCAL( FT_UInt )
-  otv_Coverage_get_count( FT_Bytes  table );
+FT_LOCAL( void )
+otv_Feature_validate( FT_Bytes       table,
+                      OTV_Validator  valid );
+
+/* lookups must already be validated */
+FT_LOCAL( void )
+otv_FeatureList_validate( FT_Bytes       table,
+                          FT_Bytes       lookups,
+                          OTV_Validator  valid );
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                  CLASS DEFINITION TABLE                       *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                       LANGUAGE SYSTEM                         *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  FT_LOCAL( void )
-  otv_ClassDef_validate( FT_Bytes       table,
+FT_LOCAL( void )
+otv_LangSys_validate( FT_Bytes       table,
+                      OTV_Validator  valid );
+
+
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                           SCRIPTS                             *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
+
+FT_LOCAL( void )
+otv_Script_validate( FT_Bytes       table,
+                     OTV_Validator  valid );
+
+/* features must already be validated */
+FT_LOCAL( void )
+otv_ScriptList_validate( FT_Bytes       table,
+                         FT_Bytes       features,
                          OTV_Validator  valid );
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                      DEVICE TABLE                             *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
-
-  FT_LOCAL( void )
-  otv_Device_validate( FT_Bytes       table,
-                       OTV_Validator  valid );
-
-
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                           LOOKUPS                             *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
-
-  FT_LOCAL( void )
-  otv_Lookup_validate( FT_Bytes       table,
-                       OTV_Validator  valid );
-
-  FT_LOCAL( void )
-  otv_LookupList_validate( FT_Bytes       table,
-                           OTV_Validator  valid );
-
-
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                        FEATURES                               *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
-
-  FT_LOCAL( void )
-  otv_Feature_validate( FT_Bytes       table,
-                        OTV_Validator  valid );
-
-  /* lookups must already be validated */
-  FT_LOCAL( void )
-  otv_FeatureList_validate( FT_Bytes       table,
-                            FT_Bytes       lookups,
-                            OTV_Validator  valid );
-
-
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                       LANGUAGE SYSTEM                         *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
-
-  FT_LOCAL( void )
-  otv_LangSys_validate( FT_Bytes       table,
-                        OTV_Validator  valid );
-
-
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                           SCRIPTS                             *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
-
-  FT_LOCAL( void )
-  otv_Script_validate( FT_Bytes       table,
-                       OTV_Validator  valid );
-
-  /* features must already be validated */
-  FT_LOCAL( void )
-  otv_ScriptList_validate( FT_Bytes       table,
-                           FT_Bytes       features,
-                           OTV_Validator  valid );
-
-
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****                      UTILITY FUNCTIONS                        *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****                      UTILITY FUNCTIONS                        *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
 #define ChainPosClassSetFunc  otv_x_Ox
 #define ChainPosRuleSetFunc   otv_x_Ox
@@ -346,9 +345,9 @@ FT_BEGIN_HEADER
 #define SubClassSetFunc       otv_x_Ox
 #define SubRuleSetFunc        otv_x_Ox
 
-  FT_LOCAL( void )
-  otv_x_Ox ( FT_Bytes       table,
-             OTV_Validator  valid );
+FT_LOCAL( void )
+otv_x_Ox ( FT_Bytes       table,
+           OTV_Validator  valid );
 
 #define AlternateSubstFormat1Func     otv_u_C_x_Ox
 #define ChainContextPosFormat1Func    otv_u_C_x_Ox
@@ -358,9 +357,9 @@ FT_BEGIN_HEADER
 #define LigatureSubstFormat1Func      otv_u_C_x_Ox
 #define MultipleSubstFormat1Func      otv_u_C_x_Ox
 
-  FT_LOCAL( void )
-  otv_u_C_x_Ox( FT_Bytes       table,
-                OTV_Validator  valid );
+FT_LOCAL( void )
+otv_u_C_x_Ox( FT_Bytes       table,
+              OTV_Validator  valid );
 
 #define AlternateSetFunc     otv_x_ux
 #define AttachPointFunc      otv_x_ux
@@ -369,64 +368,64 @@ FT_BEGIN_HEADER
 #define JstfGSUBModListFunc  otv_x_ux
 #define SequenceFunc         otv_x_ux
 
-  FT_LOCAL( void )
-  otv_x_ux( FT_Bytes       table,
-            OTV_Validator  valid );
+FT_LOCAL( void )
+otv_x_ux( FT_Bytes       table,
+          OTV_Validator  valid );
 
 #define PosClassRuleFunc  otv_x_y_ux_sy
 #define PosRuleFunc       otv_x_y_ux_sy
 #define SubClassRuleFunc  otv_x_y_ux_sy
 #define SubRuleFunc       otv_x_y_ux_sy
 
-  FT_LOCAL( void )
-  otv_x_y_ux_sy( FT_Bytes       table,
-                 OTV_Validator  valid );
+FT_LOCAL( void )
+otv_x_y_ux_sy( FT_Bytes       table,
+               OTV_Validator  valid );
 
 #define ChainPosClassRuleFunc  otv_x_ux_y_uy_z_uz_p_sp
 #define ChainPosRuleFunc       otv_x_ux_y_uy_z_uz_p_sp
 #define ChainSubClassRuleFunc  otv_x_ux_y_uy_z_uz_p_sp
 #define ChainSubRuleFunc       otv_x_ux_y_uy_z_uz_p_sp
 
-  FT_LOCAL( void )
-  otv_x_ux_y_uy_z_uz_p_sp( FT_Bytes       table,
-                           OTV_Validator  valid );
+FT_LOCAL( void )
+otv_x_ux_y_uy_z_uz_p_sp( FT_Bytes       table,
+                         OTV_Validator  valid );
 
 #define ContextPosFormat2Func    otv_u_O_O_x_Onx
 #define ContextSubstFormat2Func  otv_u_O_O_x_Onx
 
-  FT_LOCAL( void )
-  otv_u_O_O_x_Onx( FT_Bytes       table,
-                   OTV_Validator  valid );
+FT_LOCAL( void )
+otv_u_O_O_x_Onx( FT_Bytes       table,
+                 OTV_Validator  valid );
 
 #define ContextPosFormat3Func    otv_u_x_y_Ox_sy
 #define ContextSubstFormat3Func  otv_u_x_y_Ox_sy
 
-  FT_LOCAL( void )
-  otv_u_x_y_Ox_sy( FT_Bytes       table,
-                   OTV_Validator  valid );
+FT_LOCAL( void )
+otv_u_x_y_Ox_sy( FT_Bytes       table,
+                 OTV_Validator  valid );
 
 #define ChainContextPosFormat2Func    otv_u_O_O_O_O_x_Onx
 #define ChainContextSubstFormat2Func  otv_u_O_O_O_O_x_Onx
 
-  FT_LOCAL( void )
-  otv_u_O_O_O_O_x_Onx( FT_Bytes       table,
-                       OTV_Validator  valid );
+FT_LOCAL( void )
+otv_u_O_O_O_O_x_Onx( FT_Bytes       table,
+                     OTV_Validator  valid );
 
 #define ChainContextPosFormat3Func    otv_u_x_Ox_y_Oy_z_Oz_p_sp
 #define ChainContextSubstFormat3Func  otv_u_x_Ox_y_Oy_z_Oz_p_sp
 
-  FT_LOCAL( void )
-  otv_u_x_Ox_y_Oy_z_Oz_p_sp( FT_Bytes       table,
-                             OTV_Validator  valid );
+FT_LOCAL( void )
+otv_u_x_Ox_y_Oy_z_Oz_p_sp( FT_Bytes       table,
+                           OTV_Validator  valid );
 
 
-  FT_LOCAL( FT_UInt )
-  otv_GSUBGPOS_get_Lookup_count( FT_Bytes  table );
+FT_LOCAL( FT_UInt )
+otv_GSUBGPOS_get_Lookup_count( FT_Bytes  table );
 
-  FT_LOCAL( FT_UInt )
-  otv_GSUBGPOS_have_MarkAttachmentType_flag( FT_Bytes  table );
+FT_LOCAL( FT_UInt )
+otv_GSUBGPOS_have_MarkAttachmentType_flag( FT_Bytes  table );
 
- /* */
+/* */
 
 FT_END_HEADER
 

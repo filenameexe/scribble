@@ -26,19 +26,21 @@
 
 #include "wipemalloc.h"
 
- void *wipemalloc( size_t count ) {
+void *wipemalloc( size_t count )
+{
     void *mem = malloc( count );
     if ( mem != NULL ) {
         memset( mem, 0, count );
-      } else {
+    } else {
         printf( "wipemalloc() failed to allocate %d bytes\n", (int)count );
-      }
+    }
     return mem;
-  }
+}
 
 /** Safe memory deallocator */
- void wipefree( void *ptr ) {
+void wipefree( void *ptr )
+{
     if ( ptr != NULL ) {
         free( ptr );
-      }
-  }
+    }
+}

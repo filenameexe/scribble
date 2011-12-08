@@ -36,7 +36,7 @@ typedef enum {
     PROJECTM_KEYDOWN,
     PROJECTM_VIDEORESIZE,
     PROJECTM_VIDEOQUIT,
-  } projectMEvent;
+} projectMEvent;
 
 typedef enum {
     /** Keycodes */
@@ -139,7 +139,7 @@ typedef enum {
     PROJECTM_K_PLUS,
     PROJECTM_K_MINUS,
     PROJECTM_K_EQUALS
-  } projectMKeycode;
+} projectMKeycode;
 
 typedef enum {
     /** Modifiers */
@@ -148,7 +148,7 @@ typedef enum {
     PROJECTM_KMOD_CAPS,
     PROJECTM_KMOD_LCTRL,
     PROJECTM_KMOD_RCTRL,
-  } projectMModifier;
+} projectMModifier;
 
 #endif /** !_PROJECTM_EVENT_H */
 

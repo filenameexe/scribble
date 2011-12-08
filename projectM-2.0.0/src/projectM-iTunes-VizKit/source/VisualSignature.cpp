@@ -1,7 +1,7 @@
 /*
  * Project: VizKit
  * Version: 1.9
- 
+
  * Date: 20070503
  * File: VisualSignature.cpp
  *
@@ -12,7 +12,7 @@
 Copyright (c) 2004-2007 Heiko Wichmann (http://www.imagomat.de/vizkit)
 
 
-This software is provided 'as-is', without any expressed or implied warranty. 
+This software is provided 'as-is', without any expressed or implied warranty.
 In no event will the authors be held liable for any damages
 arising from the use of this software.
 
@@ -20,13 +20,13 @@ Permission is granted to anyone to use this software for any purpose,
 including commercial applications, and to alter it and redistribute it
 freely, subject to the following restrictions:
 
-1. The origin of this software must not be misrepresented; 
-   you must not claim that you wrote the original software. 
-   If you use this software in a product, an acknowledgment 
-   in the product documentation would be appreciated 
+1. The origin of this software must not be misrepresented;
+   you must not claim that you wrote the original software.
+   If you use this software in a product, an acknowledgment
+   in the product documentation would be appreciated
    but is not required.
 
-2. Altered source versions must be plainly marked as such, 
+2. Altered source versions must be plainly marked as such,
    and must not be misrepresented as being the original software.
 
 3. This notice may not be removed or altered from any source distribution.
@@ -45,21 +45,25 @@ ITAppProcPtr VisualSignature::appProc = NULL;
 
 
 
-void VisualSignature::setAppCookie(void* anAppCookie) {
-	VisualSignature::appCookie = anAppCookie;
+void VisualSignature::setAppCookie(void* anAppCookie)
+{
+    VisualSignature::appCookie = anAppCookie;
 }
 
 
-void* VisualSignature::getAppCookie() {
-	return VisualSignature::appCookie;
+void* VisualSignature::getAppCookie()
+{
+    return VisualSignature::appCookie;
 }
 
 
-void VisualSignature::setAppProc(ITAppProcPtr anAppProc) {
-	VisualSignature::appProc = anAppProc;
+void VisualSignature::setAppProc(ITAppProcPtr anAppProc)
+{
+    VisualSignature::appProc = anAppProc;
 }
 
 
-ITAppProcPtr VisualSignature::getAppProc() {
-	return VisualSignature::appProc;
+ITAppProcPtr VisualSignature::getAppProc()
+{
+    return VisualSignature::appProc;
 }

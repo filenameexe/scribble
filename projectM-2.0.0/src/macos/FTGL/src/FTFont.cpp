@@ -5,25 +5,23 @@
 
 
 FTFont::FTFont( const char* fontFilePath)
-:   face( fontFilePath),
-    useDisplayLists(true),
-    glyphList(0)
+    :   face( fontFilePath),
+        useDisplayLists(true),
+        glyphList(0)
 {
     err = face.Error();
-    if( err == 0)
-    {
+    if( err == 0) {
         glyphList = new FTGlyphContainer( &face);
     }
 }
 
 
 FTFont::FTFont( const unsigned char *pBufferBytes, size_t bufferSizeInBytes)
-:   face( pBufferBytes, bufferSizeInBytes),
-    glyphList(0)
+    :   face( pBufferBytes, bufferSizeInBytes),
+        glyphList(0)
 {
     err = face.Error();
-    if( err == 0)
-    {
+    if( err == 0) {
         glyphList = new FTGlyphContainer( &face);
     }
 }
@@ -37,13 +35,10 @@ FTFont::~FTFont()
 
 bool FTFont::Attach( const char* fontFilePath)
 {
-    if( face.Attach( fontFilePath))
-    {
+    if( face.Attach( fontFilePath)) {
         err = 0;
         return true;
-    }
-    else
-    {
+    } else {
         err = face.Error();
         return false;
     }
@@ -52,13 +47,10 @@ bool FTFont::Attach( const char* fontFilePath)
 
 bool FTFont::Attach( const unsigned char *pBufferBytes, size_t bufferSizeInBytes)
 {
-    if( face.Attach( pBufferBytes, bufferSizeInBytes))
-    {
+    if( face.Attach( pBufferBytes, bufferSizeInBytes)) {
         err = 0;
         return true;
-    }
-    else
-    {
+    } else {
         err = face.Error();
         return false;
     }
@@ -69,17 +61,15 @@ bool FTFont::FaceSize( const unsigned int size, const unsigned int res )
 {
     charSize = face.Size( size, res);
     err = face.Error();
-    
-    if( err != 0)
-    {
+
+    if( err != 0) {
         return false;
     }
-    
-    if( glyphList != NULL)
-    {
+
+    if( glyphList != NULL) {
         delete glyphList;
     }
-    
+
     glyphList = new FTGlyphContainer( &face);
     return true;
 }
@@ -137,21 +127,17 @@ void FTFont::BBox( const char* string,
 {
     FTBBox totalBBox;
 
-    if((NULL != string) && ('\0' != *string))
-    {
+    if((NULL != string) && ('\0' != *string)) {
         const unsigned char* c = (unsigned char*)string;
         float advance = 0;
 
-        if(CheckGlyph( *c))
-        {
+        if(CheckGlyph( *c)) {
             totalBBox = glyphList->BBox( *c);
             advance = glyphList->Advance( *c, *(c + 1));
         }
-                
-        while( *++c)
-        {
-            if(CheckGlyph( *c))
-            {
+
+        while( *++c) {
+            if(CheckGlyph( *c)) {
                 FTBBox tempBBox = glyphList->BBox( *c);
                 tempBBox.Move( FTPoint( advance, 0.0f, 0.0f));
                 totalBBox += tempBBox;
@@ -174,21 +160,17 @@ void FTFont::BBox( const wchar_t* string,
 {
     FTBBox totalBBox;
 
-    if((NULL != string) && ('\0' != *string))
-    {
+    if((NULL != string) && ('\0' != *string)) {
         const wchar_t* c = string;
         float advance = 0;
 
-        if(CheckGlyph( *c))
-        {
+        if(CheckGlyph( *c)) {
             totalBBox = glyphList->BBox( *c);
             advance = glyphList->Advance( *c, *(c + 1));
         }
-        
-        while( *++c)
-        {
-            if(CheckGlyph( *c))
-            {
+
+        while( *++c) {
+            if(CheckGlyph( *c)) {
                 FTBBox tempBBox = glyphList->BBox( *c);
                 tempBBox.Move( FTPoint( advance, 0.0f, 0.0f));
                 totalBBox += tempBBox;
@@ -211,15 +193,13 @@ float FTFont::Advance( const wchar_t* string)
     const wchar_t* c = string;
     float width = 0.0f;
 
-    while( *c)
-    {
-        if(CheckGlyph( *c))
-        {
+    while( *c) {
+        if(CheckGlyph( *c)) {
             width += glyphList->Advance( *c, *(c + 1));
         }
         ++c;
     }
-    
+
     return width;
 }
 
@@ -229,15 +209,13 @@ float FTFont::Advance( const char* string)
     const unsigned char* c = (unsigned char*)string;
     float width = 0.0f;
 
-    while( *c)
-    {
-        if(CheckGlyph( *c))
-        {
+    while( *c) {
+        if(CheckGlyph( *c)) {
             width += glyphList->Advance( *c, *(c + 1));
         }
         ++c;
     }
-    
+
     return width;
 }
 
@@ -245,12 +223,11 @@ float FTFont::Advance( const char* string)
 void FTFont::Render( const char* string )
 {
     const unsigned char* c = (unsigned char*)string;
-    pen.X(0); pen.Y(0);
+    pen.X(0);
+    pen.Y(0);
 
-    while( *c)
-    {
-        if(CheckGlyph( *c))
-        {
+    while( *c) {
+        if(CheckGlyph( *c)) {
             pen = glyphList->Render( *c, *(c + 1), pen);
         }
         ++c;
@@ -261,12 +238,11 @@ void FTFont::Render( const char* string )
 void FTFont::Render( const wchar_t* string )
 {
     const wchar_t* c = string;
-    pen.X(0); pen.Y(0);
+    pen.X(0);
+    pen.Y(0);
 
-    while( *c)
-    {
-        if(CheckGlyph( *c))
-        {
+    while( *c) {
+        if(CheckGlyph( *c)) {
             pen = glyphList->Render( *c, *(c + 1), pen);
         }
         ++c;
@@ -276,22 +252,19 @@ void FTFont::Render( const wchar_t* string )
 
 bool FTFont::CheckGlyph( const unsigned int characterCode)
 {
-    if( NULL == glyphList->Glyph( characterCode))
-    {
+    if( NULL == glyphList->Glyph( characterCode)) {
         unsigned int glyphIndex = glyphList->FontIndex( characterCode);
         FTGlyph* tempGlyph = MakeGlyph( glyphIndex);
-        if( NULL == tempGlyph)
-        {
-            if( 0 == err)
-            {
+        if( NULL == tempGlyph) {
+            if( 0 == err) {
                 err = 0x13;
             }
-            
+
             return false;
         }
         glyphList->Add( tempGlyph, characterCode);
     }
-    
+
     return true;
 }
 

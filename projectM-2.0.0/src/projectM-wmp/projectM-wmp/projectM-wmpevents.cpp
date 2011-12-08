@@ -13,51 +13,50 @@ extern projectM* globalPM;
 
 void CProjectMwmp::OpenStateChange( long NewState )
 {
-    switch (NewState)
-    {
+    switch (NewState) {
     case wmposUndefined:
         break;
-	case wmposPlaylistChanging:
+    case wmposPlaylistChanging:
         break;
-	case wmposPlaylistLocating:
+    case wmposPlaylistLocating:
         break;
-	case wmposPlaylistConnecting:
+    case wmposPlaylistConnecting:
         break;
-	case wmposPlaylistLoading:
+    case wmposPlaylistLoading:
         break;
-	case wmposPlaylistOpening:
+    case wmposPlaylistOpening:
         break;
-	case wmposPlaylistOpenNoMedia:
+    case wmposPlaylistOpenNoMedia:
         break;
-	case wmposPlaylistChanged:
+    case wmposPlaylistChanged:
         break;
-	case wmposMediaChanging:
+    case wmposMediaChanging:
         break;
-	case wmposMediaLocating:
+    case wmposMediaLocating:
         break;
-	case wmposMediaConnecting:
+    case wmposMediaConnecting:
         break;
-	case wmposMediaLoading:
+    case wmposMediaLoading:
         break;
-	case wmposMediaOpening:
+    case wmposMediaOpening:
         break;
-	case wmposMediaOpen:
+    case wmposMediaOpen:
         break;
-	case wmposBeginCodecAcquisition:
+    case wmposBeginCodecAcquisition:
         break;
-	case wmposEndCodecAcquisition:
+    case wmposEndCodecAcquisition:
         break;
-	case wmposBeginLicenseAcquisition:
+    case wmposBeginLicenseAcquisition:
         break;
-	case wmposEndLicenseAcquisition:
+    case wmposEndLicenseAcquisition:
         break;
-	case wmposBeginIndividualization:
+    case wmposBeginIndividualization:
         break;
-	case wmposEndIndividualization:
+    case wmposEndIndividualization:
         break;
-	case wmposMediaWaiting:
+    case wmposMediaWaiting:
         break;
-	case wmposOpeningUnknownURL:
+    case wmposOpeningUnknownURL:
         break;
     default:
         break;
@@ -66,33 +65,32 @@ void CProjectMwmp::OpenStateChange( long NewState )
 
 void CProjectMwmp::PlayStateChange( long NewState )
 {
-    switch (NewState)
-    {
+    switch (NewState) {
     case wmppsUndefined:
         break;
-	case wmppsStopped:
+    case wmppsStopped:
         break;
-	case wmppsPaused:
+    case wmppsPaused:
         break;
-	case wmppsPlaying:
+    case wmppsPlaying:
         break;
-	case wmppsScanForward:
+    case wmppsScanForward:
         break;
-	case wmppsScanReverse:
+    case wmppsScanReverse:
         break;
-	case wmppsBuffering:
+    case wmppsBuffering:
         break;
-	case wmppsWaiting:
+    case wmppsWaiting:
         break;
-	case wmppsMediaEnded:
+    case wmppsMediaEnded:
         break;
-	case wmppsTransitioning:
+    case wmppsTransitioning:
         break;
-	case wmppsReady:
+    case wmppsReady:
         break;
-	case wmppsReconnecting:
+    case wmppsReconnecting:
         break;
-	case wmppsLast:
+    case wmppsLast:
         break;
     default:
         break;
@@ -130,17 +128,14 @@ void CProjectMwmp::Error()
     HRESULT                 dwError = S_OK;
     HRESULT                 hr = S_OK;
 
-    if (m_spCore)
-    {
+    if (m_spCore) {
         hr = m_spCore->get_error(&spError);
 
-        if (SUCCEEDED(hr))
-        {
+        if (SUCCEEDED(hr)) {
             hr = spError->get_item(0, &spErrorItem);
         }
 
-        if (SUCCEEDED(hr))
-        {
+        if (SUCCEEDED(hr)) {
             hr = spErrorItem->get_errorCode( (long *) &dwError );
         }
     }
@@ -172,31 +167,30 @@ void CProjectMwmp::CdromMediaChange( long CdromNum )
 
 void CProjectMwmp::PlaylistChange( IDispatch * Playlist, WMPPlaylistChangeEventType change )
 {
-    switch (change)
-    {
+    switch (change) {
     case wmplcUnknown:
         break;
-	case wmplcClear:
+    case wmplcClear:
         break;
-	case wmplcInfoChange:
+    case wmplcInfoChange:
         break;
-	case wmplcMove:
+    case wmplcMove:
         break;
-	case wmplcDelete:
+    case wmplcDelete:
         break;
-	case wmplcInsert:
+    case wmplcInsert:
         break;
-	case wmplcAppend:
+    case wmplcAppend:
         break;
-	case wmplcPrivate:
+    case wmplcPrivate:
         break;
-	case wmplcNameChange:
+    case wmplcNameChange:
         break;
-	case wmplcMorph:
+    case wmplcMorph:
         break;
-	case wmplcSort:
+    case wmplcSort:
         break;
-	case wmplcLast:
+    case wmplcLast:
         break;
     default:
         break;
@@ -205,31 +199,30 @@ void CProjectMwmp::PlaylistChange( IDispatch * Playlist, WMPPlaylistChangeEventT
 
 void CProjectMwmp::CurrentPlaylistChange( WMPPlaylistChangeEventType change )
 {
-    switch (change)
-    {
+    switch (change) {
     case wmplcUnknown:
         break;
-	case wmplcClear:
+    case wmplcClear:
         break;
-	case wmplcInfoChange:
+    case wmplcInfoChange:
         break;
-	case wmplcMove:
+    case wmplcMove:
         break;
-	case wmplcDelete:
+    case wmplcDelete:
         break;
-	case wmplcInsert:
+    case wmplcInsert:
         break;
-	case wmplcAppend:
+    case wmplcAppend:
         break;
-	case wmplcPrivate:
+    case wmplcPrivate:
         break;
-	case wmplcNameChange:
+    case wmplcNameChange:
         break;
-	case wmplcMorph:
+    case wmplcMorph:
         break;
-	case wmplcSort:
+    case wmplcSort:
         break;
-	case wmplcLast:
+    case wmplcLast:
         break;
     default:
         break;
@@ -317,7 +310,7 @@ void CProjectMwmp::PlayerReconnect()
 }
 
 void CProjectMwmp::Click( short nButton, short nShiftState, long fX, long fY )
-{	
+{
 }
 
 void CProjectMwmp::DoubleClick( short nButton, short nShiftState, long fX, long fY )
@@ -325,10 +318,10 @@ void CProjectMwmp::DoubleClick( short nButton, short nShiftState, long fX, long 
 }
 
 void CProjectMwmp::KeyDown( short nKeyCode, short nShiftState )
-{	
-	
-	//if(nKeyCode)nKeyCode = 4;
-	globalPM->key_handler(PROJECTM_KEYDOWN,PROJECTM_K_n,PROJECTM_KMOD_RSHIFT);
+{
+
+    //if(nKeyCode)nKeyCode = 4;
+    globalPM->key_handler(PROJECTM_KEYDOWN,PROJECTM_K_n,PROJECTM_KMOD_RSHIFT);
 }
 void CProjectMwmp::KeyPress( short nKeyAscii )
 {

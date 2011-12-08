@@ -29,8 +29,7 @@
 FT_BEGIN_HEADER
 
 
-  typedef struct  T42_FaceRec_
-  {
+typedef struct  T42_FaceRec_ {
     FT_FaceRec      root;
     T1_FontRec      type1;
     const void*     psnames;
@@ -43,7 +42,7 @@ FT_BEGIN_HEADER
     FT_CharMap      charmaps[2];
     PS_UnicodesRec  unicode_map;
 
-  } T42_FaceRec, *T42_Face;
+} T42_FaceRec, *T42_Face;
 
 
 FT_END_HEADER

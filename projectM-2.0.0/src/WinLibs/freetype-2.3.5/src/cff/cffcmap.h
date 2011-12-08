@@ -24,41 +24,40 @@
 FT_BEGIN_HEADER
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****          TYPE1 STANDARD (AND EXPERT) ENCODING CMAPS           *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****          TYPE1 STANDARD (AND EXPERT) ENCODING CMAPS           *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  /* standard (and expert) encoding cmaps */
-  typedef struct CFF_CMapStdRec_*  CFF_CMapStd;
+/* standard (and expert) encoding cmaps */
+typedef struct CFF_CMapStdRec_*  CFF_CMapStd;
 
-  typedef struct  CFF_CMapStdRec_
-  {
+typedef struct  CFF_CMapStdRec_ {
     FT_CMapRec  cmap;
     FT_UShort*  gids;   /* up to 256 elements */
 
-  } CFF_CMapStdRec;
+} CFF_CMapStdRec;
 
 
-  FT_CALLBACK_TABLE const FT_CMap_ClassRec
-  cff_cmap_encoding_class_rec;
+FT_CALLBACK_TABLE const FT_CMap_ClassRec
+cff_cmap_encoding_class_rec;
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*****                                                               *****/
-  /*****               CFF SYNTHETIC UNICODE ENCODING CMAP             *****/
-  /*****                                                               *****/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*****                                                               *****/
+/*****               CFF SYNTHETIC UNICODE ENCODING CMAP             *****/
+/*****                                                               *****/
+/*************************************************************************/
+/*************************************************************************/
 
-  /* unicode (synthetic) cmaps */
+/* unicode (synthetic) cmaps */
 
-  FT_CALLBACK_TABLE const FT_CMap_ClassRec
-  cff_cmap_unicode_class_rec;
+FT_CALLBACK_TABLE const FT_CMap_ClassRec
+cff_cmap_unicode_class_rec;
 
 
 FT_END_HEADER
