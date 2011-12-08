@@ -174,7 +174,7 @@ void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode
             break;
         case PROJECTM_K_n:
             selectNext(true);
-            cout << 5;
+            std::cout << 5;
             break;
         case PROJECTM_K_N:
             selectNext(false);
@@ -198,11 +198,11 @@ void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode
             renderer->studio = !renderer->studio;
         case PROJECTM_K_i:
             load_builtin_param_float("fWarpScale", (void *) &presetOutputs.fWarpScale, NULL, P_FLAG_NONE, 1.0, 1.0, -1.0, "");
-            cout << 1;
+            std::cout << 1;
             break;
         case PROJECTM_K_z:
             load_builtin_param_float("fWarpScale", (void *) &presetOutputs.fWarpScale, NULL, P_FLAG_NONE, -1.0, 1.0, -1.0, "");
-            cout << 0;
+            std::cout << 0;
             break;
         case PROJECTM_K_0:
 //	      nWaveMode=0;
