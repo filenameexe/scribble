@@ -69,7 +69,7 @@ void refreshConsole()
 }
 
 void projectM::key_handler( projectMEvent event,
-                            projectMKeycode keycode, projectMModifier modifier )
+                            projectMKeycode keycode, projectMModifier modifier, PresetChooser * presetOutputs )
 {
 
     switch( event ) {
@@ -93,10 +93,10 @@ void projectM::key_handler( projectMEvent event,
 //	      browser_key_handler(event,keycode,modifier);
             break;
         case DEFAULT_INTERFACE:
-            default_key_handler(event,keycode);
+            default_key_handler(event,keycode, presetOutputs);
             break;
         default:
-            default_key_handler(event,keycode);
+            default_key_handler(event,keycode, presetOutputs);
             break;
 
         }

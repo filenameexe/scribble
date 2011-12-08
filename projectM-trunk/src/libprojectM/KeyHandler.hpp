@@ -37,9 +37,9 @@ void default_key_handler(projectM *PM, projectMEvent event, projectMKeycode keyc
 
 void refreshConsole();
 #if defined(__CPLUSPLUS) && !defined(MACOS)
-extern "C" void key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, projectMModifier modifier );
+extern "C" void key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, projectMModifier modifier, PresetChooser * presetOutputs );
 #else
-extern void key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, projectMModifier modifier );
+extern void key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, projectMModifier modifier, PresetChooser * presetOutputs );
 #endif
 #endif /** !_KEY_HANDLER_HPP */
 
