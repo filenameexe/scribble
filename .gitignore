@@ -12,3 +12,17 @@ libprojectM-qt.pc
 *.a
 *.cxx
 
+# All these are built by make
+*/src/libprojectM/libprojectM.so.2
+*/src/libprojectM/libprojectM.so.2.00
+*/src/projectM-pulseaudio/projectM-pulseaudio
+*/src/projectM-pulseaudio/ui_PulseDeviceChooserDialog.h
+*/src/projectM-qt/libprojectM-qt.so.1
+*/src/projectM-qt/libprojectM-qt.so.1.10
+*/src/projectM-qt/ui_qpreseteditordialog.h
+*/src/projectM-qt/ui_qprojectm_mainwindow.h
+*/src/projectM-qt/ui_qprojectmconfigdialog.h
+*/src/projectM-test/projectM-test
+*/src/projectM-test/projectM-test-memleak
+*/src/projectM-test/projectM-test-texture
+
