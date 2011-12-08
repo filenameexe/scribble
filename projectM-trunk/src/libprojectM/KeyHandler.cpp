@@ -174,6 +174,7 @@ void projectM::default_key_handler( projectMEvent event, projectMKeycode keycode
             break;
         case PROJECTM_K_n:
             selectNext(true);
+            cout << 5;
             break;
         case PROJECTM_K_N:
             selectNext(false);
