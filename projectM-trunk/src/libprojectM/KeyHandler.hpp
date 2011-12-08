@@ -29,7 +29,7 @@
 
 #include "event.h"
 class projectM;
-void default_key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode);
+void default_key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, PresetOutputs * presetOutputs);
 void refreshConsole();
 #if defined(__CPLUSPLUS) && !defined(MACOS)
 extern "C" void key_handler(projectM *PM, projectMEvent event, projectMKeycode keycode, projectMModifier modifier );
