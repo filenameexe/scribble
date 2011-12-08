@@ -6,31 +6,35 @@
 #include "Fontdefs.h"
 #include "layout/FTLayoutFont.h"
 
-static const int SCRIPT = 2;    // arabic
+static const int SCRIPT = 2; // arabic
 
-class FTLayoutTest:public CppUnit::TestCase {
-    CPPUNIT_TEST_SUITE(FTLayoutTest);
-    CPPUNIT_TEST(testConstructor);
+class FTLayoutTest : public CppUnit::TestCase
+{
+    CPPUNIT_TEST_SUITE( FTLayoutTest);
+        CPPUNIT_TEST( testConstructor);
     CPPUNIT_TEST_SUITE_END();
+        
+    public:
+        FTLayoutTest() : CppUnit::TestCase( "FTLayout Test")
+        {}
+        
+        FTLayoutTest( const std::string& name) : CppUnit::TestCase(name) {}
 
-  public:
-    FTLayoutTest():CppUnit::TestCase("FTLayout Test") {
-    } FTLayoutTest(const std::string & name):CppUnit::TestCase(name) {
-    }
-
-    void testConstructor() {
-        FTLayoutFont font(FONT_FILE, SCRIPT);
-        CPPUNIT_ASSERT(font.Error() == 0);
-    }
-
-    void setUp() {
-    }
-
-
-    void tearDown() {
-    }
-
-  private:
+        void testConstructor()
+        {
+            FTLayoutFont font( FONT_FILE, SCRIPT);
+            CPPUNIT_ASSERT( font.Error() == 0);
+        }
+        
+        void setUp() 
+        {}
+        
+        
+        void tearDown() 
+        {}
+        
+    private:
 };
 
-CPPUNIT_TEST_SUITE_REGISTRATION(FTLayoutTest);
+CPPUNIT_TEST_SUITE_REGISTRATION( FTLayoutTest);
+

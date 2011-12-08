@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype
+END
+ttgload.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttgload.c
+END
+ttgxvar.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttgxvar.c
+END
+ttgload.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttgload.h
+END
+ttdriver.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttdriver.c
+END
+ttgxvar.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttgxvar.h
+END
+ttobjs.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttobjs.c
+END
+ttpload.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttpload.c
+END
+ttdriver.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttdriver.h
+END
+ttinterp.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttinterp.c
+END
+ttobjs.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttobjs.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/module.mk
+END
+ttpload.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttpload.h
+END
+ttinterp.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/ttinterp.h
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/rules.mk
+END
+truetype.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/truetype.c
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/Jamfile
+END
+tterrors.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/truetype/tterrors.h
+END

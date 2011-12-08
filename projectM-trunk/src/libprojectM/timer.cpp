@@ -29,20 +29,21 @@
 
 #ifndef WIN32
 /** Get number of ticks since the given timestamp */
-unsigned int getTicks(struct timeval *start)
-{
+unsigned int getTicks( struct timeval *start ) {
     struct timeval now;
     unsigned int ticks;
 
     gettimeofday(&now, NULL);
-    ticks = (now.tv_sec - start->tv_sec) * 1000 + (now.tv_usec - start->tv_usec) / 1000;
-    return (ticks);
-}
+    ticks=(now.tv_sec-start->tv_sec)*1000+(now.tv_usec-start->tv_usec)/1000;
+    return(ticks);
+  }
 
 #else
-unsigned int getTicks(long start)
-{
+unsigned int getTicks( long start ) {
     return GetTickCount() - start;
-}
+  }
 
 #endif /** !WIN32 */
+
+
+  

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/pthreads/include
+END
+md5.sum
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/pthreads/include/md5.sum
+END
+semaphore.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/pthreads/include/semaphore.h
+END
+sched.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/pthreads/include/sched.h
+END
+pthread.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/pthreads/include/pthread.h
+END

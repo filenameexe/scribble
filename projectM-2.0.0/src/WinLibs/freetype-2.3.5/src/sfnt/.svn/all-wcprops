@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt
+END
+ttpost.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttpost.h
+END
+ttbdf.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttbdf.c
+END
+ttkern.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttkern.c
+END
+ttbdf.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttbdf.h
+END
+ttsbit.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttsbit.c
+END
+sfnt.c
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/sfnt.c
+END
+sferrors.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/sferrors.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/module.mk
+END
+ttkern.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttkern.h
+END
+ttsbit.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttsbit.h
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/rules.mk
+END
+ttmtx.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttmtx.c
+END
+sfdriver.c
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/sfdriver.c
+END
+ttmtx.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttmtx.h
+END
+sfobjs.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/sfobjs.c
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/Jamfile
+END
+ttload.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttload.c
+END
+ttcmap.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttcmap.c
+END
+sfdriver.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/sfdriver.h
+END
+ttsbit0.c
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttsbit0.c
+END
+sfobjs.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/sfobjs.h
+END
+ttload.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttload.h
+END
+ttcmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttcmap.h
+END
+ttpost.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/sfnt/ttpost.c
+END

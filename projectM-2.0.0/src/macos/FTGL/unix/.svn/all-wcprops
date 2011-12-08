@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/configure
+END
+ftgl.pc.in
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/ftgl.pc.in
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/configure.ac
+END
+Make.conf.in
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/Make.conf.in
+END
+Make.rules
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/Make.rules
+END
+acinclude.m4
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/acinclude.m4
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/config.guess
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/README.txt
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/config.sub
+END
+ltmain.sh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/ltmain.sh
+END
+aclocal.m4
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/aclocal.m4
+END
+bootstrap
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/bootstrap
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/Makefile
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/unix/install-sh
+END

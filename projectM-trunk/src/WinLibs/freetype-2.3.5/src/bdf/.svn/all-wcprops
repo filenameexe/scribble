@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/rules.mk
+END
+bdf.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/bdf.h
+END
+bdfdrivr.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/bdfdrivr.c
+END
+bdflib.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/bdflib.c
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/Jamfile
+END
+bdfdrivr.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/bdfdrivr.h
+END
+bdferror.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/bdferror.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/module.mk
+END
+bdf.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/bdf.c
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/bdf/README
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions
+END
+TemplateAction.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/TemplateAction.h
+END
+TrackLyrics.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/TrackLyrics.h
+END
+Beatlight.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/Beatlight.cpp
+END
+CoverArt.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/CoverArt.cpp
+END
+ProcessMonitor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/ProcessMonitor.cpp
+END
+TrackTitle.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/TrackTitle.cpp
+END
+Beatlight.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/Beatlight.h
+END
+TemplateAction.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/TemplateAction.cpp
+END
+CoverArt.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/CoverArt.h
+END
+TrackLyrics.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/TrackLyrics.cpp
+END
+ProcessMonitor.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/ProcessMonitor.h
+END
+TrackTitle.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actions/TrackTitle.h
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1347/trunk/src/projectM-iTunes/win32
+END
+iTunesAPI.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-iTunes/win32/iTunesAPI.c
+END
+iTunesAPI.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-iTunes/win32/iTunesAPI.h
+END
+iTunesVisualAPI.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-iTunes/win32/iTunesVisualAPI.h
+END

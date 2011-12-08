@@ -8,261 +8,344 @@
 
 #include "stdafx.h"
 #include "projectM-wmp.h"
-extern projectM *globalPM;
-void CProjectMwmp::OpenStateChange(long NewState) 
-{
-    switch (NewState)
-         {
-    case wmposUndefined:
-        break;
-    case wmposPlaylistChanging:
-        break;
-    case wmposPlaylistLocating:
-        break;
-    case wmposPlaylistConnecting:
-        break;
-    case wmposPlaylistLoading:
-        break;
-    case wmposPlaylistOpening:
-        break;
-    case wmposPlaylistOpenNoMedia:
-        break;
-    case wmposPlaylistChanged:
-        break;
-    case wmposMediaChanging:
-        break;
-    case wmposMediaLocating:
-        break;
-    case wmposMediaConnecting:
-        break;
-    case wmposMediaLoading:
-        break;
-    case wmposMediaOpening:
-        break;
-    case wmposMediaOpen:
-        break;
-    case wmposBeginCodecAcquisition:
-        break;
-    case wmposEndCodecAcquisition:
-        break;
-    case wmposBeginLicenseAcquisition:
-        break;
-    case wmposEndLicenseAcquisition:
-        break;
-    case wmposBeginIndividualization:
-        break;
-    case wmposEndIndividualization:
-        break;
-    case wmposMediaWaiting:
-        break;
-    case wmposOpeningUnknownURL:
-        break;
-    default:
-        break;
-        }
-}
 
-void CProjectMwmp::PlayStateChange(long NewState) 
-{
-    switch (NewState)
-         {
-    case wmppsUndefined:
-        break;
-    case wmppsStopped:
-        break;
-    case wmppsPaused:
-        break;
-    case wmppsPlaying:
-        break;
-    case wmppsScanForward:
-        break;
-    case wmppsScanReverse:
-        break;
-    case wmppsBuffering:
-        break;
-    case wmppsWaiting:
-        break;
-    case wmppsMediaEnded:
-        break;
-    case wmppsTransitioning:
-        break;
-    case wmppsReady:
-        break;
-    case wmppsReconnecting:
-        break;
-    case wmppsLast:
-        break;
-    default:
-        break;
-        }
-}
+extern projectM* globalPM;
 
-void CProjectMwmp::AudioLanguageChange(long LangID) 
+void CProjectMwmp::OpenStateChange( long NewState )
 {
-} void CProjectMwmp::StatusChange() 
-{
-} void CProjectMwmp::ScriptCommand(BSTR scType, BSTR Param) 
-{
-} void CProjectMwmp::NewStream() 
-{
-} void CProjectMwmp::Disconnect(long Result) 
-{
-} void CProjectMwmp::Buffering(VARIANT_BOOL Start) 
-{
-} void CProjectMwmp::Error() 
-{
-    CComPtr < IWMPError > spError;
-    CComPtr < IWMPErrorItem > spErrorItem;
-    HRESULT dwError = S_OK;
-    HRESULT hr = S_OK;
-    if (m_spCore)
-         {
-        hr = m_spCore->get_error(&spError);
-        if (SUCCEEDED(hr))
-             {
-            hr = spError->get_item(0, &spErrorItem);
-            }
-        if (SUCCEEDED(hr))
-             {
-            hr = spErrorItem->get_errorCode((long *) &dwError);
-            }
-        }
-} void CProjectMwmp::Warning(long WarningType, long Param, BSTR Description) 
-{
-} void CProjectMwmp::EndOfStream(long Result) 
-{
-} void CProjectMwmp::PositionChange(double oldPosition, double newPosition) 
-{
-} void CProjectMwmp::MarkerHit(long MarkerNum) 
-{
-} void CProjectMwmp::DurationUnitChange(long NewDurationUnit) 
-{
-} void CProjectMwmp::CdromMediaChange(long CdromNum) 
-{
-} void CProjectMwmp::PlaylistChange(IDispatch * Playlist, WMPPlaylistChangeEventType change) 
-{
-    switch (change)
-         {
-    case wmplcUnknown:
-        break;
-    case wmplcClear:
-        break;
-    case wmplcInfoChange:
-        break;
-    case wmplcMove:
-        break;
-    case wmplcDelete:
-        break;
-    case wmplcInsert:
-        break;
-    case wmplcAppend:
-        break;
-    case wmplcPrivate:
-        break;
-    case wmplcNameChange:
-        break;
-    case wmplcMorph:
-        break;
-    case wmplcSort:
-        break;
-    case wmplcLast:
-        break;
-    default:
-        break;
-        }
-}
+    switch (NewState)
+    {
+    case wmposUndefined:
+        break;
+	case wmposPlaylistChanging:
+        break;
+	case wmposPlaylistLocating:
+        break;
+	case wmposPlaylistConnecting:
+        break;
+	case wmposPlaylistLoading:
+        break;
+	case wmposPlaylistOpening:
+        break;
+	case wmposPlaylistOpenNoMedia:
+        break;
+	case wmposPlaylistChanged:
+        break;
+	case wmposMediaChanging:
+        break;
+	case wmposMediaLocating:
+        break;
+	case wmposMediaConnecting:
+        break;
+	case wmposMediaLoading:
+        break;
+	case wmposMediaOpening:
+        break;
+	case wmposMediaOpen:
+        break;
+	case wmposBeginCodecAcquisition:
+        break;
+	case wmposEndCodecAcquisition:
+        break;
+	case wmposBeginLicenseAcquisition:
+        break;
+	case wmposEndLicenseAcquisition:
+        break;
+	case wmposBeginIndividualization:
+        break;
+	case wmposEndIndividualization:
+        break;
+	case wmposMediaWaiting:
+        break;
+	case wmposOpeningUnknownURL:
+        break;
+    default:
+        break;
+    }
+}
 
-void CProjectMwmp::CurrentPlaylistChange(WMPPlaylistChangeEventType change) 
+void CProjectMwmp::PlayStateChange( long NewState )
 {
-    switch (change)
-         {
-    case wmplcUnknown:
-        break;
-    case wmplcClear:
-        break;
-    case wmplcInfoChange:
-        break;
-    case wmplcMove:
-        break;
-    case wmplcDelete:
-        break;
-    case wmplcInsert:
-        break;
-    case wmplcAppend:
-        break;
-    case wmplcPrivate:
-        break;
-    case wmplcNameChange:
-        break;
-    case wmplcMorph:
-        break;
-    case wmplcSort:
-        break;
-    case wmplcLast:
-        break;
-    default:
-        break;
-        }
-}
+    switch (NewState)
+    {
+    case wmppsUndefined:
+        break;
+	case wmppsStopped:
+        break;
+	case wmppsPaused:
+        break;
+	case wmppsPlaying:
+        break;
+	case wmppsScanForward:
+        break;
+	case wmppsScanReverse:
+        break;
+	case wmppsBuffering:
+        break;
+	case wmppsWaiting:
+        break;
+	case wmppsMediaEnded:
+        break;
+	case wmppsTransitioning:
+        break;
+	case wmppsReady:
+        break;
+	case wmppsReconnecting:
+        break;
+	case wmppsLast:
+        break;
+    default:
+        break;
+    }
+}
 
-void CProjectMwmp::CurrentPlaylistItemAvailable(BSTR bstrItemName) 
+void CProjectMwmp::AudioLanguageChange( long LangID )
 {
-} void CProjectMwmp::MediaChange(IDispatch * Item) 
+}
+
+void CProjectMwmp::StatusChange()
 {
-} void CProjectMwmp::CurrentMediaItemAvailable(BSTR bstrItemName) 
+}
+
+void CProjectMwmp::ScriptCommand( BSTR scType, BSTR Param )
 {
-} void CProjectMwmp::CurrentItemChange(IDispatch * pdispMedia) 
+}
+
+void CProjectMwmp::NewStream()
 {
-} void CProjectMwmp::MediaCollectionChange() 
+}
+
+void CProjectMwmp::Disconnect( long Result )
 {
-} void CProjectMwmp::MediaCollectionAttributeStringAdded(BSTR bstrAttribName, BSTR bstrAttribVal) 
+}
+
+void CProjectMwmp::Buffering( VARIANT_BOOL Start )
 {
-} void CProjectMwmp::MediaCollectionAttributeStringRemoved(BSTR bstrAttribName, BSTR bstrAttribVal) 
+}
+
+void CProjectMwmp::Error()
 {
-} void CProjectMwmp::MediaCollectionAttributeStringChanged(BSTR bstrAttribName, BSTR bstrOldAttribVal,
-                                                              BSTR bstrNewAttribVal) 
+    CComPtr<IWMPError>      spError;
+    CComPtr<IWMPErrorItem>  spErrorItem;
+    HRESULT                 dwError = S_OK;
+    HRESULT                 hr = S_OK;
+
+    if (m_spCore)
+    {
+        hr = m_spCore->get_error(&spError);
+
+        if (SUCCEEDED(hr))
+        {
+            hr = spError->get_item(0, &spErrorItem);
+        }
+
+        if (SUCCEEDED(hr))
+        {
+            hr = spErrorItem->get_errorCode( (long *) &dwError );
+        }
+    }
+}
+
+void CProjectMwmp::Warning( long WarningType, long Param, BSTR Description )
 {
-} void CProjectMwmp::PlaylistCollectionChange() 
+}
+
+void CProjectMwmp::EndOfStream( long Result )
 {
-} void CProjectMwmp::PlaylistCollectionPlaylistAdded(BSTR bstrPlaylistName) 
+}
+
+void CProjectMwmp::PositionChange( double oldPosition, double newPosition)
 {
-} void CProjectMwmp::PlaylistCollectionPlaylistRemoved(BSTR bstrPlaylistName) 
+}
+
+void CProjectMwmp::MarkerHit( long MarkerNum )
 {
-} void CProjectMwmp::PlaylistCollectionPlaylistSetAsDeleted(BSTR bstrPlaylistName, VARIANT_BOOL varfIsDeleted) 
+}
+
+void CProjectMwmp::DurationUnitChange( long NewDurationUnit )
 {
-} void CProjectMwmp::ModeChange(BSTR ModeName, VARIANT_BOOL NewValue) 
+}
+
+void CProjectMwmp::CdromMediaChange( long CdromNum )
 {
-} void CProjectMwmp::MediaError(IDispatch * pMediaObject) 
+}
+
+void CProjectMwmp::PlaylistChange( IDispatch * Playlist, WMPPlaylistChangeEventType change )
 {
-} void CProjectMwmp::OpenPlaylistSwitch(IDispatch * pItem) 
+    switch (change)
+    {
+    case wmplcUnknown:
+        break;
+	case wmplcClear:
+        break;
+	case wmplcInfoChange:
+        break;
+	case wmplcMove:
+        break;
+	case wmplcDelete:
+        break;
+	case wmplcInsert:
+        break;
+	case wmplcAppend:
+        break;
+	case wmplcPrivate:
+        break;
+	case wmplcNameChange:
+        break;
+	case wmplcMorph:
+        break;
+	case wmplcSort:
+        break;
+	case wmplcLast:
+        break;
+    default:
+        break;
+    }
+}
+
+void CProjectMwmp::CurrentPlaylistChange( WMPPlaylistChangeEventType change )
 {
-} void CProjectMwmp::DomainChange(BSTR strDomain) 
+    switch (change)
+    {
+    case wmplcUnknown:
+        break;
+	case wmplcClear:
+        break;
+	case wmplcInfoChange:
+        break;
+	case wmplcMove:
+        break;
+	case wmplcDelete:
+        break;
+	case wmplcInsert:
+        break;
+	case wmplcAppend:
+        break;
+	case wmplcPrivate:
+        break;
+	case wmplcNameChange:
+        break;
+	case wmplcMorph:
+        break;
+	case wmplcSort:
+        break;
+	case wmplcLast:
+        break;
+    default:
+        break;
+    }
+}
+
+void CProjectMwmp::CurrentPlaylistItemAvailable( BSTR bstrItemName )
 {
-} void CProjectMwmp::SwitchedToPlayerApplication() 
+}
+
+void CProjectMwmp::MediaChange( IDispatch * Item )
 {
-} void CProjectMwmp::SwitchedToControl() 
+}
+
+void CProjectMwmp::CurrentMediaItemAvailable( BSTR bstrItemName )
 {
-} void CProjectMwmp::PlayerDockedStateChange() 
+}
+
+void CProjectMwmp::CurrentItemChange( IDispatch *pdispMedia)
 {
-} void CProjectMwmp::PlayerReconnect() 
+}
+
+void CProjectMwmp::MediaCollectionChange()
 {
-} void CProjectMwmp::Click(short nButton, short nShiftState, long fX, long fY) 
+}
+
+void CProjectMwmp::MediaCollectionAttributeStringAdded( BSTR bstrAttribName,  BSTR bstrAttribVal )
 {
-} void CProjectMwmp::DoubleClick(short nButton, short nShiftState, long fX, long fY) 
+}
+
+void CProjectMwmp::MediaCollectionAttributeStringRemoved( BSTR bstrAttribName,  BSTR bstrAttribVal )
 {
-} void CProjectMwmp::KeyDown(short nKeyCode, short nShiftState) 
+}
+
+void CProjectMwmp::MediaCollectionAttributeStringChanged( BSTR bstrAttribName, BSTR bstrOldAttribVal, BSTR bstrNewAttribVal)
 {
-    
-        //if(nKeyCode)nKeyCode = 4;
-        globalPM->key_handler(PROJECTM_KEYDOWN, PROJECTM_K_n, PROJECTM_KMOD_RSHIFT);
-} void CProjectMwmp::KeyPress(short nKeyAscii) 
+}
+
+void CProjectMwmp::PlaylistCollectionChange()
 {
-} void CProjectMwmp::KeyUp(short nKeyCode, short nShiftState) 
+}
+
+void CProjectMwmp::PlaylistCollectionPlaylistAdded( BSTR bstrPlaylistName)
 {
-} void CProjectMwmp::MouseDown(short nButton, short nShiftState, long fX, long fY) 
+}
+
+void CProjectMwmp::PlaylistCollectionPlaylistRemoved( BSTR bstrPlaylistName)
 {
-} void CProjectMwmp::MouseMove(short nButton, short nShiftState, long fX, long fY) 
+}
+
+void CProjectMwmp::PlaylistCollectionPlaylistSetAsDeleted( BSTR bstrPlaylistName, VARIANT_BOOL varfIsDeleted)
 {
-} void CProjectMwmp::MouseUp(short nButton, short nShiftState, long fX, long fY) 
+}
+
+void CProjectMwmp::ModeChange( BSTR ModeName, VARIANT_BOOL NewValue)
 {
-} 
+}
+
+void CProjectMwmp::MediaError( IDispatch * pMediaObject)
+{
+}
+
+void CProjectMwmp::OpenPlaylistSwitch( IDispatch *pItem )
+{
+}
+
+void CProjectMwmp::DomainChange( BSTR strDomain)
+{
+}
+
+void CProjectMwmp::SwitchedToPlayerApplication()
+{
+}
+
+void CProjectMwmp::SwitchedToControl()
+{
+}
+
+void CProjectMwmp::PlayerDockedStateChange()
+{
+}
+
+void CProjectMwmp::PlayerReconnect()
+{
+}
+
+void CProjectMwmp::Click( short nButton, short nShiftState, long fX, long fY )
+{	
+}
+
+void CProjectMwmp::DoubleClick( short nButton, short nShiftState, long fX, long fY )
+{
+}
+
+void CProjectMwmp::KeyDown( short nKeyCode, short nShiftState )
+{	
+	
+	//if(nKeyCode)nKeyCode = 4;
+	globalPM->key_handler(PROJECTM_KEYDOWN,PROJECTM_K_n,PROJECTM_KMOD_RSHIFT);
+}
+void CProjectMwmp::KeyPress( short nKeyAscii )
+{
+}
+
+void CProjectMwmp::KeyUp( short nKeyCode, short nShiftState )
+{
+}
+
+void CProjectMwmp::MouseDown( short nButton, short nShiftState, long fX, long fY )
+{
+}
+
+void CProjectMwmp::MouseMove( short nButton, short nShiftState, long fX, long fY )
+{
+}
+
+void CProjectMwmp::MouseUp( short nButton, short nShiftState, long fX, long fY )
+{
+}

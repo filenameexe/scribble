@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix
+END
+mkinstalldirs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/mkinstalldirs
+END
+ft-munmap.m4
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/ft-munmap.m4
+END
+freetype2.m4
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/freetype2.m4
+END
+unix-def.in
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/unix-def.in
+END
+ft2unix.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/ft2unix.h
+END
+unix-lcc.mk
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/unix-lcc.mk
+END
+unix.mk
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/unix.mk
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/config.guess
+END
+freetype-config.in
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/freetype-config.in
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/config.sub
+END
+ftsystem.c
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/ftsystem.c
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/configure.ac
+END
+ftconfig.in
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/ftconfig.in
+END
+unix-dev.mk
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/unix-dev.mk
+END
+configure.raw
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/configure.raw
+END
+freetype2.in
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/freetype2.in
+END
+unix-cc.in
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/unix-cc.in
+END
+install.mk
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/install.mk
+END
+unixddef.mk
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/unixddef.mk
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/install-sh
+END
+detect.mk
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/unix/detect.mk
+END

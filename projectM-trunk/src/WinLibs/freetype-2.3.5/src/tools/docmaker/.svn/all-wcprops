@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/tools/docmaker
+END
+content.py
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/tools/docmaker/content.py
+END
+docbeauty.py
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/tools/docmaker/docbeauty.py
+END
+utils.py
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/tools/docmaker/utils.py
+END
+formatter.py
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/tools/docmaker/formatter.py
+END
+sources.py
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/tools/docmaker/sources.py
+END
+docmaker.py
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/tools/docmaker/docmaker.py
+END
+tohtml.py
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/src/tools/docmaker/tohtml.py
+END

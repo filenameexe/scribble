@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src
+END
+FTLibrary.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTLibrary.cpp
+END
+FTTextureGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTTextureGlyph.cpp
+END
+FTFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTFont.cpp
+END
+FTGLPixmapFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTGLPixmapFont.cpp
+END
+FTGLTextureFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTGLTextureFont.cpp
+END
+FTSize.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTSize.cpp
+END
+FTCharmap.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTCharmap.cpp
+END
+FTBitmapGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTBitmapGlyph.cpp
+END
+FTOutlineGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTOutlineGlyph.cpp
+END
+FTGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTGlyph.cpp
+END
+FTVectoriser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTVectoriser.cpp
+END
+FTGlyphContainer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTGlyphContainer.cpp
+END
+FTGLBitmapFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTGLBitmapFont.cpp
+END
+FTPolyGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTPolyGlyph.cpp
+END
+FTGLOutlineFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTGLOutlineFont.cpp
+END
+FTContour.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTContour.cpp
+END
+FTPoint.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTPoint.cpp
+END
+FTExtrdGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTExtrdGlyph.cpp
+END
+FTFace.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTFace.cpp
+END
+FTGLExtrdFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTGLExtrdFont.cpp
+END
+FTGLPolygonFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTGLPolygonFont.cpp
+END
+FTPixmapGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/FTGL/src/FTPixmapGlyph.cpp
+END

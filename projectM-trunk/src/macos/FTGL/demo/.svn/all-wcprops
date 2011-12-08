@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/demo
+END
+trackball.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/demo/trackball.c
+END
+FTGLDemo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/demo/FTGLDemo.cpp
+END
+trackball.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/demo/trackball.h
+END
+tb.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/demo/tb.c
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/demo/README.txt
+END
+tb.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/demo/tb.h
+END

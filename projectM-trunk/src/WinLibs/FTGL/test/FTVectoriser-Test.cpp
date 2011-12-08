@@ -8,7 +8,8 @@
 #include "FTVectoriser.h"
 
 
-static double testOutline[] = {
+static double testOutline[] = 
+{
     28, 0, 0.0,
     28, 4.53125, 0.0,
     26.4756, 2.54, 0.0,
@@ -103,30 +104,33 @@ static double testOutline[] = {
 };
 
 
-static GLenum testMeshPolygonTypes[] = {
+static GLenum testMeshPolygonTypes[] = 
+{
     GL_TRIANGLE_FAN,
     GL_TRIANGLE_STRIP,
     GL_TRIANGLE_STRIP,
     GL_TRIANGLE_STRIP,
     GL_TRIANGLE_STRIP,
-    GL_TRIANGLE_STRIP,
-    GL_TRIANGLE_FAN,
-    GL_TRIANGLE_FAN,
-    GL_TRIANGLE_FAN,
-    GL_TRIANGLE_STRIP,
-    GL_TRIANGLE_STRIP,
-    GL_TRIANGLE_FAN,
-    GL_TRIANGLE_STRIP,
+    GL_TRIANGLE_STRIP, 
+    GL_TRIANGLE_FAN, 
+    GL_TRIANGLE_FAN, 
+    GL_TRIANGLE_FAN, 
+    GL_TRIANGLE_STRIP, 
+    GL_TRIANGLE_STRIP, 
+    GL_TRIANGLE_FAN, 
+    GL_TRIANGLE_STRIP, 
     GL_TRIANGLES
 };
 
 
-static unsigned int testMeshPointCount[] = {
+static unsigned int testMeshPointCount[] = 
+{
     8, 7, 7, 11, 7, 9, 5, 6, 6, 7, 17, 6, 19, 3,
 };
 
 
-static double testMesh[] = {
+static double testMesh[] = 
+{
     28, 4.53125, 0.0,
     28, 0, 0.0,
     34, 0, 0.0,
@@ -248,194 +252,214 @@ static double testMesh[] = {
 };
 
 
-class FTVectoriserTest:public CppUnit::TestCase {
-    CPPUNIT_TEST_SUITE(FTVectoriserTest);
-    CPPUNIT_TEST(testFreetypeVersion);
-    CPPUNIT_TEST(testNullGlyphProcess);
-    CPPUNIT_TEST(testBadGlyphProcess);
-    CPPUNIT_TEST(testSimpleGlyphProcess);
-    CPPUNIT_TEST(testComplexGlyphProcess);
-    CPPUNIT_TEST(testGetContour);
-    CPPUNIT_TEST(testGetOutline);
-    CPPUNIT_TEST(testGetMesh);
-    CPPUNIT_TEST(testMakeMesh);
+class FTVectoriserTest : public CppUnit::TestCase
+{
+    CPPUNIT_TEST_SUITE( FTVectoriserTest);
+        CPPUNIT_TEST( testFreetypeVersion);
+        CPPUNIT_TEST( testNullGlyphProcess);
+        CPPUNIT_TEST( testBadGlyphProcess);
+        CPPUNIT_TEST( testSimpleGlyphProcess);
+        CPPUNIT_TEST( testComplexGlyphProcess);
+        CPPUNIT_TEST( testGetContour);
+        CPPUNIT_TEST( testGetOutline);
+        CPPUNIT_TEST( testGetMesh);
+        CPPUNIT_TEST( testMakeMesh);
     CPPUNIT_TEST_SUITE_END();
+        
+    public:
+        FTVectoriserTest() : CppUnit::TestCase( "FTVectoriser Test")
+        {}
+        
+        FTVectoriserTest( const std::string& name) : CppUnit::TestCase(name)
+        {}
+        
+        
+        void testFreetypeVersion()
+        {
+            setUpFreetype( NULL_CHARACTER_INDEX);
 
-  public:
-    FTVectoriserTest():CppUnit::TestCase("FTVectoriser Test") {
-    } FTVectoriserTest(const std::string & name):CppUnit::TestCase(name) {
-    }
+            FT_Int major;
+            FT_Int minor;
+            FT_Int patch;
+            
+            FT_Library_Version( library, &major, &minor, &patch);
+            
+            // If you hit these asserts then you have the wrong library version to run the tests.
+            // You can still run the tests but some will fail because the hinter changed in 2.1.4 
+            CPPUNIT_ASSERT( major == 2);
+            CPPUNIT_ASSERT( minor == 1);
+            CPPUNIT_ASSERT( patch >= 4);
 
-
-    void testFreetypeVersion() {
-        setUpFreetype(NULL_CHARACTER_INDEX);
-
-        FT_Int major;
-        FT_Int minor;
-        FT_Int patch;
-
-        FT_Library_Version(library, &major, &minor, &patch);
-
-        // If you hit these asserts then you have the wrong library version to run the tests.
-        // You can still run the tests but some will fail because the hinter changed in 2.1.4 
-        CPPUNIT_ASSERT(major == 2);
-        CPPUNIT_ASSERT(minor == 1);
-        CPPUNIT_ASSERT(patch >= 4);
-
-        tearDownFreetype();
-    }
-
-
-    void testNullGlyphProcess() {
-        FTVectoriser vectoriser(NULL);
-        CPPUNIT_ASSERT(vectoriser.ContourCount() == 0);
-    }
-
-
-    void testBadGlyphProcess() {
-        setUpFreetype(NULL_CHARACTER_INDEX);
-
-        FTVectoriser vectoriser(face->glyph);
-        CPPUNIT_ASSERT(vectoriser.ContourCount() == 0);
-
-        tearDownFreetype();
-    }
-
-
-    void testSimpleGlyphProcess() {
-        setUpFreetype(SIMPLE_CHARACTER_INDEX);
-
-        FTVectoriser vectoriser(face->glyph);
-
-        CPPUNIT_ASSERT(vectoriser.ContourCount() == 2);
-        CPPUNIT_ASSERT(vectoriser.PointCount() == 8);
-
-        tearDownFreetype();
-    }
-
-
-    void testComplexGlyphProcess() {
-        setUpFreetype(COMPLEX_CHARACTER_INDEX);
-
-        FTVectoriser vectoriser(face->glyph);
-
-        CPPUNIT_ASSERT(vectoriser.ContourCount() == 2);
-        CPPUNIT_ASSERT(vectoriser.PointCount() == 91);
-
-        tearDownFreetype();
-    }
-
-
-    void testGetContour() {
-        setUpFreetype(SIMPLE_CHARACTER_INDEX);
-
-        FTVectoriser vectoriser(face->glyph);
-
-        CPPUNIT_ASSERT(vectoriser.Contour(1));
-        CPPUNIT_ASSERT(vectoriser.Contour(99) == NULL);
-
-        tearDownFreetype();
-    }
-
-
-    void testGetOutline() {
-        setUpFreetype(COMPLEX_CHARACTER_INDEX);
-
-        FTVectoriser vectoriser(face->glyph);
-
-        unsigned int d = 0;
-        for (size_t c = 0; c < vectoriser.ContourCount(); ++c) {
-            const FTContour *contour = vectoriser.Contour(c);
-
-            for (size_t p = 0; p < contour->PointCount(); ++p) {
-                CPPUNIT_ASSERT_DOUBLES_EQUAL(*(testOutline + d), contour->Point(p).X() / 64.0f, 0.01);
-                CPPUNIT_ASSERT_DOUBLES_EQUAL(*(testOutline + d + 1), contour->Point(p).Y() / 64.0f, 0.01);
-                d += 3;
-            }
+            tearDownFreetype();
         }
+        
 
-        tearDownFreetype();
-    }
-
-
-    void testGetMesh() {
-        setUpFreetype(SIMPLE_CHARACTER_INDEX);
-
-        FTVectoriser vectoriser(face->glyph);
-        CPPUNIT_ASSERT(vectoriser.GetMesh() == NULL);
-
-        vectoriser.MakeMesh(FTGL_FRONT_FACING);
-
-        CPPUNIT_ASSERT(vectoriser.GetMesh());
-    }
-
-
-    void testMakeMesh() {
-        setUpFreetype(COMPLEX_CHARACTER_INDEX);
-
-        FTVectoriser vectoriser(face->glyph);
-
-        vectoriser.MakeMesh(FTGL_FRONT_FACING);
-
-        int d = 0;
-        const FTMesh *mesh = vectoriser.GetMesh();
-        unsigned int tesselations = mesh->TesselationCount();
-        CPPUNIT_ASSERT(tesselations == 14);
-
-        for (unsigned int index = 0; index < tesselations; ++index) {
-            const FTTesselation *subMesh = mesh->Tesselation(index);
-
-            unsigned int polyType = subMesh->PolygonType();
-            CPPUNIT_ASSERT(testMeshPolygonTypes[index] == polyType);
-
-            unsigned int numberOfVertices = subMesh->PointCount();
-            CPPUNIT_ASSERT(testMeshPointCount[index] == numberOfVertices);
-
-            for (unsigned int x = 0; x < numberOfVertices; ++x) {
-                CPPUNIT_ASSERT_DOUBLES_EQUAL(*(testMesh + d), subMesh->Point(x).X() / 64, 0.01);
-                CPPUNIT_ASSERT_DOUBLES_EQUAL(*(testMesh + d + 1), subMesh->Point(x).Y() / 64, 0.01);
-                d += 3;
-            }
+        void testNullGlyphProcess()
+        {
+            FTVectoriser vectoriser( NULL);
+            CPPUNIT_ASSERT( vectoriser.ContourCount() == 0);
         }
+        
+        
+        void testBadGlyphProcess()
+        {
+            setUpFreetype( NULL_CHARACTER_INDEX);
+            
+            FTVectoriser vectoriser( face->glyph);
+            CPPUNIT_ASSERT( vectoriser.ContourCount() == 0);
+            
+            tearDownFreetype();
+        }
+        
 
-        tearDownFreetype();
-    }
+        void testSimpleGlyphProcess()
+        {
+            setUpFreetype( SIMPLE_CHARACTER_INDEX);
+            
+            FTVectoriser vectoriser( face->glyph);
 
+            CPPUNIT_ASSERT( vectoriser.ContourCount() == 2);
+            CPPUNIT_ASSERT( vectoriser.PointCount() == 8);
+            
+            tearDownFreetype();
+        }
+        
+        
+        void testComplexGlyphProcess()
+        {
+            setUpFreetype( COMPLEX_CHARACTER_INDEX);
+            
+            FTVectoriser vectoriser( face->glyph);
 
-    void setUp() {
-    }
+            CPPUNIT_ASSERT( vectoriser.ContourCount() == 2);
+            CPPUNIT_ASSERT( vectoriser.PointCount() == 91);
+            
+            tearDownFreetype();
+        }
+        
+        
+        void testGetContour()
+        {
+            setUpFreetype( SIMPLE_CHARACTER_INDEX);
+            
+            FTVectoriser vectoriser( face->glyph);
 
+            CPPUNIT_ASSERT( vectoriser.Contour(1));
+            CPPUNIT_ASSERT( vectoriser.Contour(99) == NULL);
+            
+            tearDownFreetype();
+        }
+        
+        
+        void testGetOutline()
+        {
+            setUpFreetype( COMPLEX_CHARACTER_INDEX);
+            
+            FTVectoriser vectoriser( face->glyph);
+            
+            unsigned int d = 0;
+            for( size_t c = 0; c < vectoriser.ContourCount(); ++c)
+            {
+                const FTContour* contour = vectoriser.Contour(c);
+                
+                for( size_t p = 0; p < contour->PointCount(); ++p)
+                {
+                    CPPUNIT_ASSERT_DOUBLES_EQUAL( *(testOutline + d),     contour->Point(p).X() / 64.0f, 0.01);
+                    CPPUNIT_ASSERT_DOUBLES_EQUAL( *(testOutline + d + 1), contour->Point(p).Y() / 64.0f, 0.01);
+                    d += 3;
+                }
+            }
+            
+            tearDownFreetype();
+        }
+        
+        
+        void testGetMesh()
+        {
+            setUpFreetype( SIMPLE_CHARACTER_INDEX);
+            
+            FTVectoriser vectoriser( face->glyph);
+            CPPUNIT_ASSERT( vectoriser.GetMesh() == NULL);
 
-    void tearDown() {
-    }
+            vectoriser.MakeMesh( FTGL_FRONT_FACING);
+            
+            CPPUNIT_ASSERT( vectoriser.GetMesh());
+        }
+        
+        
+        void testMakeMesh()
+        {
+            setUpFreetype( COMPLEX_CHARACTER_INDEX);
+            
+            FTVectoriser vectoriser( face->glyph);
 
-  private:
-    FT_Library library;
-    FT_Face face;
+            vectoriser.MakeMesh( FTGL_FRONT_FACING);
 
-    void setUpFreetype(unsigned int characterIndex) {
-        FT_Error error = FT_Init_FreeType(&library);
-        assert(!error);
-        error = FT_New_Face(library, ARIAL_FONT_FILE, 0, &face);
-        assert(!error);
+            int d = 0;
+            const FTMesh* mesh = vectoriser.GetMesh();
+            unsigned int tesselations = mesh->TesselationCount();
+            CPPUNIT_ASSERT( tesselations == 14);
+            
+            for( unsigned int index = 0; index < tesselations; ++index)
+            {
+                const FTTesselation* subMesh = mesh->Tesselation( index);
+                
+                unsigned int polyType = subMesh->PolygonType();
+                CPPUNIT_ASSERT( testMeshPolygonTypes[index] == polyType);
+                
+                unsigned int numberOfVertices = subMesh->PointCount();
+                CPPUNIT_ASSERT( testMeshPointCount[index] == numberOfVertices);
 
-        loadGlyph(characterIndex);
-    }
+                for( unsigned int x = 0; x < numberOfVertices; ++x)
+                {
+                    CPPUNIT_ASSERT_DOUBLES_EQUAL( *(testMesh + d),     subMesh->Point(x).X() / 64, 0.01);
+                    CPPUNIT_ASSERT_DOUBLES_EQUAL( *(testMesh + d + 1), subMesh->Point(x).Y() / 64, 0.01);
+                    d += 3;
+                }
+            }
 
-    void loadGlyph(unsigned int characterIndex) {
-        long glyphIndex = FT_Get_Char_Index(face, characterIndex);
+            tearDownFreetype();
+        }
+        
+        
+        void setUp() 
+        {}
+        
+        
+        void tearDown() 
+        {}
+        
+    private:
+        FT_Library   library;
+        FT_Face      face;
 
-        FT_Set_Char_Size(face, 0L, FONT_POINT_SIZE * 64, RESOLUTION, RESOLUTION);
-
-        FT_Error error = FT_Load_Glyph(face, glyphIndex, FT_LOAD_DEFAULT);
-        assert(!error);
-    }
-
-    void tearDownFreetype() {
-        FT_Done_Face(face);
-        FT_Done_FreeType(library);
-    }
-
+        void setUpFreetype( unsigned int characterIndex)
+        {
+            FT_Error error = FT_Init_FreeType( &library);
+            assert(!error);
+            error = FT_New_Face( library, ARIAL_FONT_FILE, 0, &face);
+            assert(!error);
+            
+            loadGlyph( characterIndex);
+        }
+        
+        void loadGlyph( unsigned int characterIndex)
+        {
+            long glyphIndex = FT_Get_Char_Index( face, characterIndex);
+            
+            FT_Set_Char_Size( face, 0L, FONT_POINT_SIZE * 64, RESOLUTION, RESOLUTION);
+            
+            FT_Error error = FT_Load_Glyph( face, glyphIndex, FT_LOAD_DEFAULT);
+            assert(!error);
+        }
+        
+        void tearDownFreetype()
+        {
+            FT_Done_Face( face);
+            FT_Done_FreeType( library);
+        }
+        
 };
 
-CPPUNIT_TEST_SUITE_REGISTRATION(FTVectoriserTest);
+CPPUNIT_TEST_SUITE_REGISTRATION( FTVectoriserTest);
+

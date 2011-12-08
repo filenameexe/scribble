@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/src
+END
+glew.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/src/glew.c
+END
+visualinfo.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/src/visualinfo.c
+END
+glewinfo.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/src/glewinfo.c
+END

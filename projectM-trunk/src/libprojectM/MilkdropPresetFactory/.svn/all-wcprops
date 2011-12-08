@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1364/trunk/src/libprojectM/MilkdropPresetFactory
+END
+IdlePreset.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/IdlePreset.cpp
+END
+Func.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1249/trunk/src/libprojectM/MilkdropPresetFactory/Func.hpp
+END
+Parser.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1356/trunk/src/libprojectM/MilkdropPresetFactory/Parser.hpp
+END
+MilkdropPresetFactory.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1250/trunk/src/libprojectM/MilkdropPresetFactory/MilkdropPresetFactory.hpp
+END
+PerPixelEqn.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1356/trunk/src/libprojectM/MilkdropPresetFactory/PerPixelEqn.hpp
+END
+CustomWave.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1295/trunk/src/libprojectM/MilkdropPresetFactory/CustomWave.hpp
+END
+IdlePreset.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/IdlePreset.hpp
+END
+PresetFrameIO.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1295/trunk/src/libprojectM/MilkdropPresetFactory/PresetFrameIO.cpp
+END
+BuiltinParams.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1230/trunk/src/libprojectM/MilkdropPresetFactory/BuiltinParams.cpp
+END
+PresetFrameIO.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1295/trunk/src/libprojectM/MilkdropPresetFactory/PresetFrameIO.hpp
+END
+BuiltinParams.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1279/trunk/src/libprojectM/MilkdropPresetFactory/BuiltinParams.hpp
+END
+CValue.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/CValue.hpp
+END
+ParamUtils.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/ParamUtils.hpp
+END
+CustomShape.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/CustomShape.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1330/trunk/src/libprojectM/MilkdropPresetFactory/CMakeLists.txt
+END
+Param.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/Param.cpp
+END
+CustomShape.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1295/trunk/src/libprojectM/MilkdropPresetFactory/CustomShape.hpp
+END
+MilkdropPreset.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1360/trunk/src/libprojectM/MilkdropPresetFactory/MilkdropPreset.cpp
+END
+PerPointEqn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/PerPointEqn.cpp
+END
+PerFrameEqn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/PerFrameEqn.cpp
+END
+Param.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/Param.hpp
+END
+BuiltinFuncs.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1341/trunk/src/libprojectM/MilkdropPresetFactory/BuiltinFuncs.cpp
+END
+InitCond.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/InitCond.cpp
+END
+MilkdropPreset.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1334/trunk/src/libprojectM/MilkdropPresetFactory/MilkdropPreset.hpp
+END
+PerPointEqn.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/PerPointEqn.hpp
+END
+PerFrameEqn.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/PerFrameEqn.hpp
+END
+BuiltinFuncs.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1364/trunk/src/libprojectM/MilkdropPresetFactory/BuiltinFuncs.hpp
+END
+InitCond.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/InitCond.hpp
+END
+Expr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1249/trunk/src/libprojectM/MilkdropPresetFactory/Expr.cpp
+END
+Expr.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1249/trunk/src/libprojectM/MilkdropPresetFactory/Expr.hpp
+END
+Eval.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/Eval.cpp
+END
+Func.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/Func.cpp
+END
+Parser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1363/trunk/src/libprojectM/MilkdropPresetFactory/Parser.cpp
+END
+MilkdropPresetFactory.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1342/trunk/src/libprojectM/MilkdropPresetFactory/MilkdropPresetFactory.cpp
+END
+Eval.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1249/trunk/src/libprojectM/MilkdropPresetFactory/Eval.hpp
+END
+PerPixelEqn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1356/trunk/src/libprojectM/MilkdropPresetFactory/PerPixelEqn.cpp
+END
+InitCondUtils.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/InitCondUtils.hpp
+END
+CustomWave.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1210/trunk/src/libprojectM/MilkdropPresetFactory/CustomWave.cpp
+END

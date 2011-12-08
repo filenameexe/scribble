@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/mac
+END
+VisualAppleScript.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/mac/VisualAppleScript.h
+END
+OptionsDialog.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/mac/OptionsDialog.h
+END
+CocoaStringTexture.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/mac/CocoaStringTexture.h
+END
+CocoaStringTexture.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/mac/CocoaStringTexture.m
+END
+getLyrics.applescript
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-iTunes-VizKit/source/mac/getLyrics.applescript
+END
+VisualAppleScript.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/mac/VisualAppleScript.cpp
+END
+OptionsDialog.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/mac/OptionsDialog.cpp
+END

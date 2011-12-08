@@ -2,13 +2,15 @@
 #include "FTCharmap.h"
 
 
-FTCharmap::FTCharmap(FTFace * face)
-:  ftFace(*(face->Face())), err(0)
+FTCharmap::FTCharmap( FTFace* face)
+:   ftFace( *(face->Face())),
+    err(0)
 {
-    if (!ftFace->charmap) {
-        err = FT_Set_Charmap(ftFace, ftFace->charmaps[0]);
+    if( !ftFace->charmap)
+    {
+        err = FT_Set_Charmap( ftFace, ftFace->charmaps[0]);
     }
-
+    
     ftEncoding = ftFace->charmap->encoding;
 }
 
@@ -19,38 +21,42 @@ FTCharmap::~FTCharmap()
 }
 
 
-bool FTCharmap::CharMap(FT_Encoding encoding)
+bool FTCharmap::CharMap( FT_Encoding encoding)
 {
-    if (ftEncoding == encoding) {
+    if( ftEncoding == encoding)
+    {
         return true;
     }
-
-    err = FT_Select_Charmap(ftFace, encoding);
-
-    if (!err) {
+    
+    err = FT_Select_Charmap( ftFace, encoding );
+    
+    if( !err)
+    {
         ftEncoding = encoding;
-    } else {
+    }
+    else
+    {
         ftEncoding = ft_encoding_none;
     }
-
+        
     charMap.clear();
     return !err;
 }
 
 
-unsigned int FTCharmap::GlyphListIndex(unsigned int characterCode)
+unsigned int FTCharmap::GlyphListIndex( unsigned int characterCode )
 {
-    return charMap.find(characterCode);
+    return charMap.find( characterCode);
 }
 
 
-unsigned int FTCharmap::FontIndex(unsigned int characterCode)
+unsigned int FTCharmap::FontIndex( unsigned int characterCode )
 {
-    return FT_Get_Char_Index(ftFace, characterCode);
+    return FT_Get_Char_Index( ftFace, characterCode);
 }
 
 
-void FTCharmap::InsertIndex(const unsigned int characterCode, const unsigned int containerIndex)
+void FTCharmap::InsertIndex( const unsigned int characterCode, const unsigned int containerIndex)
 {
-    charMap.insert(characterCode, containerIndex);
+    charMap.insert( characterCode, containerIndex);
 }

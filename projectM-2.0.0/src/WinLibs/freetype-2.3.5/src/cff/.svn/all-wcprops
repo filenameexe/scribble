@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff
+END
+cffparse.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffparse.h
+END
+cffload.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffload.c
+END
+cff.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cff.c
+END
+cfferrs.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cfferrs.h
+END
+cffcmap.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffcmap.c
+END
+cffload.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffload.h
+END
+cfftoken.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cfftoken.h
+END
+cffcmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffcmap.h
+END
+cffgload.c
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffgload.c
+END
+cffdrivr.c
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffdrivr.c
+END
+cffgload.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffgload.h
+END
+cffdrivr.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffdrivr.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/module.mk
+END
+cffobjs.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffobjs.c
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/rules.mk
+END
+cffobjs.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffobjs.h
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/Jamfile
+END
+cfftypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cfftypes.h
+END
+cffparse.c
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/src/cff/cffparse.c
+END

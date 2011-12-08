@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/glew-1.4.0/auto
+END
+blacklist
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/glew-1.4.0/auto/blacklist
+END
+custom.txt
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/glew-1.4.0/auto/custom.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/glew-1.4.0/auto/Makefile
+END

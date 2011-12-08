@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/projectm/!svn/ver/1362/trunk/src/projectM-pulseaudio
+END
+QPulseAudioDeviceChooser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1343/trunk/src/projectM-pulseaudio/QPulseAudioDeviceChooser.cpp
+END
+QPulseAudioDeviceModel.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-pulseaudio/QPulseAudioDeviceModel.hpp
+END
+QPulseAudioDeviceChooser.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-pulseaudio/QPulseAudioDeviceChooser.hpp
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1280/trunk/src/projectM-pulseaudio/AUTHORS
+END
+ConfigFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-pulseaudio/ConfigFile.cpp
+END
+PulseDeviceChooserDialog.ui
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/PulseDeviceChooserDialog.ui
+END
+FindPkgConfig.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/FindPkgConfig.cmake
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/ChangeLog
+END
+depcomp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/depcomp
+END
+ConfigFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/ConfigFile.h
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/README
+END
+qprojectM-pulseaudio.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1349/trunk/src/projectM-pulseaudio/qprojectM-pulseaudio.cpp
+END
+projectM-pulseaudio.desktop
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/projectm/!svn/ver/1348/trunk/src/projectM-pulseaudio/projectM-pulseaudio.desktop
+END
+QPulseAudioThread.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1342/trunk/src/projectM-pulseaudio/QPulseAudioThread.cpp
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/INSTALL
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/COPYING
+END
+QPulseAudioThread.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1361/trunk/src/projectM-pulseaudio/QPulseAudioThread.hpp
+END
+missing
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/missing
+END
+NEWS
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/projectm/!svn/ver/1210/trunk/src/projectM-pulseaudio/NEWS
+END
+QPulseAudioDeviceModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1273/trunk/src/projectM-pulseaudio/QPulseAudioDeviceModel.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1362/trunk/src/projectM-pulseaudio/CMakeLists.txt
+END

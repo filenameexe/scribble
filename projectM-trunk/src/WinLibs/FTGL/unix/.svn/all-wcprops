@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/configure
+END
+ftgl.pc.in
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/ftgl.pc.in
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/configure.ac
+END
+Make.conf.in
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/Make.conf.in
+END
+Make.rules
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/Make.rules
+END
+acinclude.m4
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/acinclude.m4
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/config.guess
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/README.txt
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/config.sub
+END
+ltmain.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/ltmain.sh
+END
+aclocal.m4
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/aclocal.m4
+END
+bootstrap
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/bootstrap
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/Makefile
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/FTGL/unix/install-sh
+END

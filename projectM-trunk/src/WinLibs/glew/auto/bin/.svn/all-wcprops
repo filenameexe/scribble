@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin
+END
+make_str.pl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_str.pl
+END
+make_list.pl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_list.pl
+END
+update_registry.sh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/update_registry.sh
+END
+make.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make.pl
+END
+make_info_list.pl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_info_list.pl
+END
+parse_spec.pl
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/parse_spec.pl
+END
+make_header.pl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_header.pl
+END
+make_info.pl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_info.pl
+END
+fix_OML_sync_control.sh
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/fix_OML_sync_control.sh
+END
+make_struct_var.pl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_struct_var.pl
+END
+make_struct_fun.pl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_struct_fun.pl
+END
+make_init.pl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_init.pl
+END
+update_ext.sh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/update_ext.sh
+END
+make_html.pl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_html.pl
+END
+make_def_var.pl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_def_var.pl
+END
+make_def_fun.pl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/glew/auto/bin/make_def_fun.pl
+END

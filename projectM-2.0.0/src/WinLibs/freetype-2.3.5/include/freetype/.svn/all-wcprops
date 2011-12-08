@@ -1,0 +1,239 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype
+END
+ftmac.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftmac.h
+END
+ftoutln.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftoutln.h
+END
+fttrigon.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/fttrigon.h
+END
+ftcache.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftcache.h
+END
+ftsynth.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftsynth.h
+END
+ttunpat.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ttunpat.h
+END
+ftstroke.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftstroke.h
+END
+ftmodapi.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftmodapi.h
+END
+ftchapters.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftchapters.h
+END
+ftlist.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftlist.h
+END
+ftlzw.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftlzw.h
+END
+ftbitmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftbitmap.h
+END
+tttags.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/tttags.h
+END
+ftincrem.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftincrem.h
+END
+ftrender.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftrender.h
+END
+ftglyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftglyph.h
+END
+t1tables.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/t1tables.h
+END
+ftsnames.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftsnames.h
+END
+ftmoderr.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftmoderr.h
+END
+tttables.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/tttables.h
+END
+freetype.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/freetype.h
+END
+ftgasp.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftgasp.h
+END
+ftbdf.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftbdf.h
+END
+ftsizes.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftsizes.h
+END
+fttypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/fttypes.h
+END
+ftwinfnt.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftwinfnt.h
+END
+fterrdef.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/fterrdef.h
+END
+ftmm.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftmm.h
+END
+ftgzip.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftgzip.h
+END
+ttnameid.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ttnameid.h
+END
+fterrors.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/fterrors.h
+END
+ftgxval.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftgxval.h
+END
+ftimage.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftimage.h
+END
+ftsystem.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftsystem.h
+END
+ftotval.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftotval.h
+END
+ftpfr.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftpfr.h
+END
+ftbbox.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftbbox.h
+END
+ftxf86.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftxf86.h
+END
+ftlcdfil.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/include/freetype/ftlcdfil.h
+END

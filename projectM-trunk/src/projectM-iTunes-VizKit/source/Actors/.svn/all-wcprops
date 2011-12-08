@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors
+END
+CoverArtActor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/CoverArtActor.cpp
+END
+ProcessMonitorActor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/ProcessMonitorActor.cpp
+END
+TrackTitleActor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/TrackTitleActor.cpp
+END
+BeatlightActor.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/BeatlightActor.h
+END
+CoverArtActor.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/CoverArtActor.h
+END
+TrackLyricsActor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/TrackLyricsActor.cpp
+END
+ProcessMonitorActor.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/ProcessMonitorActor.h
+END
+TemplateActor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/TemplateActor.cpp
+END
+TrackTitleActor.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/TrackTitleActor.h
+END
+TrackLyricsActor.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/TrackLyricsActor.h
+END
+TemplateActor.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/TemplateActor.h
+END
+BeatlightActor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/projectm/!svn/ver/1329/trunk/src/projectM-iTunes-VizKit/source/Actors/BeatlightActor.cpp
+END

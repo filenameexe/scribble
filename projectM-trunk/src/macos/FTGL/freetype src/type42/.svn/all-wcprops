@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/rules.mk
+END
+t42drivr.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/t42drivr.c
+END
+t42types.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/t42types.h
+END
+t42parse.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/t42parse.c
+END
+t42drivr.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/t42drivr.h
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/Jamfile
+END
+t42objs.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/t42objs.c
+END
+type42.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/type42.c
+END
+t42error.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/t42error.h
+END
+t42parse.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/t42parse.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/module.mk
+END
+t42objs.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/projectm/!svn/ver/1210/trunk/src/macos/FTGL/freetype%20src/type42/t42objs.h
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/builds/dos
+END
+dos-emx.mk
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/builds/dos/dos-emx.mk
+END
+dos-wat.mk
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/builds/dos/dos-wat.mk
+END
+dos-gcc.mk
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/builds/dos/dos-gcc.mk
+END
+dos-def.mk
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/builds/dos/dos-def.mk
+END
+detect.mk
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1210/trunk/src/WinLibs/freetype-2.3.5/builds/dos/detect.mk
+END

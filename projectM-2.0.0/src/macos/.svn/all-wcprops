@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos
+END
+Makefile.dist
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/Makefile.dist
+END
+projectM-wxvis-Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/projectM-wxvis-Info.plist
+END
+notes about building frameworks for projectm.txt
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/notes%20about%20building%20frameworks%20for%20projectm.txt
+END
+projectM-iTunes-Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/projectM-iTunes-Info.plist
+END
+projectM.icns
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/projectM.icns
+END

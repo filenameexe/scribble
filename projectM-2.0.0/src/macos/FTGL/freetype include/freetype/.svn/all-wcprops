@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype
+END
+ftmac.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftmac.h
+END
+ftoutln.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftoutln.h
+END
+fttrigon.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/fttrigon.h
+END
+ftcache.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftcache.h
+END
+ftsynth.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftsynth.h
+END
+ttunpat.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ttunpat.h
+END
+ftstroke.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftstroke.h
+END
+ftmodapi.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftmodapi.h
+END
+ftchapters.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftchapters.h
+END
+ftlist.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftlist.h
+END
+ftbitmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftbitmap.h
+END
+ftlzw.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftlzw.h
+END
+tttags.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/tttags.h
+END
+ftincrem.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftincrem.h
+END
+ftrender.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftrender.h
+END
+ftglyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftglyph.h
+END
+t1tables.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/t1tables.h
+END
+ftsnames.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftsnames.h
+END
+ftmoderr.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftmoderr.h
+END
+tttables.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/tttables.h
+END
+freetype.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/freetype.h
+END
+ftbdf.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftbdf.h
+END
+ftsizes.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftsizes.h
+END
+fttypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/fttypes.h
+END
+ftwinfnt.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftwinfnt.h
+END
+fterrdef.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/fterrdef.h
+END
+ftmm.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftmm.h
+END
+ftgzip.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftgzip.h
+END
+ttnameid.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ttnameid.h
+END
+fterrors.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/fterrors.h
+END
+ftgxval.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftgxval.h
+END
+ftimage.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftimage.h
+END
+ftsystem.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftsystem.h
+END
+ftotval.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftotval.h
+END
+ftpfr.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftpfr.h
+END
+ftbbox.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftbbox.h
+END
+ftxf86.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20include/freetype/ftxf86.h
+END

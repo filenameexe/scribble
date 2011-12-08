@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/os2
+END
+os2-gcc.mk
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/os2/os2-gcc.mk
+END
+os2-def.mk
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/os2/os2-def.mk
+END
+os2-dev.mk
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/os2/os2-dev.mk
+END
+detect.mk
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/os2/detect.mk
+END

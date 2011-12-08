@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis
+END
+Makefile.dist
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/Makefile.dist
+END
+sdltoprojectM.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/sdltoprojectM.h
+END
+Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/Info.plist
+END
+a.out
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/a.out
+END
+projectMvis.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/projectMvis.cc
+END
+projectMvis.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/projectMvis.dsp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/Makefile
+END
+PkgInfo
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/PkgInfo
+END
+Makefile.macos
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/Makefile.macos
+END
+projectM.icns
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/projectM-sdlvis/projectM.icns
+END

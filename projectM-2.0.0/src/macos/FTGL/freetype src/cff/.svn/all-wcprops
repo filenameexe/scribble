@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff
+END
+cffparse.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffparse.h
+END
+cffload.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffload.c
+END
+cff.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cff.c
+END
+cfferrs.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cfferrs.h
+END
+cffcmap.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffcmap.c
+END
+cffload.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffload.h
+END
+cfftoken.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cfftoken.h
+END
+cffcmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffcmap.h
+END
+cffgload.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffgload.c
+END
+cffdrivr.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffdrivr.c
+END
+cffgload.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffgload.h
+END
+cffdrivr.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffdrivr.h
+END
+module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/module.mk
+END
+cffobjs.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffobjs.c
+END
+rules.mk
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/rules.mk
+END
+cffobjs.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffobjs.h
+END
+Jamfile
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/Jamfile
+END
+cfftypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cfftypes.h
+END
+cffparse.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/macos/FTGL/freetype%20src/cff/cffparse.c
+END

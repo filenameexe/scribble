@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/beos
+END
+beos-def.mk
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/beos/beos-def.mk
+END
+beos.mk
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/beos/beos.mk
+END
+detect.mk
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/projectm/!svn/ver/1310/tags/projectM-2.0.0/src/WinLibs/freetype-2.3.5/builds/beos/detect.mk
+END
