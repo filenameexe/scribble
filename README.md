@@ -36,3 +36,21 @@ Glew Makefile:
     GLEW_DEST ?= /usr/local
 
 On rev. 1364
+
+
+
+
+Trying to make on mac:
+sudo port install autoconf automake intltool libtool libsndfile speex-devel gdbm liboil json-c
+
+Should have done this for pulse audio. Instead used defaults, then these:
+export CC="gcc-4.2"
+export CFLAGS="-I/opt/local/include"
+export LDFLAGS="-L/opt/local/lib"
+./autogen.sh                \
+    --disable-jack          \
+    --disable-hal           \
+    --disable-bluez         \
+    --disable-dbus          \
+    --disable-avahi
+make
