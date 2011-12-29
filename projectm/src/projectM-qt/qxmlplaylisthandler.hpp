@@ -1,5 +1,5 @@
 /**
- * projectM-qt -- Qt4 based projectM GUI 
+ * projectM-qt -- Qt4 based projectM GUI
  * Copyright (C)2003-2004 projectM Team
  *
  * This library is free software; you can redistribute it and/or
@@ -24,19 +24,20 @@
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 
-class QXmlPlaylistHandler {
+class QXmlPlaylistHandler
+{
 
-	public :
-	template <class ReadFunctor>
-	static QXmlStreamReader::Error readPlaylist (QIODevice * device, ReadFunctor & readFunc);
+public :
+    template <class ReadFunctor>
+    static QXmlStreamReader::Error readPlaylist (QIODevice * device, ReadFunctor & readFunc);
 
-	template <class WriteFunctor>
-	static void writePlaylist (QIODevice * device, WriteFunctor & writeFunc);
+    template <class WriteFunctor>
+    static void writePlaylist (QIODevice * device, WriteFunctor & writeFunc);
 
-	private:
-		
-	template <class ReadFunctor>
-		static QXmlStreamReader::Error readPlaylistItem(QXmlStreamReader & reader, ReadFunctor & functor);
+private:
+
+    template <class ReadFunctor>
+    static QXmlStreamReader::Error readPlaylistItem(QXmlStreamReader & reader, ReadFunctor & functor);
 
 
 };
@@ -44,161 +45,160 @@ class QXmlPlaylistHandler {
 template <class ReadFunctor>
 QXmlStreamReader::Error QXmlPlaylistHandler::readPlaylist (QIODevice * device, ReadFunctor & readFunc)
 {
-	QXmlStreamReader reader ( device );
+    QXmlStreamReader reader ( device );
 
-	QXmlStreamReader::TokenType token;
+    QXmlStreamReader::TokenType token;
 
-	try {
-	while ( !reader.atEnd() ) {
-		token = reader.readNext();
-	switch ( token )
-	{
-		case QXmlStreamReader::StartElement:			
+    try {
+        while ( !reader.atEnd() ) {
+            token = reader.readNext();
+            switch ( token ) {
+            case QXmlStreamReader::StartElement:
 
-			if (reader.name() == "presetplaylist") {
-			
-			}
-			else if (reader.name() == "description") {
-				reader.readNext();
-				readFunc.setPlaylistDesc(reader.text().toString().replace("&amp;", "&"));
-				
-			}
-			else if (reader.name() == "item") {
-				readPlaylistItem<ReadFunctor>(reader, readFunc);
-				break;
-			} 
-			break;
-		case QXmlStreamReader::NoToken:
-			break;
-		case QXmlStreamReader::Invalid:
-			break;
-		case QXmlStreamReader::StartDocument:
-			break;
-		case QXmlStreamReader::EndDocument:
-			break;
-		case QXmlStreamReader::EndElement:	
-			break;
-		case QXmlStreamReader::Characters:
-		case QXmlStreamReader::Comment:
-		case QXmlStreamReader::DTD:
-		case QXmlStreamReader::EntityReference:
-		case QXmlStreamReader::ProcessingInstruction:
-		default:
-			break;
-	}
-	}
-	} catch (const QXmlStreamReader::Error & id) {
-		return id;
-		
-	}
+                if (reader.name() == "presetplaylist") {
 
-	if (reader.hasError())
-		return reader.error();
-	 else
-		return QXmlStreamReader::NoError;
+                } else if (reader.name() == "description") {
+                    reader.readNext();
+                    readFunc.setPlaylistDesc(reader.text().toString().replace("&amp;", "&"));
+
+                } else if (reader.name() == "item") {
+                    readPlaylistItem<ReadFunctor>(reader, readFunc);
+                    break;
+                }
+                break;
+            case QXmlStreamReader::NoToken:
+                break;
+            case QXmlStreamReader::Invalid:
+                break;
+            case QXmlStreamReader::StartDocument:
+                break;
+            case QXmlStreamReader::EndDocument:
+                break;
+            case QXmlStreamReader::EndElement:
+                break;
+            case QXmlStreamReader::Characters:
+            case QXmlStreamReader::Comment:
+            case QXmlStreamReader::DTD:
+            case QXmlStreamReader::EntityReference:
+            case QXmlStreamReader::ProcessingInstruction:
+            default:
+                break;
+            }
+        }
+    } catch (const QXmlStreamReader::Error & id) {
+        return id;
+
+    }
+
+    if (reader.hasError())
+        return reader.error();
+    else
+        return QXmlStreamReader::NoError;
 }
 
 
 template <class ReadFunctor>
-QXmlStreamReader::Error QXmlPlaylistHandler::readPlaylistItem(QXmlStreamReader & reader, ReadFunctor & readFunctor) {
+QXmlStreamReader::Error QXmlPlaylistHandler::readPlaylistItem(QXmlStreamReader & reader, ReadFunctor & readFunctor)
+{
 
-	QString url, name;
-	int rating, breedability;
+    QString url, name;
+    int rating, breedability;
 
-	while (reader.readNext() != QXmlStreamReader::EndElement)
-		if (reader.name() == "url") {
-			bool repeat;
-			int result;
+    while (reader.readNext() != QXmlStreamReader::EndElement)
+        if (reader.name() == "url") {
+            bool repeat;
+            int result;
 
-			while (repeat = (result = reader.readNext()) == QXmlStreamReader::Characters) 	
-				url += reader.text().toString();			
-						
-		} else if (reader.name() == "rating") {
-			reader.readNext();
-			rating = reader.text().toString().toInt();		
-			reader.readNext();
-		} else if (reader.name() == "breedability") {
-			reader.readNext();
-			breedability = reader.text().toString().toInt();
-			reader.readNext();
-		} else if (reader.name() == "name") {
-			bool repeat;
-			int result;
+            while (repeat = (result = reader.readNext()) == QXmlStreamReader::Characters)
+                url += reader.text().toString();
 
-			while (repeat = (result = reader.readNext()) == QXmlStreamReader::Characters)	
-				name += reader.text().toString();
-		} else {
-			if (reader.name() == "")
-				continue;
-			else if (reader.hasError())
-				return reader.error();
-			else {
-				try {		
-					reader.raiseError(QString("Unknown element name %1 ").arg(reader.name().toString()));
-				} catch (...) {
-					return reader.error();
-				}
-			}
-		}
+        } else if (reader.name() == "rating") {
+            reader.readNext();
+            rating = reader.text().toString().toInt();
+            reader.readNext();
+        } else if (reader.name() == "breedability") {
+            reader.readNext();
+            breedability = reader.text().toString().toInt();
+            reader.readNext();
+        } else if (reader.name() == "name") {
+            bool repeat;
+            int result;
 
-	readFunctor.appendItem(url, QFileInfo(url).fileName(), rating, breedability);	
+            while (repeat = (result = reader.readNext()) == QXmlStreamReader::Characters)
+                name += reader.text().toString();
+        } else {
+            if (reader.name() == "")
+                continue;
+            else if (reader.hasError())
+                return reader.error();
+            else {
+                try {
+                    reader.raiseError(QString("Unknown element name %1 ").arg(reader.name().toString()));
+                } catch (...) {
+                    return reader.error();
+                }
+            }
+        }
 
-	return QXmlStreamReader::NoError;
+    readFunctor.appendItem(url, QFileInfo(url).fileName(), rating, breedability);
+
+    return QXmlStreamReader::NoError;
 
 }
 
 
 template <class WriteFunctor>
-void QXmlPlaylistHandler::writePlaylist (QIODevice * device, WriteFunctor & writeFunctor ) {
+void QXmlPlaylistHandler::writePlaylist (QIODevice * device, WriteFunctor & writeFunctor )
+{
 
 
-	QXmlStreamWriter writer(device);
-	
-	writer.writeStartDocument();
+    QXmlStreamWriter writer(device);
 
-	writer.writeStartElement("presetplaylist");
+    writer.writeStartDocument();
 
-
- 	writer.writeStartElement("description");
-	writer.writeCharacters(writeFunctor.playlistDesc());
-	writer.writeEndElement();
-
-	QString name;
-	QString url;
-	int rating;
-	int breedability;
-	
-	while (writeFunctor.nextItem(name, url, rating, breedability)) {
-		writer.writeStartElement("item");
+    writer.writeStartElement("presetplaylist");
 
 
-		writer.writeStartElement("name");
-		
-		writer.writeCharacters(name.replace("&amp;", "&"));
-		writer.writeEndElement();
+    writer.writeStartElement("description");
+    writer.writeCharacters(writeFunctor.playlistDesc());
+    writer.writeEndElement();
 
-		writer.writeStartElement("url");
-		
-		writer.writeCharacters(url.replace("&amp;", "&"));
-		writer.writeEndElement();
+    QString name;
+    QString url;
+    int rating;
+    int breedability;
 
-		writer.writeStartElement("rating");
-		writer.writeCharacters(QString("%1").arg(rating)+"\n");
-		writer.writeEndElement();
+    while (writeFunctor.nextItem(name, url, rating, breedability)) {
+        writer.writeStartElement("item");
 
-		writer.writeStartElement("breedability");
-		writer.writeCharacters(QString("%1").arg(breedability)+"\n");
-		writer.writeEndElement();
 
-		writer.writeEndElement();
-	
-	}
+        writer.writeStartElement("name");
 
-	writer.writeEndElement();
+        writer.writeCharacters(name.replace("&amp;", "&"));
+        writer.writeEndElement();
 
-	writer.writeEndDocument();
+        writer.writeStartElement("url");
 
-	return;
+        writer.writeCharacters(url.replace("&amp;", "&"));
+        writer.writeEndElement();
+
+        writer.writeStartElement("rating");
+        writer.writeCharacters(QString("%1").arg(rating)+"\n");
+        writer.writeEndElement();
+
+        writer.writeStartElement("breedability");
+        writer.writeCharacters(QString("%1").arg(breedability)+"\n");
+        writer.writeEndElement();
+
+        writer.writeEndElement();
+
+    }
+
+    writer.writeEndElement();
+
+    writer.writeEndDocument();
+
+    return;
 }
 
 
@@ -207,8 +207,9 @@ void QXmlPlaylistHandler::writePlaylist (QIODevice * device, WriteFunctor & writ
 virtual void QXmlPlaylistHandler::readPresetItem(const QString & url, int rating) {}
 
 
-virtual bool QXmlPlaylistHandler::nextPresetItem(QString & url, int & rating) {
-	return false;
+virtual bool QXmlPlaylistHandler::nextPresetItem(QString & url, int & rating)
+{
+    return false;
 }
 #endif
 

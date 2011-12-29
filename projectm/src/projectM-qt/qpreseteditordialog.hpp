@@ -1,5 +1,5 @@
 /**
- * projectM-qt -- Qt4 based projectM GUI 
+ * projectM-qt -- Qt4 based projectM GUI
  * Copyright (C)2003-2004 projectM Team
  *
  * This library is free software; you can redistribute it and/or
@@ -24,40 +24,41 @@
 #include "ui_qpreseteditordialog.h"
 class QProjectMWidget;
 #include <QModelIndex>
-class QPresetEditorDialog : public QDialog {
-	
-	Q_OBJECT
+class QPresetEditorDialog : public QDialog
+{
 
-	public:
-		QPresetEditorDialog(QProjectMWidget * widget, QWidget * parent = 0, Qt::WindowFlags f = 0);
-		void setPreset(QString url, int rowIndex);
-		const QString & presetUrl() const;
-		
-		inline int presetIndex() const {
-			return m_index;
-		}
-	signals:
-		void presetModified(int rowIndex);
-	protected:	
-		//void keyReleaseEvent(QKeyEvent * e);
-	public slots:
-		
+    Q_OBJECT
 
-	private slots:
-		void buttonBoxHandler(QAbstractButton * button);
-		void saveFile();
-		void saveAndNotify();
-		void updateWindowTitle();
+public:
+    QPresetEditorDialog(QProjectMWidget * widget, QWidget * parent = 0, Qt::WindowFlags f = 0);
+    void setPreset(QString url, int rowIndex);
+    const QString & presetUrl() const;
 
-	private:
-		int m_index;
-		void revertBuffer();
-		QProjectMWidget * _qprojectMWidget;
-		Ui::QPresetEditorDialog _ui;
-		QString	m_presetUrl;
-		
-	
-	
+    inline int presetIndex() const {
+        return m_index;
+    }
+signals:
+    void presetModified(int rowIndex);
+protected:
+    //void keyReleaseEvent(QKeyEvent * e);
+public slots:
+
+
+private slots:
+    void buttonBoxHandler(QAbstractButton * button);
+    void saveFile();
+    void saveAndNotify();
+    void updateWindowTitle();
+
+private:
+    int m_index;
+    void revertBuffer();
+    QProjectMWidget * _qprojectMWidget;
+    Ui::QPresetEditorDialog _ui;
+    QString	m_presetUrl;
+
+
+
 
 };
 #endif

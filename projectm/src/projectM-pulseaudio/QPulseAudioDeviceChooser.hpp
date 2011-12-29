@@ -28,23 +28,24 @@
 class QDialog;
 
 
-class QPulseAudioDeviceChooser : public QDialog, public Ui::pulseDeviceChooserDialog {
-	
-	Q_OBJECT
+class QPulseAudioDeviceChooser : public QDialog, public Ui::pulseDeviceChooserDialog
+{
 
-	public:
-		QPulseAudioDeviceChooser(QPulseAudioThread * pulseAudioThread, QWidget * parent, Qt::WindowFlags f=0);
+    Q_OBJECT
 
-	typedef QHash<int, QString> SourceContainer;
-	public slots:
-		void updateDevicesListViewLock(int state);
-		void open();		
-		void writeSettings();
-	private slots:
-		void readSettings();
+public:
+    QPulseAudioDeviceChooser(QPulseAudioThread * pulseAudioThread, QWidget * parent, Qt::WindowFlags f=0);
 
-	private:
-		QPulseAudioDeviceModel _qpulseAudioDeviceModel;
-		QPulseAudioThread * _qpulseAudioThread;
+    typedef QHash<int, QString> SourceContainer;
+public slots:
+    void updateDevicesListViewLock(int state);
+    void open();
+    void writeSettings();
+private slots:
+    void readSettings();
+
+private:
+    QPulseAudioDeviceModel _qpulseAudioDeviceModel;
+    QPulseAudioThread * _qpulseAudioThread;
 };
 #endif

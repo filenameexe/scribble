@@ -14,25 +14,26 @@
 #include "Renderer/Pipeline.hpp"
 #include "Renderer/PipelineContext.hpp"
 
-class Preset {
+class Preset
+{
 public:
 
-	
-	Preset(const std::string & name=std::string(), const std::string & author = std::string());
-	virtual ~Preset();
 
-	void setName(const std::string & value);
-	const std::string & name() const;
+    Preset(const std::string & name=std::string(), const std::string & author = std::string());
+    virtual ~Preset();
 
-	void setAuthor(const std::string & value);
-	const std::string & author() const;
+    void setName(const std::string & value);
+    const std::string & name() const;
 
-	virtual Pipeline & pipeline() = 0;
-	virtual void Render(const BeatDetect &music, const PipelineContext &context) = 0;
+    void setAuthor(const std::string & value);
+    const std::string & author() const;
+
+    virtual Pipeline & pipeline() = 0;
+    virtual void Render(const BeatDetect &music, const PipelineContext &context) = 0;
 
 private:
-	std::string _name;
-	std::string _author;
+    std::string _name;
+    std::string _author;
 };
 
 #endif /* PRESET_HPP_ */

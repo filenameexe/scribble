@@ -10,10 +10,9 @@
 
 #include "Renderable.hpp"
 
-enum MilkdropWaveformMode
-	{
-	  Circle=0, RadialBlob, Blob2, Blob3, DerivativeLine, Blob5, Line, DoubleLine
-	};
+enum MilkdropWaveformMode {
+    Circle=0, RadialBlob, Blob2, Blob3, DerivativeLine, Blob5, Line, DoubleLine
+};
 
 
 class MilkdropWaveform : public RenderItem
@@ -21,45 +20,45 @@ class MilkdropWaveform : public RenderItem
 public:
 
 
-	float x;
-	float y;
+    float x;
+    float y;
 
-	float r;
-	float g;
-	float b;
-	float a;
+    float r;
+    float g;
+    float b;
+    float a;
 
-	float mystery;
+    float mystery;
 
     MilkdropWaveformMode mode;
 
-	bool additive;
-	bool dots;
-	bool thick;
-	bool modulateAlphaByVolume;
-	bool maximizeColors;
-	float scale;
-	float smoothing;
+    bool additive;
+    bool dots;
+    bool thick;
+    bool modulateAlphaByVolume;
+    bool maximizeColors;
+    float scale;
+    float smoothing;
 
-	MilkdropWaveform();
-	void Draw(RenderContext &context);
+    MilkdropWaveform();
+    void Draw(RenderContext &context);
 
-	float modOpacityStart;
-	float modOpacityEnd;
+    float modOpacityStart;
+    float modOpacityEnd;
 
 private:
-	float temp_a;
-	float rot;
-	float aspectScale;
-	int samples;
-	bool two_waves;
-	bool loop;
-	float wavearray[2048][2];
-	float wavearray2[2048][2];
+    float temp_a;
+    float rot;
+    float aspectScale;
+    int samples;
+    bool two_waves;
+    bool loop;
+    float wavearray[2048][2];
+    float wavearray2[2048][2];
 
-	void MaximizeColors(RenderContext &context);
-	void ModulateOpacityByVolume(RenderContext &context);
-	void WaveformMath(RenderContext &context);
+    void MaximizeColors(RenderContext &context);
+    void ModulateOpacityByVolume(RenderContext &context);
+    void WaveformMath(RenderContext &context);
 
 };
 #endif /* MILKDROPWAVEFORM_HPP_ */

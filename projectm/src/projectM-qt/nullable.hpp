@@ -1,5 +1,5 @@
 /**
- * projectM-qt -- Qt4 based projectM GUI 
+ * projectM-qt -- Qt4 based projectM GUI
  * Copyright (C)2003-2004 projectM Team
  *
  * This library is free software; you can redistribute it and/or
@@ -23,24 +23,29 @@
 #define NULLABLE_HPP
 
 template <class Value>
-class Nullable {
-	public:
-		Nullable(const Value & value) : m_value(value), m_hasValue(true) {}
-		Nullable() :m_hasValue(false) {}
-	
-		Nullable & operator=(const Value & value) {
-			m_value = value;
-			m_hasValue = true;
-		}
-	
-		void nullify() {
-			m_hasValue = false;
-		}
-	
-		const Value & value() const { return m_value;}		
-		bool hasValue() const { return m_hasValue;}
-	private:
-		Value m_value;
-		bool m_hasValue;
+class Nullable
+{
+public:
+    Nullable(const Value & value) : m_value(value), m_hasValue(true) {}
+    Nullable() :m_hasValue(false) {}
+
+    Nullable & operator=(const Value & value) {
+        m_value = value;
+        m_hasValue = true;
+    }
+
+    void nullify() {
+        m_hasValue = false;
+    }
+
+    const Value & value() const {
+        return m_value;
+    }
+    bool hasValue() const {
+        return m_hasValue;
+    }
+private:
+    Value m_value;
+    bool m_hasValue;
 };
 #endif

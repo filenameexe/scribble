@@ -28,40 +28,40 @@
 FT_BEGIN_HEADER
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Macro>                                                               */
-  /*    FT_SET_ERROR                                                       */
-  /*                                                                       */
-  /* <Description>                                                         */
-  /*    This macro is used to set an implicit `error' variable to a given  */
-  /*    expression's value (usually a function call), and convert it to a  */
-  /*    boolean which is set whenever the value is != 0.                   */
-  /*                                                                       */
+/*************************************************************************/
+/*                                                                       */
+/* <Macro>                                                               */
+/*    FT_SET_ERROR                                                       */
+/*                                                                       */
+/* <Description>                                                         */
+/*    This macro is used to set an implicit `error' variable to a given  */
+/*    expression's value (usually a function call), and convert it to a  */
+/*    boolean which is set whenever the value is != 0.                   */
+/*                                                                       */
 #undef  FT_SET_ERROR
 #define FT_SET_ERROR( expression ) \
           ( ( error = (expression) ) != 0 )
 
 
 
-  /*************************************************************************/
-  /*************************************************************************/
-  /*************************************************************************/
-  /****                                                                 ****/
-  /****                                                                 ****/
-  /****                           M E M O R Y                           ****/
-  /****                                                                 ****/
-  /****                                                                 ****/
-  /*************************************************************************/
-  /*************************************************************************/
-  /*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/****                                                                 ****/
+/****                                                                 ****/
+/****                           M E M O R Y                           ****/
+/****                                                                 ****/
+/****                                                                 ****/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
 
 
-  /*
-   *  C++ refuses to handle statements like p = (void*)anything; where `p'
-   *  is a typed pointer.  Since we don't have a `typeof' operator in
-   *  standard C++, we have to use ugly casts.
-   */
+/*
+ *  C++ refuses to handle statements like p = (void*)anything; where `p'
+ *  is a typed pointer.  Since we don't have a `typeof' operator in
+ *  standard C++, we have to use ugly casts.
+ */
 
 #ifdef __cplusplus
 #define FT_ASSIGNP( p, val )  *((void**)&(p)) = (val)
@@ -73,8 +73,8 @@ FT_BEGIN_HEADER
 
 #ifdef FT_DEBUG_MEMORY
 
-  FT_BASE( const char* )  _ft_debug_file;
-  FT_BASE( long )         _ft_debug_lineno;
+FT_BASE( const char* )  _ft_debug_file;
+FT_BASE( long )         _ft_debug_lineno;
 
 #define FT_DEBUG_INNER( exp )  ( _ft_debug_file   = __FILE__, \
                                  _ft_debug_lineno = __LINE__, \
@@ -92,41 +92,41 @@ FT_BEGIN_HEADER
 #endif /* !FT_DEBUG_MEMORY */
 
 
-  /*
-   *  The allocation functions return a pointer, and the error code
-   *  is written to through the `p_error' parameter.  See below for
-   *  for documentation.
-   */
+/*
+ *  The allocation functions return a pointer, and the error code
+ *  is written to through the `p_error' parameter.  See below for
+ *  for documentation.
+ */
 
-  FT_BASE( FT_Pointer )
-  ft_mem_alloc( FT_Memory  memory,
-                FT_Long    size,
+FT_BASE( FT_Pointer )
+ft_mem_alloc( FT_Memory  memory,
+              FT_Long    size,
+              FT_Error  *p_error );
+
+FT_BASE( FT_Pointer )
+ft_mem_qalloc( FT_Memory  memory,
+               FT_Long    size,
+               FT_Error  *p_error );
+
+FT_BASE( FT_Pointer )
+ft_mem_realloc( FT_Memory  memory,
+                FT_Long    item_size,
+                FT_Long    cur_count,
+                FT_Long    new_count,
+                void*      block,
                 FT_Error  *p_error );
 
-  FT_BASE( FT_Pointer )
-  ft_mem_qalloc( FT_Memory  memory,
-                 FT_Long    size,
+FT_BASE( FT_Pointer )
+ft_mem_qrealloc( FT_Memory  memory,
+                 FT_Long    item_size,
+                 FT_Long    cur_count,
+                 FT_Long    new_count,
+                 void*      block,
                  FT_Error  *p_error );
 
-  FT_BASE( FT_Pointer )
-  ft_mem_realloc( FT_Memory  memory,
-                  FT_Long    item_size,
-                  FT_Long    cur_count,
-                  FT_Long    new_count,
-                  void*      block,
-                  FT_Error  *p_error );
-
-  FT_BASE( FT_Pointer )
-  ft_mem_qrealloc( FT_Memory  memory,
-                   FT_Long    item_size,
-                   FT_Long    cur_count,
-                   FT_Long    new_count,
-                   void*      block,
-                   FT_Error  *p_error );
-
-  FT_BASE( void )
-  ft_mem_free( FT_Memory    memory,
-               const void*  P );
+FT_BASE( void )
+ft_mem_free( FT_Memory    memory,
+             const void*  P );
 
 
 #define FT_MEM_ALLOC( ptr, size )                                         \
@@ -208,21 +208,21 @@ FT_BEGIN_HEADER
           FT_MEM_MOVE( dest, source, (count) * sizeof ( *(dest) ) )
 
 
-  /*
-   *  Return the maximum number of adressable elements in an array.
-   *  We limit ourselves to INT_MAX, rather than UINT_MAX, to avoid
-   *  any problems.
-   */
+/*
+ *  Return the maximum number of adressable elements in an array.
+ *  We limit ourselves to INT_MAX, rather than UINT_MAX, to avoid
+ *  any problems.
+ */
 #define FT_ARRAY_MAX( ptr )           ( FT_INT_MAX / sizeof ( *(ptr) ) )
 
 #define FT_ARRAY_CHECK( ptr, count )  ( (count) <= FT_ARRAY_MAX( ptr ) )
 
 
-  /*************************************************************************/
-  /*                                                                       */
-  /* The following functions macros expect that their pointer argument is  */
-  /* _typed_ in order to automatically compute array element sizes.        */
-  /*                                                                       */
+/*************************************************************************/
+/*                                                                       */
+/* The following functions macros expect that their pointer argument is  */
+/* _typed_ in order to automatically compute array element sizes.        */
+/*                                                                       */
 
 #define FT_MEM_NEW_ARRAY( ptr, count )                                      \
           FT_ASSIGNP_INNER( ptr, ft_mem_realloc( memory, sizeof ( *(ptr) ), \
@@ -293,36 +293,36 @@ FT_BEGIN_HEADER
 
 #ifdef FT_CONFIG_OPTION_OLD_INTERNALS
 
-  FT_BASE( FT_Error )
-  FT_Alloc( FT_Memory  memory,
+FT_BASE( FT_Error )
+FT_Alloc( FT_Memory  memory,
+          FT_Long    size,
+          void*     *P );
+
+FT_BASE( FT_Error )
+FT_QAlloc( FT_Memory  memory,
+           FT_Long    size,
+           void*     *p );
+
+FT_BASE( FT_Error )
+FT_Realloc( FT_Memory  memory,
+            FT_Long    current,
             FT_Long    size,
             void*     *P );
 
-  FT_BASE( FT_Error )
-  FT_QAlloc( FT_Memory  memory,
+FT_BASE( FT_Error )
+FT_QRealloc( FT_Memory  memory,
+             FT_Long    current,
              FT_Long    size,
              void*     *p );
 
-  FT_BASE( FT_Error )
-  FT_Realloc( FT_Memory  memory,
-              FT_Long    current,
-              FT_Long    size,
-              void*     *P );
-
-  FT_BASE( FT_Error )
-  FT_QRealloc( FT_Memory  memory,
-               FT_Long    current,
-               FT_Long    size,
-               void*     *p );
-
-  FT_BASE( void )
-  FT_Free( FT_Memory  memory,
-           void*     *P );
+FT_BASE( void )
+FT_Free( FT_Memory  memory,
+         void*     *P );
 
 #endif /* FT_CONFIG_OPTION_OLD_INTERNALS */
 
 
- /* */
+/* */
 
 
 FT_END_HEADER

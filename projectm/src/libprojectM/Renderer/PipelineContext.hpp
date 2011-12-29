@@ -11,13 +11,13 @@
 class PipelineContext
 {
 public:
-	int fps;
-    	float time;
-	int   frame;
-	float progress;
+    int fps;
+    float time;
+    int   frame;
+    float progress;
 
-	PipelineContext();
-	virtual ~PipelineContext();
+    PipelineContext();
+    virtual ~PipelineContext();
 };
 
 #endif /* PIPELINECONTEXT_HPP_ */

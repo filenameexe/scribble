@@ -48,7 +48,8 @@ class Param;
 class PerPixelEqn;
 class Preset;
 
-class PerPixelEqn {
+class PerPixelEqn
+{
 public:
     int index; /* used for splay tree ordering. */
     int flags; /* primarily to specify if this variable is user-defined */
@@ -60,7 +61,7 @@ public:
 
     PerPixelEqn(int index, Param * param, GenExpr * gen_expr);
 
-  };
+};
 
 
 #endif /** !_PER_PIXEL_EQN_H */

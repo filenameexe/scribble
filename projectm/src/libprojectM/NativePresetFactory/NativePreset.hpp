@@ -15,24 +15,27 @@
 #include "PipelineContext.hpp"
 #include "Preset.hpp"
 
-/// A templated preset class to build different various hard coded presets and 
+/// A templated preset class to build different various hard coded presets and
 /// compile them into object files to be loaded into a playlist
 template <class PipelineT>
-class NativePreset : public Preset {
+class NativePreset : public Preset
+{
 public:
 
-	inline NativePreset(const std::string & name=std::string(),
-		const std::string & author = std::string()) : Preset(name, author) {}
+    inline NativePreset(const std::string & name=std::string(),
+                        const std::string & author = std::string()) : Preset(name, author) {}
 
-	virtual ~NativePreset() {}
+    virtual ~NativePreset() {}
 
-	inline PipelineT & pipeline() { return _pipeline; }
-	inline virtual void Render(const BeatDetect &music, const PipelineContext &context) {
-		_pipeline.Render(music, context);
-	}
+    inline PipelineT & pipeline() {
+        return _pipeline;
+    }
+    inline virtual void Render(const BeatDetect &music, const PipelineContext &context) {
+        _pipeline.Render(music, context);
+    }
 
 private:
-	PipelineT _pipeline;
+    PipelineT _pipeline;
 };
 
-#endif 
+#endif

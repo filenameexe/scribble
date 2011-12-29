@@ -20,9 +20,9 @@ public:
 
     bool enabled;
 
-	std::string programSource;
+    std::string programSource;
 
-	Shader();
+    Shader();
 };
 
 #endif /* SHADER_HPP_ */

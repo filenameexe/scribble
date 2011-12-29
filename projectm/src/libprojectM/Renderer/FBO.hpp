@@ -56,40 +56,41 @@
 
 typedef enum { SCALE_NEAREST, SCALE_MAGNIFY, SCALE_MINIFY } TextureScale;
 
-class RenderTarget {
+class RenderTarget
+{
 
 
 public:
     /** Texture size */
     int texsize;
-  
-  int useFBO;
-  int renderToTexture;
 
-  ~RenderTarget();
+    int useFBO;
+    int renderToTexture;
 
-  RenderTarget( int texsize, int width, int height );
-  void lock();
-  void unlock();
-  GLuint initRenderToTexture();
-  int nearestPower2( int value, TextureScale scaleRule );
-  void fallbackRescale(int width, int height);
+    ~RenderTarget();
+
+    RenderTarget( int texsize, int width, int height );
+    void lock();
+    void unlock();
+    GLuint initRenderToTexture();
+    int nearestPower2( int value, TextureScale scaleRule );
+    void fallbackRescale(int width, int height);
 
     /** Opaque pbuffer context and pbuffer */
-/*
-#ifdef MACOS
-    void *origContext;
-    void *pbufferContext;
-    void *pbuffer;
-#endif
-*/
+    /*
+    #ifdef MACOS
+        void *origContext;
+        void *pbufferContext;
+        void *pbuffer;
+    #endif
+    */
     /** Render target texture ID for non-pbuffer systems */
     GLuint textureID[3];
 #ifdef USE_FBO
-    GLuint fbuffer[2]; 
+    GLuint fbuffer[2];
     GLuint depthb[2];
 #endif
-  };
+};
 
 
 

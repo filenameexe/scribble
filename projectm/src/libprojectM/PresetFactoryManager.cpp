@@ -1,7 +1,7 @@
 //
 // C++ Implementation: PresetFactoryManager
 //
-// Description: 
+// Description:
 //
 //
 // Author: Carmelo Piccione <carmelo.piccione@gmail.com>, (C) 2008
@@ -22,69 +22,74 @@
 #include <sstream>
 PresetFactoryManager::PresetFactoryManager() : _gx(0), _gy(0), initialized(false) {}
 
-PresetFactoryManager::~PresetFactoryManager() {
-	for (std::vector<PresetFactory *>::iterator pos = _factoryList.begin(); 
-		pos != _factoryList.end(); ++pos) {
-		assert(*pos);
-		delete(*pos);
-	}
+PresetFactoryManager::~PresetFactoryManager()
+{
+    for (std::vector<PresetFactory *>::iterator pos = _factoryList.begin();
+            pos != _factoryList.end(); ++pos) {
+        assert(*pos);
+        delete(*pos);
+    }
 
-  initialized = false;
+    initialized = false;
 }
 
-void PresetFactoryManager::initialize(int gx, int gy) {
-	_gx = gx;
-	_gy = gy;
-	
-	if (!initialized) {
-	  initialized = true;
-	} else {
-	  std::cout << "already initialized " << std::endl;
-	  return;
-	}
-	  
-	PresetFactory * factory;
-	
-	#ifndef DISABLE_MILKDROP_PRESETS
-	factory = new MilkdropPresetFactory(_gx, _gy);
-	registerFactory(factory->supportedExtensions(), factory);		
-	#endif
-	
-	#ifndef DISABLE_NATIVE_PRESETS
-	factory = new NativePresetFactory();
-	registerFactory(factory->supportedExtensions(), factory);
-	#endif
+void PresetFactoryManager::initialize(int gx, int gy)
+{
+    _gx = gx;
+    _gy = gy;
+
+    if (!initialized) {
+        initialized = true;
+    } else {
+        std::cout << "already initialized " << std::endl;
+        return;
+    }
+
+    PresetFactory * factory;
+
+#ifndef DISABLE_MILKDROP_PRESETS
+    factory = new MilkdropPresetFactory(_gx, _gy);
+    registerFactory(factory->supportedExtensions(), factory);
+#endif
+
+#ifndef DISABLE_NATIVE_PRESETS
+    factory = new NativePresetFactory();
+    registerFactory(factory->supportedExtensions(), factory);
+#endif
 }
 
 // Current behavior if a conflict is occurs is to override the previous request
 
-void PresetFactoryManager::registerFactory(const std::string & extensions, PresetFactory * factory) {
-	
-	std::stringstream ss(extensions);	
-	std::string extension;
+void PresetFactoryManager::registerFactory(const std::string & extensions, PresetFactory * factory)
+{
 
-	_factoryList.push_back(factory);
+    std::stringstream ss(extensions);
+    std::string extension;
 
-	while (ss >> extension) {
-		if (_factoryMap.count(extension)) {
-			std::cerr << "[PresetFactoryManager] Warning: extension \"" << extension << 
-				"\" already has a factory. New factory handler ignored." << std::endl;			
-		} else {
-			_factoryMap.insert(std::make_pair(extension, factory));			
-		}
-	}
+    _factoryList.push_back(factory);
+
+    while (ss >> extension) {
+        if (_factoryMap.count(extension)) {
+            std::cerr << "[PresetFactoryManager] Warning: extension \"" << extension <<
+                      "\" already has a factory. New factory handler ignored." << std::endl;
+        } else {
+            _factoryMap.insert(std::make_pair(extension, factory));
+        }
+    }
 }
 
-PresetFactory & PresetFactoryManager::factory(const std::string & extension) {
+PresetFactory & PresetFactoryManager::factory(const std::string & extension)
+{
 
-	if (!_factoryMap.count(extension)) {		
-		std::ostringstream os;
-		os << "No factory associated with \"" << extension << "\"." << std::endl;
-		throw PresetFactoryException(os.str());
-	}
-	return *_factoryMap[extension];
+    if (!_factoryMap.count(extension)) {
+        std::ostringstream os;
+        os << "No factory associated with \"" << extension << "\"." << std::endl;
+        throw PresetFactoryException(os.str());
+    }
+    return *_factoryMap[extension];
 }
 
-bool PresetFactoryManager::extensionHandled(const std::string & extension) const {		
-	return _factoryMap.count(extension);
+bool PresetFactoryManager::extensionHandled(const std::string & extension) const
+{
+    return _factoryMap.count(extension);
 }

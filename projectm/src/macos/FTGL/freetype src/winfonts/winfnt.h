@@ -27,27 +27,24 @@
 
 FT_BEGIN_HEADER
 
-  typedef struct  WinMZ_HeaderRec_
-  {
+typedef struct  WinMZ_HeaderRec_ {
     FT_UShort  magic;
     /* skipped content */
     FT_UShort  lfanew;
 
-  } WinMZ_HeaderRec;
+} WinMZ_HeaderRec;
 
 
-  typedef struct  WinNE_HeaderRec_
-  {
+typedef struct  WinNE_HeaderRec_ {
     FT_UShort  magic;
     /* skipped content */
     FT_UShort  resource_tab_offset;
     FT_UShort  rname_tab_offset;
 
-  } WinNE_HeaderRec;
+} WinNE_HeaderRec;
 
 
-  typedef struct  WinNameInfoRec_
-  {
+typedef struct  WinNameInfoRec_ {
     FT_UShort  offset;
     FT_UShort  length;
     FT_UShort  flags;
@@ -55,23 +52,21 @@ FT_BEGIN_HEADER
     FT_UShort  handle;
     FT_UShort  usage;
 
-  } WinNameInfoRec;
+} WinNameInfoRec;
 
 
-  typedef struct  WinResourceInfoRec_
-  {
+typedef struct  WinResourceInfoRec_ {
     FT_UShort  type_id;
     FT_UShort  count;
 
-  } WinResourceInfoRec;
+} WinResourceInfoRec;
 
 
 #define WINFNT_MZ_MAGIC  0x5A4D
 #define WINFNT_NE_MAGIC  0x454E
 
 
-  typedef struct  FNT_FontRec_
-  {
+typedef struct  FNT_FontRec_ {
     FT_ULong             offset;
     FT_Int               size_shift;
 
@@ -81,21 +76,20 @@ FT_BEGIN_HEADER
     FT_ULong             fnt_size;
     FT_String*           family_name;
 
-  } FNT_FontRec, *FNT_Font;
+} FNT_FontRec, *FNT_Font;
 
 
-  typedef struct  FNT_FaceRec_
-  {
+typedef struct  FNT_FaceRec_ {
     FT_FaceRec     root;
     FNT_Font       font;
 
     FT_CharMap     charmap_handle;
     FT_CharMapRec  charmap;  /* a single charmap per face */
 
-  } FNT_FaceRec, *FNT_Face;
+} FNT_FaceRec, *FNT_Face;
 
 
-  FT_EXPORT_VAR( const FT_Driver_ClassRec )  winfnt_driver_class;
+FT_EXPORT_VAR( const FT_Driver_ClassRec )  winfnt_driver_class;
 
 
 FT_END_HEADER

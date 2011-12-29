@@ -39,7 +39,8 @@ class InitCond;
 class Param;
 #include <map>
 
-class InitCond {
+class InitCond
+{
 public:
     Param *param;
     CValue init_val;
@@ -54,7 +55,7 @@ public:
 
     void init_cond_to_string();
     void write_init();
-  };
+};
 
 
 #endif /** !_INIT_COND_H */

@@ -24,12 +24,12 @@ namespace omptl
 
 template <class Iterator,class T,class UnaryFunction, class BinaryFunction>
 T transform_accumulate(Iterator first, Iterator last, T init,
-			UnaryFunction unary_op, BinaryFunction binary_op,
-			const unsigned P = _Pfunc::Pfunc());
+                       UnaryFunction unary_op, BinaryFunction binary_op,
+                       const unsigned P = _Pfunc::Pfunc());
 
 template <class Iterator, class T, class UnaryFunction>
 T transform_accumulate(Iterator first, Iterator last, T init,
-		UnaryFunction unary_op, const unsigned P = _Pfunc::Pfunc());
+                       UnaryFunction unary_op, const unsigned P = _Pfunc::Pfunc());
 
 // "Manhattan" distance
 template <class InputIterator1, class InputIterator2>
@@ -51,9 +51,9 @@ L2(InputIterator first, InputIterator last, const unsigned P = _Pfunc::Pfunc());
 } // namespace
 
 #ifdef _OPENMP
-  #include "omptl_numeric_extentions_par.h"
+#include "omptl_numeric_extentions_par.h"
 #else
-  #include "omptl_numeric_extentions_ser.h"
+#include "omptl_numeric_extentions_ser.h"
 #endif
 
 namespace omptl
@@ -65,19 +65,17 @@ typename ::std::iterator_traits<InputIterator1>::value_type
 L1(InputIterator1 first1, InputIterator1 last1,
    InputIterator2 first2, const unsigned P)
 {
-	typedef typename ::std::iterator_traits<InputIterator1>::value_type VT;
-	return ::omptl::inner_product(first1, last1, first2, VT(0),
-					std::plus<VT>(), std::minus<VT>(), P);
+    typedef typename ::std::iterator_traits<InputIterator1>::value_type VT;
+    return ::omptl::inner_product(first1, last1, first2, VT(0),
+                                  std::plus<VT>(), std::minus<VT>(), P);
 }
 
 template <typename T>
-struct _MinusSq
-{
-	T operator()(const T &lhs, const T &rhs) const
-	{
-		const T d = lhs - rhs;
-		return d*d;
-	}
+struct _MinusSq {
+    T operator()(const T &lhs, const T &rhs) const {
+        const T d = lhs - rhs;
+        return d*d;
+    }
 };
 
 // "Euclidean" distance
@@ -86,18 +84,16 @@ typename ::std::iterator_traits<InputIterator1>::value_type
 L2(InputIterator1 first1, InputIterator1 last1,
    InputIterator2 first2, const unsigned P)
 {
-	typedef typename ::std::iterator_traits<InputIterator1>::value_type VT;
-	return ::std::sqrt(::omptl::inner_product(first1, last1, first2, VT(0),
-					std::plus<VT>(), _MinusSq<VT>(), P));
+    typedef typename ::std::iterator_traits<InputIterator1>::value_type VT;
+    return ::std::sqrt(::omptl::inner_product(first1, last1, first2, VT(0),
+                       std::plus<VT>(), _MinusSq<VT>(), P));
 }
 
 template <typename T>
-struct _Sq
-{
-	T operator()(const T &d) const
-	{
-		return d*d;
-	}
+struct _Sq {
+    T operator()(const T &d) const {
+        return d*d;
+    }
 };
 
 // "Euclidean" length
@@ -105,9 +101,9 @@ template <class InputIterator>
 typename ::std::iterator_traits<InputIterator>::value_type
 L2(InputIterator first, InputIterator last, const unsigned P)
 {
-	typedef typename ::std::iterator_traits<InputIterator>::value_type VT;
-	return ::std::sqrt(::omptl::transform_accumulate(first, last, VT(0),
-						_Sq<VT>(), std::plus<VT>(), P));
+    typedef typename ::std::iterator_traits<InputIterator>::value_type VT;
+    return ::std::sqrt(::omptl::transform_accumulate(first, last, VT(0),
+                       _Sq<VT>(), std::plus<VT>(), P));
 }
 
 } /* namespace _OMPTL_EXTENTION_NAMESPACE */

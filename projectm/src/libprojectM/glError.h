@@ -8,7 +8,7 @@
 #ifndef _GLERROR_H
 #define	_GLERROR_H
 
-// no need to include GL in here, 
+// no need to include GL in here,
 // if someone wants GL errors they probably already included it.
 
 

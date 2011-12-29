@@ -35,11 +35,11 @@
 #endif
 
 #ifdef _MSC_VER
-	#pragma warning( disable : 4244 4305 4996; once : 4018 )
-	#define WIN32_LEAN_AND_MEAN
-	#define NOMINMAX
-	#include <windows.h>
-	typedef unsigned int uint;
+#pragma warning( disable : 4244 4305 4996; once : 4018 )
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
+typedef unsigned int uint;
 #endif
 
 #ifdef DEBUG
@@ -143,98 +143,97 @@ const std::string PROJECTM_FILE_EXTENSION("prjm");
 const std::string MILKDROP_FILE_EXTENSION("milk");
 const std::string PROJECTM_MODULE_EXTENSION("so");
 
- template <class TraverseFunctor, class Container>
-  void traverse(Container & container)
-  {
+template <class TraverseFunctor, class Container>
+void traverse(Container & container)
+{
 
     TraverseFunctor functor;
 
-    for (typename Container::iterator pos = container.begin(); pos != container.end(); ++pos)
-    {
-      assert(pos->second);
-      functor(pos->second);
+    for (typename Container::iterator pos = container.begin(); pos != container.end(); ++pos) {
+        assert(pos->second);
+        functor(pos->second);
     }
 
-  }
+}
 
 
-  template <class TraverseFunctor, class Container>
-  void traverseVector(Container & container)
-  {
+template <class TraverseFunctor, class Container>
+void traverseVector(Container & container)
+{
 
     TraverseFunctor functor;
 
-    for (typename Container::iterator pos = container.begin(); pos != container.end(); ++pos)
-    {
-      assert(*pos);
-      functor(*pos);
+    for (typename Container::iterator pos = container.begin(); pos != container.end(); ++pos) {
+        assert(*pos);
+        functor(*pos);
     }
 
-  }
+}
 
-  template <class TraverseFunctor, class Container>
-  void traverse(Container & container, TraverseFunctor & functor)
-  {
+template <class TraverseFunctor, class Container>
+void traverse(Container & container, TraverseFunctor & functor)
+{
 
-    for (typename Container::iterator pos = container.begin(); pos != container.end(); ++pos)
-    {
-      assert(pos->second);
-      functor(pos->second);
+    for (typename Container::iterator pos = container.begin(); pos != container.end(); ++pos) {
+        assert(pos->second);
+        functor(pos->second);
     }
 
-  }
+}
 
-  namespace TraverseFunctors
-  {
-    template <class Data>
-    class Delete
-    {
+namespace TraverseFunctors
+{
+template <class Data>
+class Delete
+{
 
-    public:
+public:
 
-      void operator() (Data * data)
-      {
+    void operator() (Data * data) {
         assert(data);
         delete(data);
-      }
+    }
 
-    };
-  }
+};
+}
 
 
-inline std::string parseExtension(const std::string & filename) {
+inline std::string parseExtension(const std::string & filename)
+{
 
-const std::size_t start = filename.find_last_of('.');
+    const std::size_t start = filename.find_last_of('.');
 
-if (start == std::string::npos || start >= (filename.length()-1))
-	return "";
-else
-	return filename.substr(start+1, filename.length());
+    if (start == std::string::npos || start >= (filename.length()-1))
+        return "";
+    else
+        return filename.substr(start+1, filename.length());
 
 }
 
-inline std::string parseFilename(const std::string & filename) {
+inline std::string parseFilename(const std::string & filename)
+{
 
-const std::size_t start = filename.find_last_of('/');
+    const std::size_t start = filename.find_last_of('/');
 
-if (start == std::string::npos || start >= (filename.length()-1))
-	return "";
-else
-	return filename.substr(start+1, filename.length());
+    if (start == std::string::npos || start >= (filename.length()-1))
+        return "";
+    else
+        return filename.substr(start+1, filename.length());
 
 }
 
-inline double meanSquaredError(const double & x, const double & y) {
-		return (x-y)*(x-y);
+inline double meanSquaredError(const double & x, const double & y)
+{
+    return (x-y)*(x-y);
 }
 
 
 enum PresetRatingType {
-	FIRST_RATING_TYPE = 0,
-	HARD_CUT_RATING_TYPE = FIRST_RATING_TYPE,
-	SOFT_CUT_RATING_TYPE,
-	LAST_RATING_TYPE = SOFT_CUT_RATING_TYPE,
-	TOTAL_RATING_TYPES = SOFT_CUT_RATING_TYPE+1
+    FIRST_RATING_TYPE = 0,
+    HARD_CUT_RATING_TYPE = FIRST_RATING_TYPE,
+    SOFT_CUT_RATING_TYPE,
+    LAST_RATING_TYPE = SOFT_CUT_RATING_TYPE,
+    TOTAL_RATING_TYPES = SOFT_CUT_RATING_TYPE+1
 };
 
 

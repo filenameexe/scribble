@@ -1,5 +1,5 @@
 /**
- * projectM-qt -- Qt4 based projectM GUI 
+ * projectM-qt -- Qt4 based projectM GUI
  * Copyright (C)2003-2004 projectM Team
  *
  * This library is free software; you can redistribute it and/or
@@ -49,7 +49,8 @@ class QProjectMWidget;
 template <class T>
 class Nullable;
 
-namespace Ui {
+namespace Ui
+{
 class QProjectM_MainWindow;
 }
 
@@ -58,152 +59,154 @@ class QProjectM_MainWindow;
 
 class QProjectM_MainWindow:public QMainWindow
 {
-      Q_OBJECT
+    Q_OBJECT
 
-	signals:
-		void shuttingDown();
-	public:
-	
-	projectM * GetProjectM();
+signals:
+    void shuttingDown();
+public:
 
-      typedef struct PlaylistItemMetaData {
-		PlaylistItemMetaData() {}
-		PlaylistItemMetaData(const QString & _url, const QString & _name, int _rating, int _breed, long _id):
-			url(_url), name(_name), rating(_rating), breedability(_breed), id(_id) {}
+    projectM * GetProjectM();
 
-		QString url;
-		QString name;		
-		int rating;
-		int breedability;
-		long id;
-		inline bool operator==(const PlaylistItemMetaData & data) {
-			return data.id == id;
-		}
-		
-		
-		inline bool operator==(long rhs_id) {
-			return rhs_id == id;
-		}
-      } PlaylistItemMetaData;
+    typedef struct PlaylistItemMetaData {
+        PlaylistItemMetaData() {}
+        PlaylistItemMetaData(const QString & _url, const QString & _name, int _rating, int _breed, long _id):
+            url(_url), name(_name), rating(_rating), breedability(_breed), id(_id) {}
+
+        QString url;
+        QString name;
+        int rating;
+        int breedability;
+        long id;
+        inline bool operator==(const PlaylistItemMetaData & data) {
+            return data.id == id;
+        }
 
 
-      void addPCM(float * buffer, unsigned int bufferSize);
-
-		
-      typedef QVector<long> PlaylistItemVector;
-
-      QProjectM_MainWindow(const std::string & config_file, QMutex * audioMutex);
-      virtual ~QProjectM_MainWindow();
-      void registerSettingsAction(QAction * action);
-      void unregisterSettingsAction(QAction * action);
-      void setMenuVisible(bool visible);
-      void setMenuAndStatusBarsVisible(bool visible);
-      void keyReleaseEvent ( QKeyEvent * e );
-      QProjectM * qprojectM();
-      void refreshPlaylist();
-
-      QProjectMWidget * qprojectMWidget() { return m_QProjectMWidget; }
+        inline bool operator==(long rhs_id) {
+            return rhs_id == id;
+        }
+    } PlaylistItemMetaData;
 
 
-      void registerAction(const QAction &);
+    void addPCM(float * buffer, unsigned int bufferSize);
 
-	public slots:
+
+    typedef QVector<long> PlaylistItemVector;
+
+    QProjectM_MainWindow(const std::string & config_file, QMutex * audioMutex);
+    virtual ~QProjectM_MainWindow();
+    void registerSettingsAction(QAction * action);
+    void unregisterSettingsAction(QAction * action);
+    void setMenuVisible(bool visible);
+    void setMenuAndStatusBarsVisible(bool visible);
+    void keyReleaseEvent ( QKeyEvent * e );
+    QProjectM * qprojectM();
+    void refreshPlaylist();
+
+    QProjectMWidget * qprojectMWidget() {
+        return m_QProjectMWidget;
+    }
+
+
+    void registerAction(const QAction &);
+
+public slots:
 protected:
 
 
-            void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event);
 
 private slots:
-void dockLocationChanged(Qt::DockWidgetArea area);
-void presetRatingChanged(unsigned int, int, PresetRatingType);
-void presetHardCut();
-void presetSoftCut();
-	void insertPresetsDialog() ;
-	void removeSelectedPlaylistItems();
+    void dockLocationChanged(Qt::DockWidgetArea area);
+    void presetRatingChanged(unsigned int, int, PresetRatingType);
+    void presetHardCut();
+    void presetSoftCut();
+    void insertPresetsDialog() ;
+    void removeSelectedPlaylistItems();
 
-	void openPresetEditorDialogForSelectedPreset();
-	  void popupPlaylistContextMenu(QMouseEvent *, const QModelIndexList & items);
-      void hotkeyReference();
-      void selectPlaylistItem ( int rowIndex);
-      void clearPlaylistModel();
-      void openPresetEditorDialog(int rowIndex);
-      void aboutQt();
+    void openPresetEditorDialogForSelectedPreset();
+    void popupPlaylistContextMenu(QMouseEvent *, const QModelIndexList & items);
+    void hotkeyReference();
+    void selectPlaylistItem ( int rowIndex);
+    void clearPlaylistModel();
+    void openPresetEditorDialog(int rowIndex);
+    void aboutQt();
 
-      void clearPlaylist();
-      void addPresetsDialog();
-      void addPresetsDialog(const QModelIndex & index);
-      void openPlaylistDialog();
-      void savePlaylistButtonClick();
-      void savePlaylistAsDialog();
-      void about();
-      void postProjectM_Initialize();
-      void updatePlaylistSelection(bool hardCut, unsigned int index);
-      void selectPlaylistItem(const QModelIndex & index);
-      void changePresetAttribute(const QModelIndex & index);
-      void openSettingsDialog();
-      void updateFilteredPlaylist(const QString & text);
-      void refreshHeaders(QResizeEvent * event = 0);
-      void removePlaylistItems(const QModelIndexList & items);
-      void dragAndDropPlaylistItems(const QModelIndexList &, const QModelIndex &);
+    void clearPlaylist();
+    void addPresetsDialog();
+    void addPresetsDialog(const QModelIndex & index);
+    void openPlaylistDialog();
+    void savePlaylistButtonClick();
+    void savePlaylistAsDialog();
+    void about();
+    void postProjectM_Initialize();
+    void updatePlaylistSelection(bool hardCut, unsigned int index);
+    void selectPlaylistItem(const QModelIndex & index);
+    void changePresetAttribute(const QModelIndex & index);
+    void openSettingsDialog();
+    void updateFilteredPlaylist(const QString & text);
+    void refreshHeaders(QResizeEvent * event = 0);
+    void removePlaylistItems(const QModelIndexList & items);
+    void dragAndDropPlaylistItems(const QModelIndexList &, const QModelIndex &);
 
-	
-      private:
-	void readPlaylistSettings();
-	bool warnIfPlaylistModified();
-	
-	void insertPlaylistItem(const PlaylistItemMetaData & data, int targetIndex);
 
-	void savePlaylist();
-	void updatePlaylistUrl(const QString & url);
-	unsigned long playlistItemCounter;
-	QSize _oldPlaylistSize;	
-	void readConfig(const std::string & configFile);
-	void writeConfig();
-	void copyPlaylist();
-	
-	QPresetEditorDialog * m_QPresetEditorDialog;
-	QHeaderView * hHeader;
-	QHeaderView * vHeader;
-      	QString m_currentPlaylistUrl;
-	QModelIndexList selectedPlaylistIndexes;
-	
-      QPlaylistModel * playlistModel;
-      Ui::QProjectM_MainWindow * ui;
-      QProjectMConfigDialog * configDialog;
+private:
+    void readPlaylistSettings();
+    bool warnIfPlaylistModified();
 
-      QHash<long, PlaylistItemMetaData> playlistItemMetaDataHash;
+    void insertPlaylistItem(const PlaylistItemMetaData & data, int targetIndex);
 
-      QHash<QString, PlaylistItemVector*> historyHash;
-      Nullable<long> * activePresetIndex;
+    void savePlaylist();
+    void updatePlaylistUrl(const QString & url);
+    unsigned long playlistItemCounter;
+    QSize _oldPlaylistSize;
+    void readConfig(const std::string & configFile);
+    void writeConfig();
+    void copyPlaylist();
 
-      bool _menuVisible;
-      bool _menuAndStatusBarsVisible;
-      QTimer * m_timer;
-	
-      void createActions();
-      void createMenus();
-      void createToolBars();
-      void createStatusBar();
-      void readSettings();
-      void writeSettings();
-      void loadFile(const QString &fileName, int rating , int breed, const Nullable<int> & row);
-      QString strippedName(const QString &fullFileName);
+    QPresetEditorDialog * m_QPresetEditorDialog;
+    QHeaderView * hHeader;
+    QHeaderView * vHeader;
+    QString m_currentPlaylistUrl;
+    QModelIndexList selectedPlaylistIndexes;
 
-      QProjectMWidget * m_QProjectMWidget;
+    QPlaylistModel * playlistModel;
+    Ui::QProjectM_MainWindow * ui;
+    QProjectMConfigDialog * configDialog;
 
-      QMenu *playlistContextMenu;
-      QToolBar *fileToolBar;
+    QHash<long, PlaylistItemMetaData> playlistItemMetaDataHash;
 
-      QAction *openAct;;
-      QAction *exitAct;
-      QAction *aboutAct;
-      QAction *aboutQtAct;
+    QHash<QString, PlaylistItemVector*> historyHash;
+    Nullable<long> * activePresetIndex;
 
-      QString previousFilter;	
-      Qt::DockWidgetArea dockWidgetArea;
+    bool _menuVisible;
+    bool _menuAndStatusBarsVisible;
+    QTimer * m_timer;
 
-      QPresetFileDialog * m_QPresetFileDialog;
-      QPlaylistFileDialog * m_QPlaylistFileDialog;
+    void createActions();
+    void createMenus();
+    void createToolBars();
+    void createStatusBar();
+    void readSettings();
+    void writeSettings();
+    void loadFile(const QString &fileName, int rating , int breed, const Nullable<int> & row);
+    QString strippedName(const QString &fullFileName);
+
+    QProjectMWidget * m_QProjectMWidget;
+
+    QMenu *playlistContextMenu;
+    QToolBar *fileToolBar;
+
+    QAction *openAct;;
+    QAction *exitAct;
+    QAction *aboutAct;
+    QAction *aboutQtAct;
+
+    QString previousFilter;
+    Qt::DockWidgetArea dockWidgetArea;
+
+    QPresetFileDialog * m_QPresetFileDialog;
+    QPlaylistFileDialog * m_QPlaylistFileDialog;
 
 };
 

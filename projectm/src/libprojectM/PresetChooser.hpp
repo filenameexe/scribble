@@ -11,7 +11,8 @@
 class PresetChooser;
 
 ///  A simple iterator class to traverse back and forth a preset directory
-class PresetIterator {
+class PresetIterator
+{
 
 public:
     PresetIterator()  {}
@@ -52,7 +53,8 @@ private:
 };
 
 /// Provides functions and iterators to select presets. Requires a preset loader upon construction
-class PresetChooser {
+class PresetChooser
+{
 
 public:
     typedef PresetIterator iterator;
@@ -63,7 +65,7 @@ public:
     PresetChooser(const PresetLoader & presetLoader, bool 	softCutRatingsEnabled);
 
     inline void setSoftCutRatingsEnabled(bool enabled) {
-	_softCutRatingsEnabled = enabled;
+        _softCutRatingsEnabled = enabled;
     }
 
     /// Choose a preset via the passed in index. Must be between 0 and num valid presets in directory
@@ -108,134 +110,151 @@ private:
 };
 
 
-inline PresetChooser::PresetChooser(const PresetLoader & presetLoader, bool softCutRatingsEnabled):_presetLoader(&presetLoader), _softCutRatingsEnabled(softCutRatingsEnabled) {
+inline PresetChooser::PresetChooser(const PresetLoader & presetLoader, bool softCutRatingsEnabled):_presetLoader(&presetLoader), _softCutRatingsEnabled(softCutRatingsEnabled)
+{
 
 }
 
-inline std::size_t PresetChooser::size() const {
+inline std::size_t PresetChooser::size() const
+{
     return _presetLoader->size();
 }
 
-inline void PresetIterator::setChooser(const PresetChooser & chooser) {
+inline void PresetIterator::setChooser(const PresetChooser & chooser)
+{
     _presetChooser = &chooser;
 }
 
-inline std::size_t PresetIterator::operator*() const {
+inline std::size_t PresetIterator::operator*() const
+{
     return _currentIndex;
 }
 
 inline PresetIterator::PresetIterator(std::size_t start):_currentIndex(start) {}
 
-inline void PresetIterator::operator++() {
+inline void PresetIterator::operator++()
+{
     assert(_currentIndex < _presetChooser->size());
     _currentIndex++;
 }
 
-inline void PresetIterator::operator--() {
+inline void PresetIterator::operator--()
+{
     assert(_currentIndex > 0);
     _currentIndex--;
 }
 
-inline bool PresetIterator::operator !=(const PresetIterator & presetPos) const {
+inline bool PresetIterator::operator !=(const PresetIterator & presetPos) const
+{
     return (*presetPos != **this);
 }
 
 
-inline bool PresetIterator::operator ==(const PresetIterator & presetPos) const {
+inline bool PresetIterator::operator ==(const PresetIterator & presetPos) const
+{
     return (*presetPos == **this);
 }
 
-inline std::auto_ptr<Preset> PresetIterator::allocate() {
+inline std::auto_ptr<Preset> PresetIterator::allocate()
+{
     return _presetChooser->directoryIndex(_currentIndex);
 }
 
-inline void PresetChooser::nextPreset(PresetIterator & presetPos) {
+inline void PresetChooser::nextPreset(PresetIterator & presetPos)
+{
 
-		if (this->empty()) {
-			return;
-		}
+    if (this->empty()) {
+        return;
+    }
 
-		// Case: idle preset currently running, selected first preset of chooser
-		else if (presetPos == this->end())
-			presetPos = this->begin();
-		else
-			++(presetPos);
+    // Case: idle preset currently running, selected first preset of chooser
+    else if (presetPos == this->end())
+        presetPos = this->begin();
+    else
+        ++(presetPos);
 
-		// Case: already at last preset, loop to beginning
-		if (((presetPos) == this->end())) {
-			presetPos = this->begin();
-		}
+    // Case: already at last preset, loop to beginning
+    if (((presetPos) == this->end())) {
+        presetPos = this->begin();
+    }
 
 }
 
 
-inline void PresetChooser::previousPreset(PresetIterator & presetPos) {
-		if (this->empty())
-			return;
+inline void PresetChooser::previousPreset(PresetIterator & presetPos)
+{
+    if (this->empty())
+        return;
 
-		// Case: idle preset currently running, selected last preset of chooser
-		else if (presetPos == this->end()) {
-			--(presetPos);
-		}
+    // Case: idle preset currently running, selected last preset of chooser
+    else if (presetPos == this->end()) {
+        --(presetPos);
+    }
 
-		else if (presetPos != this->begin()) {
-			--(presetPos);
-		}
+    else if (presetPos != this->begin()) {
+        --(presetPos);
+    }
 
-		else {
-		   presetPos = this->end();
-		   --(presetPos);
-		}
+    else {
+        presetPos = this->end();
+        --(presetPos);
+    }
 }
 
-inline PresetIterator PresetChooser::begin() {
+inline PresetIterator PresetChooser::begin()
+{
     PresetIterator pos(0);
     pos.setChooser(*this);
     return pos;
 }
 
-inline PresetIterator PresetChooser::begin(unsigned int index) const{
+inline PresetIterator PresetChooser::begin(unsigned int index) const
+{
     PresetIterator pos(index);
     pos.setChooser(*this);
     return pos;
 }
 
-inline PresetIterator PresetChooser::end() const {
+inline PresetIterator PresetChooser::end() const
+{
     PresetIterator pos(_presetLoader->size());
     pos.setChooser(*this);
     return pos;
 }
 
 
-inline bool PresetChooser::empty() const {
-	return _presetLoader->size() == 0;
+inline bool PresetChooser::empty() const
+{
+    return _presetLoader->size() == 0;
 }
 
-inline std::auto_ptr<Preset> PresetChooser::directoryIndex(std::size_t index) const {
+inline std::auto_ptr<Preset> PresetChooser::directoryIndex(std::size_t index) const
+{
 
-	return _presetLoader->loadPreset(index);
+    return _presetLoader->loadPreset(index);
 }
 
 
-inline PresetChooser::iterator PresetChooser::weightedRandom(bool hardCut) const {
+inline PresetChooser::iterator PresetChooser::weightedRandom(bool hardCut) const
+{
 
-	
-	
 
-	// TODO make a sophisticated function object interface to determine why a certain rating
-	// category is chosen, or weighted distribution thereover.
-	const PresetRatingType ratingType = hardCut || (!_softCutRatingsEnabled) ? 
-		HARD_CUT_RATING_TYPE : SOFT_CUT_RATING_TYPE;		
 
-	const std::size_t ratingsTypeIndex = static_cast<std::size_t>(ratingType);
-	
-	const std::vector<int> & weights = _presetLoader->getPresetRatings()[ratingsTypeIndex];
 
-	const std::size_t index = RandomNumberGenerators::weightedRandom
-		(weights,
-		 _presetLoader->getPresetRatingsSums()[ratingsTypeIndex]);
-	
-	return begin(index);
+    // TODO make a sophisticated function object interface to determine why a certain rating
+    // category is chosen, or weighted distribution thereover.
+    const PresetRatingType ratingType = hardCut || (!_softCutRatingsEnabled) ?
+                                        HARD_CUT_RATING_TYPE : SOFT_CUT_RATING_TYPE;
+
+    const std::size_t ratingsTypeIndex = static_cast<std::size_t>(ratingType);
+
+    const std::vector<int> & weights = _presetLoader->getPresetRatings()[ratingsTypeIndex];
+
+    const std::size_t index = RandomNumberGenerators::weightedRandom
+                              (weights,
+                               _presetLoader->getPresetRatingsSums()[ratingsTypeIndex]);
+
+    return begin(index);
 }
 
 #endif

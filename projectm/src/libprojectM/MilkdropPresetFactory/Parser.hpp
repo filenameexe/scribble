@@ -82,18 +82,18 @@
 #include <set>
 
 typedef enum {
-  UNSET_LINE_MODE,
-  PER_FRAME_LINE_MODE,
-  PER_PIXEL_LINE_MODE,
-  PER_FRAME_INIT_LINE_MODE,
-  INIT_COND_LINE_MODE,
-  CUSTOM_WAVE_PER_POINT_LINE_MODE,
-  CUSTOM_WAVE_PER_FRAME_LINE_MODE,
-  CUSTOM_WAVE_WAVECODE_LINE_MODE,
-  CUSTOM_SHAPE_SHAPECODE_LINE_MODE,
-  CUSTOM_SHAPE_PER_FRAME_LINE_MODE,
-  CUSTOM_SHAPE_PER_FRAME_INIT_LINE_MODE,
-  CUSTOM_WAVE_PER_FRAME_INIT_LINE_MODE
+    UNSET_LINE_MODE,
+    PER_FRAME_LINE_MODE,
+    PER_PIXEL_LINE_MODE,
+    PER_FRAME_INIT_LINE_MODE,
+    INIT_COND_LINE_MODE,
+    CUSTOM_WAVE_PER_POINT_LINE_MODE,
+    CUSTOM_WAVE_PER_FRAME_LINE_MODE,
+    CUSTOM_WAVE_WAVECODE_LINE_MODE,
+    CUSTOM_SHAPE_SHAPECODE_LINE_MODE,
+    CUSTOM_SHAPE_PER_FRAME_LINE_MODE,
+    CUSTOM_SHAPE_PER_FRAME_INIT_LINE_MODE,
+    CUSTOM_WAVE_PER_FRAME_INIT_LINE_MODE
 } line_mode_t;
 
 /** Token enumeration type */
@@ -118,7 +118,7 @@ typedef enum {
     tSemiColon, /* ; */
     tStringTooLong, /* special token to indicate an invalid string length */
     tStringBufferFilled /* the string buffer for this line is maxed out */
-  } token_t;
+} token_t;
 
 class CustomShape;
 class CustomWave;
@@ -128,7 +128,8 @@ class PerFrameEqn;
 class MilkdropPreset;
 class TreeExpr;
 
-class Parser {
+class Parser
+{
 public:
     static std::string lastLinePrefix;
     static line_mode_t line_mode;
@@ -146,7 +147,7 @@ public:
     static bool tokenWrapAroundEnabled;
 
     static PerFrameEqn *parse_per_frame_eqn( std::istream & fs, int index,
-                                             MilkdropPreset * preset);
+            MilkdropPreset * preset);
     static int parse_per_pixel_eqn( std::istream & fs, MilkdropPreset * preset,
                                     char * init_string);
     static InitCond *parse_init_cond( std::istream & fs, char * name, MilkdropPreset * preset );
@@ -186,7 +187,7 @@ public:
     static int parse_shape_per_frame_eqn(std::istream & fs, CustomShape * custom_shape, MilkdropPreset * preset);
     static int parse_wave_per_frame_eqn(std::istream & fs, CustomWave * custom_wave, MilkdropPreset * preset);
     static bool wrapsToNextLine(const std::string & str);
-  };
+};
 
 #endif /** !_PARSER_H */
 

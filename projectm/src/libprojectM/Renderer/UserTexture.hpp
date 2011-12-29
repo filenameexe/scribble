@@ -14,21 +14,21 @@ class UserTexture
 {
 public:
 
-	bool wrap;
-	bool bilinear;
+    bool wrap;
+    bool bilinear;
 
-	bool texsizeDefined;
+    bool texsizeDefined;
 
-	int width;
-	int height;
+    int width;
+    int height;
 
-	unsigned int texID;
+    unsigned int texID;
 
-	std::string qname;
-	std::string name;
+    std::string qname;
+    std::string name;
 
-	UserTexture(std::string qualifiedName);
-	virtual ~UserTexture();
+    UserTexture(std::string qualifiedName);
+    virtual ~UserTexture();
 };
 
 #endif /* USERTEXTURE_HPP_ */

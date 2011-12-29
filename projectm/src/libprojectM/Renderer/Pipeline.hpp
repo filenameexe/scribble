@@ -17,40 +17,40 @@ class Pipeline
 {
 public:
 
-	 //static per pixel stuff
-	 bool staticPerPixel;
-	 int gx;
-	 int gy;
+    //static per pixel stuff
+    bool staticPerPixel;
+    int gx;
+    int gy;
 
-	 float** x_mesh;
-	 float** y_mesh;
-	 //end static per pixel
+    float** x_mesh;
+    float** y_mesh;
+    //end static per pixel
 
-	 bool  textureWrap;
-	 float screenDecay;
+    bool  textureWrap;
+    float screenDecay;
 
-	 //variables passed to pixel shaders
-	 float q[NUM_Q_VARIABLES];
+    //variables passed to pixel shaders
+    float q[NUM_Q_VARIABLES];
 
-	 //blur settings n=bias x=scale
-	 float blur1n;
-	 float blur2n;
-	 float blur3n;
-	 float blur1x;
-	 float blur2x;
-	 float blur3x;
-	 float blur1ed;
+    //blur settings n=bias x=scale
+    float blur1n;
+    float blur2n;
+    float blur3n;
+    float blur1x;
+    float blur2x;
+    float blur3x;
+    float blur1ed;
 
-	 Shader warpShader;
-	 Shader compositeShader;
+    Shader warpShader;
+    Shader compositeShader;
 
-	 std::vector<RenderItem*> drawables;
-	 std::vector<RenderItem*> compositeDrawables;
+    std::vector<RenderItem*> drawables;
+    std::vector<RenderItem*> compositeDrawables;
 
-	 Pipeline();
-	 void setStaticPerPixel(int gx, int gy);
-	 virtual ~Pipeline();
-	 virtual Point PerPixel(Point p, const PerPixelContext context);
+    Pipeline();
+    void setStaticPerPixel(int gx, int gy);
+    virtual ~Pipeline();
+    virtual Point PerPixel(Point p, const PerPixelContext context);
 };
 
 #endif

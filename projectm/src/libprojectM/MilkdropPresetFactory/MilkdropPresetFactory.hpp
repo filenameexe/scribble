@@ -18,26 +18,29 @@
 class DLLEXPORT PresetOutputs;
 class DLLEXPORT PresetInputs;
 
-class MilkdropPresetFactory : public PresetFactory {
+class MilkdropPresetFactory : public PresetFactory
+{
 
 public:
 
- MilkdropPresetFactory(int gx, int gy);
+    MilkdropPresetFactory(int gx, int gy);
 
- virtual ~MilkdropPresetFactory();
+    virtual ~MilkdropPresetFactory();
 
- std::auto_ptr<Preset> allocate(const std::string & url, const std::string & name = std::string(),
-	const std::string & author = std::string());
+    std::auto_ptr<Preset> allocate(const std::string & url, const std::string & name = std::string(),
+                                   const std::string & author = std::string());
 
- std::string supportedExtensions() const { return "milk prjm"; }
+    std::string supportedExtensions() const {
+        return "milk prjm";
+    }
 
 private:
     static PresetOutputs* createPresetOutputs(int gx, int gy);
-	void reset();
-	PresetOutputs * _presetOutputs;
+    void reset();
+    PresetOutputs * _presetOutputs;
     PresetOutputs * _presetOutputs2;
     bool _usePresetOutputs;
-	//PresetInputs _presetInputs;
+    //PresetInputs _presetInputs;
 };
 
 #endif

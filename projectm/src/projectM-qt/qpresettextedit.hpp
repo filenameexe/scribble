@@ -1,5 +1,5 @@
 /**
- * projectM-qt -- Qt4 based projectM GUI 
+ * projectM-qt -- Qt4 based projectM GUI
  * Copyright (C)2003-2004 projectM Team
  *
  * This library is free software; you can redistribute it and/or
@@ -25,23 +25,23 @@
 #include <QtDebug>
 
 class QPresetTextEdit: public QTextEdit
- {
-     Q_OBJECT        // must include this if you use Qt signals/slots
+{
+    Q_OBJECT        // must include this if you use Qt signals/slots
 
- public:
+public:
     inline QPresetTextEdit(QWidget * parent = 0): QTextEdit(parent) {}
 
     bool loadPresetText(QString url);
 
     void keyReleaseEvent(QKeyEvent * e);
 
-	 signals:
-		 void applyRequested();
+signals:
+    void applyRequested();
 
- public slots:
-	 
-	private:
-	
+public slots:
+
+private:
+
 };
 
 

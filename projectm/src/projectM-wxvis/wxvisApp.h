@@ -38,7 +38,8 @@
 class wxvisFrame;
 
 /** The main GUI class */
-class wxvisApp : public wxApp {
+class wxvisApp : public wxApp
+{
 private:
     /** Icon */
     wxIcon _icon;
@@ -59,12 +60,14 @@ public:
     void OnIdle( wxIdleEvent &event );
 
     /** Returns various sub-frames */
-    wxvisFrame *getRenderFrame() { return _visFrame; }
+    wxvisFrame *getRenderFrame() {
+        return _visFrame;
+    }
 
     /** Shuts down the application */
     void shutdown();
 
     DECLARE_EVENT_TABLE()
-  };
+};
 
 #endif /** !_WXPROJECTMVISAPP_H */

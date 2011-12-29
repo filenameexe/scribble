@@ -40,7 +40,8 @@
 class Preset;
 
 
-class CustomShape : public Shape {
+class CustomShape : public Shape
+{
 public:
     /* Numerical id */
     int id;
@@ -83,7 +84,7 @@ public:
     void loadUnspecInitConds();
     void evalInitConds();
 
-  };
+};
 
 
 #endif /** !_CUSTOM_SHAPE_H */

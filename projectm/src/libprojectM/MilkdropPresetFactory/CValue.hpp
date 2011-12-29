@@ -33,6 +33,6 @@ typedef union CValue_t {
     bool bool_val;
     int int_val;
     float float_val;
-  } CValue;
+} CValue;
 
 #endif /** _CVALUE_H */

@@ -31,11 +31,12 @@
 
 #include "dlldefs.h"
 
-class 
-#ifdef WIN32 
-DLLEXPORT 
-#endif 
-PCM {
+class
+#ifdef WIN32
+    DLLEXPORT
+#endif
+    PCM
+{
 public:
     float **PCMd;
     int start;
@@ -63,12 +64,12 @@ public:
     void addPCM16(short [2][512]);
     void addPCM16Data(const short* pcm_data, short samples);
     void addPCM8( unsigned char [2][1024]);
-	void addPCM8_512( const unsigned char [2][512]);
+    void addPCM8_512( const unsigned char [2][512]);
     void getPCM(float *data, int samples, int channel, int freq, float smoothing, int derive);
     void freePCM();
     int getPCMnew(float *PCMdata, int channel, int freq, float smoothing, int derive,int reset);
 
 
-  };
+};
 
 #endif /** !_PCM_H */

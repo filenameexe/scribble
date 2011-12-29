@@ -1,5 +1,5 @@
 /**
- * projectM-qt -- Qt4 based projectM GUI 
+ * projectM-qt -- Qt4 based projectM GUI
  * Copyright (C)2003-2004 projectM Team
  *
  * This library is free software; you can redistribute it and/or
@@ -24,28 +24,29 @@
 #include "projectM.hpp"
 #include <QObject>
 
-class QProjectM : public QObject, public projectM {
-	
-	Q_OBJECT
+class QProjectM : public QObject, public projectM
+{
 
-	public:
-		QProjectM(const std::string & config_file):projectM(config_file, projectM::FLAG_DISABLE_PLAYLIST_LOAD) {}
+    Q_OBJECT
 
-		void presetSwitchedEvent(bool hardCut, unsigned int index) const {
-			presetSwitchedSignal(hardCut, index);
-		}
+public:
+    QProjectM(const std::string & config_file):projectM(config_file, projectM::FLAG_DISABLE_PLAYLIST_LOAD) {}
 
-		void presetRatingChanged(unsigned int index, int rating,
-						PresetRatingType ratingType) const {
-			 presetRatingChangedSignal(index, rating, ratingType);
-		}
+    void presetSwitchedEvent(bool hardCut, unsigned int index) const {
+        presetSwitchedSignal(hardCut, index);
+    }
 
-	signals:
-		void presetSwitchedSignal(bool hardCut, unsigned int index) const;
-		void presetRatingChangedSignal(unsigned int index, int rating,
-				PresetRatingType ratingType) const;
+    void presetRatingChanged(unsigned int index, int rating,
+                             PresetRatingType ratingType) const {
+        presetRatingChangedSignal(index, rating, ratingType);
+    }
 
-	public slots:
+signals:
+    void presetSwitchedSignal(bool hardCut, unsigned int index) const;
+    void presetRatingChangedSignal(unsigned int index, int rating,
+                                   PresetRatingType ratingType) const;
+
+public slots:
 
 
 };

@@ -14,54 +14,56 @@ class TimeKeeper
 
 public:
 
-  TimeKeeper(double presetDuration, double smoothDuration, double easterEgg);
+    TimeKeeper(double presetDuration, double smoothDuration, double easterEgg);
 
-  void UpdateTimers();
+    void UpdateTimers();
 
-  void StartPreset();
-  void StartSmoothing();
-  void EndSmoothing();
- 
-  bool CanHardCut();
+    void StartPreset();
+    void StartSmoothing();
+    void EndSmoothing();
 
-  double SmoothRatio();
-  bool IsSmoothing();
+    bool CanHardCut();
 
-  double GetRunningTime(); 
+    double SmoothRatio();
+    bool IsSmoothing();
 
-  double PresetProgressA();
-  double PresetProgressB();
+    double GetRunningTime();
 
-  int PresetFrameA();
-  int PresetFrameB();
+    double PresetProgressA();
+    double PresetProgressB();
 
-  double sampledPresetDuration();
+    int PresetFrameA();
+    int PresetFrameB();
 
-  void ChangePresetDuration(int seconds) { _presetDuration = seconds; }
+    double sampledPresetDuration();
+
+    void ChangePresetDuration(int seconds) {
+        _presetDuration = seconds;
+    }
 
 #ifndef WIN32
-  /* The first ticks value of the application */
-  struct timeval startTime;
-#else  
-  long startTime;
+    /* The first ticks value of the application */
+    struct timeval startTime;
+#else
+    long startTime;
 #endif /** !WIN32 */
 
 private:
 
-  double _easterEgg;
-  double _presetDuration;
-  double _presetDurationA;
-  double _presetDurationB;
-  double _smoothDuration;
+    double _easterEgg;
+    double _presetDuration;
+    double _presetDurationA;
+    double _presetDurationB;
+    double _smoothDuration;
 
-  double _currentTime;
-  double _presetTimeA;
-  double _presetTimeB;
-  int _presetFrameA;
-  int _presetFrameB;
+    double _currentTime;
+    double _presetTimeA;
+    double _presetTimeB;
+    int _presetFrameA;
+    int _presetFrameB;
 
-  bool _isSmoothing;
-  
+    bool _isSmoothing;
+
 
 };
 #endif

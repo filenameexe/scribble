@@ -17,16 +17,16 @@
 /***************************************************************************/
 
 
- /*
-  *  This is a development version of <ft2build.h> that is used
-  *  to build the library in debug mode.  Its only difference with
-  *  the reference is that it forces the use of the local `ftoption.h'
-  *  which contains different settings for all configuration macros.
-  *
-  *  To use it, you must define the environment variable FT2_BUILD_INCLUDE
-  *  to point to the directory containing these two files (`ft2build.h' and
-  *  `ftoption.h'), then invoke Jam as usual.
-  */
+/*
+ *  This is a development version of <ft2build.h> that is used
+ *  to build the library in debug mode.  Its only difference with
+ *  the reference is that it forces the use of the local `ftoption.h'
+ *  which contains different settings for all configuration macros.
+ *
+ *  To use it, you must define the environment variable FT2_BUILD_INCLUDE
+ *  to point to the directory containing these two files (`ft2build.h' and
+ *  `ftoption.h'), then invoke Jam as usual.
+ */
 
 #ifndef __FT2_BUILD_DEVEL_H__
 #define __FT2_BUILD_DEVEL_H__

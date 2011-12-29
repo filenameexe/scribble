@@ -57,17 +57,18 @@
 
 class DLLEXPORT InfixOp;
 
-class Eval {
+class Eval
+{
 public:
     static InfixOp *infix_add,
-                   *infix_minus,
-                   *infix_div,
-                   *infix_mult,
-                   *infix_or,
-                   *infix_and,
-                   *infix_mod,
-                   *infix_negative,
-                   *infix_positive;
+           *infix_minus,
+           *infix_div,
+           *infix_mult,
+           *infix_or,
+           *infix_and,
+           *infix_mod,
+           *infix_negative,
+           *infix_positive;
 
     float eval_gen_expr(GenExpr * gen_expr);
     inline GenExpr * opt_gen_expr(GenExpr * gen_expr, int ** param_list);
@@ -84,11 +85,11 @@ public:
     static int init_infix_ops();
     static int destroy_infix_ops();
     void reset_engine_vars();
-    
+
     GenExpr * clone_gen_expr(GenExpr * gen_expr);
     TreeExpr * clone_tree_expr(TreeExpr * tree_expr);
     ValExpr * clone_val_expr(ValExpr * val_expr);
     PrefunExpr * clone_prefun_expr(PrefunExpr * prefun_expr);
-  };
+};
 
 #endif /** !_EVAL_H */

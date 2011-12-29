@@ -49,11 +49,11 @@ class CustomWave : public Waveform
 {
 public:
 
-     /** Empty constructor leaves wave in undefined state **/
-     //CustomWave() {}
+    /** Empty constructor leaves wave in undefined state **/
+    //CustomWave() {}
 
-     /** Initializes a custom wave id given the integer id */
-     CustomWave(int id);
+    /** Initializes a custom wave id given the integer id */
+    CustomWave(int id);
 
     /** Destructor is necessary so we can free the per point matrices **/
     ~CustomWave();
@@ -117,7 +117,7 @@ public:
 
     int add_per_point_eqn(char * name, GenExpr * gen_expr);
     void evalCustomWaveInitConditions(Preset *preset);
-    
+
 
     void loadUnspecInitConds();
 

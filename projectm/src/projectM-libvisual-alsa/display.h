@@ -8,7 +8,7 @@ typedef struct _SADisplay SADisplay;
 
 
 typedef int (*SADisplayDriverCreateFunc)(SADisplay *display, VisVideoDepth depth, VisVideoAttributeOptions *vidoptions,
-		int width, int height, int resizable);
+        int width, int height, int resizable);
 typedef int (*SADisplayDriverCloseFunc)(SADisplay *display);
 typedef int (*SADisplayDriverLockFunc)(SADisplay *display);
 typedef int (*SADisplayDriverUnlockFunc)(SADisplay *display);
@@ -18,35 +18,35 @@ typedef int (*SADisplayDriverUpdateRectFunc)(SADisplay *display, VisRectangle *r
 typedef int (*SADisplayDriverDrainEventsFunc)(SADisplay *display, VisEventQueue *eventqueue);
 
 struct _SADisplayDriver {
-	VisObject			object;
+    VisObject			object;
 
-	SADisplayDriverCreateFunc	create;
-	SADisplayDriverCloseFunc	close;
-	SADisplayDriverLockFunc		lock;
-	SADisplayDriverUnlockFunc	unlock;
-	SADisplayDriverFullScreenFunc	fullscreen;
-	SADisplayDriverGetVideoFunc	getvideo;
-	SADisplayDriverUpdateRectFunc	updaterect;
-	SADisplayDriverDrainEventsFunc	drainevents;
+    SADisplayDriverCreateFunc	create;
+    SADisplayDriverCloseFunc	close;
+    SADisplayDriverLockFunc		lock;
+    SADisplayDriverUnlockFunc	unlock;
+    SADisplayDriverFullScreenFunc	fullscreen;
+    SADisplayDriverGetVideoFunc	getvideo;
+    SADisplayDriverUpdateRectFunc	updaterect;
+    SADisplayDriverDrainEventsFunc	drainevents;
 };
 
 struct _SADisplay {
-	VisObject	 object;
+    VisObject	 object;
 
-	SADisplayDriver	*driver;
-	VisVideo	*screen;
+    SADisplayDriver	*driver;
+    VisVideo	*screen;
 
-	VisObject	*native;
+    VisObject	*native;
 
-	int		 frames_drawn;
-	VisTimer	 timer;
+    int		 frames_drawn;
+    VisTimer	 timer;
 };
 
 /* prototypes */
 SADisplay *display_new (SADisplayDriver *driver);
 
 int display_create (SADisplay *display, VisVideoDepth depth, VisVideoAttributeOptions *vidoptions,
-		int width, int height, int resizable);
+                    int width, int height, int resizable);
 
 int display_close (SADisplay *display);
 

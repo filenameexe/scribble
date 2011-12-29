@@ -33,17 +33,18 @@
 #include <map>
 #include <cstdio>
 
-class BuiltinParams {
+class BuiltinParams
+{
 
 public:
-   typedef std::map<std::string, std::string> AliasMap;
+    typedef std::map<std::string, std::string> AliasMap;
 
     /** Default constructor leaves database in an uninitialized state.  */
     BuiltinParams();
 
     /** Construct a new builtin parameter database with variables references given by
      * the preset input and output structures */
-     BuiltinParams(PresetInputs &  presetInputs, PresetOutputs & presetOutputs);
+    BuiltinParams(PresetInputs &  presetInputs, PresetOutputs & presetOutputs);
 
     ~BuiltinParams();
 
@@ -62,7 +63,7 @@ public:
                                 int init_val, int upper_bound,
                                 int lower_bound, const std::string & alt_name );
     int load_builtin_param_bool( const std::string & name, void *engine_val, short int flags,
-                                int init_val, const std::string & alt_name );
+                                 int init_val, const std::string & alt_name );
 
     int load_builtin_param_string( const std::string & name, std::string * engine_val, short int flags);
 
@@ -70,7 +71,7 @@ public:
 
     template <class Fun>
     void apply(Fun & fun) {
-	traverse(builtin_param_tree, fun);
+        traverse(builtin_param_tree, fun);
     }
 
 

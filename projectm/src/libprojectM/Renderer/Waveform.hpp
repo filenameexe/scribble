@@ -14,27 +14,27 @@
 class ColoredPoint
 {
 public:
-	float x;
-	float y;
-	float r;
-	float g;
-	float b;
-	float a;
+    float x;
+    float y;
+    float r;
+    float g;
+    float b;
+    float a;
 
-	ColoredPoint():x(0.5),y(0.5),r(1),g(1),b(1),a(1){};
+    ColoredPoint():x(0.5),y(0.5),r(1),g(1),b(1),a(1) {};
 };
 
 class WaveformContext
 {
 public:
-	float sample;
-	int samples;
-	int sample_int;
-	float left;
-	float right;
-	BeatDetect *music;
+    float sample;
+    int samples;
+    int sample_int;
+    float left;
+    float right;
+    BeatDetect *music;
 
-	WaveformContext(int samples, BeatDetect *music):samples(samples),music(music){};
+    WaveformContext(int samples, BeatDetect *music):samples(samples),music(music) {};
 };
 
 
@@ -56,9 +56,9 @@ public:
     void Draw(RenderContext &context);
 
 private:
-	virtual ColoredPoint PerPoint(ColoredPoint p, const WaveformContext context)=0;
-	std::vector<ColoredPoint> points;
-	std::vector<float> pointContext;
+    virtual ColoredPoint PerPoint(ColoredPoint p, const WaveformContext context)=0;
+    std::vector<ColoredPoint> points;
+    std::vector<float> pointContext;
 
 };
 #endif /* WAVEFORM_HPP_ */

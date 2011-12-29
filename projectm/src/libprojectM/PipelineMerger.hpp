@@ -7,20 +7,19 @@
 
 class PipelineMerger
 {
- template <class T> inline static T lerp(T a, T b, float ratio)
-{
-  return a * ratio + b * (1 - ratio);
-}
+    template <class T> inline static T lerp(T a, T b, float ratio) {
+        return a * ratio + b * (1 - ratio);
+    }
 
 public:
-    
-  static void mergePipelines(const Pipeline &a,  const Pipeline &b, Pipeline &out, 
-	RenderItemMatcher::MatchResults & matching, RenderItemMergeFunction & merger, float ratio);
+
+    static void mergePipelines(const Pipeline &a,  const Pipeline &b, Pipeline &out,
+                               RenderItemMatcher::MatchResults & matching, RenderItemMergeFunction & merger, float ratio);
 
 private :
 
-static const double s;
-static const double e;
+    static const double s;
+    static const double e;
 
 };
 

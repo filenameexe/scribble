@@ -1,5 +1,5 @@
 /**
- * projectM-qt -- Qt4 based projectM GUI 
+ * projectM-qt -- Qt4 based projectM GUI
  * Copyright (C)2003-2004 projectM Team
  *
  * This library is free software; you can redistribute it and/or
@@ -33,20 +33,20 @@
 #include <iostream>
 #include <QFileDialog>
 
- class QPresetFileDialog : public QFileDialog
- {
-     Q_OBJECT        // must include this if you use Qt signals/slots
+class QPresetFileDialog : public QFileDialog
+{
+    Q_OBJECT        // must include this if you use Qt signals/slots
 
- public:
-     QPresetFileDialog(QWidget * parent = 0): 
-		QFileDialog(parent, "Add preset files", QString(), "Presets (*.prjm *.milk *.so)" ) {
+public:
+    QPresetFileDialog(QWidget * parent = 0):
+        QFileDialog(parent, "Add preset files", QString(), "Presets (*.prjm *.milk *.so)" ) {
 
-		this->setFileMode(QFileDialog::ExistingFiles);
-	}
-	
-     ~QPresetFileDialog() { }
- private:
-	
-	
+        this->setFileMode(QFileDialog::ExistingFiles);
+    }
+
+    ~QPresetFileDialog() { }
+private:
+
+
 };
 #endif
